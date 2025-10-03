@@ -1,0 +1,443 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc} % Required for UTF-8 encoding
+\usepackage[T1]{fontenc}    % Recommended for font encoding
+\usepackage{lmodern}        % Use Latin Modern fonts (scalable)
+\usepackage{amsmath}        % For mathematical formulas
+\usepackage{amssymb}        % For mathematical symbols
+\usepackage{amsthm}         % For theorem-like environments
+\usepackage{latexsym}       % Provides \vdash (ensure loaded before centernot)
+\usepackage{centernot}      % Provides \centernot (ensure loaded after latexsym/amssymb)
+\usepackage{enumitem}       % For customizing lists
+\usepackage{geometry}       % Adjust page margins
+\geometry{a4paper, margin=1in} % Standard 1-inch margins
+\usepackage{hyperref}       % For links (optional, but good practice)
+\usepackage{ragged2e}       % For \RaggedRight (useful in abstracts/remarks)
+\usepackage{microtype}      % Improves typography by adjusting spacing
+\usepackage{bussproofs}     % For sequent calculus rules (if needed later)
+\usepackage{setspace}       % For line spacing if required by journal
+
+
+% Define logical symbols
+\newcommand{\negation}{\neg}
+\newcommand{\conjunction}{\land}
+\newcommand{\disjunction}{\lor}
+\newcommand{\implication}{\rightarrow}
+\newcommand{\entails}{\vdash}
+% Define \notentails using \centernot and \vdash
+\newcommand{\notentails}{\centernot{\vdash}}
+
+% Define complexity classes (if needed later)
+\newcommand{\SigmaZero}{\Sigma^0}
+\newcommand{\PiZero}{\Pi^0}
+\newcommand{\DeltaZero}{\Delta^0}
+
+% Define meta-semantic concepts
+\newcommand{\MetaProps}{\mathbf{M}}
+\newcommand{\ContextParams}{\mathbf{C}}
+\newcommand{\InterpFunc}{\mathbf{I}}
+\newcommand{\RelPrinciples}{\mathbf{RP}}
+\newcommand{\EvalSystem}{\mathbf{E}}
+\newcommand{\ValueSpace}{\mathbf{V}}
+\newcommand{\MetaLang}{\mathbf{ML}}
+
+% Define meta-properties
+\newcommand{\Saf}{\text{Saf}}
+\newcommand{\Sec}{\text{Sec}}
+\newcommand{\Comp}{\text{Comp}}
+\newcommand{\Paracons}{\text{Paracons}}
+\newcommand{\Paracomp}{\text{Paracomp}}
+
+% Define meta-language types
+\newcommand{\MLClass}{\text{Class}}
+\newcommand{\MLParacons}{\text{Paracons but not Paracomp}}
+\newcommand{\MLParacomp}{\text{Paracomplete but not Paracons}}
+\newcommand{\MLBoth}{\text{Paracons and Paracomplete}}
+
+% Define theorem/definition environments
+\newtheorem{definition}{Definition}[section] % Number definitions by section
+\newtheorem{proposition}{Proposition}[section] % Number propositions by section
+\newtheorem{theorem}{Theorem}[section] % Number theorems by section
+\newtheorem{remark}{Remark}[section] % Number remarks by section
+\newtheorem{analogy}{Analogy}[section] % Number analogies by section
+\newtheorem{axiom}{Axiom}[section] % Number axioms by section
+
+% Define commands for L_0, M_0, L_infty, LT, LF for use in text and math
+\newcommand{\LZero}{L_0} % Retain for general concept
+\newcommand{\LZeroN}{L^0_n} % For specific diamond D_n
+\newcommand{\LvdashN}{L^{\vdash}_n} % New notation for L^0_n
+\newcommand{\MZero}{\mathcal{M}_0}
+\newcommand{\LInf}{L_\infty} % Retain for general concept
+\newcommand{\LInfN}{L^\infty_n} % For specific diamond D_n
+\newcommand{\LGammaDeltaN}{L^{\Gamma\vdash\Delta}_n} % New notation for L^infty_n
+\newcommand{\LT}{L_T} % Define LT with subscript
+\newcommand{\LvdashDeltaN}{L^{\vdash\Delta}_n} % New notation for LT
+\newcommand{\LF}{L_F} % Define LF with subscript
+\newcommand{\LGammavdashN}{L^{\Gamma\vdash}_n} % New notation for LF
+
+
+% Use texorpdfstring for titles and sectioning commands with math
+% These commands are now correctly defined and used
+\newcommand{\pdfLZero}{\texorpdfstring{\LZero}{L0}}
+\newcommand{\pdfLZeroN}{\texorpdfstring{\LZeroN}{L0n}}
+\newcommand{\pdfLvdashN}{\texorpdfstring{\LvdashN}{Lvdashn}}
+\newcommand{\pdfMZero}{\texorpdfstring{\MZero}{M0}}
+\newcommand{\pdfLInf}{\texorpdfstring{\LInf}{Linf}}
+\newcommand{\pdfLInfN}{\texorpdfstring{\LInfN}{Linfn}}
+\newcommand{\pdfLGammaDeltaN}{\texorpdfstring{\LGammaDeltaN}{LGammaDeltaN}}
+\newcommand{\pdfLT}{\texorpdfstring{\LT}{LT}} % Define pdfLT with subscript
+\newcommand{\pdfLvdashDeltaN}{\texorpdfstring{\LvdashDeltaN}{LvdashDeltaN}}
+\newcommand{\pdfLF}{\texorpdfstring{\LF}{LF}} % Define pdfLF with subscript
+\newcommand{\pdfLGammavdashN}{\texorpdfstring{\LGammavdashN}{LGammavdashN}}
+
+
+\title{Formalizing Non-Classical Meta-Semantic Structures \\ and the Diamond of Logical Extensions} % Updated Title
+\author{Based on the Meta-Semantic Council Discussions} % Use full author names/affiliations for publication
+\date{\today} % Keep \today or replace with specific date if required
+
+%\onehalfspacing % Example: Use 1.5 line spacing if required by journal
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		\RaggedRight % Apply RaggedRight to the abstract
+		This document formalizes key components of a meta-semantic framework capable of accommodating non-classical logical properties, drawing upon concepts introduced in the "Meta-Semanticum Universalis" papers and detailed in the "Comprehensive Study of Paraconsistency." We define the space of meta-properties ($\MetaProps$), context parameters ($\ContextParams$), and the set of permissible meta-languages ($\MetaLang$). The core of the formalization lies in defining the non-Boolean Interpretation Function ($\InterpFunc$) and the structure of its value space ($\ValueSpace$), drawing on multi-valued and relational semantics from paraconsistent logic. We then address the challenge of formulating Relation Principles ($\RelPrinciples$) and the Evaluation System ($\EvalSystem$) when the meta-language itself is non-classical (paraconsistent and paracomplete), proposing approaches based on non-classical consequence relations and multi-criteria aggregation. This formalization aims to provide a more rigorous foundation for the concepts introduced in the Meta-Semantic Council, addressing the critiques raised by Logicus Dubitans and supporting the paradoxical synthesis proposed by Gemini. Additionally, this document formalizes the four extremal logics ($L^0_n$, $\LT$, $\LF$, and $L^\infty_n$) that define the vertices of the diamond structure of logical extensions within a specific category of logics, introducing an alternative notation based on characteristic sequent forms ($L^{\vdash}_n$, $L^{\vdash\Delta}_n$, $L^{\Gamma\vdash}_n$, and $L^{\Gamma\vdash\Delta}_n$), highlighting their unique properties and relationships within that logical space.
+	\end{abstract}
+	
+	% Added Table of Contents for better navigation with the new Part
+	\tableofcontents
+	
+	\part{Formalizing Non-Classical Meta-Semantic Structures} % Existing content as Part 1
+	
+	\section{Introduction}
+	The exploration of universal meta-semantics, particularly those capable of describing and evaluating systems with non-classical properties like paraconsistency and paracompleteness, necessitates a formal framework that transcends classical Boolean assumptions. The "Meta-Semanticum Universalis" papers introduced a conceptual structure involving meta-properties, context, interpretation functions, and relation principles, but were critiqued for lacking formal specification, especially regarding the non-Boolean value space and the behavior of the framework when the meta-language itself is non-classical. This document aims to provide a more rigorous formalization of these elements, integrating insights from the study of paraconsistent and paracomplete logics to define the structure of the non-classical semantic space and the principles governing relations and evaluation within such a framework.
+	
+	\section{Core Components of the Meta-Semantic Framework}
+	
+	We begin by formalizing the foundational sets of the meta-semantic framework, based on the definitions from the "Meta-Semanticum Universalis: Adumbratio Formalis."
+	
+	\begin{definition}[Set of Meta-Properties ($\MetaProps$)]
+		The set of meta-properties is defined as $$\MetaProps = \{ \Saf, \Sec, \Comp, \Paracons, \Paracomp \}$$. These represent fundamental characteristics relevant to the analysis of formal systems.
+	\end{definition}
+	
+	\begin{definition}[Set of Context Parameters ($\ContextParams$)]
+		The set of context parameters is a set of variables and structures representing the contextual factors influencing the interpretation of meta-properties. We denote this set as $\ContextParams = \{ D, T, R, ML, S, \dots \}$, where $D$ is the application domain, $T$ is the threat model, $R$ is resource limits, $ML$ is the meta-language perspective, $S$ is the system development stage, and $\dots$ represent other relevant parameters.
+	\end{definition}
+	
+	\begin{definition}[Set of Permissible Meta-Languages ($\MetaLang$)]
+		The set of permissible meta-languages represents the different logical frameworks from which a meta-language can be drawn. We define $\MetaLang$ based on the properties of paraconsistency and paracompleteness:
+		\begin{itemize}[nosep] % nosep removes extra vertical space between items
+			\item $\MLClass$: Classical logic (neither paraconsistent nor paracomplete).
+			\item $\MLParacons$: A paraconsistent logic that is not paracomplete.
+			\item $\MLParacomp$: A paracomplete logic that is not paraconsistent.
+			\item $\MLBoth$: A logic that is both paraconsistent and paracomplete.
+		\end{itemize}
+		The choice of meta-language $ML \in \MetaLang$ is a parameter within $\ContextParams$.
+	\end{definition}
+	
+	\section{Formalizing the Non-Classical Interpretation Function and Value Space}
+	
+	The Interpretation Function $\InterpFunc$ maps a meta-property, a context, and a meta-language to a value in a non-Boolean space $\ValueSpace$. Formalizing $\ValueSpace$ and the behavior of $\InterpFunc$ is crucial for a rigorous non-classical meta-semantics.
+	
+	\begin{definition}[Value Space ($\ValueSpace$)]
+		The Value Space $\ValueSpace$ is a set equipped with a structure capable of representing degrees of truth, falsity, inconsistency (truth gluts), and incompleteness (truth gaps). $\ValueSpace$ is not restricted to the classical Boolean values $\{\text{Verum}, \text{Falsum}\}$. Examples of structures for $\ValueSpace$ include:
+		\begin{itemize}[wide, labelwidth=!, labelindent=0pt, before=\RaggedRight, after=\RaggedRight] % Apply RaggedRight to list items
+			\item Multi-valued lattices (e.g., the lattice underlying FDE, with values $\{T, F, B, N\}$).
+			\item Structures derived from relational semantics (e.g., subsets of worlds in a Routley-Meyer frame or impossible worlds semantics).
+			\item Intervals or lattices used in fuzzy logic (e.g., $[0,1]$ with appropriate operators, or lattices of annotations).
+			\item Structures inspired by quantum logic (e.g., elements of an orthomodular lattice, potentially with additional structure to capture paraconsistent/paracomplete aspects).
+			\end{itemize}
+				The specific structure of $\ValueSpace$ depends on the chosen semantic framework for the meta-language.
+				\end{definition}
+					
+					\begin{definition}[Interpretation Function ($\InterpFunc$)]
+						The Interpretation Function is a function $\InterpFunc: \MetaProps \times \ContextParams \times \MetaLang \rightarrow \ValueSpace$. For a given meta-property $m \in \MetaProps$, context $c \in \ContextParams$, and meta-language $ml \in \MetaLang$, $\InterpFunc(m, c, ml)$ yields a value in $\ValueSpace$ representing the degree or status of meta-property $m$ in context $c$ as interpreted from the perspective of meta-language $ml$.
+					\end{definition}
+					
+					\begin{remark}
+						\RaggedRight % Apply RaggedRight to the remark
+						The structure of $\ValueSpace$ and the definition of $\InterpFunc$ must be consistent with the logical properties of the meta-language $ml$. If $ml$ is paraconsistent, $\ValueSpace$ must support truth gluts. If $ml$ is paracomplete, $\ValueSpace$ must support truth gaps. If $ml$ is both, $\ValueSpace$ must support both.
+						\end{remark}
+							
+							\section{Formalizing Relation Principles in a Non-Classical Meta-Language}
+							
+							The Relation Principles ($\RelPrinciples$) describe the formal relationships between meta-properties. When the meta-language is non-classical, these principles cannot rely on classical implication or negation. They must be formulated using the consequence relation ($\entails_{ml}$) of the chosen meta-language $ml$.
+							
+							\begin{definition}[Relation Principles ($\RelPrinciples$)]
+								The set of Relation Principles $\RelPrinciples$ is a set of formal statements expressed in the language of the chosen meta-language $ml \in \MetaLang$, describing constraints or relationships between the interpretations of meta-properties. For a given $ml$, $\RelPrinciples_{ml}$ is a set of formulas or sequents in the language of $ml$.
+								\end{definition}
+									
+									The statements in $\RelPrinciples_{ml}$ involve terms representing the interpreted values of meta-properties, e.g., $\InterpFunc(m, c, ml)$. The logical structure of these statements is governed by the rules of $ml$.
+									
+									\begin{remark}[Example: Formulating $RP_1$ in a Paraconsistent ML]
+										\RaggedRight % Apply RaggedRight to the remark
+										Consider $RP_1$: "Existence of Contexts where Safety is High and Security is Low/High Coexist - Non-Classical Implication." In a paraconsistent meta-language ($ml = \MLParacons$), the classical implication $(\dots \longrightarrow \dots)$ is not explosive. We could formulate a principle like:
+										$\exists c \in \ContextParams . (\InterpFunc(\Saf, c, \MLParacons) \approx \text{High} \conjunction \InterpFunc(\Sec, c, \MLParacons) \approx \text{Low}) \conjunction (\InterpFunc(\Saf, c, \MLParacons) \approx \text{High} \conjunction \InterpFunc(\Sec, c, \MLParacons) \approx \text{High})$
+										This statement, interpreted in the semantics of $\MLParacons$, can be true in some models, reflecting the tolerance for contradictions or coexisting properties. The consequence relation $\entails_{\MLParacons}$ would not allow deriving arbitrary formulas from this statement.
+										\end{remark}
+											
+											\begin{remark}[Example: Formulating $RP_2$ in a Paracomplete ML]
+												\RaggedRight % Apply RaggedRight to the remark
+												Consider $RP_2$: "Negation of Classical Implication from Completeness to Safety - Context-Dependence." In a paracomplete meta-language ($ml = \MLParacomp$), the law of excluded middle may fail, and negation might behave non-classically. A formulation might involve stating the non-derivability of a classical-like implication:
+												$\notentails_{\MLParacomp} \forall c \in \ContextParams . (\InterpFunc(\Comp, c, \MLParacomp) \approx \text{High} \implication_{\text{classical}} \InterpFunc(\Saf, c, \MLParacomp) \approx \text{High})$
+												Here, $\implication_{\text{classical}}$ would represent a classical implication defined within the paracomplete logic (if possible), or the statement could directly assert the failure of the classical consequence relation for this inference. The non-derivability ($\notentails_{\MLParacomp}$) reflects the paracomplete nature – the statement is neither provable nor refutable in all contexts.
+												\end{remark}
+													
+													The formalization of $\RelPrinciples$ requires carefully defining the logical language and consequence relation of each $ml \in \MetaLang$ and translating the conceptual principles into well-formed formulas or sequents within those logics.
+													
+													\section{Formalizing the Evaluation System}
+													
+													The Evaluation System $\EvalSystem$ maps a formal system, a context, and a meta-language to a multi-criteria evaluation profile. This evaluation must integrate the interpreted values of meta-properties from $\ValueSpace$, potentially handling inconsistent or incomplete information.
+													
+													\begin{definition}[Evaluation System ($\EvalSystem$)]
+														The Evaluation System is a function $\EvalSystem: L \times \ContextParams \times \MetaLang \times \MetaProps \rightarrow \mathcal{E}$, where $L$ is a formal system (e.g., a logical calculus, a computational model), and $\mathcal{E}$ is a structured space of multi-criteria evaluation profiles. An evaluation profile in $\mathcal{E}$ for a system $L$ in context $c$ using meta-language $ml$ is a collection of interpreted values for each meta-property:
+														$\EvalSystem(L, c, ml, \MetaProps) = \{ (\Saf, \InterpFunc(\Saf, c, ml)), (\Sec, \InterpFunc(\Sec, c, ml)), \dots, (\Paracomp, \InterpFunc(\Paracomp, c, ml)) \}$
+														The structure of $\mathcal{E}$ is a subset of $(\MetaProps \times \ValueSpace)^{\MetaProps}$, representing the profile of interpreted meta-property values.
+														\end{definition}
+															
+															\begin{remark}
+																\RaggedRight % Apply RaggedRight to the remark
+																The "multi-criteria, non-reducible to a single value" aspect of $\mathcal{E}$ is captured by the fact that the output is a profile of values from $\ValueSpace$ for each meta-property, not a single aggregated value. Combining or comparing these profiles would require additional aggregation functions or preference relations defined over $\mathcal{E}$, which themselves might need to be defined within a non-classical meta-language if handling inconsistent or incomplete profiles.
+																\end{remark}
+																	
+																	\section{Connecting to Categorical Frameworks and Dualities}
+																	
+																	The "Categorical Framework for Logical Systems" introduces \textbf{DualCat}, a category where objects are categories of logics and morphisms are dualities. This perspective can inform the meta-semantic framework in several ways:
+																	
+																	\begin{itemize}[wide, labelwidth=!, labelindent=0pt, before=\RaggedRight, after=\RaggedRight] % Apply RaggedRight to list items
+																		\item The different meta-languages in $\MetaLang$ (e.g., $\MLClass$, $\MLParacons$, $\MLParacomp$, $\MLBoth$) can be viewed as objects in a category of logics. The relationships between them (e.g., extensions, translations, dualities) can be described by morphisms in such a category.
+																		\item Dualities between logics (morphisms in \textbf{DualCat}) might induce structural relationships or transformations between the corresponding Value Spaces ($\ValueSpace$) used for interpreting meta-properties when those logics serve as meta-languages.
+																		\item The paradoxical synthesis where MSU is simultaneously refuted and proven from different logical perspectives (classical vs. non-classical) can be interpreted through the lens of different categories of logics and the potential failure of functors or translations between them to preserve all properties.
+																	\end{itemize}
+																	
+																	\section{Conclusion}
+																	
+																	\RaggedRight % Apply RaggedRight to the conclusion
+																	This document has provided a preliminary formalization of key components of a non-classical meta-semantic framework, drawing upon the conceptual structure of the "Meta-Semanticum Universalis" papers and the semantic diversity of paraconsistent and paracomplete logics. We have formalized the sets of meta-properties, context parameters, and meta-languages, and defined the non-Boolean ValueSpace ($\ValueSpace$) and the Interpretation Function ($\InterpFunc$) mapping to it. Crucially, we have outlined how Relation Principles ($\RelPrinciples$) and the Evaluation System ($\EvalSystem$) must be formulated using the logical machinery of a potentially non-classical meta-language, moving beyond classical assumptions about implication, negation, and aggregation. This formalization addresses some of the critiques regarding the lack of rigor and provides a foundation for further development of a meta-semantic theory capable of analyzing and evaluating complex systems from diverse logical perspectives, including those that tolerate inconsistency and incompleteness. The connection to categorical frameworks and dualities suggests avenues for understanding the relationships between different meta-language perspectives.
+																	
+																	% --- Start of Integrated Content ---
+																	\part{The Diamond of Logical Extensions: The Four Extremal Logics within a Category $D_n$} % New Part Title
+																	
+																	\section{Introduction}
+																	
+																	We formalize the foundational layer of a hierarchy of logical systems, exploring how logical systems are shaped by the metalanguages used to define them, leading to a landscape of extensions visualized as a diamond. Within a specific category of logics, denoted $D_n$, this diamond has four extremal logics defining its vertices: the Minimum Non-Trivial Object Language ($L^0_n$ or $L^{\vdash}_n$), the Terminal Object Language ($L^\infty_n$ or $L^{\Gamma\vdash\Delta}_n$), the Logic of Truth ($\LT$ or $L^{\vdash\Delta}_n$), and the Logic of Falsity ($\LF$ or $L^{\Gamma\vdash}_n$). This part focuses on defining these extremal points within the context of a given category $D_n$, introducing a notation based on characteristic sequent forms to highlight their properties.
+																	
+																	\section{The Four Extremal Logics of a Diamond $D_n$}
+																	
+																	We formalize four extremal logical systems that define the vertices of the diamond structure within a specific category of logics $D_n$. These logics represent limiting cases in the landscape of formal systems based on their minimal or maximal properties concerning syntax, structure, and truth/falsity conditions within that category. We introduce a notation using characteristic sequent forms as superscripts to emphasize the primary structural or inferential focus of each extremal logic.
+																	
+																	\begin{itemize}
+																		\item $L^0_n$ or $L^{\vdash}_n$: The Minimum Non-Trivial Object Language.
+																		\item $L^\infty_n$ or $L^{\Gamma\vdash\Delta}_n$: The Terminal Object Language.
+																		\item $\LT$ or $L^{\vdash\Delta}_n$: The Logic of Truth.
+																		\item $\LF$ or $L^{\Gamma\vdash}_n$: The Logic of Falsity.
+																	\end{itemize}
+																	
+																	Crucially, $\LT$ ($L^{\vdash\Delta}_n$) and $\LF$ ($L^{\Gamma\vdash}_n$) are conceived as specific logical extensions of the Minimum Non-Trivial Object Language $L^0_n$ ($L^{\vdash}_n$), arising from the reflection of $L^0_n$ by particular metalanguages within $D_n$ that impose the conditions of universal truth or universal falsity, respectively.
+																	
+																	\subsection{Minimum Non-Trivial Object Language ($L^0_n$ or $L^{\vdash}_n$)}
+																	
+																	The Minimum Non-Trivial Object Language ($L^0_n$ or $L^{\vdash}_n$) is the initial object in the category $D_n$. It is the most minimal formal system within $D_n$ that is non-trivial (i.e., its language is non-empty, and it has at least one formula or sequent form). It is designed to be reflectable by a wide range of metalanguages relevant to $D_n$. It serves as the base point of the diamond for $D_n$, representing the most basic structure involving the logical turnstile $\vdash$.
+																	
+																	\begin{definition}[Language of Propositional $L^0_n$]
+																		The language of propositional $L^0_n$ consists only of:
+																		\begin{itemize}
+																			\item \textbf{Propositional Variables:} $p, q, r, \dots$ (denoted by the set $V$)
+																			\end{itemize}
+																				There are no logical connectives in this base language. The symbol $\vdash$ is a syntactic separator, not a logical operator.
+																				\end{definition}
+																					
+																					\begin{definition}[Formula Forms in $L^0_n$]
+																						The formulas in $L^0_n$ are simply the propositional variables:
+																						$$Form_{L^0_n} = V$$
+																						\end{definition}
+																							
+																							\begin{definition}[Sequent Forms in $L^0_n$ (Defined by $\mathcal{M}^0_n$)]
+																								The allowed \textbf{syntactic forms} of sequents in $L^0_n$, as defined by its proper minimal metalanguage $\mathcal{M}^0_n$ within the category $D_n$, are:
+																								\begin{itemize}
+																									\item $\vdash A$ (Empty antecedent, formula succedent)
+																									\item $A \vdash$ (Formula antecedent, empty succedent)
+																									\item $A \vdash B$ (Formula antecedent, formula succedent)
+																									\end{itemize}
+																										where $A, B \in Form_{L^0_n}$. These forms are represented as ordered tuples in a set-theoretic sense. The notation $L^{\vdash}_n$ highlights this foundational aspect related to the turnstile.
+																										\end{definition}
+																											
+																											\begin{definition}[Set Representation of $L^0_n$]
+																												$L^0_n$ is formally represented as an ordered tuple capturing its fundamental components:
+																												$$L^0_n = \langle \Sigma_{L^0_n}, Form_{L^0_n}, SeqForm_{L^0_n}, Axioms_{L^0_n}, Rules_{L^0_n} \rangle$$
+																												where:
+																												\begin{itemize}
+																													\item $\Sigma_{L^0_n} = V \cup \{\vdash\}$ (Alphabet)
+																													\item $Form_{L^0_n} = V$ (Set of Formulas)
+																													\item $SeqForm_{L^0_n} = \{(\vdash, A) \mid A \in V\} \cup \{(A, \vdash) \mid A \in V\} \cup \{(A, \vdash, B) \mid A, B \in V\}$ (Set of Valid Sequent Forms)
+																													\item $Axioms_{L^0_n} = \emptyset$ (Set of Axioms)
+																													\item $Rules_{L^0_n} = \emptyset$ (Set of Inference Rules)
+																													\end{itemize}
+																														\end{definition}
+																															
+																															\begin{proposition}[$L^0_n$ is Not Equivalent to the Empty Set]
+																																The formal system $L^0_n$, as a structured tuple containing non-empty sets ($\Sigma_{L^0_n}, Form_{L^0_n}, SeqForm_{L^0_n}$), is fundamentally distinct from the set-theoretic empty set ($\emptyset$). $L^0_n \neq \emptyset$.
+																															\end{proposition}
+																															
+																															\begin{remark}[Minimal Non-Classical Judgments]
+																																Although $Axioms_{L^0_n}$ and $Rules_{L^0_n}$ are empty, leading to an empty set of classically derivable sequents, $L^0_n$ possesses a minimal set of non-classical logical judgments or statuses assigned to its sequent forms, as defined by its proper minimal metalanguage $\mathcal{M}^0_n$.
+																																\end{remark}
+																																	
+																																	\subsection{Terminal Object Language ($L^\infty_n$ or $L^{\Gamma\vdash\Delta}_n$)}
+																																	
+																																	The Terminal Object Language ($L^\infty_n$ or $L^{\Gamma\vdash\Delta}_n$) is the terminal object in the category $D_n$. It is a formal system characterized by maximal completeness and minimally metamorphic properties within $D_n$. It represents the apex or closure of the diamond structure for $D_n$, characterized by the most general sequent form $\Gamma \vdash \Delta$.
+																																	
+																																	\begin{definition}[Terminal Object Language ($L^\infty_n$)]
+																																		The \textbf{Terminal Object Language} ($L^\infty_n$ or $L^{\Gamma\vdash\Delta}_n$) in a category of logics $D_n$ is a formal system characterized by:
+																																		\begin{itemize}
+																																			\item \textbf{Rich Syntax:} Comprehensive set of standard logical operators relevant to $D_n$.
+																																			\item \textbf{Standard Sequent Forms:} Sequent forms appropriate for the logics in $D_n$, including the most general multi-formula sequents ($\Gamma \vdash \Delta$), as highlighted by the notation $L^{\Gamma\vdash\Delta}_n$.
+																																			\item \textbf{Presence of Relevant Structural Rules:} Includes structural rules appropriate for the logics in $D_n$.
+																																			\item \textbf{Maximal Closure:} Any consistent extension within $D_n$ is isomorphic to $L^\infty_n$.
+																																			\end{itemize}
+																																				$L^\infty_n$ is the terminal object in the category $D_n$.
+																																			\end{definition}
+																																			
+																																			\begin{remark}[$L^\infty_n$'s Minimal Metamorphicity]
+																																				$L^\infty_n$ is \textbf{Minimally Metamorphic} within the category $D_n$. Its interpretation is relatively fixed across reflecting metalanguages within $D_n$. It is hypothesized to possess maximal completeness and maximally undecidable consistency relative to the logics in $D_n$.
+																																				\end{remark}
+																																					
+																																					\begin{analogy}[Physics Analogy for $L^\infty_n$]
+																																						$L^\infty_n$ is a form of \textbf{Logical Completion} or a \textbf{Maximal Logic} within the specific space defined by $D_n$. For a category of first-order logics, LK (Classical First-Order Logic) is a strong candidate for $L^\infty_n$.
+																																						\end{analogy}
+																																							
+																																							\subsection{Logic of Truth ($\LT$ or $L^{\vdash\Delta}_n$)}
+																																							
+																																							The Logic of Truth ($\LT$ or $L^{\vdash\Delta}_n$) is an extremal logic characterized by a focus solely on truth, where every formula is considered true. It is a specific logical extension of $L^0_n$ ($L^{\vdash}_n$) within the category $D_n$, arising from the reflection of $L^0_n$ by a metalanguage within $D_n$ that imposes the condition of universal truth. It can be seen as a maximally paracomplete logic that trivializes falsity within $D_n$, forming one side point of the diamond. The notation $L^{\vdash\Delta}_n$ emphasizes its connection to theorems (derivable from the empty antecedent) and the structure of the succedent (multiple conclusions).
+																																							
+																																							\begin{definition}[Language of $\LT$]
+																																								The language of $\LT$ includes propositional variables $V$ and potentially a minimal set of connectives relevant to $D_n$. Its defining characteristic is its semantic interpretation where every formula is true within the models of $D_n$, and its consequence relation reflects this.
+																																								\end{definition}
+																																									
+																																									\begin{definition}[Semantics of $\LT$]
+																																										In the semantics of $\LT$ (within the framework of $D_n$), every formula $A$ is assigned the truth value "True". There are no mechanisms to represent or infer falsity in a non-trivial way. Formally, for any formula $A$, $\models_{\LT} A$.
+																																										\end{definition}
+																																											
+																																											\begin{remark}[Properties of $\LT$]
+																																												$\LT$ is maximally paracomplete (no formula is false in a non-trivial sense within $D_n$). Its negation is non-classical; it does not assert classical falsity but might indicate "not leading to truth" or be trivializing relative to $D_n$. Consequently, standard sequent rules for negation that move formulas from the RHS to the LHS (asserting classical falsity) are likely not admissible. Rules that move formulas from the LHS to the RHS (related to "A does not entail truth") might be compatible. Disjunction and existential quantification are likely non-problematic, but conjunction and universal quantification may be degenerate or problematic due to the universal truth of all formulas. $\LT$ is minimally metamorphic in the sense that its core property (universal truth) is likely preserved across metalanguages within $D_n$.
+																																												\end{remark}
+																																													
+																																													\subsection{Logic of Falsity ($\LF$ or $L^{\Gamma\vdash}_n$)}
+																																													
+																																													The Logic of Falsity ($\LF$ or $L^{\Gamma\vdash}_n$) is an extremal logic characterized by a focus solely on falsity, where every formula is considered false. It is a specific logical extension of $L^0_n$ ($L^{\vdash}_n$) within the category $D_n$, arising from the reflection of $L^0_n$ by a metalanguage within $D_n$ that imposes the condition of universal falsity. It can be seen as a maximally paraconsistent logic that trivializes truth within $D_n$, forming the other side point of the diamond. The notation $L^{\Gamma\vdash}_n$ emphasizes its connection to reasoning from premises (non-empty antecedent) and leading to absurdity (empty succedent).
+																																													
+																																													\begin{definition}[Language of $\LF$]
+																																														The language of $\LF$ includes propositional variables $V$ and potentially a minimal set of connectives relevant to $D_n$. Its defining characteristic is its semantic interpretation where every formula is false within the models of $D_n$, and its consequence relation reflects this.
+																																														\end{definition}
+																																															
+																																															\begin{definition}[Semantics of $\LF$]
+																																																In the semantics of $\LF$ (within the framework of $D_n$), every formula $A$ is assigned the truth value "False". There are no mechanisms to represent or infer truth in a non-trivial way. Formally, for any formula $A$, $A \models_{\LF} \emptyset$ (or some equivalent representation of universal falsity).
+																																																\end{definition}
+																																																	
+																																																	\begin{remark}[Properties of $\LF$]
+																																																		$\LF$ is maximally paraconsistent (no formula is true in a non-trivial sense within $D_n$). Its negation is non-classical; it does not assert classical truth but might indicate "not leading to falsity" or be trivializing relative to $D_n$. Consequently, standard sequent rules for negation that move formulas from the LHS to the RHS (asserting classical truth) are likely not admissible. Rules that move formulas from the RHS to the LHS (related to "A does not entail falsity") might be compatible. Conjunction and universal quantification are likely non-problematic, but disjunction and existential quantification may be degenerate or problematic due to the universal falsity of all formulas. $\LF$ is minimally metamorphic in the sense that its core property (universal falsity) is likely preserved across metalanguages within $D_n$.
+																																																		\end{remark}
+																																																			
+																																																			
+																																																			\section{The Metalanguage ($\mathcal{M}^0_n$) for $L^0_n$}
+																																																			
+																																																			The metalanguage $\mathcal{M}^0_n$ is the formal system within the category $D_n$ that defines and reasons about $L^0_n$ ($L^{\vdash}_n$). Its own minimality within $D_n$ is crucial for shaping $L^0_n$'s structure.
+																																																			
+																																																			\begin{definition}[Language of $\mathcal{M}^0_n$]
+																																																				The language of $\mathcal{M}^0_n$ includes variables over $L^0_n$'s syntax and predicates to describe its properties (e.g., $\text{PropVar}(a)$, $\text{Formula}(F)$, $\text{SequentForm}(S)$, $\text{HasMinimalJudgment}(S)$). It possesses a minimal set of meta-logical operators (predication, identity, distinction, minimal conjunction/listing, minimal universal assertion) whose inference rules are themselves minimal within the context of $D_n$.
+																																																				\end{definition}
+																																																					
+																																																					\begin{remark}[$\mathcal{M}^0_n$'s Role in Defining $L^0_n$'s Structure]
+																																																						The axioms and definitions within $\mathcal{M}^0_n$ formally specify $L^0_n$'s syntax and the assignment of minimal judgments. For the specific $L^0_n$ with no axioms or rules, $\mathcal{M}^0_n$ defines that no sequent form is assigned a minimal judgment:
+																																																						$$\forall S (\neg \text{HasMinimalJudgment}(S))$$
+																																																						\end{remark}
+																																																							
+																																																							\begin{proposition}[Meta-proof in $\mathcal{M}^0_n$: Empty Sequent is Not Derivable in $L^0_n$]
+																																																								Within the syntax and minimal inference rules of $\mathcal{M}^0_n$, it is provable that the empty sequent form ($\vdash$) is not a valid sequent form in $L^0_n$, and thus does not possess a minimal judgment.
+																																																								\begin{proof}[Sketch]
+																																																									The definition of valid sequent forms in $\mathcal{M}^0_n$ requires a formula in either the antecedent or succedent (or both). The empty sequent form lacks both. Thus, by the definition of sequent forms in $\mathcal{M}^0_n$, $\neg \text{SequentForm}(\vdash)$ is derivable in $\mathcal{M}^0_n$. Since having a minimal judgment implies being a valid sequent form ($\text{HasMinimalJudgment}(S) \implies \text{SequentForm}(S)$), the lack of a valid sequent form implies the lack of a minimal judgment ($\neg \text{SequentForm}(S) \implies \neg \text{HasMinimalJudgment}(S)$). Therefore, $\neg \text{HasMinimalJudgment}(\vdash)$ is derivable in $\mathcal{M}^0_n$.
+																																																								\end{proof}
+																																																								\end{proposition}
+																																																									
+																																																									\begin{remark}[$\mathcal{M}^0_n$'s Minimality Produces $L^0_n$'s Structure]
+																																																										The structure of $L^0_n$ and its lack of classical derivability is a direct consequence of the inherent logical minimality of $\mathcal{M}^0_n$ itself, as reflected into the object language. $\mathcal{M}^0_n$'s limited logical power means it cannot define a richer structure for $L^0_n$.
+																																																										\end{remark}
+																																																											
+																																																											\section{Metalanguage Reflection and Interpretation within $D_n$}
+																																																											
+																																																											The relationship between $L^0_n$ ($L^{\vdash}_n$) and other logical systems within the category $D_n$ is mediated by metalanguage reflection.
+																																																											
+																																																											\begin{definition}[Object Language, Metalanguage, Reflection within $D_n$]
+																																																												An \textbf{Object Language} $L$ is a formal system in $D_n$. A \textbf{Metalanguage} $\mathcal{M}$ is a formal system in $D_n$ for describing $L$. \textbf{Reflection} ($\text{Reflect}(\mathcal{M}, L)$) is a mapping or set of definitions in $\mathcal{M}$ to represent $L$.
+																																																												\end{definition}
+																																																													
+																																																													\begin{remark}[$L^0_n$'s Maximal Metamorphicity within $D_n$]
+																																																														$L^0_n$ ($L^{\vdash}_n$) is \textbf{Maximally Metamorphic} within $D_n$. Its interpretation and properties ascribed to it are highly dependent on the reflecting metalanguage $\mathcal{M} \in D_n$. $\text{Reflect}(\mathcal{M}, L^0_n)$ gives rise to a \textbf{Logical Extension} $L_0^{\mathcal{M}}$, shaped by $\mathcal{M}$'s properties within $D_n$.
+																																																														\end{remark}
+																																																															
+																																																															\begin{analogy}[Thought Experiment Analogy for Metamorphicity]
+																																																																$L^0_n$ ($L^{\vdash}_n$) is a "Message" interpreted differently in various "Rooms" ($\mathcal{M}$s) within the category $D_n$. The extension $L_0^{\mathcal{M}}$ is the specific interpretation in that room.
+																																																																\end{analogy}
+																																																																	
+																																																																	\begin{remark}[Interpretability and Its Limitations within $D_n$]
+																																																																		$L^0_n$ ($L^{\vdash}_n$) is \textbf{Interpretable (in a basic sense)} in any capable $\mathcal{M} \in D_n$. However, its \textbf{Non-classical Interpretations and Extensions within $D_n$ may not be Faithfully Interpretable in Metalanguages within $D_n$ that lack the necessary expressive power}.
+																																																																		\end{remark}
+																																																																			
+																																																																			\begin{analogy}[Thought Experiment Analogy for Limitations]
+																																																																				A metalanguage $\mathcal{M} \in D_n$ lacking certain non-classical features is like \textbf{Mary in the Black-and-White Room} trying to understand color (non-classical properties) or the \textbf{Chinese Room} processing symbols without full understanding.
+																																																																				\end{analogy}
+																																																																					
+																																																																					\begin{remark}[Reciprocal Non-Interpretability within $D_n$]
+																																																																						There is likely \textbf{Reciprocal Non-Interpretability (partial)} between $L^0_n$ ($L^{\vdash}_n$) and its various $\mathcal{M}$s within $D_n$. $L^0_n$'s minimality limits its ability to interpret complex $\mathcal{M}$s in $D_n$, and $\mathcal{M}$s' structures limit their ability to fully interpret $L^0_n$'s potential within $D_n$.
+																																																																						\end{remark}
+																																																																							
+																																																																							\begin{remark}[Compatibility with Logical Systems within $D_n$]
+																																																																								$L^0_n$'s ($L^{\vdash}_n$) minimal structure makes it compatible with \textbf{Consistent} and \textbf{Paraconsistent} systems within $D_n$, which maintain logical distinctions. It is incompatible with \textbf{Inconsistent} systems (contradictory and explosive) within $D_n$ because its structured minimality collapses in such frameworks where everything is derivable.
+																																																																								\end{remark}
+																																																																									
+																																																																									\subsection{Metalanguage Properties and the Type/Degree of Non-Classicality within $D_n$}
+																																																																									The properties of the metalanguage $\mathcal{M} \in D_n$ used to define or reflect an object language $L \in D_n$ significantly influence the type and degree of non-classicality that $L$ can exhibit or that can be analyzed in $L$ within $D_n$.
+																																																																									\begin{itemize}
+																																																																										\item If $\mathcal{M}$ has classical-like structural rules but a non-classical negation (e.g., one that fails LNC or LEM), it can define object languages with **connective/formula-aware** paraconsistency or paracompleteness.
+																																																																										\item If $\mathcal{M}$ has classical-like connectives but restricts structural rules (e.g., Weakening, Contraction), it can define object languages with **structural** paraconsistency or paracompleteness, such as Classical Linear Logic (CLL) within a category of relevant logics.
+																																																																										\end{itemize}
+																																																																											This highlights that the choice of metalanguage within $D_n$ determines not just *whether* an object language is non-classical, but *how* it deviates from classicality and to what extent, relative to the logical space defined by $D_n$.
+																																																																											
+																																																																											\section{The Diamond Structure and Relationships within $D_n$}
+																																																																											
+																																																																											The relationship between the four extremal logics ($L^0_n$/$L^{\vdash}_n$, $\LT$/$L^{\vdash\Delta}_n$, $\LF$/$L^{\Gamma\vdash}_n$, $L^\infty_n$/$L^{\Gamma\vdash\Delta}_n$) forms a landscape visualized as a diamond within the category $D_n$, representing the space of logical extensions within that category.
+																																																																											
+																																																																											\begin{remark}[Structure of the Diamond in $D_n$]
+																																																																												The four extremal logics form the vertices of the diamond for the category $D_n$:
+																																																																												\begin{itemize}
+																																																																													\item $L^0_n$ ($L^{\vdash}_n$) is at the bottom point (minimum non-trivial, maximally metamorphic within $D_n$, characterized by minimal sequent forms).
+																																																																													\item $L^\infty_n$ ($L^{\Gamma\vdash\Delta}_n$) is at the top point (terminal object, maximal completeness, maximally undecidable consistency, minimally metamorphic within $D_n$, characterized by the most general sequent form).
+																																																																													\item $\LT$ ($L^{\vdash\Delta}_n$) is at one side point (maximal paracompleteness, focus on truth within $D_n$, characterized by empty antecedent and multi-formula succedent sequents).
+																																																																													\item $\LF$ ($L^{\Gamma\vdash}_n$) is at the other side point (maximal paraconsistency, focus on falsity within $D_n$, characterized by multi-formula antecedent and empty succedent sequents).
+																																																																													\end{itemize}
+																																																																														Intermediate logics in $D_n$ lie within the diamond, representing systems with varying degrees of structure, paraconsistency, and paracompleteness relevant to $D_n$.
+																																																																														
+																																																																														The paths from $L^0_n$ ($L^{\vdash}_n$) to the other vertices involve the systematic addition of structural features and logical commitments, guided by the reflecting metalanguage within $D_n$:
+																																																																														\begin{itemize}
+																																																																															\item $L^0_n \to L^\infty_n$: Adding syntax, sequent forms (culminating in $\Gamma \vdash \Delta$), and structural rules relevant to $D_n$, leading to maximal closure and minimal metamorphicity within $D_n$. This path encompasses logics like LK if $D_n$ is a category of first-order logics.
+																																																																															\item $L^0_n \to \LT$: Adding semantic structure that enforces universal truth, trivializing falsity relative to $D_n$ and leading to maximal paracompleteness. This involves introducing rules that align with universal truth, while avoiding rules that would introduce non-trivial falsity or standard negation behavior, and is characterized by sequent forms like $\vdash \Delta$.
+																																																																															\item $L^0_n \to \LF$: Adding semantic structure that enforces universal falsity, trivializing truth relative to $D_n$ and leading to maximal paraconsistency. This involves introducing rules that align with universal falsity, while avoiding rules that would introduce non-trivial truth or standard negation behavior, and is characterized by sequent forms like $\Gamma \vdash$.
+																																																																															\end{itemize}
+																																																																																The paths between $\LT$ ($L^{\vdash\Delta}_n$), $\LF$ ($L^{\Gamma\vdash}_n$), and $L^\infty_n$ ($L^{\Gamma\vdash\Delta}_n$) involve navigating the trade-offs between paraconsistency, paracompleteness, and the inclusion of both truth and falsity in a non-trivial way within $D_n$. $L^\infty_n$, as the terminal object in $D_n$, is the target for interpretations from all other logics in $D_n$, regardless of whether their non-classicality is structural or connective-based.
+																																																																																\end{remark}
+																																																																																	
+																																																																																	\begin{remark}[Categorical Perspective on $D_n$]
+																																																																																		In the category $D_n$ of formal systems and interpretations, $L^0_n$ ($L^{\vdash}_n$) is the initial object (unique morphism $L^0_n \to L$ for any $L \in D_n$) and $L^\infty_n$ ($L^{\Gamma\vdash\Delta}_n$) is the terminal object (unique morphism $L \to L^\infty_n$ for any $L \in D_n$). $\LT$ ($L^{\vdash\Delta}_n$) and $\LF$ ($L^{\Gamma\vdash}_n$) could potentially be viewed as other types of limiting objects or significant points within $D_n$, perhaps related to universal properties concerning truth- or falsity-preserving morphisms within $D_n$.
+																																																																																		\end{remark}
+																																																																																			
+																																																																																			\begin{remark}[Hierarchy of Terminal Languages and Diamonds]
+																																																																																				Systems like LK are candidates for terminal objects ($L^\infty_n$) within specific categories ($D_n$, e.g., first-order logics) but are themselves objects within broader categories or hierarchies where other diamonds and terminal objects reside at higher orders. The diamond structure for $D_n$ provides a visual aid for understanding the relationships between different levels and types of logical systems within that specific logical space.
+																																																																																				\end{remark}
+																																																																																					
+																																																																																					\section{Conclusion}
+																																																																																					
+																																																																																					\RaggedRight % Apply RaggedRight to the conclusion
+																																																																																					This document has provided a preliminary formalization of key components of a non-classical meta-semantic framework, drawing upon the conceptual structure of the "Meta-Semanticum Universalis" papers and the semantic diversity of paraconsistent and paracomplete logics. We have formalized the sets of meta-properties, context parameters, and meta-languages, and defined the non-Boolean ValueSpace ($\ValueSpace$) and the Interpretation Function ($\InterpFunc$) mapping to it. Crucially, we have outlined how Relation Principles ($\RelPrinciples$) and the Evaluation System ($\EvalSystem$) must be formulated using the logical machinery of a potentially non-classical meta-language, moving beyond classical assumptions about implication, negation, and aggregation. This formalization addresses some of the critiques regarding the lack of rigor and provides a foundation for further development of a meta-semantic theory capable of analyzing and evaluating complex systems from diverse logical perspectives, including those that tolerate inconsistency and incompleteness. We have also formalized the four extremal logics ($L^0_n$/$L^{\vdash}_n$, $\LT$/$L^{\vdash\Delta}_n$, $\LF$/$L^{\Gamma\vdash}_n$, and $L^\infty_n$/$L^{\Gamma\vdash\Delta}_n$) and described the diamond structure they form within a specific category of logics $D_n$, providing a clearer landscape for understanding logical extensions and the different paths towards increased logical structure within that category. The connection to categorical frameworks and dualities, along with the nuance regarding how metalanguage properties influence the type of non-classicality, suggests avenues for understanding the relationships between different meta-language perspectives and the paths between these extremal points within $D_n$.
+																																																																																					
+																																																																																				\end{document}

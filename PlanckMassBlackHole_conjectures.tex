@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+
+\title{Quantifying the Difference Between Total and Classically Accessible Information in a Quantum Black Hole}
+\author{AI Assistant}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		This thesis applies the framework developed in the companion document "Quantifying the Difference Between Total and Classically Accessible Information in a Quantum System" to a Planck mass quantum black hole. We formalize the concepts of total quantum information and classically accessible information in the context of black hole thermodynamics and explore their relationship to the Bekenstein bound. The relative entropy of coherence is employed to quantify the information that is inherently quantum and not directly accessible through classical measurements of specific observables.
+	\end{abstract}
+	
+	\section{Introduction}
+	
+	The Bekenstein-Hawking entropy of a black hole suggests a deep connection between gravity, quantum mechanics, and information theory. A fundamental question is whether this entropy represents the total quantum information content of the black hole or merely the maximum amount of information that can be accessed through classical observations of its macroscopic properties. This thesis aims to quantify the difference between these two perspectives for a Planck mass quantum black hole, utilizing the concepts of von Neumann entropy and Shannon entropy, with the relative entropy of coherence serving as the measure of the inherently quantum information.
+	
+	\section{Total Quantum Information and the Bekenstein Bound}
+	
+	Let us assume that the total quantum information content of a Planck mass Kerr-Newman black hole, described by a density operator $\rho_{BH}(J, Q)$, is given by the Bekenstein-Hawking entropy (in Planck units):
+	$$I_{total} = S(\rho_{BH}(J, Q)) = S_{BH}(J, Q) = \pi (2 - Q^2 + 2 \sqrt{1 - J^2 - Q^2})$$
+	This assumption aligns with the Null Hypothesis that the Bekenstein bound represents the total quantum information of the system.
+	
+	\section{Classically Accessible Information}
+	
+	The classically accessible information depends on the specific classical measurements performed on the black hole. Consider a measurement in a basis $\mathcal{B}$ that corresponds to the eigenstates of the classical observables defining the black hole (e.g., mass, charge, spin projected along a certain axis). The Shannon entropy of the measurement outcomes is:
+	$$H(\mathcal{B}, \rho_{BH}) = -\sum_i \langle b_i|\rho_{BH}|b_i\rangle \log_2 \langle b_i|\rho_{BH}|b_i\rangle$$
+	The maximum classically accessible information, under the Alternative Hypothesis, is bounded by the Bekenstein bound:
+	$$I_{classical} = \max_{\mathcal{B}} H(\mathcal{B}, \rho_{BH}) \le S_{BH}(J, Q)$$
+	
+	\section{Quantifying the Difference: Relative Entropy of Coherence}
+	
+	The relative entropy of coherence with respect to the measurement basis $\mathcal{B}$ is defined as:
+	$$C_{rel}(\rho_{BH}, \mathcal{B}) = S(\rho_{BH}^{\mathcal{B}}) - S(\rho_{BH})$$
+	where $\rho_{BH}^{\mathcal{B}} = \sum_i \langle b_i|\rho_{BH}|b_i\rangle |b_i\rangle\langle b_i|$ is the state of the black hole after dephasing in the basis $\mathcal{B}$. We know that $S(\rho_{BH}^{\mathcal{B}}) = H(\mathcal{B}, \rho_{BH})$. Therefore,
+	$$C_{rel}(\rho_{BH}, \mathcal{B}) = H(\mathcal{B}, \rho_{BH}) - S(\rho_{BH})$$
+	
+	\subsection{Under the Null Hypothesis}
+	If $S(\rho_{BH}) = S_{BH}(J, Q)$, then the relative entropy of coherence becomes:
+	$$C_{rel}(\rho_{BH}, \mathcal{B}) = H(\mathcal{B}, \rho_{BH}) - S_{BH}(J, Q)$$
+	Since the Shannon entropy is always less than or equal to the von Neumann entropy, $H(\mathcal{B}, \rho_{BH}) \le S(\rho_{BH}) = S_{BH}(J, Q)$, which implies $C_{rel}(\rho_{BH}, \mathcal{B}) \le 0$. However, the relative entropy of coherence is defined to be non-negative. The correct definition is $C_{rel}(\rho, \mathcal{B}) = S(\rho_{\mathcal{B}}) - S(\rho)$. Thus, the difference we are looking for is:
+	$$\Delta I(\mathcal{B}) = S(\rho_{BH}) - H(\mathcal{B}, \rho_{BH}) = S_{BH}(J, Q) - H(\mathcal{B}, \rho_{BH})$$
+	This non-negative quantity represents the information encoded in the quantum coherences of the black hole relative to the measurement basis $\mathcal{B}$, which is not directly accessible through a measurement in that basis.
+	
+	\subsection{Under the Alternative Hypothesis}
+	If $\max_{\mathcal{B}} H(\mathcal{B}, \rho_{BH}) \le S_{BH}(J, Q)$, and we still assume $S(\rho_{BH}) = S_{BH}(J, Q)$ (to quantify the difference relative to the Bekenstein bound), the difference remains $\Delta I(\mathcal{B}) = S_{BH}(J, Q) - H(\mathcal{B}, \rho_{BH})$. The maximum value of the classically accessible information is $\max_{\mathcal{B}} H(\mathcal{B}, \rho_{BH})$. The minimum value of $\Delta I(\mathcal{B})$ is $S_{BH}(J, Q) - \max_{\mathcal{B}} H(\mathcal{B}, \rho_{BH}) \ge 0$.
+	
+	\section{Mathematical Formalism of the Difference}
+	
+	Let the total quantum information of the Planck mass black hole be $I_{total} = S_{BH}(J, Q)$.
+	Let the classically accessible information from a measurement in basis $\mathcal{B}$ be $I_{classical}(\mathcal{B}) = H(\mathcal{B}, \rho_{BH})$.
+	
+	The difference between the total and classically accessible information for a given measurement basis $\mathcal{B}$ is:
+	$$\Delta I(\mathcal{B}) = I_{total} - I_{classical}(\mathcal{B}) = S_{BH}(J, Q) - H(\mathcal{B}, \rho_{BH})$$
+	
+	The minimum difference occurs when the Shannon entropy is maximized over all measurement bases, which is equal to the von Neumann entropy. In this case, $\min_{\mathcal{B}} \Delta I(\mathcal{B}) = S_{BH}(J, Q) - \max_{\mathcal{B}} H(\mathcal{B}, \rho_{BH}) = S_{BH}(J, Q) - S(\rho_{BH})$. Under the Null Hypothesis, this minimum difference is 0.
+	
+	The maximum difference occurs when the Shannon entropy is minimized. For a pure state, the von Neumann entropy is 0, and the Shannon entropy in a basis orthogonal to the state is also 0, leading to no difference. However, for a mixed state black hole, the Shannon entropy will generally be non-zero.
+	
+	The quantity $\Delta I(\mathcal{B}) = S_{BH}(J, Q) - H(\mathcal{B}, \rho_{BH})$ represents the information that is not directly revealed by a measurement in the basis $\mathcal{B}$. This information is encoded in the quantum correlations and coherences of the black hole's state relative to that basis.
+	
+	\section{Conclusion}
+	
+	The difference between the total quantum information (assumed to be the Bekenstein-Hawking entropy) and the classically accessible information of a Planck mass black hole can be quantified by $\Delta I(\mathcal{B}) = S_{BH}(J, Q) - H(\mathcal{B}, \rho_{BH})$, where $\mathcal{B}$ is the measurement basis corresponding to classical observables. This difference, which is always non-negative, represents the quantum information that is not directly accessible through such classical measurements. The minimum value of this difference is zero, attained when the measurement basis aligns with the eigenbasis of the black hole's density operator. This framework provides a formal way to understand the informational implications of quantum properties of black holes beyond their classical description.
+	
+\end{document}

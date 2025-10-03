@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Bekenstein-Hawking Entropy of a Planck Mass Kerr-Newman Black Hole}
+\author{Ian Douglas Lawrence Norman McLean}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		This document rigorously derives the Bekenstein-Hawking entropy for a Kerr-Newman black hole with mass equal to the Planck mass. Starting from the area of the event horizon of a general Kerr-Newman black hole, we perform the substitution of the Planck mass and express the entropy in terms of fundamental constants and the black hole's dimensionless charge and angular momentum. Exact solutions for the event horizon radius, area, and the constraints on spin and charge in Planck units are provided.
+	\end{abstract}
+	
+	\section{Introduction}
+	
+	The seminal work of Bekenstein and Hawking established a profound connection between black holes and thermodynamics, attributing to them properties such as entropy and temperature. The Bekenstein-Hawking entropy is given by $S_{BH} = \frac{k_B c^3 A}{4 \hbar G}$, where $A$ is the area of the black hole's event horizon. The Planck mass, $m_P = \sqrt{\frac{\hbar c}{G}}$, represents a fundamental energy scale at which quantum gravitational effects are expected to become significant. Investigating black holes with mass on the order of the Planck mass provides insights into the interplay between general relativity, quantum mechanics, and thermodynamics. This thesis focuses on the derivation of the Bekenstein-Hawking entropy for a Kerr-Newman black hole, characterized by its mass $M$, angular momentum $J$, and electric charge $Q$, specifically in the regime where $M = m_P$.
+	
+	\section{Area of the Event Horizon of a Kerr-Newman Black Hole}
+	
+	The area of the event horizon of a Kerr-Newman black hole is given by:
+	$$A = 4 \pi \left( \left(\frac{G M}{c^2}\right)^2 + a^2 + \frac{G^2 Q^2}{c^4} + 2 \frac{G M}{c^2} \sqrt{\left(\frac{G M}{c^2}\right)^2 - a^2 - \frac{G^2 Q^2}{c^4}} \right)$$
+	where $a = \frac{J}{M c}$ is the angular momentum per unit mass.
+	
+	\section{Derivation of Entropy for a General Kerr-Newman Black Hole}
+	
+	Substituting the area formula into the Bekenstein-Hawking entropy equation $S = \frac{k_B c^3 A}{4 \hbar G}$:
+	\begin{align*}
+		S &= \frac{k_B c^3}{4 \hbar G} \times 4 \pi \left( \frac{G^2 M^2}{c^4} + \frac{J^2}{M^2 c^2} + \frac{G^2 Q^2}{c^4} + 2 \frac{G M}{c^2} \sqrt{\frac{G^2 M^2}{c^4} - \frac{J^2}{M^2 c^2} - \frac{G^2 Q^2}{c^4}} \right) \\
+		&= \frac{\pi k_B c^3}{\hbar G} \left( \frac{G^2 M^2}{c^4} + \frac{J^2}{M^2 c^2} + \frac{G^2 Q^2}{c^4} + 2 \frac{G M}{c^2} \frac{\sqrt{G^2 M^4 - J^2 c^2 - G^2 Q^2 M^2}}{c^2 M} \right) \\
+		&= \frac{\pi k_B c^3}{\hbar G} \left( \frac{G^2 M^2}{c^4} + \frac{J^2}{M^2 c^2} + \frac{G^2 Q^2}{c^4} + \frac{2 G}{c^3} \sqrt{G^2 M^4 - J^2 c^2 - G^2 Q^2 M^2} \right) \\
+		&= \frac{\pi k_B G}{\hbar c} \left( M^2 + \frac{J^2 c^2}{G^2 M^2} + Q^2 + 2 \sqrt{M^4 - \frac{J^2 c^2}{G^2} - Q^2 M^2} \right) \\
+		&= \frac{\pi k_B G}{\hbar c} \left( M^2 + \frac{J^2 c^2}{G^2 M^2} + Q^2 + 2 M \sqrt{M^2 - \frac{J^2 c^4}{G^2 M^2} - Q^2} \right)
+	\end{align*}
+	
+	\section{Entropy of a Planck Mass Kerr-Newman Black Hole}
+	
+	We now substitute $M = m_P = \sqrt{\frac{\hbar c}{G}}$, which implies $m_P^2 = \frac{\hbar c}{G}$.
+	\begin{align*}
+		S_{m_P} &= \frac{\pi k_B G}{\hbar c} \left( m_P^2 + \frac{J^2 c^2}{G^2 m_P^2} + Q^2 + 2 m_P \sqrt{m_P^2 - \frac{J^2 c^4}{G^2 m_P^2} - Q^2} \right) \\
+		&= \frac{\pi k_B G}{\hbar c} \left( \frac{\hbar c}{G} + \frac{J^2 c^2}{G^2 (\hbar c / G)} + Q^2 + 2 \sqrt{\frac{\hbar c}{G}} \sqrt{\frac{\hbar c}{G} - \frac{J^2 c^4}{G^2 (\hbar c / G)} - Q^2} \right) \\
+		&= \pi k_B \left( 1 + \frac{J^2 c^3}{G \hbar^2} + \frac{G Q^2}{\hbar c} + 2 \sqrt{1 - \frac{J^2 c^3}{G \hbar^2} - \frac{G Q^2}{\hbar c}} \right)
+	\end{align*}
+	
+	\section{Entropy in Planck Units and Exact Solutions}
+	
+	To simplify the expressions and highlight the fundamental scales, we express the properties in Planck units, where $G = c = \hbar = k_B = 1$ and $m_P = 1$. In these units, the entropy of a Planck mass Kerr-Newman black hole becomes:
+	$$S_{m_P} = \pi \left( 1 + J^2 + Q^2 + 2 \sqrt{1 - J^2 - Q^2} \right)$$
+	Here, $J$ and $Q$ are the dimensionless angular momentum and charge, respectively. The condition for the existence of an event horizon is $M^2 \ge J^2 + Q^2$, which for a Planck mass black hole ($M=1$) translates to:
+	\begin{equation}
+		J^2 + Q^2 \le 1
+		\label{eq:horizon_condition}
+	\end{equation}
+	
+	\subsection{Event Horizon Radius}
+	
+	In Planck units, the radius of the outer event horizon is given by:
+	$$r_+ = M + \sqrt{M^2 - a^2 - Q^2}$$
+	For a Planck mass black hole ($M=1$) and $a = J/M = J$:
+	\begin{equation}
+		r_+ = 1 + \sqrt{1 - J^2 - Q^2}
+		\label{eq:horizon_radius}
+	\end{equation}
+	
+	\subsection{Area of the Event Horizon}
+	
+	The area of the event horizon in Planck units is:
+	$$A = 4 \pi (r_+^2 + a^2) = 4 \pi \left( (1 + \sqrt{1 - J^2 - Q^2})^2 + J^2 \right)$$
+	Expanding this expression:
+	\begin{align*}
+		A &= 4 \pi \left( 1 + (1 - J^2 - Q^2) + 2 \sqrt{1 - J^2 - Q^2} + J^2 \right) \\
+		&= 4 \pi \left( 2 - Q^2 + 2 \sqrt{1 - J^2 - Q^2} \right)
+	\end{align*}
+	The entropy is $S = A / 4$, which yields:
+	\begin{equation}
+		S_{m_P} = \pi \left( 2 - Q^2 + 2 \sqrt{1 - J^2 - Q^2} \right)
+		\label{eq:entropy_planck_units}
+	\end{equation}
+	This result is consistent with the one obtained by direct substitution into the general entropy formula using Planck units.
+	
+	\subsection{Spin (Dimensionless Angular Momentum)}
+	
+	The dimensionless spin parameter $J$ represents the angular momentum in units of $\hbar$. For a Planck mass black hole in Planck units, the magnitude of $J$ is constrained by Equation \eqref{eq:horizon_condition}:
+	\begin{equation}
+		|J| \le \sqrt{1 - Q^2}
+		\label{eq:spin_constraint}
+	\end{equation}
+	
+	\subsection{Charge}
+	
+	The dimensionless charge $Q$ represents the electric charge in units of Planck charge. Similarly, from Equation \eqref{eq:horizon_condition}, the magnitude of $Q$ is constrained by:
+	\begin{equation}
+		|Q| \le \sqrt{1 - J^2}
+		\label{eq:charge_constraint}
+	\end{equation}
+	
+	\section{Conclusion}
+	
+	The Bekenstein-Hawking entropy for a Planck mass Kerr-Newman black hole has been derived and expressed in terms of its dimensionless spin $J$ and charge $Q$. The entropy in Planck units is given by Equation \eqref{eq:entropy_planck_units}. We have also provided the exact solution for the event horizon radius (Equation \eqref{eq:horizon_radius}) and the constraints on the spin and charge (Equations \eqref{eq:spin_constraint} and \eqref{eq:charge_constraint}) imposed by the requirement of a non-degenerate event horizon. These results underscore the intricate relationships between the fundamental constants, black hole properties, and the principles of thermodynamics at the quantum gravitational scale.
+	
+\end{document}

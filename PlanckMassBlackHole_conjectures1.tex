@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tensor}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{hypothesis}[definition]{Hypothesis}
+
+\title{Formalization of Hypotheses on Black Hole Information}
+\author{AI Assistant}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		This thesis formalizes several hypotheses concerning the information content of physical systems, with a specific focus on black holes. We provide rigorous mathematical definitions for the Bekenstein bound, total quantum information, and maximum classically accessible information. Utilizing these definitions, we present the null and alternative hypotheses in precise mathematical terms. Furthermore, we develop a meta-hypothesis describing the information dynamics of black holes throughout their life cycle, considering the causal structure and the impact of energy/mass exchange. We operate within the framework of natural units where $k_B = c = \hbar = G = 1$.
+	\end{abstract}
+	
+	\section{Definitions}
+	
+	\begin{definition}[Bekenstein Bound]
+		Let $\mathcal{R}$ be a spatially bounded region with a maximal linear dimension $R$. For a system $\Sigma$ with total energy $E$ contained within $\mathcal{R}$, the Bekenstein bound $B(\mathcal{R})$ is defined as
+		$$B(\mathcal{R}) = 2 \pi R E.$$
+		For a Kerr-Newman black hole with mass $M$, angular momentum $J$, and charge $Q$, the area of the event horizon is
+		$$A_{KN} = 4 \pi \left( M + \sqrt{M^2 - (J/M)^2 - Q^2} \right)^2 + 4 \pi (J/M)^2 = 4 \pi \left( 2 M^2 - Q^2 + 2 M \sqrt{M^2 - (J/M)^2 - Q^2} \right).$$
+		The Bekenstein bound associated with the black hole, considering the black hole itself as the system within its event horizon (with an effective radius related to the horizon area), is numerically equal to the Bekenstein-Hawking entropy in natural units, $S_{BH} = A_{KN} / 4 = \pi \left( 2 M^2 - Q^2 + 2 M \sqrt{M^2 - (J/M)^2 - Q^2} \right)$.
+	\end{definition}
+	
+	\begin{definition}[Total Quantum Information]
+		The total quantum information of a system $\Sigma$ described by a density operator $\rho_\Sigma$ acting on a Hilbert space $\mathcal{H}_\Sigma$ is quantified by the von Neumann entropy
+		$$I_Q(\rho_\Sigma) = S(\rho_\Sigma) = - \operatorname{Tr}_{\mathcal{H}_\Sigma}(\rho_\Sigma \ln \rho_\Sigma).$$
+		This quantity measures the total information encoded in the quantum state, including both classical and quantum correlations.
+	\end{definition}
+	
+	\begin{definition}[Maximum Classically Accessible Information]
+		The maximum classically accessible information $I_C(\rho_\Sigma)$ obtainable from a quantum system described by a density operator $\rho_\Sigma$ by an observer at asymptotic infinity ($\mathcal{I}^+$) over the system's lifetime is given by the supremum of the Holevo information $\chi(\mathcal{E}) = S(\sum_i p_i \rho_i) - \sum_i p_i S(\rho_i)$ over all possible ensembles $\mathcal{E} = \{p_i, \rho_i\}$ consistent with $\rho_\Sigma$ and all possible positive operator-valued measures (POVMs) that the observer can perform. For a black hole, we denote this by $I_C^{\infty}(\rho_{BH})$.
+	\end{definition}
+	
+	\section{Hypotheses}
+	
+	\begin{hypothesis}[Null Hypothesis ($H_0$): Bekenstein Bound and Total Quantum Information]
+		For any physical system $\Sigma$ contained within a region $\mathcal{R}$ with Bekenstein bound $B(\mathcal{R})$, the Bekenstein bound is greater than or equal to the total quantum information of the system:
+		$$H_0: B(\mathcal{R}) \ge I_Q(\rho_\Sigma).$$
+		For a black hole with event horizon $\mathcal{H}$ described by a quantum state $\rho_{BH}$, this implies
+		$$S(\rho_{BH}) \le \pi \left( 2 M^2 - Q^2 + 2 M \sqrt{M^2 - (J/M)^2 - Q^2} \right).$$
+	\end{hypothesis}
+	
+	\begin{hypothesis}[Alternative Hypothesis 1 ($H_1$): Bekenstein Bound and Classically Accessible Information]
+		For any physical system $\Sigma$ contained within a region $\mathcal{R}$ with Bekenstein bound $B(\mathcal{R})$, the Bekenstein bound is greater than or equal to the maximum classically accessible information of the system:
+		$$H_1: B(\mathcal{R}) \ge I_C(\rho_\Sigma).$$
+		For a black hole with event horizon $\mathcal{H}$ described by a quantum state $\rho_{BH}$, this implies
+		$$I_C^{\infty}(\rho_{BH}) \le \pi \left( 2 M^2 - Q^2 + 2 M \sqrt{M^2 - (J/M)^2 - Q^2} \right).$$
+	\end{hypothesis}
+	
+	\begin{hypothesis}[Alternative Hypothesis 2 ($H_2$): Information Retrieval from Black Holes]
+		For black holes, the total quantum information of the black hole system is equal to the maximum classically accessible information obtainable from it by an observer at asymptotic infinity over its entire lifetime:
+		$$H_2: I_Q(\rho_{BH}) = I_C^{\infty}(\rho_{BH}).$$
+		This hypothesis suggests that all quantum information initially contained within the black hole is eventually encoded in the outgoing Hawking radiation in a form that can be fully decoded by an asymptotic observer, implying a unitary evolution of the black hole system.
+	\end{hypothesis}
+	
+	\section{Meta-Hypothesis: Black Hole Evolution and Information}
+	
+	Consider a black hole formed from an initial quantum state $\rho_{initial}$ with von Neumann entropy $S(\rho_{initial})$. The black hole's state immediately after formation is $\rho_{BH}(t_{formation}^+)$ with mass $M_i$, angular momentum $J_i$, and charge $Q_i$, possessing a Bekenstein-Hawking entropy $S_{BH, i} = \pi \left( 2 M_i^2 - Q_i^2 + 2 M_i \sqrt{M_i^2 - (J_i/M_i)^2 - Q_i^2} \right)$.
+	
+	\begin{hypothesis}[Meta-Hypothesis]
+		A black hole at different stages of existence and dissolution exhibits the following properties:
+		\begin{enumerate}
+			\item \textbf{Formation:} Immediately after formation, the Bekenstein-Hawking entropy of the newly formed black hole provides an upper bound on its total quantum information:
+			$$S(\rho_{BH}(t_{formation}^+)) \le S_{BH, i}.$$
+			Furthermore, the total quantum information is greater than or equal to the maximum classically accessible information:
+			$$S(\rho_{BH}(t_{formation}^+)) \ge I_C^{\infty}(\rho_{BH}(t_{formation}^+)).$$
+			
+			\item \textbf{Hawking Radiation:} During the emission of Hawking radiation, the black hole evolves through a sequence of quantum states $\rho_{BH}(t)$ with decreasing mass $M(t)$ and Bekenstein-Hawking entropy $S_{BH}(t) = \pi \left( 2 M(t)^2 - Q(t)^2 + 2 M(t) \sqrt{M(t)^2 - (J(t)/M(t))^2 - Q(t)^2} \right)$. The emitted radiation, described by the quantum state $\rho_{rad}(t)$, carries away energy and potentially information. The maximum classically accessible information from the collected radiation up to time $t$, $I_C^{\infty}(\rho_{rad}(t))$, increases over time. The meta-hypothesis suggests that as long as the black hole has not completely evaporated:
+			$$S(\rho_{BH}(t)) \le S_{BH}(t)$$
+			and
+			$$S(\rho_{BH}(t)) \ge I_C^{\infty}(\rho_{BH}(t)).$$
+			The strict inequality $S(\rho_{BH}(t)) > I_C^{\infty}(\rho_{BH}(t))$ is expected due to the presence of the event horizon, which causally disconnects the interior of the black hole from the asymptotic observer. Optimal classical measurements by an external observer are limited by the causal structure and the principles of quantum mechanics, potentially leading to information loss or scrambling that hinders complete classical retrieval of the black hole's quantum state.
+			
+			\item \textbf{Evaporation:} As the black hole approaches complete evaporation, its mass tends towards a minimal value (e.g., Planck mass), and its Bekenstein-Hawking entropy tends towards a minimal value. If a stable remnant forms in a quantum state $\rho_{remnant}$, then its total quantum information is bounded by its Bekenstein-Hawking entropy (if defined), $S(\rho_{remnant}) \le S_{BH, final}$, and $S(\rho_{remnant}) \ge I_C^{\infty}(\rho_{remnant})$. If the black hole completely evaporates into radiation in a final quantum state $\rho_{final\_rad}$, and if the overall evolution is unitary, then the von Neumann entropy of the final radiation should equal the von Neumann entropy of the initial collapsing matter: $S(\rho_{final\_rad}) = S(\rho_{initial})$. The black hole information paradox arises from the apparent contradiction between Hawking's semiclassical calculations suggesting a thermal spectrum of radiation (leading to information loss) and the principle of unitarity in quantum mechanics. Hypothesis $H_2$ posits that $I_C^{\infty}(\rho_{final\_rad}) = S(\rho_{initial})$, resolving the paradox by suggesting that the information is indeed encoded in the radiation in a classically retrievable form, albeit perhaps highly scrambled. The meta-hypothesis suggests that at all stages of the process, the total quantum information of the combined system (black hole and radiation) is conserved, while the classically accessible information to any single asymptotic observer is constrained by the causal structure.
+		\end{enumerate}
+	\end{hypothesis}
+	
+	\section{Causal Structure and Information Boundaries}
+	
+	\begin{definition}[Causal Diamond]
+		The causal diamond $D(\mathcal{S})$ of a spacetime region $\mathcal{S}$ is the set of all points $p$ such that every inextendible causal curve through $p$ intersects $\mathcal{S}$. For a black hole formed from collapsing matter and evaporating into radiation, the relevant spacetime region $\mathcal{S}$ can be considered the union of the initial collapsing matter and the final outgoing radiation reaching asymptotic infinity. The causal diamond is bounded by the past light cone of the endpoint of evaporation and the future light cone of the beginning of formation.
+	\end{definition}
+	
+	For a black hole, the causal diamond is also naturally associated with the interior region bounded by its past and future event horizons. The past event horizon is the boundary of the region that will eventually fall into the black hole, and the future event horizon is the boundary of the region from which nothing can escape to future null infinity ($\mathcal{I}^+$).
+	
+	The meta-hypothesis suggests that the total quantum information associated with the black hole's formation and evaporation process is fundamentally encoded within the degrees of freedom residing within its causal diamond. The event horizons act as one-way membranes, affecting the accessibility of this information to observers located in different spacetime regions. Information about the initial state of the collapsing matter crosses the past event horizon and contributes to the black hole's internal quantum information. During evaporation, information is carried away by the Hawking radiation across the future event horizon. The scrambling of information by the black hole's dynamics implies a complex relationship between the infalling quantum states and the outgoing radiation.
+	
+	\section{Dynamics of Entropy and Information Flow}
+	
+	Consider a black hole undergoing a small change in its mass, charge, or angular momentum due to the absorption or emission of a quantum of energy. Let the black hole be described by a state $\rho_{BH}$ with Bekenstein-Hawking entropy $S_{BH}$. The absorption of a quantum with energy $\delta E$ (at infinity) will change the black hole's mass by $\delta M = \delta E$. The corresponding change in the Bekenstein-Hawking entropy $\delta S_{BH}$ can be calculated from the entropy formula.
+	
+	\begin{proposition}
+		For a non-rotating, uncharged (Schwarzschild) black hole, a small change in mass $\delta M$ leads to a change in entropy $\delta S_{BH} = 8 \pi M \delta M$.
+		\begin{proof}
+			The Bekenstein-Hawking entropy of a Schwarzschild black hole is $S_{BH} = 4 \pi M^2$. Therefore, $\delta S_{BH} = \frac{d S_{BH}}{d M} \delta M = 8 \pi M \delta M$.
+		\end{proof}
+	\end{proposition}
+	
+	This proposition indicates that any energy exchange with the black hole is accompanied by a change in its Bekenstein-Hawking entropy, suggesting a connection between energy, entropy, and information. The meta-hypothesis posits that the total quantum information of the black hole evolves in tandem with its entropy. The absorption of a quantum increases the black hole's total quantum information, while the emission of Hawking radiation transfers some of this information to the external environment.
+	
+	\begin{remark}
+		The precise mechanism by which the quantum information of the infalling matter is encoded in the outgoing Hawking radiation remains a central question in the black hole information paradox. Hypothesis $H_2$ suggests that this encoding is such that the information is ultimately recoverable by an asymptotic observer, implying a unitary evolution.
+	\end{remark}
+	
+	\section{Black Hole Motion and Interactions}
+	
+	The interaction of a black hole with its environment, through absorption or emission, not only changes its internal state (mass, charge, angular momentum) but also affects its motion through spacetime due to the conservation of momentum. If a black hole emits a particle with four-momentum $\tensor{p}{^\mu_{out}}$, the black hole will recoil with an equal and opposite four-momentum $-\tensor{p}{^\mu_{out}}$ in its local rest frame. Similarly, the absorption of a particle with four-momentum $\tensor{p}{^\mu_{in}}$ will change the black hole's four-momentum by $+\tensor{p}{^\mu_{in}}$.
+	
+	\begin{proposition}
+		The absorption of a quantum of information by a black hole increases its total quantum information by at least the Shannon entropy of the absorbed quantum state relative to the black hole's prior state.
+		\begin{proof}
+			Let the black hole be in a state with density operator $\rho_{BH}$ and the incoming quantum be in a state $\rho_{in}$. The combined system is initially in the state $\rho_{BH} \otimes \rho_{in}$. After absorption, the black hole transitions to a new state $\rho'_{BH}$. The change in the black hole's von Neumann entropy is $S(\rho'_{BH}) - S(\rho_{BH})$. The strong subadditivity of von Neumann entropy implies that the information gained by the black hole is related to the entropy of the incoming quantum. A rigorous proof would require a detailed model of the absorption process, which is beyond the scope of this formalization. However, intuitively, the black hole gains information about the absorbed quantum, increasing its total quantum information.
+		\end{proof}
+	\end{proposition}
+	
+	The meta-hypothesis suggests that these interactions are fundamental to the flow of information into and out of the black hole. While the Bekenstein-Hawking entropy provides a macroscopic measure of the black hole's information capacity, the microscopic details of how quantum information is processed and transferred remain an active area of research.
+	
+	\section{Conclusion}
+	
+	This thesis has provided a formal mathematical framework for discussing hypotheses related to black hole information. We have defined key concepts such as the Bekenstein bound, total quantum information, and maximum classically accessible information. The null and alternative hypotheses concerning the relationship between these quantities have been stated precisely. Furthermore, the meta-hypothesis offers a comprehensive view of the information dynamics of black holes throughout their life cycle, emphasizing the roles of formation, Hawking radiation, and evaporation. The discussion of the causal structure and the impact of energy/mass exchange provides further context for understanding the flow and accessibility of information associated with black holes. These formalizations lay the groundwork for future theoretical investigations aimed at resolving the black hole information paradox and achieving a deeper understanding of quantum gravity.
+	
+\end{document}

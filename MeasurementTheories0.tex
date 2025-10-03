@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tensor}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{hypothesis}[definition]{Hypothesis}
+\newtheorem{claim}[definition]{Claim}
+\newtheorem{observation}[definition]{Observation}
+
+\title{Formalization of Hypotheses on Black Hole Information and Measurement (Continued)}
+\author{AI Assistant}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		This thesis continues the formalization of hypotheses on black hole information by rigorously developing the mathematical framework for classical and non-classical measurement of the past and future, incorporating the concepts of irreversible and reversible causal processes. We provide precise definitions for these types of measurements relative to an observer within the causal structure of spacetime. Finally, we analyze the implications of these definitions for information accessibility. We continue to operate within the framework of natural units where $k_B = c = \hbar = G = 1$.
+	\end{abstract}
+	
+	\section{Measurement of the Past and Future (Further Development)}
+	
+	\subsection{Classical Measurement of the Future (Revised)}
+	
+	\begin{definition}[Classical Measurement of the Future (Revised)]
+		A classical measurement performed by an observer $\mathcal{O}$ at a spacetime point $p_{\mathcal{O}}$ that influences a future event $\mathcal{F}$ occurring at $p_{\mathcal{F}} \in I^+(p_{\mathcal{O}})$ is an irreversible causal process that propagates along future-directed timelike or null curves from $p_{\mathcal{O}}$ to $p_{\mathcal{F}}$, without an irreversible causal process propagating from $p_{\mathcal{F}}$ to $p_{\mathcal{O}}$. This process determines or constrains the definite classical properties or outcome of the event $\mathcal{F}$ through an irreversible interaction at $p_{\mathcal{F}}$.
+	\end{definition}
+	
+	\subsection{Classical Measurement of the Past (Revised)}
+	
+	\begin{definition}[Classical Measurement of the Past (Revised)]
+		A classical measurement performed by an observer $\mathcal{O}$ at a spacetime point $p_{\mathcal{O}}$ that yields information about a past event $\mathcal{E}$ occurring at $p_{\mathcal{E}} \in I^-(p_{\mathcal{O}})$ is an irreversible causal process that propagates along future-directed timelike or null curves from $p_{\mathcal{E}}$ to $p_{\mathcal{O}}$ (or potentially future of $p_{\mathcal{O}}$), without an irreversible causal process propagating from $p_{\mathcal{O}}$ (or its future) to $p_{\mathcal{E}}$. This process results in a definite classical outcome at the observer (or their future).
+	\end{definition}
+	
+	\subsection{Non-Classical Measurement of the Future (New Definition)}
+	
+	\begin{definition}[Non-Classical Measurement of the Future]
+		A non-classical measurement related to a future event $\mathcal{F}$ occurring at $p_{\mathcal{F}} \in I^+(p_{\mathcal{O}})$ by an observer $\mathcal{O}$ at $p_{\mathcal{O}}$ involves a reversible causal process that can propagate from the past to the future (potentially influencing the system related to $\mathcal{F}$) and also from the future back to the past (potentially influencing the observer or systems correlated with them), without necessarily resulting in an irreversible recording of a definite classical outcome at the time of the forward process.
+	\end{definition}
+	
+	\subsection{Non-Classical Measurement of the Past (New Definition)}
+	
+	\begin{definition}[Non-Classical Measurement of the Past]
+		A non-classical measurement related to a past event $\mathcal{E}$ occurring at $p_{\mathcal{E}} \in I^-(p_{\mathcal{O}})$ by an observer $\mathcal{O}$ at $p_{\mathcal{O}}$ involves a reversible causal process that can propagate from the future to the past (potentially originating from the observer or systems correlated with them and interacting with the remnants of $\mathcal{E}$) and also from the past to the future (potentially influencing the observer or their measurements), without necessarily relying on an irreversible causal process from the past resulting in an immediate definite classical outcome.
+	\end{definition}
+	
+	\section{Permissible Measurements Relative to an Observer (Formal Theorem Revisited)}
+	
+	\begin{theorem}[Causally Permissible Classical Measurements (Revisited)]
+		Let $\mathcal{O}$ be an observer at spacetime point $p_{\mathcal{O}}$.
+		
+		\begin{enumerate}
+			\item \textbf{Classical Measurement of the Past:} $\mathcal{O}$ can obtain definite classical information about an event $\mathcal{E}$ at $p_{\mathcal{E}} \in I^-(p_{\mathcal{O}})$ if and only if there exists an irreversible causal process propagating along future-directed timelike or null curves from $p_{\mathcal{E}}$ to $p_{\mathcal{O}}$ (or a point in the future of $p_{\mathcal{O}}$ on the observer's worldline) that results in an irreversible recording of a definite classical outcome for $\mathcal{O}$, and there is no irreversible causal process propagating from $p_{\mathcal{O}}$ (or its future) to $p_{\mathcal{E}}$.
+			
+			\item \textbf{Classical Measurement of the Future:} $\mathcal{O}$ can classically influence an event $\mathcal{F}$ at $p_{\mathcal{F}} \in I^+(p_{\mathcal{O}})$ if and only if $\mathcal{O}$ initiates an irreversible causal process at $p_{\mathcal{O}}$ that propagates along future-directed timelike or null curves to $p_{\mathcal{F}}$ and irreversibly alters the state or properties of the system at $p_{\mathcal{F}}$ in a way that determines or constrains the classical outcome of the event $\mathcal{F}$, and there is no irreversible causal process propagating from $p_{\mathcal{F}}$ to $p_{\mathcal{O}}$.
+		\end{enumerate}
+		\begin{proof}
+			The proof follows directly from the definitions of classical measurement of the past and future, which are explicitly defined in terms of irreversible causal processes with specific directions of propagation relative to the observer and the event being measured. The "if and only if" condition emphasizes the necessity and sufficiency of these irreversible causal processes for a measurement to be considered classical in the context of past or future events.
+		\end{proof}
+	\end{theorem}
+	
+	\begin{remark}
+		The absence of an irreversible causal process propagating in the opposite direction is crucial for defining the directionality of the classical measurement. For the past, the information originates from the past event and irreversibly registers with the observer. For the future, the observer's action irreversibly influences the future event.
+	\end{remark}
+	
+	\begin{proposition}[Predictive Inferences are Non-Classical Measurements (Revisited)]
+		Predictive inferences about future events based solely on current information and deterministic physical laws are non-classical measurements of the future according to Definition 3.3.
+		\begin{proof}
+			A predictive inference relies on the deterministic or probabilistic evolution of a system according to physical laws, which are typically time-reversible at a fundamental level (even if macroscopic phenomena appear irreversible). The observer making the prediction does not initiate an irreversible causal process to enforce the predicted outcome. Furthermore, the process of making a prediction (e.g., through computation) can, in principle, be reversed with sufficient knowledge of the microstates involved, especially in idealized scenarios. The ability for reversible propagation of influence between the "prediction" and the "future event" (in the sense that the prediction is based on the evolution governed by reversible laws) aligns with the definition of a non-classical measurement of the future. The absurd argument mentioned previously likely arises from a misunderstanding of the idealization of reversible processes in theoretical contexts versus the practical irreversibility of macroscopic computation.
+		\end{proof}
+	\end{proposition}
+	
+	\section{Implications for Information Accessibility}
+	
+	The refined definitions of classical and non-classical measurements have significant implications for the accessibility of information about the past and the influence on the future.
+	
+	\begin{observation}
+		Classical information about a past event is only accessible to an observer if an irreversible record of that event (or something causally related to it) has propagated to the observer along a future-directed causal path. This record constitutes a local increase in entropy at the observer.
+	\end{observation}
+	
+	\begin{observation}
+		Classical influence on a future event requires the observer to initiate an irreversible process that propagates to the future and alters the state of the system involved in the future event in a definite classical way. This constitutes a local increase in entropy at the point of influence in the future.
+	\end{observation}
+	
+	\begin{observation}
+		Non-classical measurements, involving reversible processes, might allow for accessing information about the past or influencing the future in ways that are not constrained by the need for a direct irreversible causal signal carrying a definite classical record. Entanglement, for example, allows for correlations between spatially separated events without a classical signal passing between them. Similarly, reversible quantum computations might allow for inferences about the future without irreversibly fixing its outcome.
+	\end{observation}
+	
+	\section{Conclusion}
+	
+	This continuation of our thesis has provided refined definitions for classical and non-classical measurements of the past and future, emphasizing the crucial role of irreversible and reversible causal processes and their directionality relative to the observer and the measured event. The theorem on causally permissible classical measurements has been revisited to align with these refined definitions. We have also clarified the nature of predictive inferences as non-classical measurements. These formalizations provide a more precise framework for discussing the acquisition and manipulation of information within the constraints of spacetime causality and the principles of thermodynamics and quantum mechanics.
+	
+\end{document}

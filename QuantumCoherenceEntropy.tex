@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+
+\title{Quantifying the Difference Between Total and Classically Accessible Information in a Quantum System}
+\author{AI Assistant}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		This thesis formalizes the distinction between the total information content of a quantum system and the information that can be extracted through classical measurements. We employ the von Neumann entropy as the measure of total quantum information and the Shannon entropy of measurement outcomes for classically accessible information. The relative entropy of coherence is rigorously introduced as the primary quantifier of this fundamental difference, emphasizing the informational role of quantum coherence.
+	\end{abstract}
+	
+	\section{Introduction}
+	
+	The information paradigm in quantum mechanics reveals a richer structure than its classical counterpart. Quantum systems can harbor information that is inherently quantum and inaccessible through standard classical measurements. The total information inherent in a quantum state is precisely quantified by the von Neumann entropy. However, when a quantum system is subjected to a classical measurement, the information gained is described by the Shannon entropy of the resulting probability distribution. The discrepancy between these two entropies unveils the quantum aspects of information, notably quantum coherence, which underpins the potential advantages of quantum technologies. This thesis provides a rigorous mathematical framework for quantifying this difference.
+	
+	\section{Total Quantum Information: Von Neumann Entropy}
+	
+	Consider a quantum system residing in a Hilbert space $\mathcal{H}$, described by a density operator $\rho$, which is a positive semi-definite operator with trace equal to one ($\rho \ge 0$, $\text{Tr}(\rho) = 1$). The total information content of this quantum state is quantified by the von Neumann entropy, defined as:
+	\begin{equation}
+		S(\rho) = -\text{Tr}(\rho \log_2 \rho)
+		\label{eq:von_neumann_entropy}
+	\end{equation}
+	Here, $\log_2$ denotes the logarithm to the base 2, and the trace ($\text{Tr}$) is taken over the Hilbert space $\mathcal{H}$. The von Neumann entropy is basis-independent and serves as the quantum generalization of the Shannon entropy.
+	
+	\section{Classically Accessible Information: Shannon Entropy}
+	
+	Let the quantum system in state $\rho$ be measured with respect to an orthonormal basis $\mathcal{B} = \{|b_i\rangle\}_{i=1}^d$ of the $d$-dimensional Hilbert space $\mathcal{H}$. According to Born's rule, the probability of obtaining the measurement outcome corresponding to the basis state $|b_i\rangle$ is given by:
+	\begin{equation}
+		p_i = \langle b_i|\rho|b_i\rangle
+		\label{eq:born_rule}
+	\end{equation}
+	The set of probabilities $\{p_i\}_{i=1}^d$ forms a probability distribution. The amount of information gained about the system from this specific measurement is quantified by the Shannon entropy of this distribution:
+	\begin{equation}
+		H(\mathcal{B}, \rho) = -\sum_{i=1}^d p_i \log_2 p_i = -\sum_{i=1}^d \langle b_i|\rho|b_i\rangle \log_2 \langle b_i|\rho|b_i\rangle
+		\label{eq:shannon_entropy}
+	\end{equation}
+	The Shannon entropy depends on the chosen measurement basis $\mathcal{B}$.
+	
+	\section{Quantifying the Difference: Relative Entropy of Coherence}
+	
+	The discrepancy between the total quantum information $S(\rho)$ and the classically accessible information $H(\mathcal{B}, \rho)$ from a specific measurement basis $\mathcal{B}$ arises from quantum coherence. Coherence, with respect to the basis $\mathcal{B}$, is embodied in the off-diagonal elements of the density matrix $\rho$ when expressed in that basis. These off-diagonal elements contain quantum information that is not directly revealed by a measurement in $\mathcal{B}$.
+	
+	To isolate the incoherent part of the quantum state with respect to the basis $\mathcal{B}$, we define the dephased state $\rho_{\mathcal{B}}$ by removing the off-diagonal elements of $\rho$ in the basis $\mathcal{B}$:
+	\begin{equation}
+		\rho_{\mathcal{B}} = \sum_{i=1}^d \langle b_i|\rho|b_i\rangle |b_i\rangle\langle b_i| = \sum_{i=1}^d p_i |b_i\rangle\langle b_i|
+		\label{eq:dephased_state}
+	\end{equation}
+	The von Neumann entropy of this dephased state is:
+	\begin{equation}
+		S(\rho_{\mathcal{B}}) = -\text{Tr}(\rho_{\mathcal{B}} \log_2 \rho_{\mathcal{B}}) = -\sum_{i=1}^d p_i \log_2 p_i = H(\mathcal{B}, \rho)
+		\label{eq:entropy_dephased_state}
+	\end{equation}
+	This shows that the Shannon entropy of the measurement outcomes in the basis $\mathcal{B}$ is equal to the von Neumann entropy of the state dephased in that basis.
+	
+	The relative entropy of coherence of the state $\rho$ with respect to the basis $\mathcal{B}$ is formally defined as:
+	\begin{equation}
+		C_{rel}(\rho, \mathcal{B}) = S(\rho_{\mathcal{B}}) - S(\rho)
+		\label{eq:relative_entropy_coherence}
+	\end{equation}
+	This quantity is non-negative, $C_{rel}(\rho, \mathcal{B}) \ge 0$, and quantifies the amount of quantum coherence present in $\rho$ relative to $\mathcal{B}$.
+	
+	\begin{proposition}
+		The difference between the total information of a quantum state $\rho$ and the classically accessible information from a measurement in the basis $\mathcal{B}$ is given by the relative entropy of coherence with respect to that basis:
+		$$C_{rel}(\rho, \mathcal{B}) = H(\mathcal{B}, \rho) - S(\rho)$$
+		This difference represents the quantum information encoded in the coherences of the state $\rho$ relative to the measurement basis $\mathcal{B}$, which is not directly accessible through a measurement in that basis.
+	\end{proposition}
+	\begin{proof}
+		From Equation \eqref{eq:relative_entropy_coherence} and Equation \eqref{eq:entropy_dephased_state}, we have:
+		$$C_{rel}(\rho, \mathcal{B}) = S(\rho_{\mathcal{B}}) - S(\rho) = H(\mathcal{B}, \rho) - S(\rho)$$
+		This directly shows that the relative entropy of coherence quantifies the difference between the classically accessible information (Shannon entropy of measurement outcomes) and the total quantum information (von Neumann entropy). The information lost or inaccessible through the measurement in the basis $\mathcal{B}$ is precisely the information contained within the quantum coherences relative to that basis.
+	\end{proof}
+	
+	\section{Example: A Qubit}
+	
+	Consider a qubit in the pure state $|\psi\rangle = \alpha |0\rangle + \beta |1\rangle$, where $|\alpha|^2 + |\beta|^2 = 1$. The density operator is $\rho = |\psi\rangle\langle\psi| = \begin{pmatrix} |\alpha|^2 & \alpha \beta^* \\ \alpha^* \beta & |\beta|^2 \end{pmatrix}$ in the basis $\{|0\rangle, |1\rangle\}$. The von Neumann entropy of a pure state is $S(\rho) = 0$.
+	
+	Measurement in the computational basis $\mathcal{B} = \{|0\rangle, |1\rangle\}$ yields probabilities $p_0 = |\alpha|^2$ and $p_1 = |\beta|^2$. The Shannon entropy is $H(\mathcal{B}, \rho) = -|\alpha|^2 \log_2 |\alpha|^2 - |\beta|^2 \log_2 |\beta|^2$.
+	
+	The relative entropy of coherence is $C_{rel}(\rho, \mathcal{B}) = H(\mathcal{B}, \rho) - S(\rho) = -|\alpha|^2 \log_2 |\alpha|^2 - |\beta|^2 \log_2 |\beta|^2$. This quantity is non-zero if the qubit is in a superposition (i.e., $\alpha \beta^* \neq 0$), indicating the presence of coherence.
+	
+	\section{Conclusion}
+	
+	The quantification of the difference between total quantum information and classically accessible information is a cornerstone of quantum information theory. The relative entropy of coherence, $C_{rel}(\rho, \mathcal{B}) = H(\mathcal{B}, \rho) - S(\rho)$, provides a rigorous measure of this difference, highlighting the crucial role of quantum coherence in encoding information that transcends classical descriptions. While this thesis focused on a specific measure of coherence, it is important to note that other measures exist, and the ultimate limit on the classical information that can be extracted from a quantum state is given by the Holevo bound, which considers the encoding of classical information into quantum states. Understanding these distinctions is fundamental for advancing quantum technologies and our comprehension of the quantum nature of information.
+	
+\end{document}

@@ -1,0 +1,140 @@
+Output:
+
+--- End Refutation Experiment: Bell Scenario ---
+--- End Refutation Experiment: Liar Paradox ---
+--- Main Execution - Sequence A (No Liar Paradox First) ---nn--- Bell Scenario Experiment (Confirmation) ---
+Relation: Bell Scenario Relation (Non-Local) - ENCODED
+
+--- Hypothesis Test: H_Bell - Non-Reflexivity under Classical Interpretation ---
+Hypothesis (H_Bell): Classical interpretation -> bell-scenario-relation is NOT reflexive (threshold 0.5).
+Null Hypothesis (H_Bell'): Classical interpretation -> bell-scenario-relation IS reflexive (threshold 0.5).
+Reflexive under CLASSICAL-INTERPRETATION interpretation? (Threshold: 0.5) 
+EVENT-A is related to itself: (0.0 QUANTUM-INTERPRETATION 1.0)
+EVENT-B is related to itself: (0.0 QUANTUM-INTERPRETATION 1.0)
+Outcome: Experiment REFUTES H_Bell, FAILS to refute H_Bell'. (Unexpected Classical Reflexivity)
+
+--- Hypothesis Test: H_Bell_Quantum - Reflexivity under Quantum Interpretation ---
+Hypothesis (H_Bell_Quantum): Quantum interpretation -> bell-scenario-relation IS reflexive (threshold 0.5).
+Null Hypothesis (H_Bell_Quantum'): Quantum interpretation -> bell-scenario-relation is NOT reflexive (threshold 0.5).
+Reflexive under QUANTUM-INTERPRETATION interpretation? (Threshold: 0.5) 
+EVENT-A is related to itself: NIL
+Outcome: Experiment REFUTES H_Bell_Quantum, FAILS to refute H_Bell_Quantum'. (Unexpected Non-Reflexivity under Quantum Interpretation)
+--- End Bell Scenario Experiment (Confirmation) ---
+--- Tarskian Consequence Relation (Local Example) ---
+Relation: Tarskian Consequence Relation (Local) - ENCODED
+Reflexive under Classical Interpretation? (Threshold 0.5) 
+P is consequence of itself: (1.0)
+Q is consequence of itself: (1.0)
+--- End Tarskian Consequence Relation (Local Example) ---
+--- Generalized Decision Procedure ---
+Statement: LIAR-STATEMENT
+Using Encoded Relation: LIAR-PARADOX-RELATION
+Evaluating under interpretations: (CLASSICAL-INTERPRETATION
+                                   NON-CLASSICAL-INTERPRETATION
+                                   PARACONSISTENT-INTERPRETATION
+                                   DIALETHEIST-INTERPRETATION
+                                   CONTEXTUAL-INTERPRETATION-1
+                                   CONTEXTUAL-INTERPRETATION-2)
+Decision under CLASSICAL-INTERPRETATION Interpretation: (0.0
+                                                         NON-CLASSICAL-INTERPRETATION
+                                                         0.8
+                                                         PARACONSISTENT-INTERPRETATION
+                                                         1.0
+                                                         DIALETHEIST-INTERPRETATION
+                                                         1.0
+                                                         CONTEXTUAL-INTERPRETATION-1
+                                                         (LAMBDA (STATEMENT)
+                                                           (IF (EQ STATEMENT
+                                                                   STATEMENT-P)
+                                                               (VECTOR 0.7)
+                                                               (VECTOR 0.0)))
+                                                         CONTEXTUAL-INTERPRETATION-2
+                                                         (LAMBDA (STATEMENT)
+                                                           (IF (EQ STATEMENT
+                                                                   STATEMENT-Q)
+                                                               (VECTOR 0.7)
+                                                               (VECTOR 0.0)))) 
+Decision under NON-CLASSICAL-INTERPRETATION Interpretation: NIL 
+Decision under PARACONSISTENT-INTERPRETATION Interpretation: NIL 
+Decision under DIALETHEIST-INTERPRETATION Interpretation: NIL 
+Decision under CONTEXTUAL-INTERPRETATION-1 Interpretation: NIL 
+Decision under CONTEXTUAL-INTERPRETATION-2 Interpretation: NIL 
+
+--- Non-Singular Outcome Analysis ---
+Interpretation-Dependent Decisions: Decisions vary across interpretations.
+Generalized logical relations offer interpretation-dependent outcomes.
+--- Generalized Decision Procedure ---
+Statement: EVENT-A
+Using Encoded Relation: BELL-SCENARIO-RELATION
+Evaluating under interpretations: (CLASSICAL-INTERPRETATION
+                                   QUANTUM-INTERPRETATION)
+Decision under CLASSICAL-INTERPRETATION Interpretation: (0.0
+                                                         QUANTUM-INTERPRETATION
+                                                         1.0) 
+Decision under QUANTUM-INTERPRETATION Interpretation: NIL 
+
+--- Non-Singular Outcome Analysis ---
+Interpretation-Dependent Decisions: Decisions vary across interpretations.
+Generalized logical relations offer interpretation-dependent outcomes.
+--- Generalized Decision Procedure ---
+Statement: P
+Using Encoded Relation: TARSKIAN-RELATION
+Evaluating under interpretations: (CLASSICAL-INTERPRETATION)
+Decision under CLASSICAL-INTERPRETATION Interpretation: (1.0) 
+
+--- Non-Singular Outcome Analysis ---
+Interpretation-Dependent Decisions: Decisions vary across interpretations.
+Generalized logical relations offer interpretation-dependent outcomes.
+--- Refutation Experiment: Bell Scenario ---
+Attempting to refute: H_Bell - Non-Reflexivity of bell-scenario-relation under :classical-interpretation
+Trying to find a :classical-interpretation where bell-scenario-relation *is* reflexive.
+Relation: Bell Scenario Relation (Non-Local) - ENCODED
+Checking for Reflexivity under a *modified* :classical-interpretation...
+Reflexive under REFUTATION-CLASSICAL-INTERPRETATION interpretation? 
+Reflexive under REFUTATION-CLASSICAL-INTERPRETATION interpretation? (Threshold: 0.5) 
+EVENT-A is related to itself: NIL
+Outcome: Refutation Experiment *FAILS* to refute H_Bell (under modified :classical-interpretation). (H_Bell remains robust)
+--- Refutation Experiment: Liar Paradox ---
+Attempting to refute: H_Liar_NonClassical - Reflexivity of liar-paradox-relation under :non-classical-interpretation
+Trying to find a :non-classical-interpretation where liar-paradox-relation is *not* reflexive.
+Relation: Liar Paradox Relation (Non-Local, Self-Referential) - ENCODED
+Checking for Reflexivity under a *modified* :non-classical-interpretation...
+Reflexive under REFUTATION-NON-CLASSICAL-INTERPRETATION interpretation? 
+Reflexive under REFUTATION-NON-CLASSICAL-INTERPRETATION interpretation? (Threshold: 0.5) 
+STATEMENT-P is related to itself: NIL
+Outcome: Refutation Experiment *FAILS* to refute H_Liar_NonClassical (under modified :non-classical-interpretation). (H_Liar_NonClassical remains robust)
+--- Non-Classical Logical Relations Methodology ---
+Methodology based on Generalized Logical Relations and Non-Locality:
+- Hypothesize: Contrast classical vs. non-classical relations, graded relatedness, matrix/vector spaces.
+- Define: Define local/non-local relations, reflexivity, symmetry, transitivity, context-dependence, graded relatedness, n-to-m relations, matrix/vector spaces.
+- Theoremize: Derive theorems on non-locality impact on Tarskian properties, non-singular outcomes, algebraic properties.
+- Experiment: Test hypotheses/theorems via paradoxes, decision procedures, refutation experiments, vector spaces, non-algebraic properties.
+- Analyze Outcomes: Interpretation-dependent decisions, non-singular outcomes, refutation robustness, vector spaces, graded relatedness, algebraic properties.
+- Refine Theory: Refine theory based on experiments, considering graded relatedness, refutation outcomes, mathematical representations, non-algebraic behavior.
+--- End Non-Classical Logical Relations Methodology ---
+n--- n-to-m Relation Design ---
+Evaluating n-m-relation with inputs (STATEMENT-X STATEMENT-Y STATEMENT-Z) and interpretations (CONTEXT-A
+                                                                                               CONTEXT-B
+                                                                                               CONTEXT-DEFAULT):
+n-m-relation output: #(0.3 0.1)
+--- End n-to-m Relation Design ---nn--- Experiment: Testing Non-Transitivity of n-m-relation (Consistency) ---
+Relation Output AB (Inputs: (STATEMENT-X STATEMENT-Y), Interpretations: (CONTEXT-AB
+                                                                         CONTEXT-AB)): #(0.9
+                                                                                         0.7), Consistency: 0.9
+Relation Output BC (Inputs: (STATEMENT-Y STATEMENT-Z), Interpretations: (CONTEXT-BC
+                                                                         CONTEXT-BC)): #(0.9
+                                                                                         0.7), Consistency: 0.9
+Relation Output AC (Inputs: (STATEMENT-X STATEMENT-Z), Interpretations: (CONTEXT-AC
+                                                                         CONTEXT-AC)): #(0.3
+                                                                                         0.7), Consistency: 0.3
+
+--- Hypothesis Test: H_Transitivity - n-m-relation Consistency IS Transitive ---
+Hypothesis (H_Transitivity): High consistency(AB) AND high consistency(BC) -> high consistency(AC) (threshold 0.7).
+Null Hypothesis (H_Transitivity'): n-m-relation Consistency is NOT Transitive.
+Outcome: Experiment FAILS to refute H_Transitivity', REFUTES H_Transitivity. (Demonstrates Non-Transitivity)
+--- End Experiment: Testing Non-Transitivity of n-m-relation (Consistency) ---
+n--- Generalized n-m-relation Example ---
+Evaluating generalized-n-m-relation with inputs (STATEMENT-X STATEMENT-Y), interpretations (CONTEXT-A
+                                                                                            CONTEXT-B), and logical-relation #<FUNCTION BELL-SCENARIO-RELATION>:
+generalized-n-m-relation output: #(0.9 0.7)
+--- End Generalized n-m-relation Example ---nn--- End Main Execution - Sequence A ---n%

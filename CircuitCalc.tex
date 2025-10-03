@@ -1,0 +1,496 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{hyperref} % Added for hyperlinking references
+
+\title{General Semantic Space: The Complex Projective Line ($\mathbb{CP}^1$)}
+\author{}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{General Semantic Space: The Complex Projective Line ($\mathbb{CP}^1$)}
+	
+	Based on our discussions, the most natural and encompassing general semantic space for a non-bivalent formality based on complex numbers is the \textbf{Complex Projective Line} ($\mathbb{CP}^1$).
+	
+	\subsection{Definition}
+	
+	The Complex Projective Line, $\mathbb{CP}^1$, can be formally defined as the set of all lines through the origin in $\mathbb{C}^2$. Equivalently, it can be viewed as the set $\mathbb{C} \cup \{\infty\}$, which is the complex plane $\mathbb{C}$ augmented by a single point at infinity. Geometrically, $\mathbb{CP}^1$ is homeomorphic to a sphere, known as the \textbf{Riemann sphere}.
+	
+	More formally, $\mathbb{CP}^1$ is the set of equivalence classes of pairs of complex numbers $[z_0, z_1] \in \mathbb{C}^2 \setminus \{(0,0)\}$, where $[z_0, z_1] \sim [w_0, w_1]$ if there exists a non-zero complex number $\lambda \in \mathbb{C} \setminus \{0\}$ such that $z_0 = \lambda w_0$ and $z_1 = \lambda w_1$. Each equivalence class $[z_0, z_1]$ represents a ray through the origin in $\mathbb{C}^2$. The points in $\mathbb{CP}^1$ can be represented by a single complex coordinate $z = z_1/z_0$ if $z_0 \neq 0$, and the equivalence class $[0, 1]$ (where $z_0 = 0$) corresponds to the point at infinity, denoted $\infty$.
+	
+	\subsection{Why $\mathbb{CP}^1$ as the General Semantic Space?}
+	
+	\begin{enumerate}
+		\item \textbf{Includes the Complex Plane:} $\mathbb{CP}^1$ naturally includes the complex plane $\mathbb{C}$, allowing for semantic values to be represented by complex numbers with both magnitude and phase.
+		
+		\item \textbf{Includes a Point at Infinity:} The inclusion of a single point at infinity provides a natural "completion" of the complex plane. This point can have significant semantic interpretation in a non-bivalent logic (see below).
+		
+		\item \textbf{Rich Geometric Structure:} $\mathbb{CP}^1$ possesses a rich geometric structure (e.g., it's a Riemann surface) that can be leveraged to define logical operations.
+		
+		\item \textbf{Automorphisms are M\"{o}bius Transformations:} The biholomorphic automorphisms of $\mathbb{CP}^1$ are precisely the M\"{o}bius transformations, a powerful class of functions that can be used to define structure-preserving semantic transformations.
+	\end{enumerate}
+	
+	\subsection{The Role of the Point at Infinity ($\infty$)}
+	
+	The point at infinity in $\mathbb{CP}^1$ can be interpreted semantically in various ways within a non-bivalent framework:
+	
+	\begin{itemize}
+		\item \textbf{Absolute Truth or Falsity:} It could represent a state of absolute or ultimate truth or falsity, beyond the bounded values in the complex plane.
+		
+		\item \textbf{Maximal Certainty or Uncertainty:} It could represent a state of maximal semantic certainty or uncertainty, depending on the chosen interpretation.
+		
+		\item \textbf{Undefined or Paradoxical Status:} In some non-classical logics, a point at infinity can be associated with undefined or paradoxical propositions.
+	\end{itemize}
+	Its specific semantic role will depend on the chosen interpretation of the overall semantic space and the defined logical operations.
+	
+	\subsection{Connection to the $[-i, i]$ Model}
+	
+	The $[-i, i]$ interval is a specific subset of $\mathbb{CP}^1$. It's a line segment on the imaginary axis. Viewing $\mathbb{CP}^1$ as the general space allows us to understand $[-i, i]$ as a particular "slice" or "cut" of this larger space, corresponding to a specific range of magnitudes and phases (magnitude in $[0, 1]$ and phase of $\pm\pi/2$ or undefined at 0).
+	
+	\subsection{Higher Dimensions (Quaternions, Octonions)}
+	
+	The idea of extending to higher-dimensional algebras like quaternions ($\mathbb{H}$) or octonions ($\mathbb{O}$) is a fascinating direction for future exploration. These algebras have multiple imaginary units ($i, j, k$ for quaternions, and seven for octonions) and exhibit non-commutativity (for quaternions and octonions) and non-associativity (for octonions).
+	
+	Building a semantic space based on these would involve considering points in $\mathbb{R}^4$ (for quaternions) or $\mathbb{R}^8$ (for octonions) with the algebraic structure of these numbers. This would lead to non-bivalent logics with:
+	
+	\begin{itemize}
+		\item \textbf{Multiple Orthogonal "Imaginary" Dimensions:} More than just the single imaginary axis in the complex plane.
+		
+		\item \textbf{Non-Commutative and Non-Associative Operations:} Reflecting the properties of the underlying algebra.
+		
+		\item \textbf{Richer Forms of Phase and Angle Ambiguity:} Related to rotations in higher dimensions.
+	\end{itemize}
+	This is a significant generalization and would lead to fundamentally different types of non-bivalent logics compared to those based on complex numbers. While highly promising, it's a step beyond formally defining the framework based on $\mathbb{CP}^1$.
+	
+	\section{Views of $\mathbb{CP}^1$: Algebraic, Geometric, Categorical, and Topological}
+	
+	The Complex Projective Line ($\mathbb{CP}^1$) is a rich mathematical object that can be viewed from several interconnected perspectives, each providing valuable insights for its use as a semantic space in non-bivalent logic.
+	
+	\subsection{Algebraic View}
+	
+	The algebraic view focuses on the algebraic structures inherent in or definable on $\mathbb{CP}^1$.
+	
+	\begin{enumerate}
+		\item \textbf{Extended Field Structure:} $\mathbb{CP}^1 = \mathbb{C} \cup \{\infty\}$ can be seen as an extension of the complex field $\mathbb{C}$, where arithmetic operations (addition, multiplication, subtraction, division) are extended to include the point at infinity with specific rules (e.g., $z + \infty = \infty$ for $z \neq \infty$, $z \times \infty = \infty$ for $z \neq 0, \infty$, $1/0 = \infty$, $1/\infty = 0$). While not a standard field (as $\infty$ has no additive inverse), this structure provides a basic algebraic framework for defining logical operations.
+		
+		\item \textbf{M\"{o}bius Transformation Group:} The set of all M\"{o}bius transformations $f(z) = \frac{az+b}{cz+d}$ with $ad-bc \neq 0$ (where $a, b, c, d \in \mathbb{C}$) forms a group under composition. These transformations are the automorphisms of $\mathbb{CP}^1$ and preserve its complex structure and geometric properties (mapping circles to circles). This group structure is fundamental for understanding symmetries and equivalences within the semantic space, which can correspond to logical equivalences or transformations.
+		
+		\item \textbf{Projective Space:} $\mathbb{CP}^1$ is the 1-dimensional complex projective space, $\mathbb{P}^1(\mathbb{C})$. This perspective connects $\mathbb{CP}^1$ to the broader field of projective geometry, where points are defined by homogeneous coordinates $[z_0, z_1]$. This algebraic definition highlights the underlying linear algebraic structure from which $\mathbb{CP}^1$ arises (rays in $\mathbb{C}^2$).
+	\end{enumerate}
+	
+	\subsection{Geometric View}
+	
+	The geometric view focuses on $\mathbb{CP}^1$ as a geometric space.
+	
+	\begin{enumerate}
+		\item \textbf{Riemann Sphere:} $\mathbb{CP}^1$ is geometrically equivalent (homeomorphic) to the unit sphere in $\mathbb{R}^3$, known as the Riemann sphere. The stereographic projection provides a homeomorphism between the complex plane (augmented with $\infty$) and the sphere. This visualization is crucial for understanding the topology and geometry of $\mathbb{CP}^1$, allowing us to think about complex numbers and $\infty$ as points on a sphere.
+		
+		\item \textbf{Conformal Mapping:} M\"{o}bius transformations are conformal maps, meaning they preserve angles. This geometric property is significant; it implies that certain "angles" or "orientations" in the semantic space are preserved by these fundamental transformations, which could have logical interpretations.
+		
+		\item \textbf{Circles and Lines:} A key geometric property is that M\"{o}bius transformations map circles and lines in the complex plane to circles and lines in the complex plane (where lines are considered circles through infinity). This provides a specific type of geometric structure that is preserved by the automorphisms.
+		
+		\item \textbf{Bloch Sphere Connection:} The Riemann sphere is the geometric representation of the Bloch sphere, the space of pure states of a qubit. This deep connection links the semantic space directly to quantum information theory.
+	\end{enumerate}
+	
+	\subsection{Categorical View}
+	
+	The categorical view interprets $\mathbb{CP}^1$ and logical systems based on it within the framework of categories.
+	
+	\begin{enumerate}
+		\item \textbf{Object in Categories:} $\mathbb{CP}^1$ is an object in various mathematical categories, including the category of Topological Spaces (\textbf{Top}), the category of Riemann Surfaces, and categories within algebraic geometry.
+		
+		\item \textbf{Morphisms:} The relevant morphisms depend on the category. In \textbf{Top}, continuous maps are morphisms; homeomorphisms are isomorphisms. In the category of Riemann Surfaces, holomorphic maps are morphisms; biholomorphic maps (M\"{o}bius transformations) are isomorphisms.
+		
+		\item \textbf{Categorical Semantics of Logics:} Logical systems whose semantic values are points in $\mathbb{CP}^1$ can be interpreted in categories. The structure of the logic (connectives, inference rules) is mirrored by the structure of the category. Our observation of the "diamond" structure of logics on intervals as a commutation diagram in a category where objects are logics and morphisms relate their fixed-point sets is an example of this.
+		
+		\item \textbf{Connection to Hilb:} $\mathbb{CP}^1$ is the space of pure states of $\mathbb{C}^2$, which is an object in the category of Hilbert spaces (\textbf{Hilb}). This connection is vital for understanding the potential of $\mathbb{CP}^1$ as a semantic space for quantum logic or logics related to quantum computation.
+	\end{enumerate}
+	
+	\subsection{Topological View}
+	
+	The topological view focuses on the properties of $\mathbb{CP}^1$ as a topological space.
+	
+	\begin{enumerate}
+		\item \textbf{Compactness:} $\mathbb{CP}^1$ is a compact space. This means that every open cover of $\mathbb{CP}^1$ has a finite subcover. This topological property is important in analysis and can have implications for the behavior of functions and limits on $\mathbb{CP}^1$.
+		
+		\item \textbf{Connectedness:} $\mathbb{CP}^1$ is a connected space, meaning it cannot be divided into two disjoint non-empty open sets.
+		
+		\item \textbf{Homeomorphism to $S^2$:} As mentioned, $\mathbb{CP}^1$ is homeomorphic to the 2-sphere ($S^2$). This means they share all topological properties. This homeomorphism is an isomorphism in the category of Topological Spaces.
+	\end{enumerate}
+	
+	These four views -- algebraic, geometric, categorical, and topological -- are deeply interconnected and provide a comprehensive understanding of $\mathbb{CP}^1$ as a semantic space. The algebraic structure defines the operations, the geometric structure provides visualization and intuition, the topological structure gives properties like compactness and connectedness, and the categorical view provides a formal framework for relating $\mathbb{CP}^1$ to other mathematical structures and for building categories of logics on this space.
+	
+	\section{Potential Negation Operators on $\mathbb{CP}^1$}
+	
+	On $\mathbb{CP}^1$, logical negation operators should be functions that map $\mathbb{CP}^1$ to $\mathbb{CP}^1$ and capture some notion of opposition or inversion of semantic status. We analyze three involutive (applying the operation twice returns the original value) candidates for negation operators on $\mathbb{CP}^1$.
+	
+	\subsection{Candidate Negation 1: $\neg_1(z) = 1 - z$}
+	
+	This operator is a \textbf{M\"{o}bius transformation}. It is well-defined and an involution on $\mathbb{CP}^1$.
+	
+	\begin{itemize}
+		\item \textbf{Behavior at Key Points (0, 1, $\infty$):} $\neg_1(0) = 1$, $\neg_1(1) = 0$, $\neg_1(\infty) = \infty$. It swaps 0 and 1 and fixes $\infty$.
+		
+		\item \textbf{Fixed Points on $\mathbb{CP}^1$:} The only fixed point is $1/2$.
+		
+		\item \textbf{Semantic Interpretation:} Swaps 0 and 1 (like classical negation on these points), fixes $\infty$ (self-opposite ultimate state?), and fixes $1/2$ (a point of self-negation).
+	\end{itemize}
+	
+	\subsection{Candidate Negation 2: $\neg_2(z) = \bar{z}$ (Complex Conjugation)}
+	
+	This operator is the standard complex conjugation operation.
+	
+	\begin{itemize}
+		\item \textbf{Well-defined on $\mathbb{CP}^1$?} Yes. Complex conjugation is well-defined for all complex numbers. For the point at infinity, $\bar{\infty} = \infty$.
+		
+		\item \textbf{Is it an Involution?} Yes.
+		$\neg_2(\neg_2(z)) = \neg_2(\bar{z}) = \bar{\bar{z}} = z$.
+		Applying $\neg_2$ twice returns the original value $z$ for all $z \in \mathbb{CP}^1$.
+		
+		\item \textbf{Behavior at Key Points (0, 1, $\infty$):}
+		\begin{itemize}
+			\item $\neg_2(0) = \bar{0} = 0$. This operator fixes 0.
+			\item $\neg_2(1) = \bar{1} = 1$. This operator fixes 1.
+			\item $\neg_2(\infty) = \bar{\infty} = \infty$. This operator fixes the point at infinity.
+		\end{itemize}
+		
+		\item \textbf{Fixed Points on $\mathbb{CP}^1$:} Fixed points are values $z$ such that $\neg_2(z) = z$.
+		$\bar{z} = z$.
+		This equation holds for all real numbers ($z = x + 0i$, where $\bar{z} = x - 0i = x$).
+		The point at infinity is also a fixed point.
+		The fixed points of $\neg_2$ are all \textbf{real numbers} and $\infty$.
+		
+		\item \textbf{Semantic Interpretation:}
+		\begin{itemize}
+			\item This negation fixes all real numbers. If the real axis represents a spectrum of truth values (like in fuzzy logic where $[0, 1]$ is used), this negation leaves those truth values unchanged. This is a very different behavior from classical negation.
+			\item It fixes both 0 and 1, which could represent "False" and "True". This means $\neg_2(0) = 0$ and $\neg_2(1) = 1$, which is \textit{not} like classical negation on these points.
+			\item It fixes $\infty$, similar to $\neg_1$.
+			\item Complex conjugation reflects a point across the real axis in the complex plane. Semantically, this might correspond to an operation that preserves the "real" or "truth" component of a semantic value while inverting or reflecting the "imaginary" or "certainty/phase" component.
+		\end{itemize}
+	\end{itemize}
+	The negation $\neg_2(z) = \bar{z}$ behaves like the identity on the real axis and fixes infinity. Its semantic interpretation could relate to a form of negation that primarily affects the non-real aspects of a semantic value.
+	
+	\subsection{Candidate Negation 3: $\neg_3(z) = 1 - \bar{z}$}
+	
+	This operator combines complex conjugation and subtraction from 1.
+	
+	\begin{itemize}
+		\item \textbf{Well-defined on $\mathbb{CP}^1$?} Yes. It involves standard complex operations and conjugation.
+		\begin{itemize}
+			\item For $z \in \mathbb{C}$, $\neg_3(z) = 1 - \bar{z}$ is a standard operation.
+			\item For $z = \infty$, $\bar{z} = \infty$. $1 - \infty = \infty$. So, $\neg_3(\infty) = \infty$.
+		\end{itemize}
+		
+		\item \textbf{Is it an Involution?} Yes.
+		$\neg_3(\neg_3(z)) = \neg_3(1 - \bar{z}) = 1 - \overline{(1 - \bar{z})} = 1 - (\bar{1} - \bar{\bar{z}}) = 1 - (1 - z) = 1 - 1 + z = z$.
+		Applying $\neg_3$ twice returns the original value $z$ for all $z \in \mathbb{CP}^1$.
+		
+		\item \textbf{Behavior at Key Points (0, 1, $\infty$):}
+		\begin{itemize}
+			\item $\neg_3(0) = 1 - \bar{0} = 1 - 0 = 1$. This operator swaps 0 and 1.
+			\item $\neg_3(1) = 1 - \bar{1} = 1 - 1 = 0$. This operator swaps 1 and 0.
+			\item $\neg_3(\infty) = 1 - \bar{\infty} = \infty$. This operator fixes the point at infinity.
+		\end{itemize}
+		
+		\item \textbf{Fixed Points on $\mathbb{CP}^1$:} Fixed points are values $z$ such that $\neg_3(z) = z$.
+		$1 - \bar{z} = z$.
+		Let $z = x + yi$. Then $\bar{z} = x - yi$.
+		$1 - (x - yi) = x + yi$
+		$1 - x + yi = x + yi$
+		$1 - x = x$
+		$1 = 2x$
+		$x = 1/2$.
+		The imaginary part $yi$ cancels out. This equation holds for any value of $y$.
+		The fixed points of $\neg_3$ are all complex numbers of the form $1/2 + yi$, i.e., the \textbf{vertical line in the complex plane at $x = 1/2$}. The point at infinity is also a fixed point.
+		
+		\item \textbf{Semantic Interpretation:}
+		\begin{itemize}
+			\item Like $\neg_1$, this negation swaps the semantic values associated with 0 and 1, behaving like classical negation on these two points.
+			\item It fixes $\infty$, similar to $\neg_1$ and $\neg_2$.
+			\item The fixed points form a vertical line at $x = 1/2$. This suggests that all semantic values with a "real" component of $1/2$ are their own negation under $\neg_3$. This could represent a different kind of "neutrality" or "self-opposition" compared to the single point fixed by $\neg_1$.
+		\end{itemize}
+	\end{itemize}
+	The negation $\neg_3(z) = 1 - \bar{z}$ is another involutive negation on $\mathbb{CP}^1$ that swaps 0 and 1 and fixes infinity. Its unique feature is fixing an entire vertical line in the complex plane.
+	
+	\subsection{The Potential for Multiple Negations on $\mathbb{CP}^1$}
+	
+	As you've intuited, the move to $\mathbb{CP}^1$ and the non-classical context open the possibility for multiple distinct negation operators, going beyond the unique negation of Boolean logic. We've analyzed three involutive candidates on $\mathbb{CP}^1$.
+	
+	Your intuition about different types of negations (linear, paracomplete, paraconsistent) is highly relevant here. These different mathematical negations on $\mathbb{CP}^1$ could potentially serve as the basis for logical negations with different properties:
+	
+	\begin{itemize}
+		\item \textbf{Linear-like Negation (Involutive):} Operations that are involutive ($\neg\neg p = p$) are often associated with linear logic or logics with a strong sense of duality. All three candidates above are involutive.
+		
+		\item \textbf{Paracomplete-like Negation (Non-involutive):} Paracomplete logics often have negations where $\neg\neg p$ is weaker than $p$. This would require a negation operator on $\mathbb{CP}^1$ that is \textit{not} an involution. None of our current candidates are non-involutive. We would need to define a different type of operation.
+		
+		\item \textbf{Paraconsistent-like Negation (Non-involutive):} Paraconsistent logics often have negations where $\neg\neg p$ is stronger than $p$. This also requires a non-involutive negation operator on $\mathbb{CP}^1$.
+	\end{itemize}
+	The relationship between these different types of negations (e.g., one transforming into another) would depend on the specific definitions and the structure of the logic.
+	
+	Formally defining the general semantic space as $\mathbb{CP}^1$ is a crucial step. The next is to explore logical operations directly on this space.
+	
+	\section{Defining Conjunction and Disjunction on $\mathbb{CP}^1$}
+	
+	To analyze the Law of Non-Contradiction ($\neg z \wedge z = z$) and the Law of Excluded Middle ($\neg z \vee z = z$) identities for the negation operators defined above, we need to define conjunction ($\wedge$) and disjunction ($\vee$) operations that operate on the entire Complex Projective Line ($\mathbb{CP}^1$).
+	
+	Defining binary operations on $\mathbb{CP}^1$ is more complex than on intervals like $[-i, i]$ or $[-1, 1]$ because:
+	
+	\begin{enumerate}
+		\item \textbf{Lack of Total Order:} Complex numbers do not have a natural total order, making direct extensions of "minimum" or "maximum" based operations (like those used on the intervals) challenging.
+		
+		\item \textbf{The Point at Infinity:} Operations must be well-defined when one or both operands are the point at infinity.
+	\end{enumerate}
+	A plausible approach is to define operations that extend standard operations on the complex plane and handle the point at infinity appropriately. These operations should ideally possess properties like commutativity, associativity, and idempotency, although non-classical logics may relax some of these.
+	
+	We could explore operations based on:
+	
+	\begin{itemize}
+		\item \textbf{Arithmetic Operations:} Extending addition, multiplication, etc., with rules for infinity. For example, $z_1 + z_2$ could be a candidate for disjunction, and $z_1 \times z_2$ for conjunction, with rules like $z + \infty = \infty$ (for $z \neq \infty$) and $z \times \infty = \infty$ (for $z \neq 0, \infty$). However, these operations don't typically satisfy idempotency ($z+z=z$ or $z \times z=z$ are not generally true).
+		
+		\item \textbf{Geometric Operations:} Operations based on geometric transformations or relationships on the Riemann sphere.
+		
+		\item \textbf{Generalized Min/Max:} Attempting to define a form of minimum or maximum that works for complex numbers, perhaps based on magnitude, phase, or a lexicographical order.
+	\end{itemize}
+	Let's consider defining conjunction and disjunction on $\mathbb{CP}^1$ by extending standard complex multiplication and addition, with specific rules for the point at infinity. While these might not be idempotent everywhere, they are well-defined on $\mathbb{CP}^1$ and can serve as a starting point for analysis.
+	
+	\subsection{Candidate Conjunction: $z_1 \wedge z_2 = z_1 \times z_2$}
+	
+	Let's explore complex multiplication as a candidate for conjunction on $\mathbb{CP}^1$.
+	
+	\begin{itemize}
+		\item \textbf{Well-defined on $\mathbb{CP}^1$?} Yes, with standard rules for infinity:
+		\begin{itemize}
+			\item For $z_1, z_2 \in \mathbb{C}$, $z_1 \times z_2$ is standard complex multiplication.
+			\item For $z_1 \in \mathbb{C}, z_1 \neq 0$ and $z_2 = \infty$: $z_1 \times \infty = \infty$.
+			\item For $z_1 = 0$ and $z_2 = \infty$: $0 \times \infty$ is typically considered an indeterminate form. For a logical conjunction, we might need to assign a specific semantic value here, perhaps 0 (if conjunction with False/0 is always False) or $\infty$ (if conjunction with the extreme value $\infty$ is always $\infty$ unless the other value is 0). Let's tentatively define $0 \times \infty = 0$ for conjunction.
+			\item For $z_1 = \infty$ and $z_2 = \infty$: $\infty \times \infty = \infty$.
+		\end{itemize}
+		
+		\item \textbf{Properties:}
+		\begin{itemize}
+			\item \textbf{Commutativity:} Yes, complex multiplication is commutative ($z_1 \times z_2 = z_2 \times z_1$).
+			\item \textbf{Associativity:} Yes, complex multiplication is associative ($(z_1 \times z_2) \times z_3 = z_1 \times (z_2 \times z_3)$).
+			\item \textbf{Idempotency:} No, $z \times z = z$ only holds for $z = 0$ and $z = 1$. This operation is not generally idempotent on $\mathbb{CP}^1$.
+		\end{itemize}
+	\end{itemize}
+	
+	\subsection{Candidate Disjunction: $z_1 \vee z_2 = z_1 + z_2$}
+	
+	Let's explore complex addition as a candidate for disjunction on $\mathbb{CP}^1$.
+	
+	\begin{itemize}
+		\item \textbf{Well-defined on $\mathbb{CP}^1$?} Yes, with standard rules for infinity:
+		\begin{itemize}
+			\item For $z_1, z_2 \in \mathbb{C}$, $z_1 + z_2$ is standard complex addition.
+			\item For $z_1 \in \mathbb{C}$ and $z_2 = \infty$: $z_1 + \infty = \infty$.
+			\item For $z_1 = \infty$ and $z_2 = \infty$: $\infty + \infty$ is typically considered an indeterminate form. For a logical disjunction, we might need to assign a specific semantic value, perhaps $\infty$ (if disjunction of extreme values is extreme). Let's tentatively define $\infty + \infty = \infty$ for disjunction.
+		\end{itemize}
+		
+		\item \textbf{Properties:}
+		\begin{itemize}
+			\item \textbf{Commutativity:} Yes, complex addition is commutative ($z_1 + z_2 = z_2 + z_1$).
+			\item \textbf{Associativity:} Yes, complex addition is associative ($(z_1 + z_2) + z_3 = z_1 + (z_2 + z_3)$).
+			\item \textbf{Idempotency:} No, $z + z = z$ only holds for $z = 0$. This operation is not generally idempotent on $\mathbb{CP}^1$.
+		\end{itemize}
+	\end{itemize}
+	These candidate operations ($\times$ for conjunction, $+$ for disjunction) are simple extensions of standard arithmetic. Their lack of general idempotency means they won't behave like the conjunctions and disjunctions we saw on the intervals $[-i, i]$ and $[-1, 1]$ in terms of fixed points for LNC/LEM. However, they provide a starting point for analyzing the LNC/LEM identities with our chosen negations on $\mathbb{CP}^1$.
+	
+	\section{Fixed Point Analysis of LNC and LEM on $\mathbb{CP}^1$}
+	
+	Let's analyze the fixed points of the Law of Non-Contradiction ($\neg z \wedge z = z$) and the Law of Excluded Middle ($\neg z \vee z = z$) identities for each negation operator, using $\wedge = \times$ and $\vee = +$.
+	
+	\subsection{For Negation $\neg_1(z) = 1 - z$:}
+	
+	\begin{itemize}
+		\item \textbf{Law of Non-Contradiction ($(1 - z) \times z = z$):}
+		\begin{itemize}
+			\item For $z \in \mathbb{C}$: $z - z^2 = z$. This simplifies to $-z^2 = 0$, which means $z^2 = 0$. The only solution in $\mathbb{C}$ is $z = 0$.
+			\item For $z = \infty$: $\neg_1(\infty) = \infty$. $\infty \wedge \infty = \infty \times \infty = \infty$. We need $\infty = \infty$. This holds.
+		\end{itemize}
+		\textbf{Fixed points for LNC with $\neg_1$ are $\{0, \infty\}$.}
+		
+		\item \textbf{Law of Excluded Middle ($(1 - z) + z = z$):}
+		\begin{itemize}
+			\item For $z \in \mathbb{C}$: $1 - z + z = z$. This simplifies to $1 = z$. The only solution in $\mathbb{C}$ is $z = 1$.
+			\item For $z = \infty$: $\neg_1(\infty) = \infty$. $\infty \vee \infty = \infty + \infty = \infty$. We need $\infty = \infty$. This holds.
+		\end{itemize}
+		\textbf{Fixed points for LEM with $\neg_1$ are $\{1, \infty\}$.}
+	\end{itemize}
+	
+	\subsection{For Negation $\neg_2(z) = \bar{z}$:}
+	
+	\begin{itemize}
+		\item \textbf{Law of Non-Contradiction ($\bar{z} \times z = z$):}
+		\begin{itemize}
+			\item For $z \in \mathbb{C}$: $|z|^2 = z$. Let $z = re^{i\theta}$. Then $|z|^2 = r^2$. We need $r^2 = re^{i\theta}$.
+			\begin{itemize}
+				\item If $r = 0$, then $0 = 0$, so $z = 0$ is a solution.
+				\item If $r \neq 0$, we need $r = e^{i\theta}$. The magnitude of $e^{i\theta}$ is always 1. So we need $r = 1$. Then $1 = e^{i\theta}$. This holds when $\theta = 2\pi k$ for integer $k$. This means $z$ must be a positive real number with magnitude 1, i.e., $z = 1$.
+			\end{itemize}
+			\item For $z = \infty$: $\neg_2(\infty) = \infty$. $\infty \wedge \infty = \infty \times \infty = \infty$. We need $\infty = \infty$. This holds.
+		\end{itemize}
+		\textbf{Fixed points for LNC with $\neg_2$ are $\{0, 1, \infty\}$.}
+		
+		\item \textbf{Law of Excluded Middle ($\bar{z} + z = z$):}
+		\begin{itemize}
+			\item For $z \in \mathbb{C}$: $2 \times \text{Re}(z) = z$. Let $z = x + yi$. $2x = x + yi$. This means $x = yi$. The only complex number where the real part equals the imaginary part multiplied by $i$ is $z = 0$ (since $0 = 0i$).
+			\item For $z = \infty$: $\neg_2(\infty) = \infty$. $\infty \vee \infty = \infty + \infty = \infty$. We need $\infty = \infty$. This holds.
+		\end{itemize}
+		\textbf{Fixed points for LEM with $\neg_2$ are $\{0, \infty\}$.}
+	\end{itemize}
+	
+	\subsection{For Negation $\neg_3(z) = 1 - \bar{z}$:}
+	
+	\begin{itemize}
+		\item \textbf{Law of Non-Contradiction ($(1 - \bar{z}) \times z = z$):}
+		\begin{itemize}
+			\item For $z \in \mathbb{C}$: $z - \bar{z}z = z$. This simplifies to $-\bar{z}z = 0$, which means $-|z|^2 = 0$. The only solution in $\mathbb{C}$ is $z = 0$.
+			\item For $z = \infty$: $\neg_3(\infty) = \infty$. $\infty \wedge \infty = \infty \times \infty = \infty$. We need $\infty = \infty$. This holds.
+		\end{itemize}
+		\textbf{Fixed points for LNC with $\neg_3$ are $\{0, \infty\}$.}
+		
+		\item \textbf{Law of Excluded Middle ($(1 - \bar{z}) + z = z$):}
+		\begin{itemize}
+			\item For $z \in \mathbb{C}$: $1 - \bar{z} + z = z$. This simplifies to $1 - \bar{z} = 0$, so $\bar{z} = 1$. The only solution is $z = 1$.
+			\item For $z = \infty$: $\neg_3(\infty) = \infty$. $\infty \vee \infty = \infty + \infty = \infty$. We need $\infty = \infty$. This holds.
+		\end{itemize}
+		\textbf{Fixed points for LEM with $\neg_3$ are $\{1, \infty\}$.}
+	\end{itemize}
+	
+	\subsection{Summary of LNC/LEM Fixed Points on $\mathbb{CP}^1$ (with $\wedge=\times$, $\vee=+$)}
+	
+	Here is a summary of the fixed points for the Law of Non-Contradiction ($\neg z \wedge z = z$) and Law of Excluded Middle ($\neg z \vee z = z$) identities on $\mathbb{CP}^1$, using complex multiplication as conjunction and complex addition as disjunction:
+	
+	\begin{itemize}
+		\item \textbf{For $\neg_1(z) = 1 - z$:}
+		\begin{itemize}
+			\item LNC Fixed Points: $\{0, \infty\}$
+			\item LEM Fixed Points: $\{1, \infty\}$
+		\end{itemize}
+		
+		\item \textbf{For $\neg_2(z) = \bar{z}$:}
+		\begin{itemize}
+			\item LNC Fixed Points: $\{0, 1, \infty\}$
+			\item LEM Fixed Points: $\{0, \infty\}$
+		\end{itemize}
+		
+		\item \textbf{For $\neg_3(z) = 1 - \bar{z}$:}
+		\begin{itemize}
+			\item LNC Fixed Points: $\{0, \infty\}$
+			\item LEM Fixed Points: $\{1, \infty\}$
+		\end{itemize}
+	\end{itemize}
+	This analysis shows that with these specific arithmetic operations for conjunction and disjunction, the fixed points for LNC and LEM are discrete points on $\mathbb{CP}^1$, primarily involving 0, 1, and $\infty$. The behavior is different from the intervals $[-i, i]$ and $[-1, 1]$ where we saw continuous intervals of fixed points. This difference likely stems from the lack of general idempotency of complex multiplication and addition.
+	
+	\section{Logic Defined by M\"{o}bius Group Generators}
+	
+	Let's define a new logic on $\mathbb{CP}^1$ directly using the fundamental generators of the M\"{o}bius group as its logical operations:
+	
+	\begin{itemize}
+		\item \textbf{Semantic Space:} $\mathbb{CP}^1$
+		
+		\item \textbf{Negation ($\neg$):} Inversion, $\neg z = 1/z$
+		
+		\item \textbf{Conjunction ($\wedge$):} Dilation/Rotation (using multiplication), $z_1 \wedge z_2 = z_1 \times z_2$
+		
+		\item \textbf{Disjunction ($\vee$):} Translation (using addition), $z_1 \vee z_2 = z_1 + z_2$
+	\end{itemize}
+	We use the standard extensions of complex arithmetic to $\mathbb{CP}^1$ for these operations:
+	
+	\begin{itemize}
+		\item $z + \infty = \infty$ for $z \neq \infty$, $\infty + \infty = \infty$.
+		\item $z \times \infty = \infty$ for $z \neq 0, \infty$, $0 \times \infty = 0$, $\infty \times \infty = \infty$.
+		\item $1/0 = \infty$, $1/\infty = 0$.
+	\end{itemize}
+	Let's analyze the fixed points for the Law of Non-Contradiction ($\neg z \wedge z = z$) and the Law of Excluded Middle ($\neg z \vee z = z$) identities for this logic.
+	
+	\subsection{Fixed Point Analysis (M\"{o}bius Generator Logic)}
+	
+	\begin{itemize}
+		\item \textbf{Law of Non-Contradiction ($(1/z) \times z = z$):}
+		\begin{itemize}
+			\item For $z \in \mathbb{C}, z \neq 0$: $(1/z) \times z = 1$. So, $1 = z$. Solution: $z=1$.
+			\item For $z = 0$: $\neg 0 = \infty$. $\infty \wedge 0 = \infty \times 0 = 0$. We need $0 = z$, so $0 = 0$. Solution: $z=0$.
+			\item For $z = \infty$: $\neg \infty = 0$. $0 \wedge \infty = 0 \times \infty = 0$. We need $0 = z$, so $0 = \infty$. No solution.
+		\end{itemize}
+		\textbf{LNC Fixed Points: $\{0, 1\}$.}
+		
+		\item \textbf{Law of Excluded Middle ($(1/z) + z = z$):}
+		\begin{itemize}
+			\item For $z \in \mathbb{C}, z \neq 0$: $(1/z) + z = z$. This simplifies to $1/z = 0$. No solution in $\mathbb{C}$.
+			\item For $z = 0$: $\neg 0 = \infty$. $\infty \vee 0 = \infty + 0 = \infty$. We need $\infty = z$, so $\infty = 0$. No solution.
+			\item For $z = \infty$: $\neg \infty = 0$. $0 \vee \infty = 0 + \infty = \infty$. We need $\infty = z$, so $\infty = \infty$. Solution: $z=\infty$.
+		\end{itemize}
+		\textbf{LEM Fixed Points: $\{\infty\}$.}
+	\end{itemize}
+	In this logic, defined by the generators of the M\"{o}bius group, the Law of Non-Contradiction identity holds only at 0 and 1, while the Law of Excluded Middle identity holds only at infinity. This is a unique fixed point structure, highlighting the distinct logical behavior of operations directly tied to the fundamental transformations of $\mathbb{CP}^1$.
+	
+	\section{Interpretation of Fixed Points in a (Hyper)sequent Calculus}
+	
+	Interpreting these fixed points in a (hyper)sequent calculus involves relating them to concepts like designated values and the behavior of logical rules.
+	
+	\subsection{Designated Values}
+	
+	The fixed points of LNC and LEM identities can serve as \textbf{sets of designated values}. A formula $A$ is considered "valid" or "acceptable" if its semantic value $v(A)$ belongs to a set of designated values.
+	
+	\begin{itemize}
+		\item For the logic defined by M\"{o}bius generators ($\neg=1/z$, $\wedge=\times$, $\vee=+$), the LNC fixed points are $\{0, 1\}$ and the LEM fixed points are $\{\infty\}$. This could imply that validity is tied to semantic values being either 0 or 1 (for consistency-related properties) or infinity (for completeness-related properties).
+	\end{itemize}
+	
+	\subsection{Identity and Structural Rules}
+	
+	The fixed points indicate where $\neg A \wedge A$ and $\neg A \vee A$ are semantically equivalent to $A$. This could correspond to restricted rules allowing substitution or equivalence for formulas whose semantic values are in these fixed point sets.
+	
+	\subsection{Non-Commutativity and Sequent Structure}
+	
+	The potential for non-commutative binary operations necessitates using \textbf{lists of formulas} in sequents and potentially restricting structural rules like exchange.
+	
+	\subsection{Interpreting the Entailment ($\vdash$)}
+	
+	The semantic interpretation of $\Gamma \vdash \Delta$ on $\mathbb{CP}^1$ could relate to mapping to designated values or a binary relation on $\mathbb{CP}^1$.
+	
+	\section{Generalizing Sequents to Clines}
+	
+	The idea of generalizing linear sequents to \textbf{cline sequents} on $\mathbb{CP}^1$ leverages the geometric structure of the semantic space. A "cline sequent" is a cyclic arrangement of formulas, $(A_1, A_2, \dots, A_n)$.
+	
+	\subsection{Semantic Interpretation for a "Cline Sequent"}
+	
+	A \textbf{cline sequent} $(A_1, A_2, \dots, A_n)$ is \textbf{valid} in a logic on $\mathbb{CP}^1$ (with negation $\neg$, conjunction $\wedge$, and disjunction $\vee$) if, for every semantic assignment $v$ of formulas to points in $\mathbb{CP}^1$, the set of semantic values $\{v(A_1), v(A_2), \dots, v(A_n)\}$ satisfies the following condition:
+	
+	\begin{itemize}
+		\item If $n \le 2$, the condition is trivially met (any one or two points lie on infinitely many clines).
+		
+		\item If $n \ge 3$, the points $v(A_1), v(A_2), \dots, v(A_n)$ lie on a single cline (circle or line) on $\mathbb{CP}^1$.
+		
+		\item Furthermore, this single cline \textbf{must pass through at least one point} in the set of \textbf{LNC fixed points} OR the set of \textbf{LEM fixed points} for the given logic and negation.
+	\end{itemize}
+	This interpretation connects the geometry of clines to the logical properties captured by the fixed points of LNC and LEM.
+	
+	\subsection{The "Junction" Operation for Cline Sequents}
+	
+	The cyclic structure of a cline sequent $(A_1, A_2, \dots, A_n)$ blurs the traditional distinction between antecedent and succedent, suggesting the potential for a single, unified \textbf{"junction" operation} that combines the semantic values in a cyclic manner.
+	
+	This "junction" operation would operate on a list of semantic values $(z_1, z_2, \dots, z_n)$ and produce a result that represents the semantic status of the entire cline sequent. This result could be:
+	
+	\begin{itemize}
+		\item A single semantic value in $\mathbb{CP}^1$.
+		
+		\item A property of the cline passing through the points.
+		
+		\item A truth value (e.g., "valid" or "invalid") based on whether the resulting cline satisfies a condition (like passing through fixed points).
+	\end{itemize}
+	The "junction" operation for clines would be distinct from the binary conjunction and disjunction operations ($\wedge$, $\vee$) used to build complex formulas. The "junction" operates at the level of the sequent structure, while $\wedge$ and $\vee$ operate at the level of formula composition.
+	
+	The potential non-commutativity of the underlying binary operations would likely be reflected in the definition and properties of this "junction" operation, where the order of formulas in the cyclic list matters.
+	
+	The idea of "mapping various circles/lines to specific fixed/invariant clines" is a compelling semantic interpretation for validity in a logic with cline sequents. If the "junction" operation on the semantic values of a sequent results in a point (or a property) that corresponds to a "fixed" or "designated" cline, then the sequent is valid. This would be analogous to how in classical logic, a sequent is valid if the conjunction of the antecedent entails the disjunction of the succedent (mapping to a designated truth value).
+	
+	In this framework, the fixed points of LNC and LEM play a crucial role by defining the "target" clines (those passing through these fixed points) that correspond to valid sequents. The "junction" operation would determine whether the semantic values of a given sequent form a cline that hits
+	
+\end{document}
