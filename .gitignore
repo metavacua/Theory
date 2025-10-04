@@ -1,0 +1,29 @@
+# LaTeX auxiliary files
+*.aux
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.fls
+*.fdb_latexmk
+*.log
+*.lof
+*.lot
+*.out
+*.toc
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.synctex.gz
+
+# Build output
+*.pdf
+*.dvi
+
+# Other
+.DS_Store
+*.swp

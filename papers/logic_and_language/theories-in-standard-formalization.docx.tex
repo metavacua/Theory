@@ -1,0 +1,110 @@
+}
+
+A theory T in standard formalization is a pair
+(\textbf{Lang},\textbf{Axioms}), where:
+
+\textbf{Lang} is a first-order language with the following components:
+
+\begin{itemize}
+\item
+  \begin{quote}
+  A set of variables V.
+  \end{quote}
+\item
+  \begin{quote}
+  A set of non-logical constants C.
+  \end{quote}
+\item
+  \begin{quote}
+  A set of logical constants, which includes the following symbols:
+  \end{quote}
+
+  \begin{itemize}
+  \item
+    \begin{quote}
+    The connectives: ¬, ∨, ∧, →, ↔.
+    \end{quote}
+  \item
+    \begin{quote}
+    The quantifiers: ∀, ∃.
+    \end{quote}
+  \item
+    \begin{quote}
+    The identity symbol =.
+    \end{quote}
+  \end{itemize}
+\item
+  \begin{quote}
+  A set of function symbols F, where each function symbol f has a
+  natural number n as its rank, and for each n-tuple of terms t1, t2,
+  ..., tn, the function symbol f applied to t1, t2, ..., tn is a term.
+  \end{quote}
+\item
+  \begin{quote}
+  A set of predicate symbols P, where each predicate symbol p has a
+  natural number n as its rank, and for each n-tuple of terms t1, t2,
+  ..., tn, the predicate symbol p applied to t1, t2, ..., tn is a
+  formula.
+  \end{quote}
+\end{itemize}
+
+A is a set of formulas in \textbf{L}. The formulas in \textbf{Axioms}
+are called the axioms of T.
+
+A theory T is said to be satisfiable if there exists a model M of T. A
+model M of T is a structure M = (D, ⊦) such that:
+
+\begin{itemize}
+\item
+  \begin{quote}
+  D is a non-empty set called the domain of M.
+  \end{quote}
+\item
+  \begin{quote}
+  ⊦ is an interpretation function that assigns to each constant c in C
+  an element d of D, to each function symbol f in F an n-ary function
+  f\^{}M from D\^{}n to D, and to each predicate symbol p in P an n-ary
+  relation p\^{}M over D.
+  \end{quote}
+\item
+  \begin{quote}
+  For each axiom α in \textbf{Axioms}, α is true in M, where "true in M"
+  is defined inductively as follows:
+  \end{quote}
+
+  \begin{itemize}
+  \item
+    \begin{quote}
+    Variables are interpreted as themselves.
+    \end{quote}
+  \item
+    \begin{quote}
+    ¬α is true in M if α is not true in M.
+    \end{quote}
+  \item
+    \begin{quote}
+    α ∨ β is true in M if α is true in M or β is true in M (or both).
+    \end{quote}
+  \item
+    \begin{quote}
+    α ∧ β is true in M if α is true in M and β is true in M.
+    \end{quote}
+  \item
+    \begin{quote}
+    α → β is true in M if α is not true in M or β is true in M.
+    \end{quote}
+  \item
+    \begin{quote}
+    ∀xα(x) is true in M if for all elements d of D, α(d) is true in M.
+    \end{quote}
+  \item
+    \begin{quote}
+    ∃xα(x) is true in M if there exists an element d of D such that α(d)
+    is true in M.
+    \end{quote}
+  \end{itemize}
+\end{itemize}
+
+If there exists no model of T, then T is said to be unsatisfiable.
+
+\end{document}}*}

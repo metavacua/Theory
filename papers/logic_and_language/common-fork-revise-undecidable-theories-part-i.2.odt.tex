@@ -1,0 +1,401 @@
+∃∀ \{⊥,⊤,¬,∨,∧,→,↛,↔,⊕,↓,↑\} \{p, q\} ⊢⊬⊨
+
+\protect\hypertarget{anchor}{}{}Theories with Standard Formalization
+
+The theories discussed in this paper will be referred to as
+\emph{theories with standard formalization}. They can be briefly
+characterized as theories which are formalized within the first-order
+predicate logic (with identity, with quantifiers, without variable
+predicates).
+
+\protect\hypertarget{anchor-1}{}{}Syntactic Definitions
+
+\protect\hypertarget{anchor-2}{}{}Definition: Variables and Constants of
+a Theory
+
+The symbols which occur in expressions of a given theory T are divided
+into \emph{variables} and \emph{constants}.
+
+The set of variables is assumed to be denumerable and hence infinite;
+the set of constants is either finite or denumerable. All the variables
+are treated as ranging over the same set of elements.
+
+\protect\hypertarget{anchor-3}{}{}Definition: Logical Constants of a
+Theory
+
+The constants are divided into \emph{logical} and \emph{non-logical}
+ones.
+
+The logical constants are the \emph{sentential connectives}
+
+the \emph{negation sign} ¬,
+
+the \emph{implication sign} →,
+
+the \emph{equivalence sign} ↔,
+
+the \emph{disjunction sign} ∨,
+
+the \emph{conjunction sign }∧;
+
+the quantifiers
+
+the \emph{universal quantifier} ∀ and \emph{existential quantification}
+∃;
+
+and finally, the i\emph{dentity symbol} \textbf{=}.
+
+\protect\hypertarget{anchor-4}{}{}
+
+\protect\hypertarget{anchor-5}{}{}Definition: non-Logical Constants of a
+Theory AKA Signature of a Theory
+
+The non-logical constants are the \emph{predicates} (or \emph{relation
+symbols}), the \emph{operation symbols}, and the \emph{individual
+constants}.
+
+With every predicate and every operation symbol a positive integer is
+correlated which is called the \emph{rank} of the symbol. Thus, we may
+have in T \emph{unary} predicates and operation symbols (I.E. symbols of
+rank 1), \emph{binary} predicates and operation symbols (symbols of rank
+2), etc. The identity symbol, though regarded as a logical constant, is
+included in the set of binary predicates.
+
+In practice, in addition to variables and constants, the so-called
+technical symbols like parentheses and commas, are also used in
+constructing expressions; however, theoretically these technical symbols
+can be dispensed with.
+
+\protect\hypertarget{anchor-6}{}{}Definition: Terms
+
+Among expressions (I.E. finite concatenations of symbols) we distinguish
+\emph{terms} and \emph{formulas}.
+
+The simplest, so-called atomic, terms are the variables and the
+individual constants; a compound term is obtained by combining \emph{n}
+simpler terms by means of an operation symbol of rank \emph{n}.
+
+\protect\hypertarget{anchor-7}{}{}Definition: Formulas
+
+Similarly, an atomic formula is obtained by combining \emph{n} arbitrary
+terms by means of a predicate of rank \emph{n}; compound formulas are
+built from simpler ones by means of sentential connectives and
+quantifier expressions (I.E. quantifiers followed by variables like ∀x
+or ∃y).
+
+\protect\hypertarget{anchor-8}{}{}Definition: Sentences
+
+An occurrence of a variable in a formula may be either \emph{free} or
+\emph{bound}; a formula in which no variable occurs free is called a
+\emph{sentence}.
+
+\protect\hypertarget{anchor-9}{}{}Semantic Definitions
+
+\protect\hypertarget{anchor-10}{}{}Proof-Theoretical Semantics
+
+\protect\hypertarget{anchor-11}{}{}Definition: Axiomatic Proof
+
+Two further notions, those of \emph{logical derivability} and
+\emph{logical validity}, are involved in the metamathematical discussion
+of any theory T.
+
+First, we single out certain sentences of T which are referred to as
+\emph{logical axioms}.
+
+Secondly, we describe certain (finitary) operations, the so-called
+\emph{operations of inference}, which when performed on sentences yield
+new sentences.
+
+Usually the set of logical axioms is infinite while the set of
+operations of inference is finite.
+
+\protect\hypertarget{anchor-12}{}{}Definition: Modus Ponens; the method
+of affirmation.
+
+The most important operation of inference is that of \emph{detachment}
+(\emph{modus ponens}), which when applied to two sentences Φ and Φ→Ψ
+yields the sentence Ψ.
+
+In fact, it proves to be possible, by selecting a suitable set of
+logical axioms, to use the operations of detachment as the only
+operation of inference in formulating adequate definitions of
+derivability and logical validity.
+
+\protect\hypertarget{anchor-13}{}{}Definition: Derivable Sentences
+
+A sentence is now said to be \emph{logically derivable} or simply
+\emph{derivable} from a set A of sentences if it can be obtained from
+sentences of A and from logical axioms by performing operations of
+inference an arbitrary number of times.
+
+\protect\hypertarget{anchor-14}{}{}Definition: Logically Valid or
+Provable Sentences
+
+A sentence is called \emph{logically valid} (or \emph{logically
+provable}) if it is derivable from the set of logical axioms-\/-or what
+amounts to the same thing, from the empty set of sentences.
+
+\protect\hypertarget{anchor-15}{}{}Model-Theoretical Semantics
+
+Another method of defining logically derivable and logically valid is
+available which essentially involves the use of some semantical notions
+and the notion of satisfaction.
+
+\protect\hypertarget{anchor-16}{}{}Definition: Possible Realizations of
+a Theory and the Universe of 𝕽
+
+We assume that all the non-logical constants of T have been arranged in
+a (finite or infinite) sequence \textless{}\textbf{C\_0}, \ldots,
+\textbf{C\_n}, \ldots\textgreater, without repeating terms.
+
+We consider systems 𝕽 formed by a non-empty set U and by a sequence
+\textless C\_0, \ldots, C\_n, \ldots\textgreater{} of certain
+mathematical entities, with the same number of terms as the sequence of
+non-logical constants.
+
+The mathematical nature of each C\_n depends on the logical character of
+the corresponding constant \textbf{C\_n}. Thus,
+
+if \textbf{C\_n} is a unary predicate, then C\_n is a subset of U; more
+generally, if \textbf{C\_n} is an \emph{m}-ary predicate, then C\_n is
+an \emph{m}-ary relation the field of which is a subset of U.
+
+If \textbf{C\_n} is an \emph{m}-ary operation symbol, C\_n is an
+\emph{m}-ary operation (function of \emph{m} arguments) defined over
+arbitrary ordered \emph{m}-tuples \textless{}\emph{x\_1}, \ldots,
+\emph{x\_m}\textgreater{} of elements of U and assuming elements of U as
+values.
+
+If \textbf{C\_n} is an individual constant, C\_n is simply an element of
+U.
+
+Such a system (sequence) 𝕽 = \textless U, C\_0, \ldots, C\_n,
+\ldots\textgreater{} is called a \emph{possible realization} or simply a
+\emph{realization} of T; the set U is called the \emph{universe} of 𝕽.
+
+\protect\hypertarget{anchor-17}{}{}Definition: Satisfaction
+
+We assume it to be clear under what conditions a sentence Φ of T is said
+to \emph{be satisfied} or to \emph{hold} in a given realization 𝕽.
+
+Roughly speaking, this means that Φ turns out to be true if
+
+(i) all the variables occurring in T are assumed to range over the set
+U;
+
+(ii) the logical constants are interpreted in the usual way;
+
+(iii) each of the non-logical constants \textbf{C\_n} is understood to
+denote the corresponding term C\_n in 𝕽.
+
+Assume, e.g., that the term \textbf{C\_n} in the sequence of constants
+is a unary predicate and that consequently C\_n is a subset of U. Then
+the sentence ∀x \textbf{C\_n} x holds in 𝕽 if and only if every element
+of U is an element of C\_n and hence C\_n coincides with U.
+
+\protect\hypertarget{anchor-18}{}{}Definition: Logical Consequence and
+Logical Truth
+
+A sentence Φ is said to be a \emph{logical consequence} of a set A of
+sentences if it is satisfied in every realization 𝕽 in which all
+sentences of A are satisfied; it is called \emph{logical true} if it is
+satisfied in every possible realization.
+
+As opposed to the notions of logical consequence and logical truth, the
+related notions of logical derivability and logical validity, when
+defined in terms of axioms and operations of inference, seem to have a
+rather accidental and arbitrary character.
+
+\protect\hypertarget{anchor-19}{}{}Equivalence of Proof-Theoretical and
+Model-Theoretical Semantics for Theories in Standard Formalization
+
+Hence, it might seem natural to redefine logical derivability and
+logical validity simply by stipulating that a sentence is derivable from
+A if it is a logical consequence of A, and by identifying logically
+valid sentences with logically true sentences. From the results in Gödel
+{[}5{]} it follows that under the systems of logical axioms and
+operations of inference known from the literature the two methods of
+defining derivability and logical validity are entirely equivalent (when
+applied to theories with standard formalization).
+
+An important property of the notion of derivability is stated in the
+following well-known theorem, which is often applied in
+meta-mathematical discussion:
+
+\protect\hypertarget{anchor-20}{}{}Deduction Theorem I
+
+Let A be a set of sentences of a theory T and let Φ\_1, ..., Φ\_n, Ψ be
+any sentences of T.
+
+For Ψ to be derivable from the set A supplemented by the sentences Φ\_1,
+..., Φ\_n it is necessary and sufficient that the sentence
+
+(Φ\_1∧...∧Φ\_n) → Ψ
+
+be derivable from the set A alone.
+
+\protect\hypertarget{anchor-21}{}{}Deduction Theorem II
+
+Let A be a set of sentences of a theory T, and let Ψ be a sentence of T.
+
+For Ψ to be derivable from A it is necessary and sufficient that A be
+empty and Ψ be logically valid or else that A contain some sentences
+Φ\_1, ..., Φ\_n such that the sentence
+
+(Φ\_1∧...∧Φ\_n) → Ψ
+
+is logically valid.
+
+Thus the notion of derivability has a simple characterization in terms
+of logically valid sentences.
+
+\protect\hypertarget{anchor-22}{}{}Definition: Valid Sentences
+
+To complete the description of a theory T we have to define what we mean
+by a \emph{valid} sentence in general (as opposed to a logically valid
+sentence). No uniform method for defining this notion is available.
+
+\protect\hypertarget{anchor-23}{}{}Definition: Valid Sentences by
+Non-Logical Axioms
+
+Often we single out a (finite or infinite) set of sentences called
+\emph{non-logical axioms}, and define a sentence to be valid if and only
+if it is derivable from this set-\/-or, what amounts to the same, from
+the set of all axioms, both logical and non-logical.
+
+\protect\hypertarget{anchor-24}{}{}
+
+\protect\hypertarget{anchor-25}{}{}Definition: Axiomatic Theories
+
+Theories in which the notion of validity has been introduced in this way
+are referred to as \emph{axiomatically built} or, simply
+\emph{axiomatic} theories; when referring to such theories, we often use
+the term ``\emph{provable}'' instead of ``\emph{valid}''.
+
+We do not restrict ourselves to the discussion of axiomatic theories.
+Sometimes we agree to consider as valid those and only those sentences
+which are satisfied in a given realization or in all realizations of a
+given class; sometimes we define validity for a theory in terms of
+validity for some other theories for which this notion has been
+previously defined.
+
+We assume, however, that for each of the theories discussed the notion
+of validity has been defined in one way or another.
+
+\protect\hypertarget{anchor-26}{}{}Definition: General Condition for
+Validity of Sentences
+
+We assume that under this definition every sentence which is logically
+derivable from a set of valid sentences is itself valid, and that
+consequently every logically valid sentence is valid; this is the only
+condition imposed upon the definition of validity.
+
+\protect\hypertarget{anchor-27}{}{}Definition: Model of a Theory
+
+A possible realization in which all valid sentences of a theory T are
+satisfied is called a \emph{model} of T.
+
+In all the theories with standard formalization the same symbols are
+assumed to be used as variables and logical constants; apart from
+differences in non-logical constants, the same expressions are regarded
+as formulas, sentences, logical axioms, and logically valid sentences.
+
+However, the notions of validity in these theories may of course exhibit
+essential differences.
+
+\protect\hypertarget{anchor-28}{}{}Theoretical Definitions
+
+\protect\hypertarget{anchor-29}{}{}Definition: Uniqueness of a Theory in
+Standard Formalization
+
+A theory is uniquely determined by the set of all its valid sentences;
+two theories are regarded as identical if their sets of valid sentences
+coincide.
+
+\protect\hypertarget{anchor-30}{}{}Definition: Uniqueness of an
+Axiomatic Theory in Standard Formalization
+
+An axiomatic theory is uniquely determined by its non-logical constants
+and non-logical axioms.
+
+\protect\hypertarget{anchor-31}{}{}Definition: Subtheory or Supertheory;
+Subtension or Extension
+
+A theory T\_1 is called a \emph{subtheory} of a theory T\_2 if every
+sentence which is valid in T\_1 is also valid in T\_2; under the same
+conditions T\_2 is referred to as an \emph{extension} of T\_1.
+
+\protect\hypertarget{anchor-32}{}{}Definition: Inessential Extensions of
+Theories in Standard Formalization
+
+An extension T\_2 of T\_1 is called \emph{inessential} if every constant
+of T\_2 which does not occur in T\_1 is an individual constant and if
+every valid sentence of T\_2 is derivable in T\_2 from a set of valid
+sentences of T\_1.
+
+If T\_1 is axiomatic, then an inessential extension of T\_1 is obtained
+by adding some new individual constants, but without adding any new
+non-logical axioms.
+
+By saying that a sentence Φ is derivable \emph{in a theory} T from a set
+A we stress the fact that, in deriving Φ, we may use both sentences of A
+and logical axioms of T. It is easily seen that, whenever Φ is derivable
+from A in some theory T, it is also derivable from A in every theory
+T\textquotesingle{} which contains all the non-logical constants
+occurring in Φ and in sentences of A.
+
+\protect\hypertarget{anchor-33}{}{}Definition: Finite Extensions of
+Theories in Standard Formalization
+
+An extension T\_2 of T\_1 is referred to as a \emph{finite} extension if
+there is a finite set A of valid sentences of T\_2 such that every valid
+sentence of T\_2 is derivable from a set of sentences which are valid in
+T\_1 or belong to A. Clearly every inessential extension is a finite
+extension.
+
+\protect\hypertarget{anchor-34}{}{}Definition: Union of Theories in
+Standard Formalization
+
+Among the extensions common to two given theories T\_1 and T\_2 there is
+always a smallest one, which is a subtheory of any other common
+extension; this smallest common extension is referred to as the
+\emph{union} of the given theories.
+
+The union T of T\_1 and T\_2 is fully characterized by the following two
+conditions:
+
+(i) the set of all non-logical constants of T is the (set theoretical)
+union of the set of all non-logical constants of T\_1 and T\_2;
+
+(ii) a sentence is valid in T if and only if it is derivable in T from a
+set of sentences which are valid in T\_1 or T\_2.
+
+If the theories T\_1 and T\_2 are axiomatic, we can construct T by
+postulating, in addition to (i), the analogous condition for the set of
+non-logical axioms.
+
+Notice that condition (i) unambiguously determines the notions of a
+sentence of T and of a logical axiom of T, and hence also the notion of
+derivability in T.
+
+\protect\hypertarget{anchor-35}{}{}Definition: Consistent Theories
+
+A theory T is called \emph{consistent} if not every sentence of T is
+valid in T; or, in an equivalent formulation, if there exists no
+sentence such that both Φ and ¬Φ are valid in T.
+
+\protect\hypertarget{anchor-36}{}{}Definition: Complete Theories
+
+A theory T is called \emph{complete} if there is no consistent extension
+of T which is different from T, but which has the same constants as T;
+equivalently, if, for every sentence Φ of T, either Φ or ¬Φ is valid in
+T.
+
+The proof of the equivalence of the two definitions of completeness is
+based upon Deduction Theorem I.
+
+\protect\hypertarget{anchor-37}{}{}Definition: Compatible Theories
+
+Two theories T\_1 and T\_2 are said to be \emph{compatible} if they have
+a common consistent extension; this is equivalent to saying that the
+union of T\_1 and T\_2 is consistent.
