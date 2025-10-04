@@ -1,0 +1,227 @@
+}
+
+†A: Complex Conjugate/Transpose Negation (Orthogonal/Perpendicular
+Shift).
+
+A ∥ B: Additive Implication (Parallel Processes/Concurrent Choice). *
+
+A ∦ B: Additive Non-Implication (Non-Parallel/Mutually Exclusive
+Processes).
+
+¬: Linear Negation (Classical).
+
+⊸: Multiplicative Implication (Linear Implication).
+
+⊸̸: Multiplicative Non-Implication (Type 1A).
+
+▹A: Type 1A Negation (Paracomplete).
+
+◃A: Type 1B Negation (Paraconsistent).
+
+\&, ⊕, ⊗, ⅋: Additive and Multiplicative Conjunction/Disjunction.
+
+∃∀ \{⊥,⊤,¬,∨,∧,→,↛,↔,⊕,↓,↑\} \{p, q\} ⊢⊬⊨ΓΔ
+
+Signature of Theories with Logos Formalization
+
+The theories discussed in this paper will be referred to as
+\emph{theories with standard formalization}. They can be briefly
+characterized as theories which are formalized within the first-order
+predicate logic (with identity, without variable predicates).
+
+\hypertarget{syntactic-definitions}{%
+\subsection{Syntactic Definitions}\label{syntactic-definitions}}
+
+\hypertarget{definition-variables-and-constants-of-a-theory}{%
+\subsubsection{Definition: Variables and Constants of a
+Theory}\label{definition-variables-and-constants-of-a-theory}}
+
+The symbols which occur in expressions of a given theory T are divided
+into \emph{variables} and \emph{constants}.
+
+The set of variables is assumed to be denumerable and hence infinite;
+the set of constants is either finite or denumerable. All the variables
+are treated as ranging over the same set of elements.
+
+\hypertarget{section}{%
+\subsubsection{}\label{section}}
+
+\hypertarget{definition-non-logical-constants-of-a-theory-aka-signature-of-a-theory}{%
+\subsubsection{Definition: non-Logical Constants of a Theory AKA
+Signature of a
+Theory}\label{definition-non-logical-constants-of-a-theory-aka-signature-of-a-theory}}
+
+The non-logical constants are the \emph{predicates} (or \emph{relation
+symbols}), the \emph{operation symbols}, and the \emph{individual
+constants}.
+
+With every predicate and every operation symbol a positive integer is
+correlated which is called the \emph{rank} of the symbol. Thus, we may
+have in T \emph{unary} predicates and operation symbols (I.E. symbols of
+rank 1), \emph{binary} predicates and operation symbols (symbols of rank
+2), etc. The identity symbol, though regarded as a logical constant, is
+included in the set of binary predicates.
+
+\hypertarget{definition-terms}{%
+\subsubsection{Definition: Terms}\label{definition-terms}}
+
+Among expressions (I.E. finite concatenations of symbols) we distinguish
+\emph{terms} and \emph{formulas}.
+
+The simplest, so-called atomic, terms are the variables and the
+individual constants; a compound term is obtained by combining \emph{n}
+simpler terms by means of an operation symbol of rank \emph{n}.
+
+\hypertarget{definition-formulas}{%
+\subsubsection{Definition: Formulas}\label{definition-formulas}}
+
+Similarly, an atomic formula is obtained by combining \emph{n} arbitrary
+terms by means of a predicate of rank \emph{n}; compound formulas are
+built from simpler ones by means of sentential connectives and
+quantifier expressions (I.E. quantifiers followed by variables like ∀x
+or ∃y).
+
+\hypertarget{definition-sentences}{%
+\subsubsection{Definition: Sentences}\label{definition-sentences}}
+
+An occurrence of a variable in a formula may be either \emph{free} or
+\emph{bound}; a formula in which no variable occurs free is called a
+\emph{sentence}.
+
+\hypertarget{semantic-definitions}{%
+\subsection{Semantic Definitions}\label{semantic-definitions}}
+
+\hypertarget{model-theoretical-semantics}{%
+\paragraph{Model-Theoretical
+Semantics}\label{model-theoretical-semantics}}
+
+Another method of defining logically derivable and logically valid is
+available which essentially involves the use of some semantical notions
+and the notion of satisfaction.
+
+\hypertarget{definition-possible-realizations-of-a-theory-and-the-universe-of-ux1d57d}{%
+\subsubsection{Definition: Possible Realizations of a Theory and the
+Universe of
+𝕽}\label{definition-possible-realizations-of-a-theory-and-the-universe-of-ux1d57d}}
+
+We assume that all the non-logical constants of T have been arranged in
+a (finite or infinite) sequence \textless{}\textbf{C\_0}, \ldots,
+\textbf{C\_n}, \ldots\textgreater, without repeating terms.
+
+We consider systems 𝕽 formed by a non-empty set U and by a sequence
+\textless C\_0, \ldots, C\_n, \ldots\textgreater{} of certain
+mathematical entities, with the same number of terms as the sequence of
+non-logical constants.
+
+The mathematical nature of each C\_n depends on the logical character of
+the corresponding constant \textbf{C\_n}. Thus,
+
+if \textbf{C\_n} is a unary predicate, then C\_n is a subset of U; more
+generally, if \textbf{C\_n} is an \emph{m}-ary predicate, then C\_n is
+an \emph{m}-ary relation the field of which is a subset of U.
+
+If \textbf{C\_n} is an \emph{m}-ary operation symbol, C\_n is an
+\emph{m}-ary operation (function of \emph{m} arguments) defined over
+arbitrary ordered \emph{m}-tuples \textless{}\emph{x\_1}, \ldots,
+\emph{x\_m}\textgreater{} of elements of U and assuming elements of U as
+values.
+
+If \textbf{C\_n} is an individual constant, C\_n is simply an element of
+U.
+
+Such a system (sequence) 𝕽 = \textless U, C\_0, \ldots, C\_n,
+\ldots\textgreater{} is called a \emph{possible realization} or simply a
+\emph{realization} of T; the set U is called the \emph{universe} of 𝕽.
+
+\hypertarget{definition-satisfaction}{%
+\subsubsection{Definition: Satisfaction}\label{definition-satisfaction}}
+
+We assume it to be clear under what conditions a sentence Φ of T is said
+to \emph{be satisfied} or to \emph{hold} in a given realization 𝕽.
+
+Roughly speaking, this means that Φ turns out to be true if
+
+(i) all the variables occurring in T are assumed to range over the set
+U;
+
+(ii) the logical constants are interpreted in the usual way;
+
+(iii) each of the non-logical constants \textbf{C\_n} is understood to
+denote the corresponding term C\_n in 𝕽.
+
+Assume, e.g., that the term \textbf{C\_n} in the sequence of constants
+is a unary predicate and that consequently C\_n is a subset of U. Then
+the sentence ∀x \textbf{C\_n} x holds in 𝕽 if and only if every element
+of U is an element of C\_n and hence C\_n coincides with U.
+
+\hypertarget{definition-valid-sentences-by-non-logical-axioms}{%
+\subsubsection{Definition: Valid Sentences by Non-Logical
+Axioms}\label{definition-valid-sentences-by-non-logical-axioms}}
+
+Often we single out a (finite or infinite) set of sentences called
+\emph{non-logical axioms}, and define a sentence to be valid if and only
+if it is derivable from this set-\/-or, what amounts to the same, from
+the set of all axioms, both logical and non-logical.
+
+In all the theories with standard formalization the same symbols are
+assumed to be used as variables and logical constants; apart from
+differences in non-logical constants, the same expressions are regarded
+as formulas, sentences, logical axioms, and logically valid sentences.
+
+However, the notions of validity in these theories may of course exhibit
+essential differences.
+
+\hypertarget{theoretical-definitions}{%
+\subsection{Theoretical Definitions}\label{theoretical-definitions}}
+
+\hypertarget{definition-uniqueness-of-an-axiomatic-theory-in-standard-formalization}{%
+\subsubsection{Definition: Uniqueness of an Axiomatic Theory in Standard
+Formalization}\label{definition-uniqueness-of-an-axiomatic-theory-in-standard-formalization}}
+
+An axiomatic theory is uniquely determined by its non-logical constants
+and non-logical axioms.
+
+\hypertarget{definition-inessential-extensions-of-theories-in-standard-formalization}{%
+\subsubsection{Definition: Inessential Extensions of Theories in
+Standard
+Formalization}\label{definition-inessential-extensions-of-theories-in-standard-formalization}}
+
+An extension T\_2 of T\_1 is called \emph{inessential} if every constant
+of T\_2 which does not occur in T\_1 is an individual constant and if
+every valid sentence of T\_2 is derivable in T\_2 from a set of valid
+sentences of T\_1.
+
+If T\_1 is axiomatic, then an inessential extension of T\_1 is obtained
+by adding some new individual constants, but without adding any new
+non-logical axioms.
+
+By saying that a sentence Φ is derivable \emph{in a theory} T from a set
+A we stress the fact that, in deriving Φ, we may use both sentences of A
+and logical axioms of T. It is easily seen that, whenever Φ is derivable
+from A in some theory T, it is also derivable from A in every theory
+T\textquotesingle{} which contains all the non-logical constants
+occurring in Φ and in sentences of A.
+
+\hypertarget{definition-union-of-theories-in-standard-formalization}{%
+\subsubsection{Definition: Union of Theories in Standard
+Formalization}\label{definition-union-of-theories-in-standard-formalization}}
+
+Among the extensions common to two given theories T\_1 and T\_2 there is
+always a smallest one, which is a subtheory of any other common
+extension; this smallest common extension is referred to as the
+\emph{union} of the given theories.
+
+The union T of T\_1 and T\_2 is fully characterized by the following two
+conditions:
+
+(i) the set of all non-logical constants of T is the (set theoretical)
+union of the set of all non-logical constants of T\_1 and T\_2;
+
+(ii) a sentence is valid in T if and only if it is derivable in T from a
+set of sentences which are valid in T\_1 or T\_2.
+
+If the theories T\_1 and T\_2 are axiomatic, we can construct T by
+postulating, in addition to (i), the analogous condition for the set of
+non-logical axioms.
+
+\end{document}}*}
