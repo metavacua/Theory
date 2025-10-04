@@ -1,39 +1,5 @@
 
-\documentclass{article}
 
-\usepackage{amsmath}
-\usepackage{ebproof}
-\usepackage{fullpage}
-\usepackage[utf8]{inputenc}
-\usepackage{newunicodechar}
-\usepackage{stix}
-
-\newunicodechar{Γ}{\Gamma}
-\newunicodechar{Π}{\Pi}
-\newunicodechar{Δ}{\Delta}
-\newunicodechar{Λ}{\Lambda}
-\newunicodechar{Θ}{\Theta}
-
-\newunicodechar{⊢}{\vdash}
-
-\newunicodechar{⊕}{\oplus}
-\newunicodechar{¬}{\neg}
-
-\newunicodechar{⅋}{\upand}
-\newunicodechar{↛}{\nrightarrow}
-\newunicodechar{↚}{\nleftarrow}
-
-\newunicodechar{⊥}{\bot}
-\newunicodechar{⊤}{\top}
-
-\setlength{\parindent}{0em}
-
-\author{James Martin, Ian D.L.N. Mclean}
-\title{Dual Multiplicative-Additive Lambek Sequent Calculus}
-
-\begin{document}
-
-\maketitle
 
 \begin{abstract}
 
@@ -45,120 +11,120 @@ Uncertain about proper dualization that preserves the proper ordering for the du
 	
 	\[
 	\begin{prooftree}
-	\infer0{ ⊥ ⊢ }
+	\infer0{ $\bot$  $\vdash$  }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{C ⊢ Δ_{L}, Δ_{R}}
-	\infer1{C ⊢ Δ_{L}, ⊥, Δ_{R}}
+	\hypo{C $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
+	\infer1{C $\vdash$  $\Delta$ _{L}, $\bot$ , $\Delta$ _{R}}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\infer0{ 0 ⊢ Δ}
+	\infer0{ 0 $\vdash$  $\Delta$ }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\infer0{C ⊢ Δ_{L}, ⊤, Δ_{R}}
+	\infer0{C $\vdash$  $\Delta$ _{L}, $\top$ , $\Delta$ _{R}}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{B ⊢ Δ_{L}}
-	\hypo{A ⊢ Δ_{R}}
-	\infer2{B ⅋ A ⊢ Δ_{L}, Δ_{R}}
+	\hypo{B $\vdash$  $\Delta$ _{L}}
+	\hypo{A $\vdash$  $\Delta$ _{R}}
+	\infer2{B $\parr$  A $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{C ⊢ Δ_{L}, B, A, Δ_{L}}
-	\infer1{C ⊢ Δ_{L}, B ⅋ A, Δ_{L}}
+	\hypo{C $\vdash$  $\Delta$ _{L}, B, A, $\Delta$ _{L}}
+	\infer1{C $\vdash$  $\Delta$ _{L}, B $\parr$  A, $\Delta$ _{L}}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{B ⊢ Δ, A}
-	\infer1{A ↚ B ⊢ Δ}
+	\hypo{B $\vdash$  $\Delta$ , A}
+	\infer1{A $\nleftarrow$  B $\vdash$  $\Delta$ }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{A ⊢ Δ}
-	\hypo{C ⊢ Δ_{L}, B, Δ_{R}}
-	\infer2{C ⊢ Δ_{L}, A ↚ B, Δ, Δ_{R}}
+	\hypo{A $\vdash$  $\Delta$ }
+	\hypo{C $\vdash$  $\Delta$ _{L}, B, $\Delta$ _{R}}
+	\infer2{C $\vdash$  $\Delta$ _{L}, A $\nleftarrow$  B, $\Delta$ , $\Delta$ _{R}}
 	\end{prooftree}
 	\]
 	
 	\[
 	\quad
 	\begin{prooftree}
-	\hypo{B ⊢ A, Δ}
-	\infer1{A ↛ B ⊢ Δ}
+	\hypo{B $\vdash$  A, $\Delta$ }
+	\infer1{A $\nrightarrow$  B $\vdash$  $\Delta$ }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{A ⊢ Δ}
-	\hypo{C ⊢ Δ_{L}, B, Δ_{R}}
-	\infer2{C ⊢ Δ_{L}, Δ, B ↛ A, Δ_{R}}
+	\hypo{A $\vdash$  $\Delta$ }
+	\hypo{C $\vdash$  $\Delta$ _{L}, B, $\Delta$ _{R}}
+	\infer2{C $\vdash$  $\Delta$ _{L}, $\Delta$ , B $\nrightarrow$  A, $\Delta$ _{R}}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{B ⊢ Δ}
-	\hypo{A ⊢ Δ}
-	\infer2{B ⊕ A ⊢ Δ}
+	\hypo{B $\vdash$  $\Delta$ }
+	\hypo{A $\vdash$  $\Delta$ }
+	\infer2{B $\oplus$  A $\vdash$  $\Delta$ }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{C ⊢ Δ_{L}, A, Δ_{R}}
-	\infer1{C ⊢ Δ_{L}, B ⊕ A, Δ_{R}}
+	\hypo{C $\vdash$  $\Delta$ _{L}, A, $\Delta$ _{R}}
+	\infer1{C $\vdash$  $\Delta$ _{L}, B $\oplus$  A, $\Delta$ _{R}}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{C ⊢ Δ_{L}, B, Δ_{R}}
-	\infer1{C ⊢ Δ_{L}, B ⊕ A, Δ_{R}}
+	\hypo{C $\vdash$  $\Delta$ _{L}, B, $\Delta$ _{R}}
+	\infer1{C $\vdash$  $\Delta$ _{L}, B $\oplus$  A, $\Delta$ _{R}}
 	\end{prooftree}
 	\]
 
 	\[
 	\begin{prooftree}
-	\hypo{A ⊢ Δ}
-	\infer1{A \& B ⊢ Δ}
+	\hypo{A $\vdash$  $\Delta$ }
+	\infer1{A \& B $\vdash$  $\Delta$ }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{B ⊢ Δ}
-	\infer1{A \& B ⊢ Δ}
+	\hypo{B $\vdash$  $\Delta$ }
+	\infer1{A \& B $\vdash$  $\Delta$ }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{ C ⊢ Δ_{L}, B, Δ_{R}}
-	\hypo{ C ⊢ Δ_{L}, A, Δ_{R}}
-	\infer2{ C ⊢ Δ_{L}, B \& A, Δ_{R}}
+	\hypo{ C $\vdash$  $\Delta$ _{L}, B, $\Delta$ _{R}}
+	\hypo{ C $\vdash$  $\Delta$ _{L}, A, $\Delta$ _{R}}
+	\infer2{ C $\vdash$  $\Delta$ _{L}, B \& A, $\Delta$ _{R}}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{ ⊢ A, Δ}
-	\infer1{ ¬ A ⊢ Δ}
+	\hypo{ $\vdash$  A, $\Delta$ }
+	\infer1{ $\neg$  A $\vdash$  $\Delta$ }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{ ⊢ Δ, A}
-	\infer1{ ¬ A⊢ Δ}
+	\hypo{ $\vdash$  $\Delta$ , A}
+	\infer1{ $\neg$  A$\vdash$  $\Delta$ }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{ A ⊢ Δ}
-	\infer1{ ⊢ ¬ A, Δ}
+	\hypo{ A $\vdash$  $\Delta$ }
+	\infer1{ $\vdash$  $\neg$  A, $\Delta$ }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{ A ⊢ Δ}
-	\infer1{ ⊢ Δ, ¬ A}
+	\hypo{ A $\vdash$  $\Delta$ }
+	\infer1{ $\vdash$  $\Delta$ , $\neg$  A}
 	\end{prooftree}
 	\]
 
@@ -170,17 +136,16 @@ Uses a variation of cut right.
 \begin{center}
 	\[
 	\begin{prooftree}
-	\infer0[Id]{A ⊢ A}
+	\infer0[Id]{A $\vdash$  A}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{C ⊢ Δ_{L}, A, Δ_{R}}
-	\hypo{A ⊢ Δ}
-	\infer2[CutR]{C ⊢ Δ_{L}, Δ, Δ_{R} }
+	\hypo{C $\vdash$  $\Delta$ _{L}, A, $\Delta$ _{R}}
+	\hypo{A $\vdash$  $\Delta$ }
+	\infer2[CutR]{C $\vdash$  $\Delta$ _{L}, $\Delta$ , $\Delta$ _{R} }
 	\end{prooftree}
 	\]
 \end{center}
 
-\end{document}

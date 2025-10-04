@@ -1,32 +1,5 @@
 
-\documentclass{article}
 
-\usepackage{amsmath}
-\usepackage{ebproof}
-\usepackage{fullpage}
-\usepackage[utf8]{inputenc}
-\usepackage{newunicodechar}
-\usepackage{stix}
-
-\newunicodechar{Γ}{\Gamma}
-\newunicodechar{Δ}{\Delta}
-
-\newunicodechar{⊢}{\vdash}
-
-\newunicodechar{∀}{\forall}
-\newunicodechar{∃}{\exists}
-
-\newunicodechar{⊕}{\oplus}
-\newunicodechar{¬}{\neg}
-
-\setlength{\parindent}{0em}
-
-\author{James Martin, Ian D.L.N. Mclean}
-\title{Existential Ordinary Additive Sequent Calculus}
-
-\begin{document}
-
-\maketitle
 
 \begin{abstract}
 Strictly visible additive order calculus with existential quantification.
@@ -37,15 +10,15 @@ Strictly visible additive order calculus with existential quantification.
 \begin{center}
 	\[
 	\begin{prooftree}
-	\infer0[Id]{A ⊢ A}
+	\infer0[Id]{A $\vdash$  A}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\hypo{A ⊢ Δ}
-	\infer2[cut]{Γ ⊢ Δ}
+	\hypo{$\Gamma$  $\vdash$  A}
+	\hypo{A $\vdash$  $\Delta$ }
+	\infer2[cut]{$\Gamma$  $\vdash$  $\Delta$ }
 	\end{prooftree}
 	\]
 \end{center}
@@ -54,16 +27,16 @@ Strictly visible additive order calculus with existential quantification.
 	\begin{center}
 		\[
 		\begin{prooftree}
-		\hypo{P[y/x] ⊢ Δ}
-		\infer1{∃x.P(x) ⊢ Δ}
+		\hypo{P[y/x] $\vdash$  $\Delta$ }
+		\infer1{$\exists$ x.P(x) $\vdash$  $\Delta$ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{Γ ⊢ P[t/x]}
-		\infer1{Γ ⊢ ∃x.P(x)}
+		\hypo{$\Gamma$  $\vdash$  P[t/x]}
+		\infer1{$\Gamma$  $\vdash$  $\exists$ x.P(x)}
 		\end{prooftree}
 		\]
-		in $∃L$ the variable y must not occur free anywhere in the respective lower sequents.
+		in $$\exists$ L$ the variable y must not occur free anywhere in the respective lower sequents.
 	\end{center}
 
 \section{Operational Rules}
@@ -72,13 +45,13 @@ Strictly visible additive order calculus with existential quantification.
 				\begin{center}
 					\[
 					\begin{prooftree}
-					\hypo{ ⊢ A}
-					\infer1{¬ A ⊢}
+					\hypo{ $\vdash$  A}
+					\infer1{$\neg$  A $\vdash$ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A ⊢ }
-					\infer1{⊢ ¬ A}
+					\hypo{A $\vdash$  }
+					\infer1{$\vdash$  $\neg$  A}
 					\end{prooftree}
 					\]
 				\end{center}
@@ -88,73 +61,73 @@ Strictly visible additive order calculus with existential quantification.
 				\begin{center}
 					\[
 					\begin{prooftree}
-					\hypo{⊢ A}
-					\hypo{⊢ B}
-					\infer2{¬A ⊕ ¬B ⊢ }
+					\hypo{$\vdash$  A}
+					\hypo{$\vdash$  B}
+					\infer2{$\neg$ A $\oplus$  $\neg$ B $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A ⊢ }
-					\infer1{ ⊢ ¬A ⊕ ¬B}
+					\hypo{A $\vdash$  }
+					\infer1{ $\vdash$  $\neg$ A $\oplus$  $\neg$ B}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B ⊢ }
-					\infer1{ ⊢ ¬A ⊕ ¬B}
+					\hypo{B $\vdash$  }
+					\infer1{ $\vdash$  $\neg$ A $\oplus$  $\neg$ B}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{⊢ B}
-					\hypo{ ⊢ A}
-					\infer2{¬B ⊕ ¬A ⊢ }
+					\hypo{$\vdash$  B}
+					\hypo{ $\vdash$  A}
+					\infer2{$\neg$ B $\oplus$  $\neg$ A $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A ⊢ }
-					\infer1{ ⊢ ¬B ⊕ ¬A}
+					\hypo{A $\vdash$  }
+					\infer1{ $\vdash$  $\neg$ B $\oplus$  $\neg$ A}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B ⊢ }
-					\infer1{ ⊢ ¬B ⊕ ¬A}
+					\hypo{B $\vdash$  }
+					\infer1{ $\vdash$  $\neg$ B $\oplus$  $\neg$ A}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{ ⊢ A}
-					\infer1{¬A \& ¬B ⊢ }
+					\hypo{ $\vdash$  A}
+					\infer1{$\neg$ A \& $\neg$ B $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{ ⊢ B}
-					\infer1{¬A \& ¬B ⊢ }
+					\hypo{ $\vdash$  B}
+					\infer1{$\neg$ A \& $\neg$ B $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A ⊢ }
-					\hypo{B ⊢ }
-					\infer2{⊢ ¬A \& ¬B}
+					\hypo{A $\vdash$  }
+					\hypo{B $\vdash$  }
+					\infer2{$\vdash$  $\neg$ A \& $\neg$ B}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{ ⊢ A}
-					\infer1{¬B \& ¬A ⊢ }
+					\hypo{ $\vdash$  A}
+					\infer1{$\neg$ B \& $\neg$ A $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{ ⊢ B}
-					\infer1{¬B \& ¬A ⊢ }
+					\hypo{ $\vdash$  B}
+					\infer1{$\neg$ B \& $\neg$ A $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B ⊢ }
-					\hypo{A ⊢ }
-					\infer2{ ⊢ ¬ B \& ¬ A}
+					\hypo{B $\vdash$  }
+					\hypo{A $\vdash$  }
+					\infer2{ $\vdash$  $\neg$  B \& $\neg$  A}
 					\end{prooftree}
 					\]
 				\end{center}
@@ -163,97 +136,97 @@ Strictly visible additive order calculus with existential quantification.
 				\begin{center}
 					\[
 					\begin{prooftree}
-					\hypo{⊢ B}
-					\hypo{A ⊢ }
-					\infer2{¬B ⊕ A ⊢}
+					\hypo{$\vdash$  B}
+					\hypo{A $\vdash$  }
+					\infer2{$\neg$ B $\oplus$  A $\vdash$ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A ⊢ }
-					\hypo{⊢ B}
-					\infer2{A ⊕ ¬B ⊢}
+					\hypo{A $\vdash$  }
+					\hypo{$\vdash$  B}
+					\infer2{A $\oplus$  $\neg$ B $\vdash$ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{Γ ⊢ A}
-					\infer1{Γ ⊢ A ⊕ ¬B}
+					\hypo{$\Gamma$  $\vdash$  A}
+					\infer1{$\Gamma$  $\vdash$  A $\oplus$  $\neg$ B}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B ⊢ }
-					\infer1{⊢ A ⊕ ¬B}
+					\hypo{B $\vdash$  }
+					\infer1{$\vdash$  A $\oplus$  $\neg$ B}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{ ⊢ A}
-					\hypo{B ⊢ }
-					\infer2{¬A ⊕ B ⊢ }
+					\hypo{ $\vdash$  A}
+					\hypo{B $\vdash$  }
+					\infer2{$\neg$ A $\oplus$  B $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B ⊢ }
-					\hypo{ ⊢ A}
-					\infer2{B ⊕ ¬A ⊢ }
+					\hypo{B $\vdash$  }
+					\hypo{ $\vdash$  A}
+					\infer2{B $\oplus$  $\neg$ A $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A ⊢ }
-					\infer1{ ⊢ B ⊕ ¬A}
+					\hypo{A $\vdash$  }
+					\infer1{ $\vdash$  B $\oplus$  $\neg$ A}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{Γ ⊢ B}
-					\infer1{Γ ⊢ B ⊕ ¬A}
+					\hypo{$\Gamma$  $\vdash$  B}
+					\infer1{$\Gamma$  $\vdash$  B $\oplus$  $\neg$ A}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{A ⊢ Δ}
-					\infer1{A \& ¬B ⊢ Δ}
+					\hypo{A $\vdash$  $\Delta$ }
+					\infer1{A \& $\neg$ B $\vdash$  $\Delta$ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{ ⊢ B}
-					\infer1{A \& ¬B ⊢ }
+					\hypo{ $\vdash$  B}
+					\infer1{A \& $\neg$ B $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{⊢ A}
-					\hypo{B ⊢ }
-					\infer2{⊢ A \& ¬B}
+					\hypo{$\vdash$  A}
+					\hypo{B $\vdash$  }
+					\infer2{$\vdash$  A \& $\neg$ B}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B ⊢ }
-					\hypo{⊢ A}
-					\infer2{⊢ ¬B \& A}
+					\hypo{B $\vdash$  }
+					\hypo{$\vdash$  A}
+					\infer2{$\vdash$  $\neg$ B \& A}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{ ⊢ A}
-					\infer1{B \& ¬A ⊢ }
+					\hypo{ $\vdash$  A}
+					\infer1{B \& $\neg$ A $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B ⊢ Δ}
-					\infer1{B \& ¬A ⊢ Δ}
+					\hypo{B $\vdash$  $\Delta$ }
+					\infer1{B \& $\neg$ A $\vdash$  $\Delta$ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{ ⊢ B}
-					\hypo{A ⊢ }
-					\infer2{ ⊢ B \& ¬ A}
+					\hypo{ $\vdash$  B}
+					\hypo{A $\vdash$  }
+					\infer2{ $\vdash$  B \& $\neg$  A}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A ⊢ }
-					\hypo{ ⊢ B}
-					\infer2{ ⊢ ¬A \& B}
+					\hypo{A $\vdash$  }
+					\hypo{ $\vdash$  B}
+					\infer2{ $\vdash$  $\neg$ A \& B}
 					\end{prooftree}
 					\]
 				\end{center}
@@ -262,73 +235,73 @@ Strictly visible additive order calculus with existential quantification.
 				\begin{center}
 					\[
 					\begin{prooftree}
-					\hypo{A ⊢ Δ}
-					\hypo{B ⊢ Δ}
-					\infer2{A ⊕ B ⊢ Δ}
+					\hypo{A $\vdash$  $\Delta$ }
+					\hypo{B $\vdash$  $\Delta$ }
+					\infer2{A $\oplus$  B $\vdash$  $\Delta$ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{Γ ⊢ A}
-					\infer1{Γ ⊢ A ⊕ B}
+					\hypo{$\Gamma$  $\vdash$  A}
+					\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{Γ ⊢ B}
-					\infer1{Γ ⊢ A ⊕ B}
+					\hypo{$\Gamma$  $\vdash$  B}
+					\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{B ⊢ Δ}
-					\hypo{A ⊢ Δ}
-					\infer2{B ⊕ A ⊢ Δ}
+					\hypo{B $\vdash$  $\Delta$ }
+					\hypo{A $\vdash$  $\Delta$ }
+					\infer2{B $\oplus$  A $\vdash$  $\Delta$ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{Γ ⊢ A}
-					\infer1{Γ ⊢ B ⊕ A}
+					\hypo{$\Gamma$  $\vdash$  A}
+					\infer1{$\Gamma$  $\vdash$  B $\oplus$  A}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{Γ ⊢ B}
-					\infer1{Γ ⊢ B ⊕ A}
+					\hypo{$\Gamma$  $\vdash$  B}
+					\infer1{$\Gamma$  $\vdash$  B $\oplus$  A}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{A ⊢ Δ}
-					\infer1{A \& B ⊢ Δ}
+					\hypo{A $\vdash$  $\Delta$ }
+					\infer1{A \& B $\vdash$  $\Delta$ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B ⊢ Δ}
-					\infer1{A \& B ⊢ Δ}
+					\hypo{B $\vdash$  $\Delta$ }
+					\infer1{A \& B $\vdash$  $\Delta$ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{Γ ⊢ A}
-					\hypo{Γ ⊢ B}
-					\infer2{Γ ⊢ A \& B}
+					\hypo{$\Gamma$  $\vdash$  A}
+					\hypo{$\Gamma$  $\vdash$  B}
+					\infer2{$\Gamma$  $\vdash$  A \& B}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{A ⊢ Δ}
-					\infer1{B \& A ⊢ Δ}
+					\hypo{A $\vdash$  $\Delta$ }
+					\infer1{B \& A $\vdash$  $\Delta$ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B ⊢ Δ}
-					\infer1{B \& A ⊢ Δ}
+					\hypo{B $\vdash$  $\Delta$ }
+					\infer1{B \& A $\vdash$  $\Delta$ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{Γ ⊢ B}
-					\hypo{Γ ⊢ A}
-					\infer2{Γ ⊢ B \& A}
+					\hypo{$\Gamma$  $\vdash$  B}
+					\hypo{$\Gamma$  $\vdash$  A}
+					\infer2{$\Gamma$  $\vdash$  B \& A}
 					\end{prooftree}
 					\]
 				\end{center}
@@ -337,68 +310,68 @@ Strictly visible additive order calculus with existential quantification.
 				\begin{center}
 					\[
 					\begin{prooftree}
-					\hypo{⊢ A}
-					\hypo{B ⊢ }
-					\infer2{(¬A ⊕ B) \& (¬B ⊕ A) ⊢ }
+					\hypo{$\vdash$  A}
+					\hypo{B $\vdash$  }
+					\infer2{($\neg$ A $\oplus$  B) \& ($\neg$ B $\oplus$  A) $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{⊢ B}
-					\hypo{A ⊢ }
-					\infer2{(¬A ⊕ B) \& (¬B ⊕ A) ⊢ }
+					\hypo{$\vdash$  B}
+					\hypo{A $\vdash$  }
+					\infer2{($\neg$ A $\oplus$  B) \& ($\neg$ B $\oplus$  A) $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A ⊢ }
-					\hypo{B ⊢ }
-					\infer2{ ⊢ (¬A ⊕ B) \& (¬B ⊕ A)}
+					\hypo{A $\vdash$  }
+					\hypo{B $\vdash$  }
+					\infer2{ $\vdash$  ($\neg$ A $\oplus$  B) \& ($\neg$ B $\oplus$  A)}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{Γ ⊢ B}
-					\hypo{Γ ⊢ A}
-					\infer2{Γ ⊢ (¬A ⊕ B) \& (¬B ⊕ A)}
+					\hypo{$\Gamma$  $\vdash$  B}
+					\hypo{$\Gamma$  $\vdash$  A}
+					\infer2{$\Gamma$  $\vdash$  ($\neg$ A $\oplus$  B) \& ($\neg$ B $\oplus$  A)}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{A ⊢ }
-					\hypo{⊢A}
-					\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ }
+					\hypo{A $\vdash$  }
+					\hypo{$\vdash$ A}
+					\infer2{(A \& B) $\oplus$   ($\neg$ A \& $\neg$ B) $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A ⊢ }
-					\hypo{⊢B}
-					\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ }
+					\hypo{A $\vdash$  }
+					\hypo{$\vdash$ B}
+					\infer2{(A \& B) $\oplus$   ($\neg$ A \& $\neg$ B) $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B ⊢ }
-					\hypo{⊢A}
-					\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ }
+					\hypo{B $\vdash$  }
+					\hypo{$\vdash$ A}
+					\infer2{(A \& B) $\oplus$   ($\neg$ A \& $\neg$ B) $\vdash$  }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B ⊢ }
-					\hypo{⊢B}
-					\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ }
+					\hypo{B $\vdash$  }
+					\hypo{$\vdash$ B}
+					\infer2{(A \& B) $\oplus$   ($\neg$ A \& $\neg$ B) $\vdash$  }
 					\end{prooftree}
 					\]
 					
 					\[
 					\quad
 					\begin{prooftree}
-					\hypo{Γ ⊢ A}
-					\hypo{Γ ⊢ B}
-					\infer2{Γ ⊢ (A \& B) ⊕  (¬A \& ¬B)}
+					\hypo{$\Gamma$  $\vdash$  A}
+					\hypo{$\Gamma$  $\vdash$  B}
+					\infer2{$\Gamma$  $\vdash$  (A \& B) $\oplus$   ($\neg$ A \& $\neg$ B)}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B ⊢ }
-					\hypo{A ⊢ }
-					\infer2{ ⊢ (A \& B) ⊕  (¬A \& ¬B)}
+					\hypo{B $\vdash$  }
+					\hypo{A $\vdash$  }
+					\infer2{ $\vdash$  (A \& B) $\oplus$   ($\neg$ A \& $\neg$ B)}
 					\end{prooftree}
 					\]
 					
@@ -410,4 +383,3 @@ Strictly visible additive order calculus with existential quantification.
 	\begin{center}
 	\end{center}
 
-\end{document}

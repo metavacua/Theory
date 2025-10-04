@@ -1,51 +1,5 @@
 
-\documentclass{article}
 
-\usepackage{amsmath}
-\usepackage{ebproof}
-\usepackage{fullpage}
-\usepackage[utf8]{inputenc}
-\usepackage{newunicodechar}
-\usepackage{stix}
-
-\newunicodechar{Γ}{\Gamma}
-\newunicodechar{Δ}{\Delta}
-
-\newunicodechar{Θ}{\Theta}
-\newunicodechar{Λ}{\Lambda}
-
-\newunicodechar{Ξ}{\Xi}
-\newunicodechar{Π}{\Pi}
-
-\newunicodechar{Φ}{\Phi}
-\newunicodechar{Ψ}{\Psi}
-
-\newunicodechar{Ω}{\Omega}
-
-\newunicodechar{⊢}{\vdash}
-
-\newunicodechar{⊕}{\oplus}
-\newunicodechar{¬}{\neg}
-
-\newunicodechar{⊗}{\otimes}
-\newunicodechar{→}{\rightarrow}
-\newunicodechar{←}{\leftarrow}
-
-\newunicodechar{⅋}{\upand}
-\newunicodechar{↛}{\nrightarrow}
-\newunicodechar{↚}{\nleftarrow}
-
-\newunicodechar{⊥}{\bot}
-\newunicodechar{⊤}{\top}
-
-\setlength{\parindent}{0em}
-
-\author{James Martin, Ian D.L.N. Mclean}
-\title{Ordinary Multiplicative Calculus}
-
-\begin{document}
-
-\maketitle
 
 \begin{abstract}
 A sequent calculus of ordinary multiplicatives.
@@ -56,46 +10,46 @@ A sequent calculus of ordinary multiplicatives.
 \begin{center}
 	\[
 	\begin{prooftree}
-	\infer0[Id]{A ⊢ A}
+	\infer0[Id]{A $\vdash$  A}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{Γ_{L}, A ⊢}
-	\hypo{⊢ Δ_{L}, A}
-	\infer2[Cut]{Γ_{L} ⊢ Δ_{L}}
+	\hypo{$\Gamma$ _{L}, A $\vdash$ }
+	\hypo{$\vdash$  $\Delta$ _{L}, A}
+	\infer2[Cut]{$\Gamma$ _{L} $\vdash$  $\Delta$ _{L}}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{A, Γ_{R} ⊢}
-	\hypo{⊢ A, Δ_{R}}
-	\infer2[Cut]{Γ_{R} ⊢ Δ_{R}}
+	\hypo{A, $\Gamma$ _{R} $\vdash$ }
+	\hypo{$\vdash$  A, $\Delta$ _{R}}
+	\infer2[Cut]{$\Gamma$ _{R} $\vdash$  $\Delta$ _{R}}
 	\end{prooftree}
 	\]
 	\[
 	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\hypo{A ⊢ Δ}
-	\infer2[Cut]{Γ ⊢ Δ}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{Γ_{L}, A, Γ_{R} ⊢}
-	\hypo{⊢ Δ_{L}, A, Δ_{R}}
-	\infer2[Cut]{Γ_{L}, Γ_{R} ⊢ Δ_{L}, Δ_{R}}
+	\hypo{$\Gamma$  $\vdash$  A}
+	\hypo{A $\vdash$  $\Delta$ }
+	\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{Γ_{L}, A, Γ_{R} ⊢ Δ_{M}}
-	\hypo{Γ_{M} ⊢ Δ_{L}, A, Δ_{R}}
-	\infer2[Cut]{Γ_{L}, Γ_{M}, Γ_{R} ⊢ Δ_{L}, Δ_{M}, Δ_{R}}
+	\hypo{$\Gamma$ _{L}, A, $\Gamma$ _{R} $\vdash$ }
+	\hypo{$\vdash$  $\Delta$ _{L}, A, $\Delta$ _{R}}
+	\infer2[Cut]{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
+	\end{prooftree}
+	\]
+	
+	\[
+	\begin{prooftree}
+	\hypo{$\Gamma$ _{L}, A, $\Gamma$ _{R} $\vdash$  $\Delta$ _{M}}
+	\hypo{$\Gamma$ _{M} $\vdash$  $\Delta$ _{L}, A, $\Delta$ _{R}}
+	\infer2[Cut]{$\Gamma$ _{L}, $\Gamma$ _{M}, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, $\Delta$ _{M}, $\Delta$ _{R}}
 	\end{prooftree}
 	\]
 \end{center}
@@ -107,81 +61,81 @@ A sequent calculus of ordinary multiplicatives.
 	\begin{center}
 		\[
 		\begin{prooftree}
-		\hypo{Γ_{L}, Γ_{R} ⊢ Δ_{L}, A, Δ_{R}}
-		\infer1{Γ_{L}, ¬_{M} A, Γ_{R} ⊢ Δ_{L}, Δ_{R}}
+		\hypo{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, A, $\Delta$ _{R}}
+		\infer1{$\Gamma$ _{L}, $\neg$ _{M} A, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ Γ_{L}, A, Γ_{R} ⊢ Δ_{L}, Δ_{R}}
-		\infer1{ Γ_{L}, Γ_{R} ⊢ Δ_{L}, ¬_{M} A, Δ_{R}}
+		\hypo{ $\Gamma$ _{L}, A, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
+		\infer1{ $\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, $\neg$ _{M} A, $\Delta$ _{R}}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{Γ_{L}, Γ_{R} ⊢ A, Δ}
-		\infer1{Γ_{L}, ¬_{L} A, Γ_{R} ⊢ Δ}
+		\hypo{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  A, $\Delta$ }
+		\infer1{$\Gamma$ _{L}, $\neg$ _{L} A, $\Gamma$ _{R} $\vdash$  $\Delta$ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{A, Γ ⊢ Δ_{L}, Δ_{R}}
-		\infer1{ Γ ⊢ Δ_{L}, ¬_{L} A, Δ_{R}}
+		\hypo{A, $\Gamma$  $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
+		\infer1{ $\Gamma$  $\vdash$  $\Delta$ _{L}, $\neg$ _{L} A, $\Delta$ _{R}}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{Γ_{L}, Γ_{R} ⊢ Δ, A}
-		\infer1{Γ_{L}, ¬_{R} A, Γ_{R} ⊢ Δ}
+		\hypo{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  $\Delta$ , A}
+		\infer1{$\Gamma$ _{L}, $\neg$ _{R} A, $\Gamma$ _{R} $\vdash$  $\Delta$ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ Γ, A ⊢ Δ_{L}, Δ_{R}}
-		\infer1{ Γ ⊢ Δ_{L}, ¬_{R} A, Δ_{R}}
+		\hypo{ $\Gamma$ , A $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
+		\infer1{ $\Gamma$  $\vdash$  $\Delta$ _{L}, $\neg$ _{R} A, $\Delta$ _{R}}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{Γ ⊢ A, Δ}
-		\infer1{¬_{L} A, Γ ⊢ Δ}
+		\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
+		\infer1{$\neg$ _{L} A, $\Gamma$  $\vdash$  $\Delta$ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ A, Γ ⊢ Δ}
-		\infer1{ Γ ⊢ ¬_{L} A, Δ}
+		\hypo{ A, $\Gamma$  $\vdash$  $\Delta$ }
+		\infer1{ $\Gamma$  $\vdash$  $\neg$ _{L} A, $\Delta$ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{Γ ⊢ Δ, A}
-		\infer1{Γ, ¬_{R} A ⊢ Δ}
+		\hypo{$\Gamma$  $\vdash$  $\Delta$ , A}
+		\infer1{$\Gamma$ , $\neg$ _{R} A $\vdash$  $\Delta$ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ Γ, A ⊢ Δ}
-		\infer1{ Γ ⊢ Δ, ¬_{R} A}
+		\hypo{ $\Gamma$ , A $\vdash$  $\Delta$ }
+		\infer1{ $\Gamma$  $\vdash$  $\Delta$ , $\neg$ _{R} A}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{Γ ⊢ Δ, A}
-		\infer1{¬^{*}_{L} A, Γ ⊢ Δ}
+		\hypo{$\Gamma$  $\vdash$  $\Delta$ , A}
+		\infer1{$\neg$ ^{*}_{L} A, $\Gamma$  $\vdash$  $\Delta$ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{Γ, A ⊢ Δ}
-		\infer1{ Γ ⊢ ¬^{*}_{L} A, Δ}
+		\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
+		\infer1{ $\Gamma$  $\vdash$  $\neg$ ^{*}_{L} A, $\Delta$ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{Γ ⊢ A, Δ}
-		\infer1{Γ, ¬^{*}_{R} A ⊢ Δ}
+		\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
+		\infer1{$\Gamma$ , $\neg$ ^{*}_{R} A $\vdash$  $\Delta$ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ A, Γ ⊢ Δ}
-		\infer1{ Γ ⊢ Δ, ¬^{*}_{R} A}
+		\hypo{ A, $\Gamma$  $\vdash$  $\Delta$ }
+		\infer1{ $\Gamma$  $\vdash$  $\Delta$ , $\neg$ ^{*}_{R} A}
 		\end{prooftree}
 		\]
 	\end{center}
@@ -190,53 +144,53 @@ A sequent calculus of ordinary multiplicatives.
 	\begin{center}
 		\[
 		\begin{prooftree}
-		\hypo{Γ_{L}, A, B, Γ_{R} ⊢ Δ}
-		\infer1{Γ_{L}, A ⊗ B, Γ_{R} ⊢ Δ}
+		\hypo{$\Gamma$ _{L}, A, B, $\Gamma$ _{R} $\vdash$  $\Delta$ }
+		\infer1{$\Gamma$ _{L}, A $\otimes$  B, $\Gamma$ _{R} $\vdash$  $\Delta$ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{Γ_{L} ⊢ Δ_{L}, A}
-		\hypo{Γ_{R} ⊢ B, Δ_{R}}
-		\infer2{Γ_{L}, Γ_{R} ⊢ Δ_{L}, A ⊗ B, Δ_{R}}
+		\hypo{$\Gamma$ _{L} $\vdash$  $\Delta$ _{L}, A}
+		\hypo{$\Gamma$ _{R} $\vdash$  B, $\Delta$ _{R}}
+		\infer2{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, A $\otimes$  B, $\Delta$ _{R}}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{Γ_{L}, B, A, Γ_{R} ⊢ Δ}
-		\infer1{Γ_{L}, B ⊗ A, Γ_{R} ⊢ Δ}
+		\hypo{$\Gamma$ _{L}, B, A, $\Gamma$ _{R} $\vdash$  $\Delta$ }
+		\infer1{$\Gamma$ _{L}, B $\otimes$  A, $\Gamma$ _{R} $\vdash$  $\Delta$ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{Γ_{L} ⊢ Δ_{L}, B}
-		\hypo{Γ_{R} ⊢ A, Δ_{R}}
-		\infer2{Γ_{L}, Γ_{R} ⊢ Δ_{L}, B ⊗ A, Δ_{R}}
+		\hypo{$\Gamma$ _{L} $\vdash$  $\Delta$ _{L}, B}
+		\hypo{$\Gamma$ _{R} $\vdash$  A, $\Delta$ _{R}}
+		\infer2{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, B $\otimes$  A, $\Delta$ _{R}}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{Γ_{L}, B ⊢ Δ_{L}}
-		\hypo{A, Γ_{R} ⊢ Δ_{R}}
-		\infer2{Γ_{L}, B ⅋ A, Γ_{R} ⊢ Δ_{L}, Δ_{R}}
+		\hypo{$\Gamma$ _{L}, B $\vdash$  $\Delta$ _{L}}
+		\hypo{A, $\Gamma$ _{R} $\vdash$  $\Delta$ _{R}}
+		\infer2{$\Gamma$ _{L}, B $\parr$  A, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{Γ ⊢ Δ_{L}, B, A, Δ_{R}}
-		\infer1{Γ ⊢ Δ_{L}, B ⅋ A, Δ_{R}}
+		\hypo{$\Gamma$  $\vdash$  $\Delta$ _{L}, B, A, $\Delta$ _{R}}
+		\infer1{$\Gamma$  $\vdash$  $\Delta$ _{L}, B $\parr$  A, $\Delta$ _{R}}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{Γ_{L}, A ⊢ Δ_{L}}
-		\hypo{B, Γ_{R} ⊢ Δ_{R}}
-		\infer2{Γ_{L}, A ⅋ B, Γ_{R} ⊢ Δ_{L}, Δ_{R}}
+		\hypo{$\Gamma$ _{L}, A $\vdash$  $\Delta$ _{L}}
+		\hypo{B, $\Gamma$ _{R} $\vdash$  $\Delta$ _{R}}
+		\infer2{$\Gamma$ _{L}, A $\parr$  B, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{Γ ⊢ Δ_{L}, A, B, Δ_{R}}
-		\infer1{Γ ⊢ Δ_{L}, A ⅋ B, Δ_{R}}
+		\hypo{$\Gamma$  $\vdash$  $\Delta$ _{L}, A, B, $\Delta$ _{R}}
+		\infer1{$\Gamma$  $\vdash$  $\Delta$ _{L}, A $\parr$  B, $\Delta$ _{R}}
 		\end{prooftree}
 		\]
 	\end{center}
@@ -246,47 +200,47 @@ A sequent calculus of ordinary multiplicatives.
 			
 			\[
 			\begin{prooftree}
-			\hypo{Γ_{L}, Γ_{M} ⊢ Δ_{L}, B}
-			\hypo{A, Γ_{R} ⊢ Δ_{R}}
-			\infer2{Γ_{L}, Γ_{M}, ¬_{R} B ⅋ A, Γ_{R} ⊢ Δ_{L}, Δ_{R}}
+			\hypo{$\Gamma$ _{L}, $\Gamma$ _{M} $\vdash$  $\Delta$ _{L}, B}
+			\hypo{A, $\Gamma$ _{R} $\vdash$  $\Delta$ _{R}}
+			\infer2{$\Gamma$ _{L}, $\Gamma$ _{M}, $\neg$ _{R} B $\parr$  A, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{Γ_{L}, B ⊢ Δ_{L}, A, Δ_{R}}
-			\infer1{Γ_{L} ⊢ Δ_{L}, ¬_{R}B ⅋ A, Δ_{R}}
+			\hypo{$\Gamma$ _{L}, B $\vdash$  $\Delta$ _{L}, A, $\Delta$ _{R}}
+			\infer1{$\Gamma$ _{L} $\vdash$  $\Delta$ _{L}, $\neg$ _{R}B $\parr$  A, $\Delta$ _{R}}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{B, Γ_{R} ⊢ Δ_{L}, A, Δ_{R}}
-			\infer1{Γ_{R} ⊢ Δ_{L}, ¬_{L}B ⅋ A, Δ_{R}}
+			\hypo{B, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, A, $\Delta$ _{R}}
+			\infer1{$\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, $\neg$ _{L}B $\parr$  A, $\Delta$ _{R}}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{Γ_{L}, B, Γ_{R} ⊢ Δ_{L}, A, Δ_{R}}
-			\infer1{Γ_{L}, Γ_{R} ⊢ Δ_{L}, ¬_{M}B ⅋ A, Δ_{R}}
+			\hypo{$\Gamma$ _{L}, B, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, A, $\Delta$ _{R}}
+			\infer1{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, $\neg$ _{M}B $\parr$  A, $\Delta$ _{R}}
 			\end{prooftree}
 			\]
 			
 			\[
 			\begin{prooftree}
-			\hypo{Γ_{L}, B, Γ_{R} ⊢ Δ_{L}, A}
-			\infer1{Γ_{L}, ¬_{R}A ⊗ B, Γ_{R} ⊢ Δ_{L}}
+			\hypo{$\Gamma$ _{L}, B, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, A}
+			\infer1{$\Gamma$ _{L}, $\neg$ _{R}A $\otimes$  B, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{Γ_{L}, B, Γ_{R} ⊢ Δ_{L}, A, Δ_{R}}
-			\infer1{Γ_{L}, ¬_{M}A ⊗ B, Γ_{R} ⊢ Δ_{L}, Δ_{R}}
+			\hypo{$\Gamma$ _{L}, B, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, A, $\Delta$ _{R}}
+			\infer1{$\Gamma$ _{L}, $\neg$ _{M}A $\otimes$  B, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{Γ_{L}, B, Γ_{R} ⊢ A, Δ_{R}}
-			\infer1{Γ_{L}, ¬_{L}A ⊗ B, Γ_{R} ⊢ Δ_{R}}
+			\hypo{$\Gamma$ _{L}, B, $\Gamma$ _{R} $\vdash$  A, $\Delta$ _{R}}
+			\infer1{$\Gamma$ _{L}, $\neg$ _{L}A $\otimes$  B, $\Gamma$ _{R} $\vdash$  $\Delta$ _{R}}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{Γ_{L}, A ⊢ Δ_{L}}
-			\hypo{Γ_{R} ⊢ B, Δ_{R}}
-			\infer2{Γ_{L}, Γ_{R} ⊢ Δ_{L}, ¬_{R} A ⊗ B, Δ_{R}}
+			\hypo{$\Gamma$ _{L}, A $\vdash$  $\Delta$ _{L}}
+			\hypo{$\Gamma$ _{R} $\vdash$  B, $\Delta$ _{R}}
+			\infer2{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, $\neg$ _{R} A $\otimes$  B, $\Delta$ _{R}}
 			\end{prooftree}
 			\]
 			
@@ -295,101 +249,101 @@ A sequent calculus of ordinary multiplicatives.
 			\begin{center}
 				\[
 				\begin{prooftree}
-				\hypo{Γ_{L}, ¬A ⅋ B, ¬B ⅋ A, Γ_{R} ⊢ Δ_{L},Δ_{M},Δ_{R}}
-				\infer1{Γ_{L}, (¬A ⅋ B)⊗(¬B ⅋ A), Γ_{R} ⊢ Δ_{L},Δ_{M},Δ_{R}}
+				\hypo{$\Gamma$ _{L}, $\neg$ A $\parr$  B, $\neg$ B $\parr$  A, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L},$\Delta$ _{M},$\Delta$ _{R}}
+				\infer1{$\Gamma$ _{L}, ($\neg$ A $\parr$  B)$\otimes$ ($\neg$ B $\parr$  A), $\Gamma$ _{R} $\vdash$  $\Delta$ _{L},$\Delta$ _{M},$\Delta$ _{R}}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{Γ_{L} ⊢ Δ_{L}, A}
-				\hypo{B, ¬B ⊢ Δ_{M}}
-				\hypo{A, Γ_{R} ⊢ Δ_{R}}
-				\infer3{Γ_{L}, (¬_{R}A ⅋ B)⊗(¬B ⅋ A), Γ_{R} ⊢ Δ_{L},Δ_{M},Δ_{R}}
+				\hypo{$\Gamma$ _{L} $\vdash$  $\Delta$ _{L}, A}
+				\hypo{B, $\neg$ B $\vdash$  $\Delta$ _{M}}
+				\hypo{A, $\Gamma$ _{R} $\vdash$  $\Delta$ _{R}}
+				\infer3{$\Gamma$ _{L}, ($\neg$ _{R}A $\parr$  B)$\otimes$ ($\neg$ B $\parr$  A), $\Gamma$ _{R} $\vdash$  $\Delta$ _{L},$\Delta$ _{M},$\Delta$ _{R}}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{Γ_{L} ⊢ Δ, A}
-				\infer0{B ⊢ B}
-				\hypo{A, Γ_{R} ⊢ }
-				\infer3{Γ_{L}, (¬_{R}A ⅋ B)⊗(¬B ⅋ A), Γ_{R} ⊢ Δ}
+				\hypo{$\Gamma$ _{L} $\vdash$  $\Delta$ , A}
+				\infer0{B $\vdash$  B}
+				\hypo{A, $\Gamma$ _{R} $\vdash$  }
+				\infer3{$\Gamma$ _{L}, ($\neg$ _{R}A $\parr$  B)$\otimes$ ($\neg$ B $\parr$  A), $\Gamma$ _{R} $\vdash$  $\Delta$ }
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{Γ_{L}⊢ Δ_{L}, A}
-				\infer0{B ⊢ B}
-				\hypo{A, Γ_{R} ⊢ Δ_{R}}
-				\infer3{Γ_{L}, (¬_{R} A ⅋ B)⊗(¬ B ⅋ A), Γ_{R} ⊢ Δ_{L},Δ_{R}}
+				\hypo{$\Gamma$ _{L}$\vdash$  $\Delta$ _{L}, A}
+				\infer0{B $\vdash$  B}
+				\hypo{A, $\Gamma$ _{R} $\vdash$  $\Delta$ _{R}}
+				\infer3{$\Gamma$ _{L}, ($\neg$ _{R} A $\parr$  B)$\otimes$ ($\neg$  B $\parr$  A), $\Gamma$ _{R} $\vdash$  $\Delta$ _{L},$\Delta$ _{R}}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{Γ_{L}, A ⊢ Δ_{L}, B}
-				\hypo{B, Γ_{R} ⊢ A, Δ_{R}}
-				\infer2{Γ_{L}, Γ_{R} ⊢ Δ_{L}, (¬_{R}A ⅋ B)⊗(¬_{L}B ⅋ A), Δ_{R}}
+				\hypo{$\Gamma$ _{L}, A $\vdash$  $\Delta$ _{L}, B}
+				\hypo{B, $\Gamma$ _{R} $\vdash$  A, $\Delta$ _{R}}
+				\infer2{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, ($\neg$ _{R}A $\parr$  B)$\otimes$ ($\neg$ _{L}B $\parr$  A), $\Delta$ _{R}}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{Γ_{L}, B ⊢ Δ_{L}}
-				\infer0{A ⊢ A}
-				\hypo{Γ_{R} ⊢ B, Δ_{R}}
-				\infer3{Γ_{L}, (B ⅋ ¬ A)⊗(A ⅋ ¬_{L}B), Γ_{R} ⊢ Δ_{L},Δ_{R}}
+				\hypo{$\Gamma$ _{L}, B $\vdash$  $\Delta$ _{L}}
+				\infer0{A $\vdash$  A}
+				\hypo{$\Gamma$ _{R} $\vdash$  B, $\Delta$ _{R}}
+				\infer3{$\Gamma$ _{L}, (B $\parr$  $\neg$  A)$\otimes$ (A $\parr$  $\neg$ _{L}B), $\Gamma$ _{R} $\vdash$  $\Delta$ _{L},$\Delta$ _{R}}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{Γ_{L}, B ⊢ Δ_{L}, A}
-				\hypo{A, Γ_{R} ⊢ B, Δ_{R}}
-				\infer2{Γ_{L}, Γ_{R} ⊢ Δ_{L}, (¬_{R}B ⅋ A)⊗(¬_{L}A ⅋ B), Δ_{R}}
+				\hypo{$\Gamma$ _{L}, B $\vdash$  $\Delta$ _{L}, A}
+				\hypo{A, $\Gamma$ _{R} $\vdash$  B, $\Delta$ _{R}}
+				\infer2{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  $\Delta$ _{L}, ($\neg$ _{R}B $\parr$  A)$\otimes$ ($\neg$ _{L}A $\parr$  B), $\Delta$ _{R}}
 				\end{prooftree}
 				\]
 
 				\[
 				\begin{prooftree}
-				\hypo{Γ_{L} ⊢ Δ_{L}, A}
-				\hypo{B,A ⊢}
-				\hypo{Γ_{R} ⊢ B, Δ_{R}}
-				\infer3{Γ_{L}, (¬_{R} A ⅋ B)⊗(A ⅋ ¬_{L}B), Γ_{R} ⊢ Δ_{L},Δ_{R}}
+				\hypo{$\Gamma$ _{L} $\vdash$  $\Delta$ _{L}, A}
+				\hypo{B,A $\vdash$ }
+				\hypo{$\Gamma$ _{R} $\vdash$  B, $\Delta$ _{R}}
+				\infer3{$\Gamma$ _{L}, ($\neg$ _{R} A $\parr$  B)$\otimes$ (A $\parr$  $\neg$ _{L}B), $\Gamma$ _{R} $\vdash$  $\Delta$ _{L},$\Delta$ _{R}}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{Γ_{L}, B ⊢ Δ_{L}}
-				\hypo{⊢ A, B}
-				\hypo{A, Γ_{R} ⊢ Δ_{R}}
-				\infer3{Γ_{L}, (B ⅋ ¬ A)⊗(¬ B ⅋ A), Γ_{R} ⊢ Δ_{L},Δ_{R}}
+				\hypo{$\Gamma$ _{L}, B $\vdash$  $\Delta$ _{L}}
+				\hypo{$\vdash$  A, B}
+				\hypo{A, $\Gamma$ _{R} $\vdash$  $\Delta$ _{R}}
+				\infer3{$\Gamma$ _{L}, (B $\parr$  $\neg$  A)$\otimes$ ($\neg$  B $\parr$  A), $\Gamma$ _{R} $\vdash$  $\Delta$ _{L},$\Delta$ _{R}}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{Γ_{L}, B ⊢ Δ_{L}}
-				\hypo{⊢ B, A}
-				\hypo{A, Γ_{R} ⊢ Δ_{R}}
-				\infer3{Γ_{L}, (B ⅋ ¬ A)⊗(¬ B ⅋ A), Γ_{R} ⊢ Δ_{L},Δ_{R}}
+				\hypo{$\Gamma$ _{L}, B $\vdash$  $\Delta$ _{L}}
+				\hypo{$\vdash$  B, A}
+				\hypo{A, $\Gamma$ _{R} $\vdash$  $\Delta$ _{R}}
+				\infer3{$\Gamma$ _{L}, (B $\parr$  $\neg$  A)$\otimes$ ($\neg$  B $\parr$  A), $\Gamma$ _{R} $\vdash$  $\Delta$ _{L},$\Delta$ _{R}}
 				\end{prooftree}				
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{Γ_{L}, A , B ⊢ Δ_{L}}
-				\hypo{¬_{L}A , ¬_{L}B, Γ_{R} ⊢ Δ_{R}}
-				\infer2{Γ_{L}, (A ⊗ B)⅋(¬A ⊗ ¬B), Γ_{R} ⊢ Δ_{L},Δ_{R}}
+				\hypo{$\Gamma$ _{L}, A , B $\vdash$  $\Delta$ _{L}}
+				\hypo{$\neg$ _{L}A , $\neg$ _{L}B, $\Gamma$ _{R} $\vdash$  $\Delta$ _{R}}
+				\infer2{$\Gamma$ _{L}, (A $\otimes$  B)$\parr$ ($\neg$ A $\otimes$  $\neg$ B), $\Gamma$ _{R} $\vdash$  $\Delta$ _{L},$\Delta$ _{R}}
 				\end{prooftree}
 				\]
 				Disjunctive Biconditional LHS
 				\[
 				\begin{prooftree}
-				\hypo{Γ_{L}, A , B ⊢ Δ_{L}}
-				\hypo{Γ_{R} ⊢ A, B, Δ_{R}}
-				\infer2{Γ_{L}, (A ⊗ B)⅋(¬A ⊗ ¬B), Γ_{R} ⊢ Δ_{L},Δ_{R}}
+				\hypo{$\Gamma$ _{L}, A , B $\vdash$  $\Delta$ _{L}}
+				\hypo{$\Gamma$ _{R} $\vdash$  A, B, $\Delta$ _{R}}
+				\infer2{$\Gamma$ _{L}, (A $\otimes$  B)$\parr$ ($\neg$ A $\otimes$  $\neg$ B), $\Gamma$ _{R} $\vdash$  $\Delta$ _{L},$\Delta$ _{R}}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{Γ_{L}, A , B ⊢ Δ_{L}}
-				\hypo{Γ_{R} ⊢ B, A, Δ_{R}}
-				\infer2{Γ_{L}, (A ⊗ B)⅋(¬A ⊗ ¬B), Γ_{R} ⊢ Δ_{L},Δ_{R}}
+				\hypo{$\Gamma$ _{L}, A , B $\vdash$  $\Delta$ _{L}}
+				\hypo{$\Gamma$ _{R} $\vdash$  B, A, $\Delta$ _{R}}
+				\infer2{$\Gamma$ _{L}, (A $\otimes$  B)$\parr$ ($\neg$ A $\otimes$  $\neg$ B), $\Gamma$ _{R} $\vdash$  $\Delta$ _{L},$\Delta$ _{R}}
 				\end{prooftree}
 				\]
 			\end{center}
@@ -399,55 +353,54 @@ A sequent calculus of ordinary multiplicatives.
 	\begin{center}
 		\[
 		\begin{prooftree}
-		\infer0{A ⊢ A}
-		\infer1{A ⊗ ¬ A ⊢ }
+		\infer0{A $\vdash$  A}
+		\infer1{A $\otimes$  $\neg$  A $\vdash$  }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A ⊢ A}
-		\infer0{¬A ⊢ ¬A}
-		\infer2{A, ¬A ⊢ A ⊗ ¬A}
+		\infer0{A $\vdash$  A}
+		\infer0{$\neg$ A $\vdash$  $\neg$ A}
+		\infer2{A, $\neg$ A $\vdash$  A $\otimes$  $\neg$ A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{¬A ⊢ ¬A}
-		\infer0{A ⊢ A}
-		\infer2{¬A, A ⊢ ¬A ⊗ A}
+		\infer0{$\neg$ A $\vdash$  $\neg$ A}
+		\infer0{A $\vdash$  A}
+		\infer2{$\neg$ A, A $\vdash$  $\neg$ A $\otimes$  A}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{A ⊢ A}
-		\infer1{⊢ ¬(A ⊗ ¬ A)}
+		\infer0{A $\vdash$  A}
+		\infer1{$\vdash$  $\neg$ (A $\otimes$  $\neg$  A)}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{A ⊢ A}
-		\infer0{¬A ⊢ ¬A}
-		\infer2{A ⅋ ¬A ⊢ A , ¬A}
+		\infer0{A $\vdash$  A}
+		\infer0{$\neg$ A $\vdash$  $\neg$ A}
+		\infer2{A $\parr$  $\neg$ A $\vdash$  A , $\neg$ A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{¬A ⊢ ¬A}
-		\infer0{A ⊢ A}
-		\infer2{¬A ⅋ A ⊢ ¬A , A}
+		\infer0{$\neg$ A $\vdash$  $\neg$ A}
+		\infer0{A $\vdash$  A}
+		\infer2{$\neg$ A $\parr$  A $\vdash$  $\neg$ A , A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A ⊢ A}
-		\infer1{⊢  ¬A ⅋ A}
+		\infer0{A $\vdash$  A}
+		\infer1{$\vdash$   $\neg$ A $\parr$  A}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{A ⊢ A}
-		\infer1{¬(¬A ⅋ A) ⊢ }
+		\infer0{A $\vdash$  A}
+		\infer1{$\neg$ ($\neg$ A $\parr$  A) $\vdash$  }
 		\end{prooftree}
 		\]
 	\end{center}
 
-\end{document}
