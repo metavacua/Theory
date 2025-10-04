@@ -1,58 +1,5 @@
 
-\documentclass{article}
 
-\usepackage{amsmath}
-\usepackage{ebproof}
-\usepackage{fullpage}
-\usepackage[utf8]{inputenc}
-\usepackage{newunicodechar}
-\usepackage{stix}
-
-\newunicodechar{Γ}{\Gamma}
-\newunicodechar{Δ}{\Delta}
-
-\newunicodechar{Θ}{\Theta}
-\newunicodechar{Λ}{\Lambda}
-
-\newunicodechar{Ξ}{\Xi}
-\newunicodechar{Π}{\Pi}
-
-\newunicodechar{Φ}{\Phi}
-\newunicodechar{Ψ}{\Psi}
-
-\newunicodechar{Ω}{\Omega}
-
-\newunicodechar{⊢}{\vdash}
-
-\newunicodechar{⊕}{\oplus}
-\newunicodechar{¬}{\neg}
-
-\newunicodechar{⊗}{\otimes}
-
-\newunicodechar{→}{\rightarrow}
-\newunicodechar{←}{\leftarrow}
-
-\newunicodechar{↔}{\leftrightarrow}
-\newunicodechar{↮}{\nleftrightarrow}
-
-\newunicodechar{∧}{\wedge}
-\newunicodechar{∨}{\vee}
-
-\newunicodechar{⅋}{\upand}
-\newunicodechar{↛}{\nrightarrow}
-\newunicodechar{↚}{\nleftarrow}
-
-\newunicodechar{⊥}{\bot}
-\newunicodechar{⊤}{\top}
-
-\setlength{\parindent}{0em}
-
-\author{James Martin, Ian D.L.N. Mclean}
-\title{Identity Calculus}
-
-\begin{document}
-
-\maketitle
 
 \begin{abstract}
 A calculus of Horn clauses, equality, equivalence, identity, explicit substitution of expressions, reductions, and reflexivity.
@@ -76,15 +23,15 @@ A calculus of Horn clauses, equality, equivalence, identity, explicit substituti
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0[Id]{A ⊢ A}
+			\infer0[Id]{A $\vdash$  A}
 			\end{prooftree}
 			\]
 			
 			\[
 			\begin{prooftree}
-			\hypo{Γ ⊢ A}
-			\hypo{A ⊢ Δ}
-			\infer2[Cut]{Γ ⊢ Δ}
+			\hypo{$\Gamma$  $\vdash$  A}
+			\hypo{A $\vdash$  $\Delta$ }
+			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
 			\end{prooftree}
 			\]
 		\end{center}
@@ -96,41 +43,41 @@ A calculus of Horn clauses, equality, equivalence, identity, explicit substituti
 			\begin{center}
 				\[
 				\begin{prooftree}
-				\hypo{Γ ⊢ P}
-				\infer1[Substitution of Expressions]{Γ ⊢ P[x/E]}
+				\hypo{$\Gamma$  $\vdash$  P}
+				\infer1[Substitution of Expressions]{$\Gamma$  $\vdash$  P[x/E]}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{Γ ⊢ P = Q}
-				\infer1[Equality of Expressions]{Γ ⊢ [x/P] = [x/Q]}
+				\hypo{$\Gamma$  $\vdash$  P = Q}
+				\infer1[Equality of Expressions]{$\Gamma$  $\vdash$  [x/P] = [x/Q]}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{Γ ⊢ P = Q}
-				\hypo{Γ ⊢ Q = R}
-				\infer2[Transitivity of Equality]{Γ ⊢ P = R}
+				\hypo{$\Gamma$  $\vdash$  P = Q}
+				\hypo{$\Gamma$  $\vdash$  Q = R}
+				\infer2[Transitivity of Equality]{$\Gamma$  $\vdash$  P = R}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{Γ ⊢ P}
-				\hypo{Γ ⊢ P \Leftrightarrow Q}
-				\infer2[Equianimity]{Γ ⊢ Q}
+				\hypo{$\Gamma$  $\vdash$  P}
+				\hypo{$\Gamma$  $\vdash$  P \Leftrightarrow Q}
+				\infer2[Equianimity]{$\Gamma$  $\vdash$  Q}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{A, B ⊢}
-				\hypo{⊢ A, B}
-				\infer2{A \Leftrightarrow B ⊢ }
+				\hypo{A, B $\vdash$ }
+				\hypo{$\vdash$  A, B}
+				\infer2{A \Leftrightarrow B $\vdash$  }
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{A ⊢ B}
-				\hypo{B ⊢ A}
-				\infer2{⊢ A \Leftrightarrow B}
+				\hypo{A $\vdash$  B}
+				\hypo{B $\vdash$  A}
+				\infer2{$\vdash$  A \Leftrightarrow B}
 				\end{prooftree}
 				\]
 			\end{center}
@@ -143,4 +90,3 @@ A calculus of Horn clauses, equality, equivalence, identity, explicit substituti
 		\end{center}
 \end{center}
 
-\end{document}

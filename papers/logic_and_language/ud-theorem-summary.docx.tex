@@ -1,6 +1,6 @@
 }
 
-∃∀¬∧∨→↛↔⊕
+$\exists$ $\forall$ $\neg$ $\land$ $\lor$ $\to$ $\nrightarrow$ $\leftrightarrow$ $\oplus$
 
 \hypertarget{theorem-1-of-undecidable-theories-part-i}{%
 \subsection{Theorem 1 of Undecidable Theories Part
@@ -100,20 +100,20 @@ T\_e has the same constants as T, T\_e is non-axiomatizable).
 \hypertarget{lemma}{%
 \subsubsection{\texorpdfstring{Lemma }{Lemma }}\label{lemma}}
 
-∀T' in standard formalization.
+$\forall$ T' in standard formalization.
 
 Consistent(T') and Decide(T') if and only if
-∃T\textquotesingle'{[}Consistent(T'\textquotesingle)∧
-Complete(T'\textquotesingle)∧Decide(T'\textquotesingle)∧Axiomatize(T\textquotesingle')∧Extend(T',
-T\textquotesingle\textquotesingle)∧sameConstants(T',
+$\exists$ T\textquotesingle'{[}Consistent(T'\textquotesingle)$\land$
+Complete(T'\textquotesingle)$\land$ Decide(T'\textquotesingle)$\land$ Axiomatize(T\textquotesingle')$\land$ Extend(T',
+T\textquotesingle\textquotesingle)$\land$ sameConstants(T',
 T\textquotesingle\textquotesingle){]}.
 
 Equivalently,
 
-∀T' in standard formalization.
+$\forall$ T' in standard formalization.
 
 NAND(Consistent(T'), Decide(T')) if and only if
-∀T\textquotesingle'{[}¬Consistent(T'\textquotesingle)∨¬Complete(T'\textquotesingle)∨¬Decide(T'\textquotesingle)∨¬Axiomatize(T\textquotesingle')∨¬Extend(T',
+$\forall$ T\textquotesingle'{[}$\neg$ Consistent(T'\textquotesingle)$\lor$ $\neg$ Complete(T'\textquotesingle)$\lor$ $\neg$ Decide(T'\textquotesingle)$\lor$ $\neg$ Axiomatize(T\textquotesingle')$\lor$ $\neg$ Extend(T',
 T\textquotesingle\textquotesingle){]}.
 
 \hypertarget{theorem-2-for-hereditary-undecidability}{%
@@ -139,50 +139,50 @@ T\_s is axiomatizable.
 \subsection{Theorem 2: Exclusive Essential Undecidability of
 T}\label{theorem-2-exclusive-essential-undecidability-of-t}}
 
-EU(T)↛HU(T) iff Consistent(T) ∧ ∀T\_e ∃T\_s{[}(Extend(T,
-T\_e)→C(T\_e))∧(Subtend(T, T\_s)↛C(T\_s)){]}
+EU(T)$\nrightarrow$ HU(T) iff Consistent(T) $\land$  $\forall$ T\_e $\exists$ T\_s{[}(Extend(T,
+T\_e)$\to$ C(T\_e))$\land$ (Subtend(T, T\_s)$\nrightarrow$ C(T\_s)){]}
 
 \hypertarget{theorem-2-exclusive-hereditary-undecidability-of-t}{%
 \subsection{Theorem 2: Exclusive Hereditary Undecidability of
 T}\label{theorem-2-exclusive-hereditary-undecidability-of-t}}
 
-HU(T)↛EU(T) iff Consistent(T) ∧ ∀T\_s ∃T\_e{[}(Subtend(T,
-T\_s)→C(T\_s))∧(Extend(T, T\_e)↛C(T\_e)){]}
+HU(T)$\nrightarrow$ EU(T) iff Consistent(T) $\land$  $\forall$ T\_s $\exists$ T\_e{[}(Subtend(T,
+T\_s)$\to$ C(T\_s))$\land$ (Extend(T, T\_e)$\nrightarrow$ C(T\_e)){]}
 
 \hypertarget{theorem-2-total-undecidability-of-t}{%
 \subsection{Theorem 2: Total Undecidability of
 T}\label{theorem-2-total-undecidability-of-t}}
 
-C(x) = ¬Consistent(x)∨¬Complete(x)∨¬Axiomatize(x)
+C(x) = $\neg$ Consistent(x)$\lor$ $\neg$ Complete(x)$\lor$ $\neg$ Axiomatize(x)
 
-EU(T) and HU(T) iff Consistent(T) ∧ ∀Y. ( (Extend(T, Y) or Subtend(T, Y)
-) → C(Y) )
+EU(T) and HU(T) iff Consistent(T) $\land$  $\forall$ Y. ( (Extend(T, Y) or Subtend(T, Y)
+) $\to$  C(Y) )
 
 \hypertarget{theorem-2-denial-of-the-essential-or-hereditary-undecidability-of-t}{%
 \subsection{Theorem 2: Denial of the Essential or Hereditary
 Undecidability of
 T}\label{theorem-2-denial-of-the-essential-or-hereditary-undecidability-of-t}}
 
-Neither EU(T) nor HU(T) iff Consistent(T)→{[}∃T\_e. (Extend(T,
-T\_e)↛C(T\_e))∧∃T\_s.(Subtend(T, T\_s)↛C(T\_s)){]}
+Neither EU(T) nor HU(T) iff Consistent(T)$\to$ {[}$\exists$ T\_e. (Extend(T,
+T\_e)$\nrightarrow$ C(T\_e))$\land$ $\exists$ T\_s.(Subtend(T, T\_s)$\nrightarrow$ C(T\_s)){]}
 
 \hypertarget{generalization-of-theorem-2-of-ut}{%
 \subsection{Generalization of Theorem 2 of
 UT}\label{generalization-of-theorem-2-of-ut}}
 
-C(x) = ¬Consistent(x)∨¬Complete(x)∨¬Axiomatize(x)∨¬sameConstants(x)
+C(x) = $\neg$ Consistent(x)$\lor$ $\neg$ Complete(x)$\lor$ $\neg$ Axiomatize(x)$\lor$ $\neg$ sameConstants(x)
 
-EU(T) and HU(T) iff Consistent(T) ∧ ∀Y. ( (Extend(T, Y) or Subtend(T, Y)
-) → C(Y) )
+EU(T) and HU(T) iff Consistent(T) $\land$  $\forall$ Y. ( (Extend(T, Y) or Subtend(T, Y)
+) $\to$  C(Y) )
 
-EU(T) and not HU(T) iff Consistent(T) ∧ ∀T\_e ∃T\_s{[}Extend(T,
-T\_e)→C(T\_e){]}∧{[}Subtend(T, T\_s)∧¬C(T\_s){]}
+EU(T) and not HU(T) iff Consistent(T) $\land$  $\forall$ T\_e $\exists$ T\_s{[}Extend(T,
+T\_e)$\to$ C(T\_e){]}$\land$ {[}Subtend(T, T\_s)$\land$ $\neg$ C(T\_s){]}
 
-not EU(T) and HU(T) iff Consistent(T) ∧ ∀T\_s ∃T\_e{[}Subtend(T,
-T\_s)→C(T\_s){]}∧{[}Extend(T, T\_e)∧¬C(T\_e){]}
+not EU(T) and HU(T) iff Consistent(T) $\land$  $\forall$ T\_s $\exists$ T\_e{[}Subtend(T,
+T\_s)$\to$ C(T\_s){]}$\land$ {[}Extend(T, T\_e)$\land$ $\neg$ C(T\_e){]}
 
-Neither EU(T) nor HU(T) iff Consistent(T)→{[}∃T\_e. (Extend(T,
-T\_e)↛C(T\_e))∧∃T\_s.(Subtend(T, T\_s)↛C(T\_s)){]}
+Neither EU(T) nor HU(T) iff Consistent(T)$\to$ {[}$\exists$ T\_e. (Extend(T,
+T\_e)$\nrightarrow$ C(T\_e))$\land$ $\exists$ T\_s.(Subtend(T, T\_s)$\nrightarrow$ C(T\_s)){]}
 
 \hypertarget{theorem-3-of-ut-for-hu}{%
 \subsection{Theorem 3 of UT for HU}\label{theorem-3-of-ut-for-hu}}
@@ -357,11 +357,11 @@ all Y, {[}Extend(T, Y) or Subtend(T, Y){]} and Axiomatize(Y).
 \hypertarget{summary-of-combinations}{%
 \subsection{Summary of combinations}\label{summary-of-combinations}}
 
-{[}Complete(x)↔Axiomatize(x){]}→Decide(x).
+{[}Complete(x)$\leftrightarrow$ Axiomatize(x){]}$\to$ Decide(x).
 
-¬Decide(x)→{[}Complete(x)⊕Axiomatize(x){]}.
+$\neg$ Decide(x)$\to$ {[}Complete(x)$\oplus$ Axiomatize(x){]}.
 
-SU(T)⊕Complete(T)
+SU(T)$\oplus$ Complete(T)
 
 Any axiomatizable theory in SU will not be complete.
 
@@ -409,9 +409,9 @@ Decide, SU, or EU.
 \subsection{Jointly Exhaustive and Mutually Exclusive Theories
 Theorem}\label{jointly-exhaustive-and-mutually-exclusive-theories-theorem}}
 
-{[}Axiomatize(T)↛fAxiomatize(T){]}⊕fAxiomatize(T)⊕¬Axiomatize(T) if and
-only if Inconsistent(T)⊕Paraconsistent(T)⊕Consistent(T) if and only if
-Decide(T)⊕SU(T)⊕EU(T) if and only if Incomplete⊕Complete⊕Overcomplete.
+{[}Axiomatize(T)$\nrightarrow$ fAxiomatize(T){]}$\oplus$ fAxiomatize(T)$\oplus$ $\neg$ Axiomatize(T) if and
+only if Inconsistent(T)$\oplus$ Paraconsistent(T)$\oplus$ Consistent(T) if and only if
+Decide(T)$\oplus$ SU(T)$\oplus$ EU(T) if and only if Incomplete$\oplus$ Complete$\oplus$ Overcomplete.
 
 \hypertarget{inductive-su-theorem}{%
 \subsection{Inductive SU Theorem}\label{inductive-su-theorem}}
@@ -485,7 +485,7 @@ non-axiomatizable in paraconsistent semantics.
 \st{A theory is finitely axiomatizable if and only if the theory is
 axiomatizable and the complement of the theory is axiomatizable.}
 
-\st{fAX(T) iff AX(T) ↔ AX(¬T)}
+\st{fAX(T) iff AX(T) $\leftrightarrow$  AX($\neg$ T)}
 
 \hypertarget{theorem-13}{%
 \subsubsection{\texorpdfstring{\st{Theorem}}{Theorem}}\label{theorem-13}}
@@ -493,7 +493,7 @@ axiomatizable and the complement of the theory is axiomatizable.}
 \st{A theory is non-finitely axiomatizable if and only if the theory is
 axiomatizable and the complement of the theory is non-axiomatizable.}
 
-\st{iAX(T) iff AX(T) and ¬AX(¬T)}
+\st{iAX(T) iff AX(T) and $\neg$ AX($\neg$ T)}
 
 \hypertarget{theorem-14}{%
 \subsubsection{\texorpdfstring{\st{Theorem}}{Theorem}}\label{theorem-14}}
@@ -502,7 +502,7 @@ axiomatizable and the complement of the theory is non-axiomatizable.}
 the theory implies that the complement of the theory is axiomatizable
 and non-axiomatizable.}
 
-\st{nAX(T) iff AX(T)→{[}AX(¬T) and ¬AX(¬T){]}}
+\st{nAX(T) iff AX(T)$\to$ {[}AX($\neg$ T) and $\neg$ AX($\neg$ T){]}}
 
 \hypertarget{theorem-15}{%
 \subsection{\texorpdfstring{\st{Theorem}}{Theorem}}\label{theorem-15}}
@@ -517,7 +517,6 @@ complement are finitely axiomatizable.
 A paraconsistent theory and its paraconsistent complement are complete
 if and only if they are finitely axiomatizable.
 
-\st{Paraconsistent(T) and Complete(T) iff Paraconsistent(¬T) and
-Complete(¬T) iff AX(T) and AX(¬T) iff fAX(T).}
+\st{Paraconsistent(T) and Complete(T) iff Paraconsistent($\neg$ T) and
+Complete($\neg$ T) iff AX(T) and AX($\neg$ T) iff fAX(T).}
 
-\end{document}}*}

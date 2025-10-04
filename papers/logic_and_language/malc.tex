@@ -1,47 +1,5 @@
 
-\documentclass{article}
 
-\usepackage{amsmath}
-\usepackage{ebproof}
-\usepackage{fullpage}
-\usepackage[utf8]{inputenc}
-\usepackage{newunicodechar}
-\usepackage{stix}
-
-\newunicodechar{Γ}{\Gamma}
-\newunicodechar{Δ}{\Delta}
-
-\newunicodechar{Θ}{\Theta}
-\newunicodechar{Λ}{\Lambda}
-
-\newunicodechar{Ξ}{\Xi}
-\newunicodechar{Π}{\Pi}
-
-\newunicodechar{Φ}{\Phi}
-\newunicodechar{Ψ}{\Psi}
-
-\newunicodechar{Ω}{\Omega}
-
-\newunicodechar{⊢}{\vdash}
-
-\newunicodechar{⊕}{\oplus}
-\newunicodechar{¬}{\neg}
-
-\newunicodechar{⊗}{\otimes}
-\newunicodechar{→}{\rightarrow}
-\newunicodechar{←}{\leftarrow}
-
-\newunicodechar{⊥}{\bot}
-\newunicodechar{⊤}{\top}
-
-\setlength{\parindent}{0em}
-
-\author{James Martin, Ian D.L.N. Mclean}
-\title{Multiplicative-Additive Lambek Sequent Calculus}
-
-\begin{document}
-
-\maketitle
 
 \begin{abstract}
 
@@ -52,119 +10,119 @@
 
 	\[
 	\begin{prooftree}
-	\hypo{Γ_{L}, Γ_{R} ⊢ C}
-	\infer1{Γ_{L}, 1, Γ_{R} ⊢ C}
+	\hypo{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  C}
+	\infer1{$\Gamma$ _{L}, 1, $\Gamma$ _{R} $\vdash$  C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\infer0{ ⊢ 1}
+	\infer0{ $\vdash$  1}
 	\end{prooftree}
 	\]
 
 	\[
 	\begin{prooftree}
-	\infer0{Γ_{L}, 0, Γ_{R} ⊢ C}
+	\infer0{$\Gamma$ _{L}, 0, $\Gamma$ _{R} $\vdash$  C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\infer0{ Γ ⊢ ⊤}
+	\infer0{ $\Gamma$  $\vdash$  $\top$ }
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{Γ_{L}, A, B, Γ_{R} ⊢ C}
-	\infer1{Γ_{L}, A ⊗ B, Γ_{R} ⊢ C}
+	\hypo{$\Gamma$ _{L}, A, B, $\Gamma$ _{R} $\vdash$  C}
+	\infer1{$\Gamma$ _{L}, A $\otimes$  B, $\Gamma$ _{R} $\vdash$  C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{Γ_{L} ⊢ A}
-	\hypo{Γ_{R} ⊢ B}
-	\infer2{Γ_{L}, Γ_{R} ⊢ A ⊗ B}
+	\hypo{$\Gamma$ _{L} $\vdash$  A}
+	\hypo{$\Gamma$ _{R} $\vdash$  B}
+	\infer2{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  A $\otimes$  B}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\hypo{Γ_{L}, B, Γ_{R} ⊢ C}
-	\infer2{Γ_{L}, Γ, A → B, Γ_{R} ⊢ C}
+	\hypo{$\Gamma$  $\vdash$  A}
+	\hypo{$\Gamma$ _{L}, B, $\Gamma$ _{R} $\vdash$  C}
+	\infer2{$\Gamma$ _{L}, $\Gamma$ , A $\to$  B, $\Gamma$ _{R} $\vdash$  C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{A, Γ ⊢ B}
-	\infer1{Γ ⊢ A → B}
+	\hypo{A, $\Gamma$  $\vdash$  B}
+	\infer1{$\Gamma$  $\vdash$  A $\to$  B}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\hypo{Γ_{L}, B, Γ_{R} ⊢ C}
-	\infer2{Γ_{L}, B ← A, Γ, Γ_{R} ⊢ C}
+	\hypo{$\Gamma$  $\vdash$  A}
+	\hypo{$\Gamma$ _{L}, B, $\Gamma$ _{R} $\vdash$  C}
+	\infer2{$\Gamma$ _{L}, B ← A, $\Gamma$ , $\Gamma$ _{R} $\vdash$  C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{Γ, A ⊢ B}
-	\infer1{Γ ⊢ B ← A}
+	\hypo{$\Gamma$ , A $\vdash$  B}
+	\infer1{$\Gamma$  $\vdash$  B ← A}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{Γ_{L}, A, Γ_{R} ⊢ C}
-	\hypo{Γ_{L}, B, Γ_{R} ⊢ C}
-	\infer2{Γ_{L}, A ⊕ B, Γ_{R} ⊢ C}
+	\hypo{$\Gamma$ _{L}, A, $\Gamma$ _{R} $\vdash$  C}
+	\hypo{$\Gamma$ _{L}, B, $\Gamma$ _{R} $\vdash$  C}
+	\infer2{$\Gamma$ _{L}, A $\oplus$  B, $\Gamma$ _{R} $\vdash$  C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\infer1{Γ ⊢ A ⊕ B}
+	\hypo{$\Gamma$  $\vdash$  A}
+	\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{Γ ⊢ B}
-	\infer1{Γ ⊢ A ⊕ B}
+	\hypo{$\Gamma$  $\vdash$  B}
+	\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
 	\end{prooftree}
 	\]
 
 	\[
 	\begin{prooftree}
-	\hypo{Γ_{L}, A, Γ_{R} ⊢ C}
-	\infer1{Γ_{L}, A \& B, Γ_{R} ⊢ C}
+	\hypo{$\Gamma$ _{L}, A, $\Gamma$ _{R} $\vdash$  C}
+	\infer1{$\Gamma$ _{L}, A \& B, $\Gamma$ _{R} $\vdash$  C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{Γ_{L}, B, Γ_{R} ⊢ C}
-	\infer1{Γ_{L}, A \& B, Γ_{R} ⊢ C}
+	\hypo{$\Gamma$ _{L}, B, $\Gamma$ _{R} $\vdash$  C}
+	\infer1{$\Gamma$ _{L}, A \& B, $\Gamma$ _{R} $\vdash$  C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\hypo{Γ ⊢ B}
-	\infer2{Γ ⊢ A \& B}
+	\hypo{$\Gamma$  $\vdash$  A}
+	\hypo{$\Gamma$  $\vdash$  B}
+	\infer2{$\Gamma$  $\vdash$  A \& B}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{ Γ ⊢ A}
-	\infer1{ ¬_{C} A, Γ ⊢ }
+	\hypo{ $\Gamma$  $\vdash$  A}
+	\infer1{ $\neg$ _{C} A, $\Gamma$  $\vdash$  }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{ Γ ⊢ A}
-	\infer1{ Γ, ¬_{C} A⊢ }
+	\hypo{ $\Gamma$  $\vdash$  A}
+	\infer1{ $\Gamma$ , $\neg$ _{C} A$\vdash$  }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{ A, Γ ⊢ }
-	\infer1{ Γ ⊢ ¬_{L} A}
+	\hypo{ A, $\Gamma$  $\vdash$  }
+	\infer1{ $\Gamma$  $\vdash$  $\neg$ _{L} A}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{ Γ, A ⊢ }
-	\infer1{ Γ ⊢ ¬_{R} A}
+	\hypo{ $\Gamma$ , A $\vdash$  }
+	\infer1{ $\Gamma$  $\vdash$  $\neg$ _{R} A}
 	\end{prooftree}
 	\]
 	
@@ -176,17 +134,16 @@ Uses a variation of cut left.
 \begin{center}
 	\[
 	\begin{prooftree}
-	\infer0[Id]{A ⊢ A}
+	\infer0[Id]{A $\vdash$  A}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\hypo{Δ, A, Π ⊢ C}
-	\infer2[CutL]{Δ, Γ, Π ⊢ C}
+	\hypo{$\Gamma$  $\vdash$  A}
+	\hypo{$\Delta$ , A, $\Pi$  $\vdash$  C}
+	\infer2[CutL]{$\Delta$ , $\Gamma$ , $\Pi$  $\vdash$  C}
 	\end{prooftree}
 	\]
 \end{center}
 
-\end{document}

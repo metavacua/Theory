@@ -1,47 +1,5 @@
 
-\documentclass{article}
 
-\usepackage{amsmath}
-\usepackage{ebproof}
-\usepackage{fullpage}
-\usepackage[utf8]{inputenc}
-\usepackage{newunicodechar}
-\usepackage{stix}
-
-\newunicodechar{Γ}{\Gamma}
-\newunicodechar{Δ}{\Delta}
-
-\newunicodechar{Θ}{\Theta}
-\newunicodechar{Λ}{\Lambda}
-
-\newunicodechar{Ξ}{\Xi}
-\newunicodechar{Π}{\Pi}
-
-\newunicodechar{Φ}{\Phi}
-\newunicodechar{Ψ}{\Psi}
-
-\newunicodechar{Ω}{\Omega}
-
-\newunicodechar{⊢}{\vdash}
-
-\newunicodechar{⊕}{\oplus}
-\newunicodechar{¬}{\neg}
-
-\newunicodechar{⊗}{\otimes}
-\newunicodechar{→}{\rightarrow}
-\newunicodechar{←}{\leftarrow}
-
-\newunicodechar{⊥}{\bot}
-\newunicodechar{⊤}{\top}
-
-\setlength{\parindent}{0em}
-
-\author{James Martin, Ian D.L.N. Mclean}
-\title{Multiplicative Lambek Sequent Calculus}
-
-\begin{document}
-
-\maketitle
 
 \begin{abstract}
 
@@ -53,81 +11,81 @@ Uses a variation of cut left.
 \begin{center}
 	\[
 	\begin{prooftree}
-	\infer0[Id]{A ⊢ A}
+	\infer0[Id]{A $\vdash$  A}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\hypo{Γ_{L}, A, Γ_{R} ⊢ C}
-	\infer2[CutL]{Γ_{L}, Γ, Γ_{R} ⊢ C}
+	\hypo{$\Gamma$  $\vdash$  A}
+	\hypo{$\Gamma$ _{L}, A, $\Gamma$ _{R} $\vdash$  C}
+	\infer2[CutL]{$\Gamma$ _{L}, $\Gamma$ , $\Gamma$ _{R} $\vdash$  C}
 	\end{prooftree}
 	\]
 \end{center}
 
 \section{Operational Rules}
-$Γ$ non-empty in the RHS implication and negation rules.
+$$\Gamma$ $ non-empty in the RHS implication and negation rules.
 \begin{center}
 	
 	\[
 	\begin{prooftree}
-	\hypo{Γ_{L}, A, B, Γ_{R} ⊢ C}
-	\infer1{Γ_{L}, A ⊗ B, Γ_{R} ⊢ C}
+	\hypo{$\Gamma$ _{L}, A, B, $\Gamma$ _{R} $\vdash$  C}
+	\infer1{$\Gamma$ _{L}, A $\otimes$  B, $\Gamma$ _{R} $\vdash$  C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{Γ_{L} ⊢ A}
-	\hypo{Γ_{R} ⊢ B}
-	\infer2{Γ_{L}, Γ_{R} ⊢ A ⊗ B}
+	\hypo{$\Gamma$ _{L} $\vdash$  A}
+	\hypo{$\Gamma$ _{R} $\vdash$  B}
+	\infer2{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  A $\otimes$  B}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\hypo{Γ_{L}, B, Γ_{R} ⊢ C}
-	\infer2{Γ_{L}, Γ, A → B, Γ_{R} ⊢ C}
+	\hypo{$\Gamma$  $\vdash$  A}
+	\hypo{$\Gamma$ _{L}, B, $\Gamma$ _{R} $\vdash$  C}
+	\infer2{$\Gamma$ _{L}, $\Gamma$ , A $\to$  B, $\Gamma$ _{R} $\vdash$  C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{A, Γ ⊢ B}
-	\infer1{Γ ⊢ A → B}
+	\hypo{A, $\Gamma$  $\vdash$  B}
+	\infer1{$\Gamma$  $\vdash$  A $\to$  B}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\hypo{Γ_{L}, B, Γ_{R} ⊢ C}
-	\infer2{Γ_{L}, B ← A, Γ, Γ_{R} ⊢ C}
+	\hypo{$\Gamma$  $\vdash$  A}
+	\hypo{$\Gamma$ _{L}, B, $\Gamma$ _{R} $\vdash$  C}
+	\infer2{$\Gamma$ _{L}, B ← A, $\Gamma$ , $\Gamma$ _{R} $\vdash$  C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{Γ, A ⊢ B}
-	\infer1{Γ ⊢ B ← A}
+	\hypo{$\Gamma$ , A $\vdash$  B}
+	\infer1{$\Gamma$  $\vdash$  B ← A}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{ Γ ⊢ A}
-	\infer1{ ¬_{L} A, Γ ⊢ }
+	\hypo{ $\Gamma$  $\vdash$  A}
+	\infer1{ $\neg$ _{L} A, $\Gamma$  $\vdash$  }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{ Γ ⊢ A}
-	\infer1{ Γ, ¬_{R} A ⊢ }
+	\hypo{ $\Gamma$  $\vdash$  A}
+	\infer1{ $\Gamma$ , $\neg$ _{R} A $\vdash$  }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{ A, Γ ⊢_{L} }
-	\infer1{ Γ ⊢_{L} ¬ A}
+	\hypo{ A, $\Gamma$  $\vdash$ _{L} }
+	\infer1{ $\Gamma$  $\vdash$ _{L} $\neg$  A}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{ Γ, A ⊢_{R} }
-	\infer1{ Γ ⊢_{R} ¬ A}
+	\hypo{ $\Gamma$ , A $\vdash$ _{R} }
+	\infer1{ $\Gamma$  $\vdash$ _{R} $\neg$  A}
 	\end{prooftree}
 	\]
 \end{center}
@@ -137,17 +95,16 @@ $Γ$ non-empty in the RHS implication and negation rules.
 	
 	\[
 	\begin{prooftree}
-	\infer0{A ⊢ A}
-	\infer1{A , ¬ A ⊢}
-	\infer1{A ⊗ ¬ A ⊢}
+	\infer0{A $\vdash$  A}
+	\infer1{A , $\neg$  A $\vdash$ }
+	\infer1{A $\otimes$  $\neg$  A $\vdash$ }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\infer0{A ⊢ A}
-	\infer1{¬ A, A ⊢}
-	\infer1{¬ A ⊗ A⊢}
+	\infer0{A $\vdash$  A}
+	\infer1{$\neg$  A, A $\vdash$ }
+	\infer1{$\neg$  A $\otimes$  A$\vdash$ }
 	\end{prooftree}
 	\]
 \end{center}
 
-\end{document}

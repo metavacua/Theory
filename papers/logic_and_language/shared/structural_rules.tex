@@ -1,0 +1,52 @@
+\subsection{Structural Rules}
+\begin{center}
+	\[
+	\begin{prooftree}
+	\infer0[Id]{A $\vdash$  A}
+	\end{prooftree}
+	\]
+
+	\[
+	\begin{prooftree}
+	\hypo{$\Gamma$  $\vdash$  A}
+	\hypo{A $\vdash$  $\Delta$ }
+	\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
+	\end{prooftree}
+	\]
+
+	\[
+	\begin{prooftree}
+	\hypo{$\Gamma$  $\vdash$  $\Delta$ }
+	\infer1[wL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+	\end{prooftree}
+	\qquad
+	\begin{prooftree}
+	\hypo{$\Gamma$  $\vdash$  $\Delta$ }
+	\infer1[Rw]{$\Gamma$  $\vdash$  A, $\Delta$ }
+	\end{prooftree}
+	\]
+
+	\[
+	\begin{prooftree}
+	\hypo{$\Gamma$ , A, A $\vdash$  $\Delta$ }
+	\infer1[cL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+	\end{prooftree}
+	\qquad
+	\begin{prooftree}
+	\hypo{$\Gamma$  $\vdash$  A, A $\Delta$ }
+	\infer1[Rc]{$\Gamma$  $\vdash$  A, $\Delta$ }
+	\end{prooftree}
+	\]
+
+	\[
+	\begin{prooftree}
+	\hypo{$\Gamma$ _0, A, B, $\Gamma$ _1 $\vdash$  $\Delta$ }
+	\infer1[pL]{$\Gamma$ _0, B, A, $\Gamma$ _1 $\vdash$  $\Delta$ }
+	\end{prooftree}
+	\qquad
+	\begin{prooftree}
+	\hypo{$\Gamma$  $\vdash$  $\Delta$ _1, A, B, $\Delta$ _0}
+	\infer1[Rp]{$\Gamma$  $\vdash$  $\Delta$ _1, B, A, $\Delta$ _0}
+	\end{prooftree}
+	\]
+\end{center}
