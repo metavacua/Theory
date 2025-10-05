@@ -1,62 +1,62 @@
 
+\documentclass{article}
 
-
-
-
-
+\usepackage{amsmath}
+\usepackage{ebproof}
+\usepackage{fullpage}
 \usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+\usepackage{stix}
 
+\newunicodechar{Γ}{\Gamma}
+\newunicodechar{Δ}{\Delta}
 
+\newunicodechar{Θ}{\Theta}
+\newunicodechar{Λ}{\Lambda}
 
+\newunicodechar{Ξ}{\Xi}
+\newunicodechar{Π}{\Pi}
 
+\newunicodechar{Φ}{\Phi}
+\newunicodechar{Ψ}{\Psi}
 
+\newunicodechar{Ω}{\Omega}
 
+\newunicodechar{⊢}{\vdash}
 
+\newunicodechar{⊕}{\oplus}
+\newunicodechar{¬}{\neg}
 
+\newunicodechar{⊗}{\otimes}
 
+\newunicodechar{→}{\rightarrow}
+\newunicodechar{←}{\leftarrow}
 
+\newunicodechar{↔}{\leftrightarrow}
+\newunicodechar{↮}{\nleftrightarrow}
 
+\newunicodechar{∧}{\wedge}
+\newunicodechar{∨}{\vee}
 
+\newunicodechar{⅋}{\upand}
+\newunicodechar{↛}{\nrightarrow}
+\newunicodechar{↚}{\nleftarrow}
 
+\newunicodechar{⊥}{\bot}
+\newunicodechar{⊤}{\top}
 
+\setlength{\parindent}{0em}
 
+\author{James Martin, Ian D.L.N. Mclean}
+\title{The Reduced Lattice of Subclassical Sequent Calculi}
 
+\begin{document}
 
+\maketitle
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{abstract}
 The lattice of sequent calculi formed from the combination of functionally incomplete sets of operations and structural rules in a classical metalanguage; purely classical logical connectives and Boolean functions that are functionally incomplete are isolated from each other, so in order to extend systems of functional incompleteness we need to extend them by at least one non-classical operator.
-
+\end{abstract}
 
 \part{Preliminaries}
 \begin{center}
@@ -84,11 +84,11 @@ The lattice of sequent calculi formed from the combination of functionally incom
 		\subsection{Systematic Interpretations}
 	\section{Formal Definition of Subclassical Theories}
 		\subsection{Monotonic Theories}
-		$\left\{ $\Gamma$  $\vdash$  A \right\} \bigcup \left\{ A $\vdash$  $\Delta$  \right\}$
+		$\left\{ Γ ⊢ A \right\} \bigcup \left\{ A ⊢ Δ \right\}$
 		\subsection{Affine Theories}
-		$\left\{ $\Gamma$  $\vdash$  A \right\} \bigcap \left\{ A $\vdash$  $\Delta$  \right\}=\emptyset$
+		$\left\{ Γ ⊢ A \right\} \bigcap \left\{ A ⊢ Δ \right\}=\emptyset$
 		\subsection{Self-Dual Theories}
-		$\left\{ A $\vdash$  A \right\}$
+		$\left\{ A ⊢ A \right\}$
 
 \end{center}
 
@@ -102,51 +102,51 @@ The lattice of sequent calculi formed from the combination of functionally incom
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0[Id]{A $\vdash$  A}
+			\infer0[Id]{A ⊢ A}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A}
-			\hypo{A $\vdash$  $\Delta$ }
-			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ A}
+			\hypo{A ⊢ Δ}
+			\infer2[Cut]{Γ ⊢ Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[wL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[wL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[Rw]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[Rw]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A, A $\vdash$  $\Delta$ }
-			\infer1[cL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ, A, A ⊢ Δ}
+			\infer1[cL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, A $\Delta$ }
-			\infer1[Rc]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ A, A Δ}
+			\infer1[Rc]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ _0, A, B, $\Gamma$ _1 $\vdash$  $\Delta$ }
-			\infer1[pL]{$\Gamma$ _0, B, A, $\Gamma$ _1 $\vdash$  $\Delta$ }
+			\hypo{Γ_0, A, B, Γ_1 ⊢ Δ}
+			\infer1[pL]{Γ_0, B, A, Γ_1 ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ _1, A, B, $\Delta$ _0}
-			\infer1[Rp]{$\Gamma$  $\vdash$  $\Delta$ _1, B, A, $\Delta$ _0}
+			\hypo{Γ ⊢ Δ_1, A, B, Δ_0}
+			\infer1[Rp]{Γ ⊢ Δ_1, B, A, Δ_0}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -158,27 +158,27 @@ The lattice of sequent calculi formed from the combination of functionally incom
 			\begin{center}
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$ , A $\land$  B $\vdash$  $\Delta$ }
+				\hypo{Γ, A, B ⊢ Δ}
+				\infer1{Γ, A ∧ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\land$  B, $\Delta$ }
+				\hypo{Γ ⊢ A, Δ}
+				\hypo{Γ ⊢ B, Δ}
+				\infer2{Γ ⊢ A ∧ B, Δ}
 				\end{prooftree}
 				\]
 
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  $\Delta$ }
-				\infer2{$\Gamma$ , A $\lor$  B $\vdash$  $\Delta$ }
+				\hypo{Γ, A ⊢ Δ}
+				\hypo{Γ, B ⊢ Δ}
+				\infer2{Γ, A ∨ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  A $\lor$  B, $\Delta$ }
+				\hypo{Γ ⊢ A, B, Δ}
+				\infer1{Γ ⊢ A ∨ B, Δ}
 				\end{prooftree}
 				\]
 			\end{center}
@@ -196,51 +196,51 @@ The lattice of sequent calculi formed from the combination of functionally incom
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0[Id]{A $\vdash$  A}
+			\infer0[Id]{A ⊢ A}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A}
-			\hypo{A $\vdash$  $\Delta$ }
-			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ A}
+			\hypo{A ⊢ Δ}
+			\infer2[Cut]{Γ ⊢ Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[wL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[wL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[Rw]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[Rw]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A, A $\vdash$  $\Delta$ }
-			\infer1[cL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ, A, A ⊢ Δ}
+			\infer1[cL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, A $\Delta$ }
-			\infer1[Rc]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ A, A Δ}
+			\infer1[Rc]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ _0, A, B, $\Gamma$ _1 $\vdash$  $\Delta$ }
-			\infer1[pL]{$\Gamma$ _0, B, A, $\Gamma$ _1 $\vdash$  $\Delta$ }
+			\hypo{Γ_0, A, B, Γ_1 ⊢ Δ}
+			\infer1[pL]{Γ_0, B, A, Γ_1 ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ _1, A, B, $\Delta$ _0}
-			\infer1[Rp]{$\Gamma$  $\vdash$  $\Delta$ _1, B, A, $\Delta$ _0}
+			\hypo{Γ ⊢ Δ_1, A, B, Δ_0}
+			\infer1[Rp]{Γ ⊢ Δ_1, B, A, Δ_0}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -249,29 +249,29 @@ The lattice of sequent calculi formed from the combination of functionally incom
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-			\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-			\infer2{$\Gamma$ , A $\leftrightarrow$  B $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ A, B, Δ}
+			\hypo{Γ, A, B ⊢ Δ}
+			\infer2{Γ, A ↔ B ⊢ Δ}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-			\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-			\infer2{$\Gamma$  $\vdash$  A $\leftrightarrow$  B, $\Delta$ }
+			\hypo{Γ, A ⊢ B, Δ}
+			\hypo{Γ, B ⊢ A, Δ}
+			\infer2{Γ ⊢ A ↔ B, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-			\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-			\infer2{$\Gamma$ , A ↮ B $\vdash$  $\Delta$ }
+			\hypo{Γ, A ⊢ B, Δ}
+			\hypo{Γ, B ⊢ A, Δ}
+			\infer2{Γ, A ↮ B ⊢ Δ}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-			\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-			\infer2{$\Gamma$  $\vdash$  A ↮ B, $\Delta$ }
+			\hypo{Γ ⊢ A, B, Δ}
+			\hypo{Γ, A, B ⊢ Δ}
+			\infer2{Γ ⊢ A ↮ B, Δ}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -285,51 +285,51 @@ The lattice of sequent calculi formed from the combination of functionally incom
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0[Id]{A $\vdash$  A}
+			\infer0[Id]{A ⊢ A}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A}
-			\hypo{A $\vdash$  $\Delta$ }
-			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ A}
+			\hypo{A ⊢ Δ}
+			\infer2[Cut]{Γ ⊢ Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[wL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[wL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[Rw]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[Rw]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A, A $\vdash$  $\Delta$ }
-			\infer1[cL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ, A, A ⊢ Δ}
+			\infer1[cL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, A $\Delta$ }
-			\infer1[Rc]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ A, A Δ}
+			\infer1[Rc]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ _0, A, B, $\Gamma$ _1 $\vdash$  $\Delta$ }
-			\infer1[pL]{$\Gamma$ _0, B, A, $\Gamma$ _1 $\vdash$  $\Delta$ }
+			\hypo{Γ_0, A, B, Γ_1 ⊢ Δ}
+			\infer1[pL]{Γ_0, B, A, Γ_1 ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ _1, A, B, $\Delta$ _0}
-			\infer1[Rp]{$\Gamma$  $\vdash$  $\Delta$ _1, B, A, $\Delta$ _0}
+			\hypo{Γ ⊢ Δ_1, A, B, Δ_0}
+			\infer1[Rp]{Γ ⊢ Δ_1, B, A, Δ_0}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -338,13 +338,13 @@ The lattice of sequent calculi formed from the combination of functionally incom
 			\begin{center}
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\infer1{$\Gamma$ , $\neg$  A $\vdash$  $\Delta$ }
+				\hypo{Γ ⊢ A, Δ}
+				\infer1{Γ, ¬ A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  $\neg$ A, $\Delta$ }
+				\hypo{Γ, A ⊢ Δ}
+				\infer1{Γ ⊢ ¬A, Δ}
 				\end{prooftree}
 				\]
 			\end{center}
@@ -358,51 +358,51 @@ The lattice of sequent calculi formed from the combination of functionally incom
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0[Id]{A $\vdash$  A}
+			\infer0[Id]{A ⊢ A}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A}
-			\hypo{A $\vdash$  $\Delta$ }
-			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ A}
+			\hypo{A ⊢ Δ}
+			\infer2[Cut]{Γ ⊢ Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[wL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[wL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[Rw]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[Rw]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A, A $\vdash$  $\Delta$ }
-			\infer1[cL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ, A, A ⊢ Δ}
+			\infer1[cL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, A $\Delta$ }
-			\infer1[Rc]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ A, A Δ}
+			\infer1[Rc]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ _0, A, B, $\Gamma$ _1 $\vdash$  $\Delta$ }
-			\infer1[pL]{$\Gamma$ _0, B, A, $\Gamma$ _1 $\vdash$  $\Delta$ }
+			\hypo{Γ_0, A, B, Γ_1 ⊢ Δ}
+			\infer1[pL]{Γ_0, B, A, Γ_1 ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ _1, A, B, $\Delta$ _0}
-			\infer1[Rp]{$\Gamma$  $\vdash$  $\Delta$ _1, B, A, $\Delta$ _0}
+			\hypo{Γ ⊢ Δ_1, A, B, Δ_0}
+			\infer1[Rp]{Γ ⊢ Δ_1, B, A, Δ_0}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -411,53 +411,53 @@ The lattice of sequent calculi formed from the combination of functionally incom
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-			\infer1{$\Gamma$ , $\neg$  A $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ A, Δ}
+			\infer1{Γ, ¬ A ⊢ Δ}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-			\infer1{$\Gamma$  $\vdash$  $\neg$ A, $\Delta$ }
+			\hypo{Γ, A ⊢ Δ}
+			\infer1{Γ ⊢ ¬A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-			\infer1{$\Gamma$ , $\neg$  A $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ A, Δ}
+			\infer1{Γ, ¬ A ⊢ Δ}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-			\infer1{$\Gamma$  $\vdash$  $\neg$ A, $\Delta$ }
+			\hypo{Γ, A ⊢ Δ}
+			\infer1{Γ ⊢ ¬A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-			\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-			\infer2{$\Gamma$ , A $\leftrightarrow$  B $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ A, B, Δ}
+			\hypo{Γ, A, B ⊢ Δ}
+			\infer2{Γ, A ↔ B ⊢ Δ}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-			\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-			\infer2{$\Gamma$  $\vdash$  A $\leftrightarrow$  B, $\Delta$ }
+			\hypo{Γ, A ⊢ B, Δ}
+			\hypo{Γ, B ⊢ A, Δ}
+			\infer2{Γ ⊢ A ↔ B, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-			\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-			\infer2{$\Gamma$ , A ↮ B $\vdash$  $\Delta$ }
+			\hypo{Γ, A ⊢ B, Δ}
+			\hypo{Γ, B ⊢ A, Δ}
+			\infer2{Γ, A ↮ B ⊢ Δ}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-			\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-			\infer2{$\Gamma$  $\vdash$  A ↮ B, $\Delta$ }
+			\hypo{Γ ⊢ A, B, Δ}
+			\hypo{Γ, A, B ⊢ Δ}
+			\infer2{Γ ⊢ A ↮ B, Δ}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -491,3 +491,7 @@ The lattice of sequent calculi formed from the combination of functionally incom
 \begin{center}
 	The non-commutative monotone, and affine sequent systems.
 \end{center}
+
+
+
+\end{document}

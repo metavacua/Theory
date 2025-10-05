@@ -1,82 +1,82 @@
 
+\documentclass{article}
 
-
-
-
-
+\usepackage{amsmath}
+\usepackage{ebproof}
+\usepackage{fullpage}
 \usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+\usepackage{stix}
 
+\newunicodechar{Γ}{\Gamma}
+\newunicodechar{Δ}{\Delta}
 
+\newunicodechar{Θ}{\Theta}
+\newunicodechar{Λ}{\Lambda}
 
+\newunicodechar{Ξ}{\Xi}
+\newunicodechar{Π}{\Pi}
 
+\newunicodechar{Φ}{\Phi}
+\newunicodechar{Ψ}{\Psi}
 
+\newunicodechar{Ω}{\Omega}
 
+\newunicodechar{⊢}{\vdash}
 
+\newunicodechar{⊕}{\oplus}
+\newunicodechar{¬}{\neg}
 
+\newunicodechar{⊗}{\otimes}
+\newunicodechar{→}{\rightarrow}
+\newunicodechar{←}{\leftarrow}
 
+\newunicodechar{⅋}{\upand}
+\newunicodechar{↛}{\nrightarrow}
+\newunicodechar{↚}{\nleftarrow}
 
+\newunicodechar{⊥}{\bot}
+\newunicodechar{⊤}{\top}
 
+\setlength{\parindent}{0em}
 
+\author{James Martin, Ian D.L.N. Mclean}
+\title{Order Multiplicative-Additive Linear Logic}
 
+\begin{document}
 
+\maketitle
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{abstract}
 A sequent system that preserves the law of excluded middle and non-contradiction, but not generally ECQ and EQN?
-
+\end{abstract}
 
 \section{Structural Rules}
 
 \begin{center}
 	\[
 	\begin{prooftree}
-	\infer0[Id]{A $\vdash$  A}
+	\infer0[Id]{A ⊢ A}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{$\Gamma$  $\vdash$  A}
-	\hypo{$\Delta$ , A, $\Pi$  $\vdash$  C}
-	\infer2[CutL]{$\Delta$ , $\Gamma$ , $\Pi$  $\vdash$  C}
+	\hypo{Γ ⊢ A}
+	\hypo{Δ, A, Π ⊢ C}
+	\infer2[CutL]{Δ, Γ, Π ⊢ C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{$\Gamma$ , A, $\Phi$  $\vdash$  C}
-	\hypo{C $\vdash$  $\Delta$ , A, $\Psi$ }
-	\infer2[Cut]{$\Gamma$ , $\Phi$  $\vdash$  $\Delta$ , $\Psi$ }
+	\hypo{Γ, A, Φ ⊢ C}
+	\hypo{C ⊢ Δ, A, Ψ}
+	\infer2[Cut]{Γ, Φ ⊢ Δ, Ψ}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{C $\vdash$  $\Pi$ , A, $\Delta$ }
-	\hypo{A $\vdash$  $\Gamma$ }
-	\infer2[CutR]{C $\vdash$  $\Pi$ , $\Gamma$ , $\Delta$ }
+	\hypo{C ⊢ Π, A, Δ}
+	\hypo{A ⊢ Γ}
+	\infer2[CutR]{C ⊢ Π, Γ, Δ}
 	\end{prooftree}
 	\]
 \end{center}
@@ -85,51 +85,51 @@ A sequent system that preserves the law of excluded middle and non-contradiction
 \begin{center}
 		\[
 	\begin{prooftree}
-	\hypo{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  C}
-	\infer1{$\Gamma$ _{L}, 1, $\Gamma$ _{R} $\vdash$  C}
+	\hypo{Γ_{L}, Γ_{R} ⊢ C}
+	\infer1{Γ_{L}, 1, Γ_{R} ⊢ C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\hypo{C $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
-	\infer1{C $\vdash$  $\Delta$ _{L}, $\bot$ , $\Delta$ _{R}}
+	\hypo{C ⊢ Δ_{L}, Δ_{R}}
+	\infer1{C ⊢ Δ_{L}, ⊥, Δ_{R}}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\infer0{ $\bot$  $\vdash$  }
+	\infer0{ ⊥ ⊢ }
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\infer0{ $\vdash$  1}
+	\infer0{ ⊢ 1}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\infer0{$\Gamma$ _{L}, 0, $\Gamma$ _{R} $\vdash$  C}
+	\infer0{Γ_{L}, 0, Γ_{R} ⊢ C}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\infer0{ 0 $\vdash$  $\Delta$ }
+	\infer0{ 0 ⊢ Δ}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\infer0{ $\Gamma$  $\vdash$  $\top$ }
+	\infer0{ Γ ⊢ ⊤}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\infer0{C $\vdash$  $\Delta$ _{L}, $\top$ , $\Delta$ _{R}}
+	\infer0{C ⊢ Δ_{L}, ⊤, Δ_{R}}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\infer0{$\Gamma$ _{L}, 0, $\Gamma$ _{R} $\vdash$  $\Delta$ }
+	\infer0{Γ_{L}, 0, Γ_{R} ⊢ Δ}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\infer0{$\Gamma$  $\vdash$  $\Delta$ _{L}, $\top$ , $\Delta$ _{R}}
+	\infer0{Γ ⊢ Δ_{L}, ⊤, Δ_{R}}
 	\end{prooftree}
 	\]
 \end{center}
@@ -141,79 +141,79 @@ A sequent system that preserves the law of excluded middle and non-contradiction
 	\begin{center}
 			\[
 		\begin{prooftree}
-		\hypo{$\Gamma$ , $\Phi$  $\vdash$  $\Delta$ , A, $\Psi$ }
-		\infer1{$\Gamma$ , $\neg$  A, $\Phi$  $\vdash$  $\Delta$ , $\Psi$ }
+		\hypo{Γ, Φ ⊢ Δ, A, Ψ}
+		\infer1{Γ, ¬ A, Φ ⊢ Δ, Ψ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ $\Phi$ , A, $\Gamma$  $\vdash$  $\Psi$ , $\Delta$ }
-		\infer1{ $\Phi$ , $\Gamma$  $\vdash$  $\Psi$ , $\neg$  A, $\Delta$ }
+		\hypo{ Φ, A, Γ ⊢ Ψ, Δ}
+		\infer1{ Φ, Γ ⊢ Ψ, ¬ A, Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\Gamma$ , $\Phi$  $\vdash$  $\Delta$ , A, $\Psi$ }
-		\infer1{$\Gamma$ , $\neg$  A, $\Phi$  $\vdash$  $\Delta$ , $\Psi$ }
+		\hypo{Γ, Φ ⊢ Δ, A, Ψ}
+		\infer1{Γ, ¬ A, Φ ⊢ Δ, Ψ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\Phi$ , A, $\Gamma$  $\vdash$  $\Psi$ , $\Delta$ }
-		\infer1{ $\Phi$ , $\Gamma$  $\vdash$  $\Psi$ , $\neg$  A, $\Delta$ }
+		\hypo{Φ, A, Γ ⊢ Ψ, Δ}
+		\infer1{ Φ, Γ ⊢ Ψ, ¬ A, Δ}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  $\Delta$ , A}
-		\infer1{$\Gamma$ , $\neg$  A $\vdash$  $\Delta$ }
+		\hypo{Γ ⊢ Δ, A}
+		\infer1{Γ, ¬ A ⊢ Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ A, $\Gamma$  $\vdash$  $\Delta$ }
-		\infer1{ $\Gamma$  $\vdash$  $\neg$  A, $\Delta$ }
+		\hypo{ A, Γ ⊢ Δ}
+		\infer1{ Γ ⊢ ¬ A, Δ}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{ $\Gamma$  $\vdash$  A}
-		\infer1{ $\neg$  A, $\Gamma$  $\vdash$  }
+		\hypo{ Γ ⊢ A}
+		\infer1{ ¬ A, Γ ⊢ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ $\Gamma$  $\vdash$  A}
-		\infer1{ $\Gamma$ , $\neg$  A$\vdash$  }
+		\hypo{ Γ ⊢ A}
+		\infer1{ Γ, ¬ A⊢ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ A, $\Gamma$  $\vdash$  }
-		\infer1{ $\Gamma$  $\vdash$  $\neg$  A}
+		\hypo{ A, Γ ⊢ }
+		\infer1{ Γ ⊢ ¬ A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ $\Gamma$ , A $\vdash$  }
-		\infer1{ $\Gamma$  $\vdash$  $\neg$  A}
+		\hypo{ Γ, A ⊢ }
+		\infer1{ Γ ⊢ ¬ A}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{ $\vdash$  A, $\Delta$ }
-		\infer1{ $\neg$  A $\vdash$  $\Delta$ }
+		\hypo{ ⊢ A, Δ}
+		\infer1{ ¬ A ⊢ Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ $\vdash$  $\Delta$ , A}
-		\infer1{ $\neg$  A$\vdash$  $\Delta$ }
+		\hypo{ ⊢ Δ, A}
+		\infer1{ ¬ A⊢ Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ A $\vdash$  $\Delta$ }
-		\infer1{ $\vdash$  $\neg$  A, $\Delta$ }
+		\hypo{ A ⊢ Δ}
+		\infer1{ ⊢ ¬ A, Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ A $\vdash$  $\Delta$ }
-		\infer1{ $\vdash$  $\Delta$ , $\neg$  A}
+		\hypo{ A ⊢ Δ}
+		\infer1{ ⊢ Δ, ¬ A}
 		\end{prooftree}
 		\]
 	\end{center}
@@ -222,174 +222,174 @@ A sequent system that preserves the law of excluded middle and non-contradiction
 	\begin{center}
 		\[
 		\begin{prooftree}
-		\hypo{$\Gamma$ , A, $\Phi$  $\vdash$  $\Delta$ }
-		\hypo{$\Gamma$ , B, $\Phi$  $\vdash$  $\Delta$ }
-		\infer2{$\Gamma$ , A $\oplus$  B, $\Phi$  $\vdash$  $\Delta$ }
+		\hypo{Γ, A, Φ ⊢ Δ}
+		\hypo{Γ, B, Φ ⊢ Δ}
+		\infer2{Γ, A ⊕ B, Φ ⊢ Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  $\Delta$ , A, $\Psi$  }
-		\infer1{$\Gamma$  $\vdash$  $\Delta$ , A $\oplus$  B, $\Psi$ }
+		\hypo{Γ ⊢ Δ, A, Ψ }
+		\infer1{Γ ⊢ Δ, A ⊕ B, Ψ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  $\Delta$ , B, $\Psi$  }
-		\infer1{$\Gamma$  $\vdash$  $\Delta$ , A $\oplus$  B, $\Psi$ }
+		\hypo{Γ ⊢ Δ, B, Ψ }
+		\infer1{Γ ⊢ Δ, A ⊕ B, Ψ}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{$\Gamma$ , A, $\Phi$  $\vdash$  $\Psi$ }
-		\infer1{$\Gamma$ , A \& B, $\Phi$  $\vdash$  $\Psi$ }
+		\hypo{Γ, A, Φ ⊢ Ψ}
+		\infer1{Γ, A \& B, Φ ⊢ Ψ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\Gamma$ , B, $\Phi$  $\vdash$  $\Psi$ }
-		\infer1{$\Gamma$ , A \& B, $\Phi$  $\vdash$  $\Psi$ }
+		\hypo{Γ, B, Φ ⊢ Ψ}
+		\infer1{Γ, A \& B, Φ ⊢ Ψ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ $\Gamma$  $\vdash$  $\Delta$ , B, $\Psi$ }
-		\hypo{ $\Gamma$  $\vdash$  $\Delta$ , A, $\Psi$ }
-		\infer2{ $\Gamma$  $\vdash$  $\Delta$ , B \& A, $\Psi$ }
+		\hypo{ Γ ⊢ Δ, B, Ψ}
+		\hypo{ Γ ⊢ Δ, A, Ψ}
+		\infer2{ Γ ⊢ Δ, B \& A, Ψ}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{$\Gamma$ , A, $\Phi$  $\vdash$  C}
-		\hypo{$\Gamma$ , B, $\Phi$  $\vdash$  C}
-		\infer2{$\Gamma$ , A $\oplus$  B, $\Phi$  $\vdash$  C}
+		\hypo{Γ, A, Φ ⊢ C}
+		\hypo{Γ, B, Φ ⊢ C}
+		\infer2{Γ, A ⊕ B, Φ ⊢ C}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  A}
-		\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
+		\hypo{Γ ⊢ A}
+		\infer1{Γ ⊢ A ⊕ B}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  B}
-		\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
+		\hypo{Γ ⊢ B}
+		\infer1{Γ ⊢ A ⊕ B}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{A $\vdash$  $\Delta$ }
-		\infer1{A \& B $\vdash$  $\Delta$ }
+		\hypo{A ⊢ Δ}
+		\infer1{A \& B ⊢ Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{B $\vdash$  $\Delta$ }
-		\infer1{A \& B $\vdash$  $\Delta$ }
+		\hypo{B ⊢ Δ}
+		\infer1{A \& B ⊢ Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ C $\vdash$  $\Psi$ , B, $\Delta$ }
-		\hypo{ C $\vdash$  $\Psi$ , A, $\Delta$ }
-		\infer2{ C $\vdash$  $\Psi$ , B \& A, $\Delta$ }
+		\hypo{ C ⊢ Ψ, B, Δ}
+		\hypo{ C ⊢ Ψ, A, Δ}
+		\infer2{ C ⊢ Ψ, B \& A, Δ}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{$\Gamma$ , A, $\Phi$  $\vdash$  C}
-		\infer1{$\Gamma$ , A \& B, $\Phi$  $\vdash$  C}
+		\hypo{Γ, A, Φ ⊢ C}
+		\infer1{Γ, A \& B, Φ ⊢ C}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\Gamma$ , B, $\Phi$  $\vdash$  C}
-		\infer1{$\Gamma$ , A \& B, $\Phi$  $\vdash$  C}
+		\hypo{Γ, B, Φ ⊢ C}
+		\infer1{Γ, A \& B, Φ ⊢ C}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  A}
-		\hypo{$\Gamma$  $\vdash$  B}
-		\infer2{$\Gamma$  $\vdash$  A \& B}
+		\hypo{Γ ⊢ A}
+		\hypo{Γ ⊢ B}
+		\infer2{Γ ⊢ A \& B}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{B $\vdash$  $\Delta$ }
-		\hypo{A $\vdash$  $\Delta$ }
-		\infer2{B $\oplus$  A $\vdash$  $\Delta$ }
+		\hypo{B ⊢ Δ}
+		\hypo{A ⊢ Δ}
+		\infer2{B ⊕ A ⊢ Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{C $\vdash$  $\Psi$ , A, $\Delta$ }
-		\infer1{C $\vdash$  $\Psi$ , B $\oplus$  A, $\Delta$ }
+		\hypo{C ⊢ Ψ, A, Δ}
+		\infer1{C ⊢ Ψ, B ⊕ A, Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{C $\vdash$  $\Psi$ , B, $\Delta$ }
-		\infer1{C $\vdash$  $\Psi$ , B $\oplus$  A, $\Delta$ }
+		\hypo{C ⊢ Ψ, B, Δ}
+		\infer1{C ⊢ Ψ, B ⊕ A, Δ}
 		\end{prooftree}
 		\]
 		
 		
 		\[
 		\begin{prooftree}
-		\hypo{$\Gamma$ , $\Phi$  $\vdash$  C, A}
-		\hypo{$\Gamma$ , $\Phi$  $\vdash$  C, B}
-		\infer2{$\Gamma$ , $\neg$  A $\oplus$  $\neg$  B, $\Phi$  $\vdash$  C}
+		\hypo{Γ, Φ ⊢ C, A}
+		\hypo{Γ, Φ ⊢ C, B}
+		\infer2{Γ, ¬ A ⊕ ¬ B, Φ ⊢ C}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{A, $\Gamma$  $\vdash$  }
-		\infer1{$\Gamma$  $\vdash$  $\neg$  A $\oplus$  $\neg$  B}
+		\hypo{A, Γ ⊢ }
+		\infer1{Γ ⊢ ¬ A ⊕ ¬ B}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{B, $\Gamma$  $\vdash$  }
-		\infer1{$\Gamma$  $\vdash$  $\neg$  A $\oplus$  $\neg$  B}
+		\hypo{B, Γ ⊢ }
+		\infer1{Γ ⊢ ¬ A ⊕ ¬ B}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\vdash$  $\Delta$ , A}
-		\infer1{$\neg$  B \& $\neg$  A $\vdash$  $\Delta$ }
+		\hypo{⊢ Δ, A}
+		\infer1{¬ B \& ¬ A ⊢ Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\vdash$  $\Delta$ , B}
-		\infer1{$\neg$  B \& $\neg$  A $\vdash$  $\Delta$ }
+		\hypo{⊢ Δ, B}
+		\infer1{¬ B \& ¬ A ⊢ Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{ B, C $\vdash$  $\Psi$ , $\Delta$ }
-		\hypo{ A, C $\vdash$  $\Psi$ , $\Delta$ }
-		\infer2{ C $\vdash$  $\Psi$ , $\neg$  B \& $\neg$  A, $\Delta$ }
+		\hypo{ B, C ⊢ Ψ, Δ}
+		\hypo{ A, C ⊢ Ψ, Δ}
+		\infer2{ C ⊢ Ψ, ¬ B \& ¬ A, Δ}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{$\Gamma$ , $\Phi$  $\vdash$  C, A}
-		\infer1{$\Gamma$ , $\neg$  A \& $\neg$  B, $\Phi$  $\vdash$  C}
+		\hypo{Γ, Φ ⊢ C, A}
+		\infer1{Γ, ¬ A \& ¬ B, Φ ⊢ C}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\Gamma$ , $\Phi$  $\vdash$  C, B}
-		\infer1{$\Gamma$ , $\neg$  A \& $\neg$  B, $\Phi$  $\vdash$  C}
+		\hypo{Γ, Φ ⊢ C, B}
+		\infer1{Γ, ¬ A \& ¬ B, Φ ⊢ C}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{A, $\Gamma$  $\vdash$  }
-		\hypo{B, $\Gamma$  $\vdash$  }
-		\infer2{$\Gamma$  $\vdash$  $\neg$  A \& $\neg$  B}
+		\hypo{A, Γ ⊢ }
+		\hypo{B, Γ ⊢ }
+		\infer2{Γ ⊢ ¬ A \& ¬ B}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\vdash$  $\Delta$ , B}
-		\hypo{$\vdash$  $\Delta$ , A}
-		\infer2{$\neg$  B $\oplus$  $\neg$  A $\vdash$  $\Delta$ }
+		\hypo{⊢ Δ, B}
+		\hypo{⊢ Δ, A}
+		\infer2{¬ B ⊕ ¬ A ⊢ Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{A, C $\vdash$  $\Psi$ , $\Delta$ }
-		\infer1{C $\vdash$  $\Psi$ , $\neg$  B $\oplus$  $\neg$  A, $\Delta$ }
+		\hypo{A, C ⊢ Ψ, Δ}
+		\infer1{C ⊢ Ψ, ¬ B ⊕ ¬ A, Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{B, C $\vdash$  $\Psi$ , $\Delta$ }
-		\infer1{C $\vdash$  $\Psi$ , $\neg$  B $\oplus$  $\neg$  A, $\Delta$ }
+		\hypo{B, C ⊢ Ψ, Δ}
+		\infer1{C ⊢ Ψ, ¬ B ⊕ ¬ A, Δ}
 		\end{prooftree}
 		\]
 		
@@ -399,97 +399,97 @@ A sequent system that preserves the law of excluded middle and non-contradiction
 	\begin{center}
 		\[
 		\begin{prooftree}
-		\hypo{$\Gamma$ , A, B, $\Phi$  $\vdash$  C}
-		\infer1{$\Gamma$ , A $\otimes$  B, $\Phi$  $\vdash$  C}
+		\hypo{Γ, A, B, Φ ⊢ C}
+		\infer1{Γ, A ⊗ B, Φ ⊢ C}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  A}
-		\hypo{$\Phi$  $\vdash$  B}
-		\infer2{$\Gamma$ , $\Phi$  $\vdash$  A $\otimes$  B}
+		\hypo{Γ ⊢ A}
+		\hypo{Φ ⊢ B}
+		\infer2{Γ, Φ ⊢ A ⊗ B}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{B $\vdash$  $\Psi$ }
-		\hypo{A $\vdash$  $\Delta$ }
-		\infer2{B $\parr$  A $\vdash$  $\Psi$ , $\Delta$ }
+		\hypo{B ⊢ Ψ}
+		\hypo{A ⊢ Δ}
+		\infer2{B ⅋ A ⊢ Ψ, Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{C $\vdash$  $\Psi$ , B, A, $\Delta$ }
-		\infer1{C $\vdash$  $\Psi$ , B $\parr$  A, $\Delta$ }
+		\hypo{C ⊢ Ψ, B, A, Δ}
+		\infer1{C ⊢ Ψ, B ⅋ A, Δ}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{$\Gamma$ , B, A, $\Phi$  $\vdash$  C}
-		\infer1{$\Gamma$ , B $\otimes$  A, $\Phi$  $\vdash$  C}
+		\hypo{Γ, B, A, Φ ⊢ C}
+		\infer1{Γ, B ⊗ A, Φ ⊢ C}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\Phi$  $\vdash$  B}
-		\hypo{$\Gamma$  $\vdash$  A}
-		\infer2{$\Phi$ , $\Gamma$  $\vdash$  B $\otimes$  A}
+		\hypo{Φ ⊢ B}
+		\hypo{Γ ⊢ A}
+		\infer2{Φ, Γ ⊢ B ⊗ A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{A $\vdash$  $\Delta$ }
-		\hypo{B $\vdash$  $\Psi$ }
-		\infer2{A $\parr$  B $\vdash$  $\Delta$ , $\Psi$ }
+		\hypo{A ⊢ Δ}
+		\hypo{B ⊢ Ψ}
+		\infer2{A ⅋ B ⊢ Δ, Ψ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{C $\vdash$  $\Psi$ , A, B, $\Delta$ }
-		\infer1{C $\vdash$  $\Psi$ , A $\parr$  B, $\Delta$ }
+		\hypo{C ⊢ Ψ, A, B, Δ}
+		\infer1{C ⊢ Ψ, A ⅋ B, Δ}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  A}
-		\hypo{$\Phi$ , B, Θ $\vdash$  C}
-		\infer2{$\Phi$ , $\Gamma$ , A $\to$  B, Θ $\vdash$  C}
+		\hypo{Γ ⊢ A}
+		\hypo{Φ, B, Θ ⊢ C}
+		\infer2{Φ, Γ, A → B, Θ ⊢ C}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{A, $\Gamma$  $\vdash$  B}
-		\infer1{$\Gamma$  $\vdash$  A $\to$  B}
+		\hypo{A, Γ ⊢ B}
+		\infer1{Γ ⊢ A → B}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{B $\vdash$  $\Delta$ , A}
-		\infer1{A $\nleftarrow$  B $\vdash$  $\Delta$ }
+		\hypo{B ⊢ Δ, A}
+		\infer1{A ↚ B ⊢ Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{A $\vdash$  $\Delta$ }
-		\hypo{C $\vdash$  Λ, B, $\Psi$ }
-		\infer2{C $\vdash$  Λ, A $\nleftarrow$  B, $\Psi$ , $\Delta$ }
+		\hypo{A ⊢ Δ}
+		\hypo{C ⊢ Λ, B, Ψ}
+		\infer2{C ⊢ Λ, A ↚ B, Ψ, Δ}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  A}
-		\hypo{$\Phi$ , B, Θ $\vdash$  C}
-		\infer2{$\Phi$ , $\Gamma$ , B ← A, Θ $\vdash$  C}
+		\hypo{Γ ⊢ A}
+		\hypo{Φ, B, Θ ⊢ C}
+		\infer2{Φ, Γ, B ← A, Θ ⊢ C}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\Gamma$ , A $\vdash$  B}
-		\infer1{$\Gamma$  $\vdash$  B ← A}
+		\hypo{Γ, A ⊢ B}
+		\infer1{Γ ⊢ B ← A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{B $\vdash$  A, $\Psi$ }
-		\infer1{A $\nrightarrow$  B $\vdash$  $\Psi$ }
+		\hypo{B ⊢ A, Ψ}
+		\infer1{A ↛ B ⊢ Ψ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{A $\vdash$  $\Delta$ }
-		\hypo{C $\vdash$  Λ, B, $\Psi$ }
-		\infer2{C $\vdash$  Λ, B $\nrightarrow$  A, $\Psi$ , $\Delta$ }
+		\hypo{A ⊢ Δ}
+		\hypo{C ⊢ Λ, B, Ψ}
+		\infer2{C ⊢ Λ, B ↛ A, Ψ, Δ}
 		\end{prooftree}
 		\]
 	\end{center}
@@ -499,226 +499,227 @@ A sequent system that preserves the law of excluded middle and non-contradiction
 	\begin{center}
 		\[
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{1, A $\vdash$  A}
-		\infer1{1 $\vdash$  A, $\neg$  A}
-		\infer1{1 $\vdash$  A $\parr$  $\neg$  A}
+		\infer0{A ⊢ A}
+		\infer1{1, A ⊢ A}
+		\infer1{1 ⊢ A, ¬ A}
+		\infer1{1 ⊢ A ⅋ ¬ A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{A, 1 $\vdash$  A}
-		\infer1{A $\otimes$  1 $\vdash$  A}
+		\infer0{A ⊢ A}
+		\infer1{A, 1 ⊢ A}
+		\infer1{A ⊗ 1 ⊢ A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A, 0 $\vdash$  A}
-		\infer1{A $\otimes$  0 $\vdash$  A}
+		\infer0{A, 0 ⊢ A}
+		\infer1{A ⊗ 0 ⊢ A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0 $\vdash$  A $\parr$  $\neg$  A}
+		\infer0{0 ⊢ A ⅋ ¬ A}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{A $\vdash$  A, $\bot$ }
-		\infer1{A, $\neg$  A $\vdash$  $\bot$ }
-		\infer1{A $\otimes$  $\neg$  A $\vdash$  $\bot$ }
+		\infer0{A ⊢ A}
+		\infer1{A ⊢ A, ⊥}
+		\infer1{A, ¬ A ⊢ ⊥}
+		\infer1{A ⊗ ¬ A ⊢ ⊥}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{A $\vdash$  A, $\bot$ }
-		\infer1{A $\vdash$  A $\parr$  $\bot$ }
+		\infer0{A ⊢ A}
+		\infer1{A ⊢ A, ⊥}
+		\infer1{A ⊢ A ⅋ ⊥}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\vdash$  A, $\top$ }
-		\infer1{A $\vdash$  A $\parr$  $\top$ }
+		\infer0{A ⊢ A, ⊤}
+		\infer1{A ⊢ A ⅋ ⊤}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\otimes$  $\neg$  A $\vdash$  $\top$ }
+		\infer0{A ⊗ ¬ A ⊢ ⊤}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{$\bot$  $\vdash$  }
-		\infer1{$\bot$  $\vdash$  $\bot$ }
-		\infer1{$\bot$ , $\neg$  $\bot$  $\vdash$  }
-		\infer1{$\bot$  $\otimes$  $\neg$  $\bot$  $\vdash$  }
+		\infer0{⊥ ⊢ }
+		\infer1{⊥ ⊢ ⊥}
+		\infer1{⊥, ¬ ⊥ ⊢ }
+		\infer1{⊥ ⊗ ¬ ⊥ ⊢ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{A $\vdash$  A, $\bot$ }
-		\infer1{A, $\neg$  $\bot$  $\vdash$  A}
-		\infer1{A $\otimes$  $\neg$  $\bot$  $\vdash$  A}
+		\infer0{A ⊢ A}
+		\infer1{A ⊢ A, ⊥}
+		\infer1{A, ¬ ⊥ ⊢ A}
+		\infer1{A ⊗ ¬ ⊥ ⊢ A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{ $\vdash$  1}
-		\infer1{1 $\vdash$  1}
-		\infer1{1, $\neg$  1 $\vdash$  }
-		\infer1{1 $\otimes$  $\neg$  1 $\vdash$  }
+		\infer0{ ⊢ 1}
+		\infer1{1 ⊢ 1}
+		\infer1{1, ¬ 1 ⊢ }
+		\infer1{1 ⊗ ¬ 1 ⊢ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{A, 1 $\vdash$  A}
-		\infer1{1, $\neg$  A $\vdash$  $\neg$  A}
-		\infer1{1 $\otimes$  $\neg$  A $\vdash$  $\neg$  A}
+		\infer0{A ⊢ A}
+		\infer1{A, 1 ⊢ A}
+		\infer1{1, ¬ A ⊢ ¬ A}
+		\infer1{1 ⊗ ¬ A ⊢ ¬ A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0 $\vdash$  $\Delta$ , A}
-		\infer1{0, $\neg$  A $\vdash$  $\Delta$ }
-		\infer1{0 $\otimes$  $\neg$  A $\vdash$  $\Delta$ }
+		\infer0{0 ⊢ Δ, A}
+		\infer1{0, ¬ A ⊢ Δ}
+		\infer1{0 ⊗ ¬ A ⊢ Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\vdash$  $\Delta$ , $\top$ }
-		\infer1{A, $\neg$  $\top$  $\vdash$  $\Delta$ }
-		\infer1{A $\otimes$  $\neg$  $\top$  $\vdash$  $\Delta$ }
+		\infer0{A ⊢ Δ, ⊤}
+		\infer1{A, ¬ ⊤ ⊢ Δ}
+		\infer1{A ⊗ ¬ ⊤ ⊢ Δ}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{$\neg$ A $\vdash$  $\neg$ A}
-		\infer1{$\neg$ A $\vdash$  $\neg$ A,  $\bot$ }
-		\infer1{$\neg$ A $\vdash$  $\neg$ A $\parr$  $\bot$ }
+		\infer0{A ⊢ A}
+		\infer1{¬A ⊢ ¬A}
+		\infer1{¬A ⊢ ¬A,  ⊥}
+		\infer1{¬A ⊢ ¬A ⅋ ⊥}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{1, A $\vdash$  A}
-		\infer1{A $\vdash$  A, $\neg$ 1}
-		\infer1{A $\vdash$  A $\parr$  $\neg$ 1}
+		\infer0{A ⊢ A}
+		\infer1{1, A ⊢ A}
+		\infer1{A ⊢ A, ¬1}
+		\infer1{A ⊢ A ⅋ ¬1}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0, $\Gamma$  $\vdash$  A}
-		\infer1{$\Gamma$  $\vdash$  A, $\neg$ 0}
-		\infer1{$\Gamma$  $\vdash$  A $\parr$  $\neg$ 0}
+		\infer0{0, Γ ⊢ A}
+		\infer1{Γ ⊢ A, ¬0}
+		\infer1{Γ ⊢ A ⅋ ¬0}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A, $\Gamma$  $\vdash$  $\top$ }
-		\infer1{ $\Gamma$ $\vdash$  $\top$ , $\neg$ A}
-		\infer1{$\Gamma$  $\vdash$  $\top$  $\parr$  $\neg$ A}
+		\infer0{A, Γ ⊢ ⊤}
+		\infer1{ Γ⊢ ⊤, ¬A}
+		\infer1{Γ ⊢ ⊤ ⅋ ¬A}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{$\bot$  $\vdash$  }
-		\infer1{$\bot$  $\vdash$  $\bot$ }
-		\infer1{$\bot$ , $\neg$  $\bot$  $\vdash$  }
-		\infer1{$\vdash$  $\bot$  $\parr$  $\neg$  $\bot$ }
+		\infer0{⊥ ⊢ }
+		\infer1{⊥ ⊢ ⊥}
+		\infer1{⊥, ¬ ⊥ ⊢ }
+		\infer1{⊢ ⊥ ⅋ ¬ ⊥}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{ $\vdash$  1}
-		\infer1{1 $\vdash$  1}
-		\infer1{1, $\neg$  1 $\vdash$  }
-		\infer1{1 $\otimes$  $\neg$  1 $\vdash$  }
+		\infer0{ ⊢ 1}
+		\infer1{1 ⊢ 1}
+		\infer1{1, ¬ 1 ⊢ }
+		\infer1{1 ⊗ ¬ 1 ⊢ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0 $\vdash$  $\Delta$ , A}
-		\infer1{0, $\neg$  A $\vdash$  $\Delta$ }
-		\infer1{0 $\otimes$  $\neg$  A $\vdash$  $\Delta$ }
+		\infer0{0 ⊢ Δ, A}
+		\infer1{0, ¬ A ⊢ Δ}
+		\infer1{0 ⊗ ¬ A ⊢ Δ}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\vdash$  $\Delta$ , $\top$ }
-		\infer1{A, $\neg$  $\top$  $\vdash$  $\Delta$ }
-		\infer1{A $\otimes$  $\neg$  $\top$  $\vdash$  $\Delta$ }
+		\infer0{A ⊢ Δ, ⊤}
+		\infer1{A, ¬ ⊤ ⊢ Δ}
+		\infer1{A ⊗ ¬ ⊤ ⊢ Δ}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{A $\vdash$  A $\oplus$  $\neg$ A}
+		\infer0{A ⊢ A}
+		\infer1{A ⊢ A ⊕ ¬A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{ $\neg$  A \& A $\vdash$  A}
+		\infer0{A ⊢ A}
+		\infer1{ ¬ A \& A ⊢ A}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{$\neg$  A, A $\vdash$ }
-		\infer1{ $\neg$  A $\otimes$  A $\vdash$ }
+		\infer0{A ⊢ A}
+		\infer1{¬ A, A ⊢}
+		\infer1{ ¬ A ⊗ A ⊢}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{$\neg$  A, A $\vdash$ }
-		\infer1{A $\otimes$  $\neg$  A $\vdash$ }
-		\infer1{$\vdash$ $\neg$  (A $\otimes$  $\neg$  A)}
+		\infer0{A ⊢ A}
+		\infer1{¬ A, A ⊢}
+		\infer1{A ⊗ ¬ A ⊢}
+		\infer1{⊢¬ (A ⊗ ¬ A)}
 		\end{prooftree}
 		\]
 
 		\[
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{$\vdash$  A, $\neg$  A}
-		\infer1{$\vdash$  A $\parr$  $\neg$  A}
+		\infer0{A ⊢ A}
+		\infer1{⊢ A, ¬ A}
+		\infer1{⊢ A ⅋ ¬ A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{$\vdash$  A, $\neg$  A}
-		\infer1{$\vdash$  A $\parr$  $\neg$  A}
-		\infer1{$\neg$  (A $\parr$  $\neg$  A) $\vdash$ }
+		\infer0{A ⊢ A}
+		\infer1{⊢ A, ¬ A}
+		\infer1{⊢ A ⅋ ¬ A}
+		\infer1{¬ (A ⅋ ¬ A) ⊢}
 		\end{prooftree}
 		\]
 
 		\[
 		\begin{prooftree}
-		\infer0{$\bot$  $\vdash$ }
-		\infer1{A \& $\bot$  $\vdash$ }
+		\infer0{⊥ ⊢}
+		\infer1{A \& ⊥ ⊢}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0 $\vdash$ }
-		\infer1{A \& 0 $\vdash$ }
+		\infer0{0 ⊢}
+		\infer1{A \& 0 ⊢}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer0{A $\vdash$  $\top$ }
-		\infer2{A $\vdash$  A \& $\top$ }
+		\infer0{A ⊢ A}
+		\infer0{A ⊢ ⊤}
+		\infer2{A ⊢ A \& ⊤}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{$\vdash$  1}
-		\infer1{$\vdash$  A $\oplus$  1}
+		\infer0{⊢ 1}
+		\infer1{⊢ A ⊕ 1}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{$\vdash$  $\top$ }
-		\infer1{$\vdash$  A $\oplus$  $\top$ }
+		\infer0{⊢ ⊤}
+		\infer1{⊢ A ⊕ ⊤}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer0{0 $\vdash$  A}
-		\infer2{A $\oplus$  0 $\vdash$  A}
+		\infer0{A ⊢ A}
+		\infer0{0 ⊢ A}
+		\infer2{A ⊕ 0 ⊢ A}
 		\end{prooftree}
 		\]
 	\end{center}
 
+\end{document}

@@ -1,14 +1,64 @@
+\documentclass[11pt, a4paper]{article}
 
-	
-	
-	
+% === PACKAGES ===
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}          % AMS mathematical facilities
+\usepackage{amssymb}          % AMS symbols
+\usepackage{amsthm}           % AMS theorem environments
+\usepackage[margin=1in]{geometry} % Set margins
+\usepackage{hyperref}         % Add hyperlinks
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=cyan,
+	pdftitle={Theory of Measurement based on State Reversibility and Information Accessibility},
+	pdfpagemode=FullScreen,
+}
+\usepackage{mathtools}        % For mathematical tools like \coloneqq
+\usepackage{physics}          % For physics notations like \ket{}, \expval{}
 
+% === THEOREM STYLES ===
+\theoremstyle{plain} % Default style (bold title, italic body)
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
 
+\theoremstyle{definition} % Definition style (bold title, normal body)
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{postulate}[theorem]{Postulate}
+\newtheorem{principle}[theorem]{Principle}
+\newtheorem{example}[theorem]{Example}
 
+\theoremstyle{remark} % Remark style (italic title, normal body)
+\newtheorem{remark}[theorem]{Remark}
 
+% === CUSTOM COMMANDS ===
+\newcommand{\SystemState}{\mathcal{S}} % State space or state object
+\newcommand{\ApparatusState}{\mathcal{A}} % Apparatus state
+\newcommand{\Interaction}{\mathcal{I}} % Interaction operator/process
+\newcommand{\Outcome}{\mathcal{O}} % Set of outcomes
+\newcommand{\Info}{\mathcal{J}} % Information set/content
+\newcommand{\TimePre}{t_m^-} % Time just before measurement
+\newcommand{\TimePost}{t_m^+} % Time just after measurement
+\newcommand{\StatePre}{S(\TimePre)} % State before measurement
+\newcommand{\StatePost}{S(\TimePost)} % State after measurement
+\newcommand{\OutcomeVal}{O} % Specific outcome value
 
+% === DOCUMENT ===
+\begin{document}
+
+	\title{A Theory of Measurement Based on State Reversibility and Information Accessibility}
+	\author{Conceptual Framework}
+	\date{\today} % Or specify a date: \date{March 30, 2025}
+
+	\maketitle
+
+	\begin{abstract}
 		This document outlines a theoretical framework for classifying physical measurement processes based on their inherent reversibility concerning system states. We distinguish between irreversible (classical) measurements, which obscure past state information, and reversible (non-classical) measurements, which preserve pathways to infer prior states. This framework is extended by introducing the concepts of classically and non-classically accessible and inaccessible information, linking the nature of the measurement process directly to the type and scope of information obtainable about the system.
-
+	\end{abstract}
 	
 	% --- SECTIONS ---
 	
@@ -136,3 +186,4 @@
 	% \bibliographystyle{plain}
 	% \bibliography{your_bibliography_file} 
 	
+\end{document}

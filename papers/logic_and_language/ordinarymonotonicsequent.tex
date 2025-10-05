@@ -1,58 +1,58 @@
 
+\documentclass{article}
 
-
-
-
-
+\usepackage{amsmath}
+\usepackage{ebproof}
+\usepackage{fullpage}
 \usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+\usepackage{stix}
 
+\newunicodechar{Γ}{\Gamma}
+\newunicodechar{Δ}{\Delta}
+\newunicodechar{Π}{\Pi}
+\newunicodechar{Λ}{\Lambda}
+\newunicodechar{Θ}{\Theta}
 
+\newunicodechar{⊢}{\vdash}
 
+\newunicodechar{℘}{\wp}
+\newunicodechar{⊗}{\otimes}
+\newunicodechar{⊕}{\oplus}
+\newunicodechar{¬}{\neg}
 
+\newunicodechar{→}{\rightarrow}
 
+\newunicodechar{⊥}{\bot}
+\newunicodechar{⊤}{\top}
 
+\setlength{\parindent}{0em}
 
+\author{James Martin, Ian D.L.N. Mclean}
+\title{Ordinary Monotonic Sequent Calculus}
 
+\begin{document}
 
+\maketitle
 
+\begin{abstract}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\end{abstract}
 
 \section{Structural Rules}
 
 \begin{center}
 	\[
 	\begin{prooftree}
-	\infer0[Id]{A $\vdash$  A}
+	\infer0[Id]{A ⊢ A}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{$\Gamma$  $\vdash$  A}
-	\hypo{A $\vdash$  $\Delta$ }
-	\infer2[cut]{$\Gamma$  $\vdash$  $\Delta$ }
+	\hypo{Γ ⊢ A}
+	\hypo{A ⊢ Δ}
+	\infer2[cut]{Γ ⊢ Δ}
 	\end{prooftree}
 	\]
 \end{center}
@@ -61,11 +61,11 @@
 \begin{center}
 	\[
 	\begin{prooftree}
-	\infer0{0 $\vdash$  A}
+	\infer0{0 ⊢ A}
 	\end{prooftree}
 	\quad
 	\begin{prooftree}
-	\infer0{A $\vdash$  $\top$ }
+	\infer0{A ⊢ ⊤}
 	\end{prooftree}
 	\]
 \end{center}
@@ -80,73 +80,73 @@
 				
 				\[
 				\begin{prooftree}
-				\hypo{A $\vdash$  $\Delta$ }
-				\hypo{B $\vdash$  $\Delta$ }
-				\infer2{A $\oplus$  B $\vdash$  $\Delta$ }
+				\hypo{A ⊢ Δ}
+				\hypo{B ⊢ Δ}
+				\infer2{A ⊕ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A}
-				\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
+				\hypo{Γ ⊢ A}
+				\infer1{Γ ⊢ A ⊕ B}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  B}
-				\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
+				\hypo{Γ ⊢ B}
+				\infer1{Γ ⊢ A ⊕ B}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{B $\vdash$  $\Delta$ }
-				\hypo{A $\vdash$  $\Delta$ }
-				\infer2{B $\oplus$  A $\vdash$  $\Delta$ }
+				\hypo{B ⊢ Δ}
+				\hypo{A ⊢ Δ}
+				\infer2{B ⊕ A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A}
-				\infer1{$\Gamma$  $\vdash$  B $\oplus$  A}
+				\hypo{Γ ⊢ A}
+				\infer1{Γ ⊢ B ⊕ A}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  B}
-				\infer1{$\Gamma$  $\vdash$  B $\oplus$  A}
+				\hypo{Γ ⊢ B}
+				\infer1{Γ ⊢ B ⊕ A}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{A $\vdash$  $\Delta$ }
-				\infer1{A \& B $\vdash$  $\Delta$ }
+				\hypo{A ⊢ Δ}
+				\infer1{A \& B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{B $\vdash$  $\Delta$ }
-				\infer1{A \& B $\vdash$  $\Delta$ }
+				\hypo{B ⊢ Δ}
+				\infer1{A \& B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A}
-				\hypo{$\Gamma$  $\vdash$  B}
-				\infer2{$\Gamma$  $\vdash$  A \& B}
+				\hypo{Γ ⊢ A}
+				\hypo{Γ ⊢ B}
+				\infer2{Γ ⊢ A \& B}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{A $\vdash$  $\Delta$ }
-				\infer1{B \& A $\vdash$  $\Delta$ }
+				\hypo{A ⊢ Δ}
+				\infer1{B \& A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{B $\vdash$  $\Delta$ }
-				\infer1{B \& A $\vdash$  $\Delta$ }
+				\hypo{B ⊢ Δ}
+				\infer1{B \& A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  B}
-				\hypo{$\Gamma$  $\vdash$  A}
-				\infer2{$\Gamma$  $\vdash$  B \& A}
+				\hypo{Γ ⊢ B}
+				\hypo{Γ ⊢ A}
+				\infer2{Γ ⊢ B \& A}
 				\end{prooftree}
 				\]
 			\end{center}
@@ -159,53 +159,53 @@
 			
 			\[
 			\begin{prooftree}
-			\hypo{A $\vdash$  $\Delta$ _0}
-			\hypo{B $\vdash$  $\Delta$ _1}
-			\infer2{A ℘ B $\vdash$  $\Delta$ _0, $\Delta$ _1}
+			\hypo{A ⊢ Δ_0}
+			\hypo{B ⊢ Δ_1}
+			\infer2{A ℘ B ⊢ Δ_0, Δ_1}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, B}
-			\infer1{$\Gamma$  $\vdash$  A ℘ B}
+			\hypo{Γ ⊢ A, B}
+			\infer1{Γ ⊢ A ℘ B}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{B $\vdash$  $\Delta$ _0}
-			\hypo{A $\vdash$  $\Delta$ _1}
-			\infer2{B ℘ A $\vdash$  $\Delta$ _0, $\Delta$ _1}
+			\hypo{B ⊢ Δ_0}
+			\hypo{A ⊢ Δ_1}
+			\infer2{B ℘ A ⊢ Δ_0, Δ_1}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  B, A}
-			\infer1{$\Gamma$  $\vdash$  B ℘ A}
+			\hypo{Γ ⊢ B, A}
+			\infer1{Γ ⊢ B ℘ A}
 			\end{prooftree}
 			\]
 			
 			\[
 			\begin{prooftree}
-			\hypo{A, B $\vdash$  $\Delta$ }
-			\infer1{A $\otimes$  B $\vdash$  $\Delta$ }
+			\hypo{A, B ⊢ Δ}
+			\infer1{A ⊗ B ⊢ Δ}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{$\Gamma$ _0 $\vdash$  A}
-			\hypo{$\Gamma$ _1 $\vdash$  B}
-			\infer2{$\Gamma$ _0, $\Gamma$ _1 $\vdash$  A $\otimes$  B}
+			\hypo{Γ_0 ⊢ A}
+			\hypo{Γ_1 ⊢ B}
+			\infer2{Γ_0, Γ_1 ⊢ A ⊗ B}
 			\end{prooftree}
 			\]
 			
 			\[
 			\begin{prooftree}
-			\hypo{B, A $\vdash$  $\Delta$ }
-			\infer1{B $\otimes$  A $\vdash$  $\Delta$ }
+			\hypo{B, A ⊢ Δ}
+			\infer1{B ⊗ A ⊢ Δ}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\hypo{$\Gamma$ _0 $\vdash$  B}
-			\hypo{$\Gamma$ _1 $\vdash$  A}
-			\infer2{$\Gamma$ _0, $\Gamma$ _1 $\vdash$  B $\otimes$  A}
+			\hypo{Γ_0 ⊢ B}
+			\hypo{Γ_1 ⊢ A}
+			\infer2{Γ_0, Γ_1 ⊢ B ⊗ A}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -217,234 +217,235 @@
 
 		\[
 		\begin{prooftree}
-		\infer0{ $\vdash$  A $\oplus$  $\neg$ A}
+		\infer0{ ⊢ A ⊕ ¬A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{ $\vdash$  $\neg$ A $\oplus$  A}
+		\infer0{ ⊢ ¬A ⊕ A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{A \& $\neg$ A $\vdash$  }
+		\infer0{A \& ¬A ⊢ }
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{$\neg$ A \& A $\vdash$  }
+		\infer0{¬A \& A ⊢ }
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{0 $\vdash$  C}
-		\infer1{0 \& $\neg$  A $\vdash$  C}
+		\infer0{0 ⊢ C}
+		\infer1{0 \& ¬ A ⊢ C}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{C $\vdash$  $\top$ }
-		\infer1{C $\vdash$  $\top$  $\oplus$  $\neg$  A}
+		\infer0{C ⊢ ⊤}
+		\infer1{C ⊢ ⊤ ⊕ ¬ A}
 		\end{prooftree}		
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{0 $\vdash$  A}
-		\infer1{0 $\vdash$  A $\oplus$  $\neg$  A}
+		\infer0{0 ⊢ A}
+		\infer1{0 ⊢ A ⊕ ¬ A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0 $\vdash$  $\neg$  A}
-		\infer1{0 $\vdash$  A $\oplus$  $\neg$  A}
+		\infer0{0 ⊢ ¬ A}
+		\infer1{0 ⊢ A ⊕ ¬ A}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0 $\vdash$  }
-		\infer1{$\vdash$  A $\oplus$  $\neg$  0}
+		\infer0{0 ⊢ }
+		\infer1{⊢ A ⊕ ¬ 0}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{C $\vdash$  $\top$ }
-		\infer1{C $\vdash$  $\top$  $\oplus$  A}
+		\infer0{C ⊢ ⊤}
+		\infer1{C ⊢ ⊤ ⊕ A}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{A $\vdash$  $\top$ }
-		\infer1{A \& $\neg$  A $\vdash$  $\top$ }
+		\infer0{A ⊢ ⊤}
+		\infer1{A \& ¬ A ⊢ ⊤}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{$\neg$  A $\vdash$  $\top$ }
-		\infer1{A \& $\neg$  A $\vdash$  $\top$ }
+		\infer0{¬ A ⊢ ⊤}
+		\infer1{A \& ¬ A ⊢ ⊤}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{1 $\vdash$  1}
-		\infer1{1 $\vdash$  1 $\oplus$  $\neg$  1}
+		\infer0{1 ⊢ 1}
+		\infer1{1 ⊢ 1 ⊕ ¬ 1}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0 $\vdash$  1 $\oplus$  $\neg$  1}
+		\infer0{0 ⊢ 1 ⊕ ¬ 1}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\bot$  $\vdash$  1 $\oplus$  $\neg$  1}
+		\hypo{⊥ ⊢ 1 ⊕ ¬ 1}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\top$  $\vdash$  1 $\oplus$  $\neg$  1}
+		\hypo{⊤ ⊢ 1 ⊕ ¬ 1}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{$\bot$ $\vdash$ }
-		\infer1{$\vdash$  $\neg$  $\bot$ }
-		\infer1{$\vdash$  $\bot$  $\oplus$  $\neg$  $\bot$ }
-		\infer1{1 $\vdash$  $\bot$  $\oplus$  $\neg$  $\bot$ }
+		\infer0{⊥⊢}
+		\infer1{⊢ ¬ ⊥}
+		\infer1{⊢ ⊥ ⊕ ¬ ⊥}
+		\infer1{1 ⊢ ⊥ ⊕ ¬ ⊥}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0 $\vdash$  $\bot$  $\oplus$  $\neg$  $\bot$ }
+		\infer0{0 ⊢ ⊥ ⊕ ¬ ⊥}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{$\bot$  $\vdash$  $\bot$ }
-		\infer1{$\bot$  $\vdash$  $\bot$  $\oplus$  $\neg$  $\bot$ }
+		\infer0{⊥ ⊢ ⊥}
+		\infer1{⊥ ⊢ ⊥ ⊕ ¬ ⊥}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\top$  $\vdash$  $\bot$  $\oplus$  $\neg$  $\bot$ }
+		\hypo{⊤ ⊢ ⊥ ⊕ ¬ ⊥}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{0 $\vdash$ }
-		\infer1{$\vdash$  $\neg$  0}
-		\infer1{$\vdash$  0 $\oplus$  $\neg$  0}
-		\infer1{1 $\vdash$  0 $\oplus$  $\neg$  0}
+		\infer0{0 ⊢}
+		\infer1{⊢ ¬ 0}
+		\infer1{⊢ 0 ⊕ ¬ 0}
+		\infer1{1 ⊢ 0 ⊕ ¬ 0}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0 $\vdash$  0 $\oplus$  $\neg$  0}
+		\infer0{0 ⊢ 0 ⊕ ¬ 0}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\bot$  $\vdash$  0 $\oplus$  $\neg$  0}
+		\hypo{⊥ ⊢ 0 ⊕ ¬ 0}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\top$  $\vdash$  0 $\oplus$  $\neg$  0}
+		\hypo{⊤ ⊢ 0 ⊕ ¬ 0}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{$\vdash$  $\top$ }
-		\infer1{$\vdash$  $\top$  $\oplus$  $\neg$  $\top$ }
-		\infer1{1 $\vdash$  $\top$  $\oplus$  $\neg$  $\top$ }
+		\infer0{⊢ ⊤}
+		\infer1{⊢ ⊤ ⊕ ¬ ⊤}
+		\infer1{1 ⊢ ⊤ ⊕ ¬ ⊤}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0 $\vdash$  $\top$  $\oplus$  $\neg$  $\top$ }
+		\infer0{0 ⊢ ⊤ ⊕ ¬ ⊤}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{$\bot$  $\vdash$  $\top$ }
-		\infer1{$\bot$  $\vdash$  $\top$  $\oplus$  $\neg$  $\top$ }
+		\infer0{⊥ ⊢ ⊤}
+		\infer1{⊥ ⊢ ⊤ ⊕ ¬ ⊤}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{$\top$  $\vdash$  $\top$ }
-		\infer1{$\top$  $\vdash$  $\top$  $\oplus$  $\neg$  $\top$ }
+		\infer0{⊤ ⊢ ⊤}
+		\infer1{⊤ ⊢ ⊤ ⊕ ¬ ⊤}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{1 $\vdash$  1}
-		\infer1{1 \&  $\neg$  1$\vdash$  1}
+		\infer0{1 ⊢ 1}
+		\infer1{1 \&  ¬ 1⊢ 1}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{1 \&  $\neg$  1$\vdash$  0}
+		\hypo{1 \&  ¬ 1⊢ 0}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{$\vdash$  1}
-		\infer1{$\neg$  1$\vdash$  }
-		\infer1{1 \&  $\neg$  1$\vdash$  }
-		\infer1{1 \&  $\neg$  1$\vdash$  $\bot$ }
+		\infer0{⊢ 1}
+		\infer1{¬ 1⊢ }
+		\infer1{1 \&  ¬ 1⊢ }
+		\infer1{1 \&  ¬ 1⊢ ⊥}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{1 \&  $\neg$  1 $\vdash$  $\top$ }
+		\infer0{1 \&  ¬ 1 ⊢ ⊤}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\infer0{0 $\vdash$  1}
-		\infer1{0 \&  $\neg$  0 $\vdash$  1}
+		\infer0{0 ⊢ 1}
+		\infer1{0 \&  ¬ 0 ⊢ 1}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0 $\vdash$  0}
-		\infer1{0 \&  $\neg$  0 $\vdash$  0}
+		\infer0{0 ⊢ 0}
+		\infer1{0 \&  ¬ 0 ⊢ 0}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0 $\vdash$  $\bot$ }
-		\infer1{0 \&  $\neg$  0 $\vdash$  $\bot$ }
+		\infer0{0 ⊢ ⊥}
+		\infer1{0 \&  ¬ 0 ⊢ ⊥}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{0 \&  $\neg$  0 $\vdash$  $\top$ }
+		\infer0{0 \&  ¬ 0 ⊢ ⊤}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{$\bot$  \&  $\neg$  $\bot$  $\vdash$  1}
+		\hypo{⊥ \&  ¬ ⊥ ⊢ 1}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\bot$  \&  $\neg$  $\bot$  $\vdash$  0}
+		\hypo{⊥ \&  ¬ ⊥ ⊢ 0}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{$\bot$  $\vdash$  }
-		\infer1{$\bot$  \&  $\neg$  $\bot$  $\vdash$  }
-		\infer1{$\bot$  \&  $\neg$  $\bot$  $\vdash$  $\bot$ }
+		\infer0{⊥ ⊢ }
+		\infer1{⊥ \&  ¬ ⊥ ⊢ }
+		\infer1{⊥ \&  ¬ ⊥ ⊢ ⊥}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{$\bot$  \&  $\neg$  $\bot$  $\vdash$  $\top$ }
+		\infer0{⊥ \&  ¬ ⊥ ⊢ ⊤}
 		\end{prooftree}
 		\]
 		
 		\[
 		\begin{prooftree}
-		\hypo{$\top$  \&  $\neg$  $\top$  $\vdash$  1}
+		\hypo{⊤ \&  ¬ ⊤ ⊢ 1}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\hypo{$\top$  \&  $\neg$  $\top$  $\vdash$  0}
+		\hypo{⊤ \&  ¬ ⊤ ⊢ 0}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{$\vdash$  $\top$ }
-		\infer1{$\neg$  $\top$  $\vdash$ }
-		\infer1{$\neg$  $\top$  $\vdash$  $\bot$ }
-		\infer1{$\top$  \&  $\neg$  $\top$  $\vdash$  $\bot$ }
+		\infer0{⊢ ⊤}
+		\infer1{¬ ⊤ ⊢}
+		\infer1{¬ ⊤ ⊢ ⊥}
+		\infer1{⊤ \&  ¬ ⊤ ⊢ ⊥}
 		\end{prooftree}
 		\quad
 		\begin{prooftree}
-		\infer0{$\top$  \&  $\neg$  $\top$  $\vdash$  $\top$ }
+		\infer0{⊤ \&  ¬ ⊤ ⊢ ⊤}
 		\end{prooftree}
 		\]
 	\end{center}
 
+\end{document}

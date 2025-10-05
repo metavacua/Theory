@@ -8,7 +8,7 @@ A ∥ B: Additive Implication (Parallel Processes/Concurrent Choice). *
 A ∦ B: Additive Non-Implication (Non-Parallel/Mutually Exclusive
 Processes).
 
-$\neg$ : Linear Negation (Classical).
+¬: Linear Negation (Classical).
 
 ⊸: Multiplicative Implication (Linear Implication).
 
@@ -18,9 +18,9 @@ $\neg$ : Linear Negation (Classical).
 
 ◃A: Type 1B Negation (Paraconsistent).
 
-\&, $\oplus$ , $\otimes$ , $\parr$ : Additive and Multiplicative Conjunction/Disjunction.
+\&, ⊕, ⊗, ⅋: Additive and Multiplicative Conjunction/Disjunction.
 
-$\exists$ $\forall$  \{$\bot$ ,$\top$ ,$\neg$ ,$\lor$ ,$\land$ ,$\to$ ,$\nrightarrow$ ,$\leftrightarrow$ ,$\oplus$ ,$\downarrow$ ,$\uparrow$ \} \{p, q\} $\vdash$ $\nmodels$ $\models$ $\Gamma$ $\Delta$
+∃∀ \{⊥,⊤,¬,∨,∧,→,↛,↔,⊕,↓,↑\} \{p, q\} ⊢⊬⊨ΓΔ
 
 Signature of Theories with Logos Formalization
 
@@ -78,8 +78,8 @@ simpler terms by means of an operation symbol of rank \emph{n}.
 Similarly, an atomic formula is obtained by combining \emph{n} arbitrary
 terms by means of a predicate of rank \emph{n}; compound formulas are
 built from simpler ones by means of sentential connectives and
-quantifier expressions (I.E. quantifiers followed by variables like $\forall$ x
-or $\exists$ y).
+quantifier expressions (I.E. quantifiers followed by variables like ∀x
+or ∃y).
 
 \hypertarget{definition-sentences}{%
 \subsubsection{Definition: Sentences}\label{definition-sentences}}
@@ -102,13 +102,13 @@ and the notion of satisfaction.
 \hypertarget{definition-possible-realizations-of-a-theory-and-the-universe-of-ux1d57d}{%
 \subsubsection{Definition: Possible Realizations of a Theory and the
 Universe of
-$\mathbb{R}$ }\label{definition-possible-realizations-of-a-theory-and-the-universe-of-ux1d57d}}
+𝕽}\label{definition-possible-realizations-of-a-theory-and-the-universe-of-ux1d57d}}
 
 We assume that all the non-logical constants of T have been arranged in
 a (finite or infinite) sequence \textless{}\textbf{C\_0}, \ldots,
 \textbf{C\_n}, \ldots\textgreater, without repeating terms.
 
-We consider systems $\mathbb{R}$  formed by a non-empty set U and by a sequence
+We consider systems 𝕽 formed by a non-empty set U and by a sequence
 \textless C\_0, \ldots, C\_n, \ldots\textgreater{} of certain
 mathematical entities, with the same number of terms as the sequence of
 non-logical constants.
@@ -129,17 +129,17 @@ values.
 If \textbf{C\_n} is an individual constant, C\_n is simply an element of
 U.
 
-Such a system (sequence) $\mathbb{R}$  = \textless U, C\_0, \ldots, C\_n,
+Such a system (sequence) 𝕽 = \textless U, C\_0, \ldots, C\_n,
 \ldots\textgreater{} is called a \emph{possible realization} or simply a
-\emph{realization} of T; the set U is called the \emph{universe} of $\mathbb{R}$ .
+\emph{realization} of T; the set U is called the \emph{universe} of 𝕽.
 
 \hypertarget{definition-satisfaction}{%
 \subsubsection{Definition: Satisfaction}\label{definition-satisfaction}}
 
-We assume it to be clear under what conditions a sentence $\Phi$  of T is said
-to \emph{be satisfied} or to \emph{hold} in a given realization $\mathbb{R}$ .
+We assume it to be clear under what conditions a sentence Φ of T is said
+to \emph{be satisfied} or to \emph{hold} in a given realization 𝕽.
 
-Roughly speaking, this means that $\Phi$  turns out to be true if
+Roughly speaking, this means that Φ turns out to be true if
 
 (i) all the variables occurring in T are assumed to range over the set
 U;
@@ -147,11 +147,11 @@ U;
 (ii) the logical constants are interpreted in the usual way;
 
 (iii) each of the non-logical constants \textbf{C\_n} is understood to
-denote the corresponding term C\_n in $\mathbb{R}$ .
+denote the corresponding term C\_n in 𝕽.
 
 Assume, e.g., that the term \textbf{C\_n} in the sequence of constants
 is a unary predicate and that consequently C\_n is a subset of U. Then
-the sentence $\forall$ x \textbf{C\_n} x holds in $\mathbb{R}$  if and only if every element
+the sentence ∀x \textbf{C\_n} x holds in 𝕽 if and only if every element
 of U is an element of C\_n and hence C\_n coincides with U.
 
 \hypertarget{definition-valid-sentences-by-non-logical-axioms}{%
@@ -195,12 +195,12 @@ If T\_1 is axiomatic, then an inessential extension of T\_1 is obtained
 by adding some new individual constants, but without adding any new
 non-logical axioms.
 
-By saying that a sentence $\Phi$  is derivable \emph{in a theory} T from a set
-A we stress the fact that, in deriving $\Phi$ , we may use both sentences of A
-and logical axioms of T. It is easily seen that, whenever $\Phi$  is derivable
+By saying that a sentence Φ is derivable \emph{in a theory} T from a set
+A we stress the fact that, in deriving Φ, we may use both sentences of A
+and logical axioms of T. It is easily seen that, whenever Φ is derivable
 from A in some theory T, it is also derivable from A in every theory
 T\textquotesingle{} which contains all the non-logical constants
-occurring in $\Phi$  and in sentences of A.
+occurring in Φ and in sentences of A.
 
 \hypertarget{definition-union-of-theories-in-standard-formalization}{%
 \subsubsection{Definition: Union of Theories in Standard
@@ -224,4 +224,4 @@ If the theories T\_1 and T\_2 are axiomatic, we can construct T by
 postulating, in addition to (i), the analogous condition for the set of
 non-logical axioms.
 
-}*}
+\end{document}}*}

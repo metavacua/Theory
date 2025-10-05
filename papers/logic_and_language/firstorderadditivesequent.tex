@@ -1,416 +1,506 @@
+
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{ebproof}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+\usepackage{stix}
+
+\newunicodechar{Γ}{\Gamma}
+\newunicodechar{Δ}{\Delta}
+
+\newunicodechar{⊢}{\vdash}
+
+\newunicodechar{∀}{\forall}
+\newunicodechar{∃}{\exists}
+
+\newunicodechar{⊕}{\oplus}
+\newunicodechar{¬}{\neg}
+
+\setlength{\parindent}{0em}
+
+\author{James Martin, Ian D.L.N. Mclean}
+\title{First Order Additive Sequent Calculus}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
 Strictly visible additive order calculus with first order quantification.
+\end{abstract}
 
 \section{Structural Rules}
 
-\begin{prooftree}
-\AxiomC{}
-\UnaryInfC[Id]{$A \vdash A$}
-\end{prooftree}
+\begin{center}
+	\[
+	\begin{prooftree}
+	\infer0[Id]{A ⊢ A}
+	\end{prooftree}
+	\]
 
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash A$}
-\AxiomC{$A \vdash \Delta$}
-\BinaryInfC[cut]{$\Gamma \vdash \Delta$}
-\end{prooftree}
+	\[
+	\begin{prooftree}
+	\hypo{Γ ⊢ A}
+	\hypo{A ⊢ Δ}
+	\infer2[cut]{Γ ⊢ Δ}
+	\end{prooftree}
+	\]
+\end{center}
 
 \section{Quantifiers}
-Standard Eigenvariable Condition Quantifiers
+	\begin{center}
+		Standard Eigenvariable Condition Quantifiers
+		\[
+		\begin{prooftree}
+		\hypo{P[t/x] ⊢ Δ}
+		\infer1{∀x.P(x) ⊢ Δ}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{Γ ⊢ P[y/x]}
+		\infer1{Γ ⊢ ∀x.P(x)}
+		\end{prooftree}
+		\]
+		in $∀R$ the variable y must not occur free anywhere in the lower sequent.
+		\[
+		\begin{prooftree}
+		\hypo{P[y/x] ⊢ Δ}
+		\infer1{∃x.P(x) ⊢ Δ}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{Γ ⊢ P[t/x]}
+		\infer1{Γ ⊢ ∃x.P(x)}
+		\end{prooftree}
+		\]
+		in $∃L$ the variable y must not occur free anywhere in the lower sequent.
+		\[
+		\begin{prooftree}
+		\hypo{P(y)⊢}
+		\infer1{¬∀x.¬P(x) ⊢ }
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{⊢P(t)}
+		\infer1{⊢ ¬∀x.¬P(x)}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{P(t)⊢}
+		\infer1{¬∃x.¬P(x) ⊢ }
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{⊢P(y)}
+		\infer1{⊢ ¬∃x.¬P(x)}
+		\end{prooftree}
+		\]
 
-\begin{prooftree}
-\AxiomC{$P[t/x] \vdash \Delta$}
-\UnaryInfC{$\forall x.P(x) \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash P[y/x]$}
-\UnaryInfC{$\Gamma \vdash \forall x.P(x)$}
-\end{prooftree}
 
-in $\forall$ R the variable y must not occur free anywhere in the lower sequent.
+		Henkin constant quantifiers
+		\[
+		\begin{prooftree}
+		\hypo{P[t/x] ⊢ Δ}
+		\infer1{∀x.P ⊢ Δ}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{Γ ⊢ P [c_{∀x.P}/x]}
+		\infer1{Γ ⊢ ∀x.P}
+		\end{prooftree}
+		\]
 
-\begin{prooftree}
-\AxiomC{$P[y/x] \vdash \Delta$}
-\UnaryInfC{$\exists x.P(x) \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash P[t/x]$}
-\UnaryInfC{$\Gamma \vdash \exists x.P(x)$}
-\end{prooftree}
+		\[
+		\begin{prooftree}
+		\hypo{P[c_{∃x.P}/x] ⊢ Δ}
+		\infer1{∃xP ⊢ Δ}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{Γ ⊢ P[t/x]}
+		\infer1{Γ ⊢ ∃xP}
+		\end{prooftree}
+		\]
 
-in $\exists$ L the variable y must not occur free anywhere in the lower sequent.
+		\[
+		\begin{prooftree}
+		\hypo{P(t/x) ⊢ Δ}
+		\infer1{∀xP(x) ⊢ Δ}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{Γ ⊢ P (c_{∀x.P}/x)}
+		\infer1{Γ ⊢ ∀xP(x)}
+		\end{prooftree}
+		\]
 
-\begin{prooftree}
-\AxiomC{$P(y)\vdash$}
-\UnaryInfC{$\neg \forall x.\neg P(x) \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\vdash P(t)$}
-\UnaryInfC{$\vdash \neg \forall x.\neg P(x)$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$P(t)\vdash$}
-\UnaryInfC{$\neg \exists x.\neg P(x) \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\vdash P(y)$}
-\UnaryInfC{$\vdash \neg \exists x.\neg P(x)$}
-\end{prooftree}
-
-
-Henkin constant quantifiers
-
-\begin{prooftree}
-\AxiomC{$P[t/x] \vdash \Delta$}
-\UnaryInfC{$\forall x.P \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash P [c_{\forall x.P}/x]$}
-\UnaryInfC{$\Gamma \vdash \forall x.P$}
-\end{prooftree}
-
-\begin{prooftree}
-\AxiomC{$P[c_{\exists x.P}/x] \vdash \Delta$}
-\UnaryInfC{$\exists xP \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash P[t/x]$}
-\UnaryInfC{$\Gamma \vdash \exists xP$}
-\end{prooftree}
-
-\begin{prooftree}
-\AxiomC{$P(t/x) \vdash \Delta$}
-\UnaryInfC{$\forall xP(x) \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash P (c_{\forall x.P}/x)$}
-\UnaryInfC{$\Gamma \vdash \forall xP(x)$}
-\end{prooftree}
-
-\begin{prooftree}
-\AxiomC{$P(c_{\exists x.P}/x) \vdash \Delta$}
-\UnaryInfC{$\exists xP(x) \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash P(t/x)$}
-\UnaryInfC{$\Gamma \vdash \exists xP(x)$}
-\end{prooftree}
+		\[
+		\begin{prooftree}
+		\hypo{P(c_{∃x.P}/x) ⊢ Δ}
+		\infer1{∃xP(x) ⊢ Δ}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{Γ ⊢ P(t/x)}
+		\infer1{Γ ⊢ ∃xP(x)}
+		\end{prooftree}
+		\]
+	\end{center}
 
 \section{Operational Rules}
-\subsection{Negation}
+	\begin{center}
+				\subsection{Negation}
+				\begin{center}
+					\[
+					\begin{prooftree}
+					\hypo{ ⊢ A}
+					\infer1{¬ A ⊢}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{A ⊢ }
+					\infer1{⊢ ¬ A}
+					\end{prooftree}
+					\]
+				\end{center}
 
-\begin{prooftree}
-\AxiomC{$\vdash A$}
-\UnaryInfC{$\neg A \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$A \vdash$}
-\UnaryInfC{$\vdash \neg A$}
-\end{prooftree}
 
+				\subsection{Negative Junctions}
+				\begin{center}
+					\[
+					\begin{prooftree}
+					\hypo{⊢ A}
+					\hypo{⊢ B}
+					\infer2{¬A ⊕ ¬B ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{A ⊢ }
+					\infer1{ ⊢ ¬A ⊕ ¬B}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{B ⊢ }
+					\infer1{ ⊢ ¬A ⊕ ¬B}
+					\end{prooftree}
+					\]
 
-\subsection{Negative Junctions}
+					\[
+					\begin{prooftree}
+					\hypo{⊢ B}
+					\hypo{ ⊢ A}
+					\infer2{¬B ⊕ ¬A ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{A ⊢ }
+					\infer1{ ⊢ ¬B ⊕ ¬A}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{B ⊢ }
+					\infer1{ ⊢ ¬B ⊕ ¬A}
+					\end{prooftree}
+					\]
 
-\begin{prooftree}
-\AxiomC{$\vdash A$}
-\AxiomC{$\vdash B$}
-\BinaryInfC{$\neg A \oplus \neg B \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$A \vdash$}
-\UnaryInfC{$\vdash \neg A \oplus \neg B$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash$}
-\UnaryInfC{$\vdash \neg A \oplus \neg B$}
-\end{prooftree}
+					\[
+					\begin{prooftree}
+					\hypo{ ⊢ A}
+					\infer1{¬A \& ¬B ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{ ⊢ B}
+					\infer1{¬A \& ¬B ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{A ⊢ }
+					\hypo{B ⊢ }
+					\infer2{⊢ ¬A \& ¬B}
+					\end{prooftree}
+					\]
 
-\begin{prooftree}
-\AxiomC{$\vdash B$}
-\AxiomC{$\vdash A$}
-\BinaryInfC{$\neg B \oplus \neg A \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$A \vdash$}
-\UnaryInfC{$\vdash \neg B \oplus \neg A$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash$}
-\UnaryInfC{$\vdash \neg B \oplus \neg A$}
-\end{prooftree}
+					\[
+					\begin{prooftree}
+					\hypo{ ⊢ A}
+					\infer1{¬B \& ¬A ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{ ⊢ B}
+					\infer1{¬B \& ¬A ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{B ⊢ }
+					\hypo{A ⊢ }
+					\infer2{ ⊢ ¬ B \& ¬ A}
+					\end{prooftree}
+					\]
+				\end{center}
 
-\begin{prooftree}
-\AxiomC{$\vdash A$}
-\UnaryInfC{$\neg A \land \neg B \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\vdash B$}
-\UnaryInfC{$\neg A \land \neg B \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$A \vdash$}
-\AxiomC{$B \vdash$}
-\BinaryInfC{$\vdash \neg A \land \neg B$}
-\end{prooftree}
+				\subsection{Conditionals}
+				\begin{center}
+					\[
+					\begin{prooftree}
+					\hypo{⊢ B}
+					\hypo{A ⊢ }
+					\infer2{¬B ⊕ A ⊢}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{A ⊢ }
+					\hypo{⊢ B}
+					\infer2{A ⊕ ¬B ⊢}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{Γ ⊢ A}
+					\infer1{Γ ⊢ A ⊕ ¬B}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{B ⊢ }
+					\infer1{⊢ A ⊕ ¬B}
+					\end{prooftree}
+					\]
 
-\begin{prooftree}
-\AxiomC{$\vdash A$}
-\UnaryInfC{$\neg B \land \neg A \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\vdash B$}
-\UnaryInfC{$\neg B \land \neg A \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash$}
-\AxiomC{$A \vdash$}
-\BinaryInfC{$\vdash \neg B \land \neg A$}
-\end{prooftree}
+					\[
+					\begin{prooftree}
+					\hypo{ ⊢ A}
+					\hypo{B ⊢ }
+					\infer2{¬A ⊕ B ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{B ⊢ }
+					\hypo{ ⊢ A}
+					\infer2{B ⊕ ¬A ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{A ⊢ }
+					\infer1{ ⊢ B ⊕ ¬A}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{Γ ⊢ B}
+					\infer1{Γ ⊢ B ⊕ ¬A}
+					\end{prooftree}
+					\]
 
-\subsection{Conditionals}
+					\[
+					\begin{prooftree}
+					\hypo{A ⊢ Δ}
+					\infer1{A \& ¬B ⊢ Δ}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{ ⊢ B}
+					\infer1{A \& ¬B ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{⊢ A}
+					\hypo{B ⊢ }
+					\infer2{⊢ A \& ¬B}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{B ⊢ }
+					\hypo{⊢ A}
+					\infer2{⊢ ¬B \& A}
+					\end{prooftree}
+					\]
 
-\begin{prooftree}
-\AxiomC{$\vdash B$}
-\AxiomC{$A \vdash$}
-\BinaryInfC{$\neg B \oplus A \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$A \vdash$}
-\AxiomC{$\vdash B$}
-\BinaryInfC{$A \oplus \neg B \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash A$}
-\UnaryInfC{$\Gamma \vdash A \oplus \neg B$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash$}
-\UnaryInfC{$\vdash A \oplus \neg B$}
-\end{prooftree}
+					\[
+					\begin{prooftree}
+					\hypo{ ⊢ A}
+					\infer1{B \& ¬A ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{B ⊢ Δ}
+					\infer1{B \& ¬A ⊢ Δ}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{ ⊢ B}
+					\hypo{A ⊢ }
+					\infer2{ ⊢ B \& ¬ A}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{A ⊢ }
+					\hypo{ ⊢ B}
+					\infer2{ ⊢ ¬A \& B}
+					\end{prooftree}
+					\]
+				\end{center}
 
-\begin{prooftree}
-\AxiomC{$\vdash A$}
-\AxiomC{$B \vdash$}
-\BinaryInfC{$\neg A \oplus B \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash$}
-\AxiomC{$\vdash A$}
-\BinaryInfC{$B \oplus \neg A \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$A \vdash$}
-\UnaryInfC{$\vdash B \oplus \neg A$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash B$}
-\UnaryInfC{$\Gamma \vdash B \oplus \neg A$}
-\end{prooftree}
+				\subsection{Junctions}
+				\begin{center}
+					\[
+					\begin{prooftree}
+					\hypo{A ⊢ Δ}
+					\hypo{B ⊢ Δ}
+					\infer2{A ⊕ B ⊢ Δ}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{Γ ⊢ A}
+					\infer1{Γ ⊢ A ⊕ B}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{Γ ⊢ B}
+					\infer1{Γ ⊢ A ⊕ B}
+					\end{prooftree}
+					\]
 
-\begin{prooftree}
-\AxiomC{$A \vdash \Delta$}
-\UnaryInfC{$A \land \neg B \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\vdash B$}
-\UnaryInfC{$A \land \neg B \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\vdash A$}
-\AxiomC{$B \vdash$}
-\BinaryInfC{$\vdash A \land \neg B$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash$}
-\AxiomC{$\vdash A$}
-\BinaryInfC{$\vdash \neg B \land A$}
-\end{prooftree}
+					\[
+					\begin{prooftree}
+					\hypo{B ⊢ Δ}
+					\hypo{A ⊢ Δ}
+					\infer2{B ⊕ A ⊢ Δ}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{Γ ⊢ A}
+					\infer1{Γ ⊢ B ⊕ A}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{Γ ⊢ B}
+					\infer1{Γ ⊢ B ⊕ A}
+					\end{prooftree}
+					\]
 
-\begin{prooftree}
-\AxiomC{$\vdash A$}
-\UnaryInfC{$B \land \neg A \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash \Delta$}
-\UnaryInfC{$B \land \neg A \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\vdash B$}
-\AxiomC{$A \vdash$}
-\BinaryInfC{$\vdash B \land \neg A$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$A \vdash$}
-\AxiomC{$\vdash B$}
-\BinaryInfC{$\vdash \neg A \land B$}
-\end{prooftree}
+					\[
+					\begin{prooftree}
+					\hypo{A ⊢ Δ}
+					\infer1{A \& B ⊢ Δ}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{B ⊢ Δ}
+					\infer1{A \& B ⊢ Δ}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{Γ ⊢ A}
+					\hypo{Γ ⊢ B}
+					\infer2{Γ ⊢ A \& B}
+					\end{prooftree}
+					\]
 
-\subsection{Junctions}
+					\[
+					\begin{prooftree}
+					\hypo{A ⊢ Δ}
+					\infer1{B \& A ⊢ Δ}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{B ⊢ Δ}
+					\infer1{B \& A ⊢ Δ}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{Γ ⊢ B}
+					\hypo{Γ ⊢ A}
+					\infer2{Γ ⊢ B \& A}
+					\end{prooftree}
+					\]
+				\end{center}
 
-\begin{prooftree}
-\AxiomC{$A \vdash \Delta$}
-\AxiomC{$B \vdash \Delta$}
-\BinaryInfC{$A \oplus B \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash A$}
-\UnaryInfC{$\Gamma \vdash A \oplus B$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash B$}
-\UnaryInfC{$\Gamma \vdash A \oplus B$}
-\end{prooftree}
+				\subsection{Biconditionals}
+				\begin{center}
+					\[
+					\begin{prooftree}
+					\hypo{⊢ A}
+					\hypo{B ⊢ }
+					\infer2{(¬A ⊕ B) \& (¬B ⊕ A) ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{⊢ B}
+					\hypo{A ⊢ }
+					\infer2{(¬A ⊕ B) \& (¬B ⊕ A) ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{A ⊢ }
+					\hypo{B ⊢ }
+					\infer2{ ⊢ (¬A ⊕ B) \& (¬B ⊕ A)}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{Γ ⊢ B}
+					\hypo{Γ ⊢ A}
+					\infer2{Γ ⊢ (¬A ⊕ B) \& (¬B ⊕ A)}
+					\end{prooftree}
+					\]
 
-\begin{prooftree}
-\AxiomC{$B \vdash \Delta$}
-\AxiomC{$A \vdash \Delta$}
-\BinaryInfC{$B \oplus A \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash A$}
-\UnaryInfC{$\Gamma \vdash B \oplus A$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash B$}
-\UnaryInfC{$\Gamma \vdash B \oplus A$}
-\end{prooftree}
+					\[
+					\begin{prooftree}
+					\hypo{A ⊢ }
+					\hypo{⊢A}
+					\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{A ⊢ }
+					\hypo{⊢B}
+					\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{B ⊢ }
+					\hypo{⊢A}
+					\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ }
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{B ⊢ }
+					\hypo{⊢B}
+					\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ }
+					\end{prooftree}
+					\]
 
-\begin{prooftree}
-\AxiomC{$A \vdash \Delta$}
-\UnaryInfC{$A \land B \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash \Delta$}
-\UnaryInfC{$A \land B \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash A$}
-\AxiomC{$\Gamma \vdash B$}
-\BinaryInfC{$\Gamma \vdash A \land B$}
-\end{prooftree}
+					\[
+					\quad
+					\begin{prooftree}
+					\hypo{Γ ⊢ A}
+					\hypo{Γ ⊢ B}
+					\infer2{Γ ⊢ (A \& B) ⊕  (¬A \& ¬B)}
+					\end{prooftree}
+					\quad
+					\begin{prooftree}
+					\hypo{B ⊢ }
+					\hypo{A ⊢ }
+					\infer2{ ⊢ (A \& B) ⊕  (¬A \& ¬B)}
+					\end{prooftree}
+					\]
 
-\begin{prooftree}
-\AxiomC{$A \vdash \Delta$}
-\UnaryInfC{$B \land A \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash \Delta$}
-\UnaryInfC{$B \land A \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash B$}
-\AxiomC{$\Gamma \vdash A$}
-\BinaryInfC{$\Gamma \vdash B \land A$}
-\end{prooftree}
-
-\subsection{Biconditionals}
-
-\begin{prooftree}
-\AxiomC{$\vdash A$}
-\AxiomC{$B \vdash$}
-\BinaryInfC{$(\neg A \oplus B) \land (\neg B \oplus A) \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\vdash B$}
-\AxiomC{$A \vdash$}
-\BinaryInfC{$(\neg A \oplus B) \land (\neg B \oplus A) \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$A \vdash$}
-\AxiomC{$B \vdash$}
-\BinaryInfC{$\vdash (\neg A \oplus B) \land (\neg B \oplus A)$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash B$}
-\AxiomC{$\Gamma \vdash A$}
-\BinaryInfC{$\Gamma \vdash (\neg A \oplus B) \land (\neg B \oplus A)$}
-\end{prooftree}
-
-\begin{prooftree}
-\AxiomC{$A \vdash$}
-\AxiomC{$\vdash A$}
-\BinaryInfC{$(A \land B) \oplus (\neg A \land \neg B) \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$A \vdash$}
-\AxiomC{$\vdash B$}
-\BinaryInfC{$(A \land B) \oplus (\neg A \land \neg B) \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash$}
-\AxiomC{$\vdash A$}
-\BinaryInfC{$(A \land B) \oplus (\neg A \land \neg B) \vdash$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash$}
-\AxiomC{$\vdash B$}
-\BinaryInfC{$(A \land B) \oplus (\neg A \land \neg B) \vdash$}
-\end{prooftree}
-
-\quad
-\begin{prooftree}
-\AxiomC{$\Gamma \vdash A$}
-\AxiomC{$\Gamma \vdash B$}
-\BinaryInfC{$\Gamma \vdash (A \land B) \oplus (\neg A \land \neg B)$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash$}
-\AxiomC{$A \vdash$}
-\BinaryInfC{$\vdash (A \land B) \oplus (\neg A \land \neg B)$}
-\end{prooftree}
-
-TODO: XOR-like
+					TODO: XOR-like
+				\end{center}
+\end{center}
 
 \part{Theorems}
+	\begin{center}
+		\[
+		\begin{prooftree}
+		\infer0{P(c_{∀x∃y.P(x,y)},c_{∃y∀x.P(x,y)}) ⊢ P(c_{∀x∃y.P(x,y)},c_{∃y∀x.P(x,y)})}
+		\infer1{P(c_{∀x∃y.P(x,y)},c_{∃y∀x.P(x,y)}) ⊢ ∃y.P(c_{∀x∃y.P(x,y)},y)}
+		\infer1{∀x.P(x,c_{∃y∀x.P(x,y)}) ⊢ ∃y.P(c_{∀x∃y.P(x,y)},y)}
+		\infer1{∀x.P(x,c_{∃y∀x.P(x,y)}) ⊢ ∀x∃y.P(x,y)}
+		\infer1{∃y∀x.P(x,y) ⊢ ∀x∃y.P(x,y)}
+		\end{prooftree}
+		\]
+	\end{center}
 
-\begin{prooftree}
-\AxiomC{}
-\UnaryInfC{$P(c_{\forall x\exists y.P(x,y)},c_{\exists y\forall x.P(x,y)}) \vdash P(c_{\forall x\exists y.P(x,y)},c_{\exists y\forall x.P(x,y)})$}
-\UnaryInfC{$P(c_{\forall x\exists y.P(x,y)},c_{\exists y\forall x.P(x,y)}) \vdash \exists y.P(c_{\forall x\exists y.P(x,y)},y)$}
-\UnaryInfC{$\forall x.P(x,c_{\exists y\forall x.P(x,y)}) \vdash \exists y.P(c_{\forall x\exists y.P(x,y)},y)$}
-\UnaryInfC{$\forall x.P(x,c_{\exists y\forall x.P(x,y)}) \vdash \forall x\exists y.P(x,y)$}
-\UnaryInfC{$\exists y\forall x.P(x,y) \vdash \forall x\exists y.P(x,y)$}
-\end{prooftree}
+\end{document}

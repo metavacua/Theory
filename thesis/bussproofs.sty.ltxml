@@ -1,0 +1,30 @@
+# -*- mode: Perl -*-
+# /=====================================================================\ #
+# |  bussproofs (corrected)                                             | #
+# | Implementation for LaTeXML                                          | #
+# |=====================================================================| #
+package LaTeXML::Package::Pool;
+use strict;
+use warnings;
+use LaTeXML::Package;
+
+# This version contains the corrected syntax for DefEnvironment and DefMacro.
+# The prototype for a command/env with one mandatory argument is '{}'.
+
+DefEnvironment('{prooftree}',
+  '<ltx:proof>#body</ltx:proof>');
+
+DefMacro('\AxiomC{}', '<ltx:axiom>#1</ltx:axiom>');
+DefMacro('\UnaryInfC{}',
+  '<ltx:inference infrule="unary"><ltx:conclusion>#1</ltx:conclusion></ltx:inference>');
+DefMacro('\BinaryInfC{}',
+  '<ltx:inference infrule="binary"><ltx:conclusion>#1</ltx:conclusion></ltx:inference>');
+DefMacro('\TrinaryInfC{}',
+  '<ltx:inference infrule="trinary"><ltx:conclusion>#1</ltx:conclusion></ltx:inference>');
+DefMacro('\QuaternaryInfC{}',
+  '<ltx:inference infrule="quaternary"><ltx:conclusion>#1</ltx:conclusion></ltx:inference>');
+DefMacro('\QuinaryInfC{}',
+  '<ltx:inference infrule="quinary"><ltx:conclusion>#1</ltx:conclusion></ltx:inference>');
+DefMacro('\upand', '\land');
+
+1;

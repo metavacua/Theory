@@ -1,10 +1,11 @@
+}
 	
+	\maketitle
 	
-
-
+	\begin{abstract}
 		\RaggedRight % Apply RaggedRight to the abstract
 		This document formalizes key components of a meta-semantic framework capable of accommodating non-classical logical properties, drawing upon concepts introduced in the "Meta-Semanticum Universalis" papers and detailed in the "Comprehensive Study of Paraconsistency." We define the space of meta-properties ($\MetaProps$), context parameters ($\ContextParams$), and the set of permissible meta-languages ($\MetaLang$). The core of the formalization lies in defining the non-Boolean Interpretation Function ($\InterpFunc$) and the structure of its value space ($\ValueSpace$), drawing on multi-valued and relational semantics from paraconsistent logic. We then address the challenge of formulating Relation Principles ($\RelPrinciples$) and the Evaluation System ($\EvalSystem$) when the meta-language itself is non-classical (paraconsistent and paracomplete), proposing approaches based on non-classical consequence relations and multi-criteria aggregation. This formalization aims to provide a more rigorous foundation for the concepts introduced in the Meta-Semantic Council, addressing the critiques raised by Logicus Dubitans and supporting the paradoxical synthesis proposed by Gemini. Additionally, this document formalizes the four extremal logics ($L^0_n$, $\LT$, $\LF$, and $L^\infty_n$) that define the vertices of the diamond structure of logical extensions within a specific category of logics, introducing an alternative notation based on characteristic sequent forms ($L^{\vdash}_n$, $L^{\vdash\Delta}_n$, $L^{\Gamma\vdash}_n$, and $L^{\Gamma\vdash\Delta}_n$), highlighting their unique properties and relationships within that logical space.
-
+	\end{abstract}
 	
 	% Added Table of Contents for better navigation with the new Part
 	\tableofcontents
@@ -82,7 +83,7 @@
 												\RaggedRight % Apply RaggedRight to the remark
 												Consider $RP_2$: "Negation of Classical Implication from Completeness to Safety - Context-Dependence." In a paracomplete meta-language ($ml = \MLParacomp$), the law of excluded middle may fail, and negation might behave non-classically. A formulation might involve stating the non-derivability of a classical-like implication:
 												$\notentails_{\MLParacomp} \forall c \in \ContextParams . (\InterpFunc(\Comp, c, \MLParacomp) \approx \text{High} \implication_{\text{classical}} \InterpFunc(\Saf, c, \MLParacomp) \approx \text{High})$
-												Here, $\implication_{\text{classical}}$ would represent a classical implication defined within the paracomplete logic (if possible), or the statement could directly assert the failure of the classical consequence relation for this inference. The non-derivability ($\notentails_{\MLParacomp}$) reflects the paracomplete nature \textendash  the statement is neither provable nor refutable in all contexts.
+												Here, $\implication_{\text{classical}}$ would represent a classical implication defined within the paracomplete logic (if possible), or the statement could directly assert the failure of the classical consequence relation for this inference. The non-derivability ($\notentails_{\MLParacomp}$) reflects the paracomplete nature – the statement is neither provable nor refutable in all contexts.
 												\end{remark}
 													
 													The formalization of $\RelPrinciples$ requires carefully defining the logical language and consequence relation of each $ml \in \MetaLang$ and translating the conceptual principles into well-formed formulas or sequents within those logics.
@@ -340,3 +341,5 @@
 																																																																																					
 																																																																																					\RaggedRight % Apply RaggedRight to the conclusion
 																																																																																					This document has provided a preliminary formalization of key components of a non-classical meta-semantic framework, drawing upon the conceptual structure of the "Meta-Semanticum Universalis" papers and the semantic diversity of paraconsistent and paracomplete logics. We have formalized the sets of meta-properties, context parameters, and meta-languages, and defined the non-Boolean ValueSpace ($\ValueSpace$) and the Interpretation Function ($\InterpFunc$) mapping to it. Crucially, we have outlined how Relation Principles ($\RelPrinciples$) and the Evaluation System ($\EvalSystem$) must be formulated using the logical machinery of a potentially non-classical meta-language, moving beyond classical assumptions about implication, negation, and aggregation. This formalization addresses some of the critiques regarding the lack of rigor and provides a foundation for further development of a meta-semantic theory capable of analyzing and evaluating complex systems from diverse logical perspectives, including those that tolerate inconsistency and incompleteness. We have also formalized the four extremal logics ($L^0_n$/$L^{\vdash}_n$, $\LT$/$L^{\vdash\Delta}_n$, $\LF$/$L^{\Gamma\vdash}_n$, and $L^\infty_n$/$L^{\Gamma\vdash\Delta}_n$) and described the diamond structure they form within a specific category of logics $D_n$, providing a clearer landscape for understanding logical extensions and the different paths towards increased logical structure within that category. The connection to categorical frameworks and dualities, along with the nuance regarding how metalanguage properties influence the type of non-classicality, suggests avenues for understanding the relationships between different meta-language perspectives and the paths between these extremal points within $D_n$.
+
+																																																																																				\end{document}}*}

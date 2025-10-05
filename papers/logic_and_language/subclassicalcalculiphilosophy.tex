@@ -1,59 +1,59 @@
 
+\documentclass{article}
 
-
-
-
-
+\usepackage{amsmath}
+\usepackage{ebproof}
+\usepackage{fullpage}
 \usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+\usepackage{stix}
+
+\newunicodechar{Γ}{\Gamma}
+\newunicodechar{Δ}{\Delta}
+
+\newunicodechar{Θ}{\Theta}
+\newunicodechar{Λ}{\Lambda}
+
+\newunicodechar{Ξ}{\Xi}
+\newunicodechar{Π}{\Pi}
+
+\newunicodechar{Φ}{\Phi}
+\newunicodechar{Ψ}{\Psi}
+
+\newunicodechar{Ω}{\Omega}
+
+\newunicodechar{⊢}{\vdash}
+
+\newunicodechar{⊕}{\oplus}
+\newunicodechar{¬}{\neg}
+
+\newunicodechar{⊗}{\otimes}
+\newunicodechar{→}{\rightarrow}
+\newunicodechar{←}{\leftarrow}
+\newunicodechar{↔}{\leftrightarrow}
+\newunicodechar{↮}{\nleftrightarrow}
 
 
+\newunicodechar{⅋}{\upand}
+\newunicodechar{↛}{\nrightarrow}
+\newunicodechar{↚}{\nleftarrow}
 
+\newunicodechar{⊥}{\bot}
+\newunicodechar{⊤}{\top}
 
+\setlength{\parindent}{0em}
 
+\author{James Martin, Ian D.L.N. Mclean}
+\title{The Lattice of Conservative Non-Classical and Classical Sequent Calculi}
 
+\begin{document}
 
+\maketitle
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{abstract}
 Subclassical sequent calculi are defined by functional incompleteness and a strict subset of de Morgan dualities for the quantified predicate calculi.
 Superclassical sequent calculi are defined by at least functional completeness and classical de Morgan duality.
-
+\end{abstract}
 
 \part{Preliminaries}
 \begin{center}
@@ -78,15 +78,15 @@ Superclassical sequent calculi are defined by at least functional completeness a
 		\subsection{Systematic Interpretations}
 	\section{Formal Definition of Subclassical Theories}
 		\subsection{Monotonic Theories}
-		$\left\{ $\Gamma$  $\vdash$  A \right\} \bigcup \left\{ A $\vdash$  $\Delta$  \right\}$
+		$\left\{ Γ ⊢ A \right\} \bigcup \left\{ A ⊢ Δ \right\}$
 		\subsection{Truth-Preserving Theories}
-		$\left\{ A $\vdash$  $\Delta$  \right\}$
+		$\left\{ A ⊢ Δ \right\}$
 		\subsection{False-Preserving Theories}
-		$\left\{ $\Gamma$  $\vdash$  A \right\}$
+		$\left\{ Γ ⊢ A \right\}$
 		\subsection{Affine Theories}
-		$\left\{ $\Gamma$  $\vdash$  A \right\} \bigcap \left\{ A $\vdash$  $\Delta$  \right\}=\emptyset$
+		$\left\{ Γ ⊢ A \right\} \bigcap \left\{ A ⊢ Δ \right\}=\emptyset$
 		\subsection{Self-Dual Theories}
-		$\left\{ A $\vdash$  A \right\}$
+		$\left\{ A ⊢ A \right\}$
 
 \end{center}
 
@@ -161,23 +161,23 @@ Two sequent calculi, C1 and C2, are conservative duals of each other if they are
 
 Definition 7: A sequent calculus is a conservative non-classical sequent calculus if it does not contradict any theorems, antitheorems, or refutations of classical logic; equivalently, a sequent calculus is a conservative non-classical sequent calculus if it is compatible with classical logic; equivalently, a sequent calculus is a conservative non-classical sequent calculus if all theorems and antitheorems of classical logic are admissible or valid in the sequent calculus.
 
-   $\forall$ x. ( x ⇔ ($\exists$ y. (Subtend(x, y) $\lor$  Extend(x, y) $\lor$  Dual(x, y) $\lor$  Isomorph(x, y))))
+   ∀x. ( x ⇔ (∃y. (Subtend(x, y) ∨ Extend(x, y) ∨ Dual(x, y) ∨ Isomorph(x, y))))
    
-   $\forall$ x,y.(Dual(x,y)$\leftrightarrow$ $\exists$ z,w.(Extend(x,z)$\land$ Extend(y,z)$\land$ Subtension(w,x)$\land$ Subtension(w,y)))
+   ∀x,y.(Dual(x,y)↔∃z,w.(Extend(x,z)∧Extend(y,z)∧Subtension(w,x)∧Subtension(w,y)))
    
-$\forall$ x,y.(Subtension(x,y) ⇔ (Theorem(x)$\to$ Theorem(y)$\land$ AntiTheorem(x)$\to$ AntiTheorem(y))) (Definition of subtension)
+∀x,y.(Subtension(x,y) ⇔ (Theorem(x)→Theorem(y)∧AntiTheorem(x)→AntiTheorem(y))) (Definition of subtension)
 
-$\forall$ x,y.(Extend(x,y) ⇔ (Theorem(y)$\to$ Theorem(x)$\land$ AntiTheorem(y)$\to$ AntiTheorem(x))) (Definition of extension)
+∀x,y.(Extend(x,y) ⇔ (Theorem(y)→Theorem(x)∧AntiTheorem(y)→AntiTheorem(x))) (Definition of extension)
 
-$\forall$ x,y.(Dual(x,y) ⇔ Negate(Isomorph(x, y), SequentCalculus(x)) $\land$  $\exists$ z,w.(SuperCalc(x,z) $\land$  SuperCalc(y,z) $\land$  SubCalc(w,x) $\land$  SubCalc(w,y))) (Definition of dual)
+∀x,y.(Dual(x,y) ⇔ Negate(Isomorph(x, y), SequentCalculus(x)) ∧ ∃z,w.(SuperCalc(x,z) ∧ SuperCalc(y,z) ∧ SubCalc(w,x) ∧ SubCalc(w,y))) (Definition of dual)
 
-$\exists$ x$\exists$ y. (Doubtful(Deniable(x, SequentCalculus(y)), SequentCalculus(y))) ⇔ Clanemalo(x, SequentCalculus(y))
-$\exists$ x$\exists$ y. (Deniable(Doubtful(x, SequentCalculus(y)), SequentCalculus(y))) ⇔ negIndependent(x, SequentCalculus(y)) ⇔ Negate(AntiTheorem(x, SequentCalculus(y)), SequentCalculus(y))
+∃x∃y. (Doubtful(Deniable(x, SequentCalculus(y)), SequentCalculus(y))) ⇔ Clanemalo(x, SequentCalculus(y))
+∃x∃y. (Deniable(Doubtful(x, SequentCalculus(y)), SequentCalculus(y))) ⇔ negIndependent(x, SequentCalculus(y)) ⇔ Negate(AntiTheorem(x, SequentCalculus(y)), SequentCalculus(y))
 
-$\exists$ x$\exists$ y. Negate(x, SequentCalculus(y)) ⇔ Clanemalo(x, SequentCalculus(y)) $\lor$  negIndependent(x, SequentCalculus(y)) $\lor$  Deniable(x, SequentCalculus(y)) $\lor$  Doubtful(x, SequentCalculus(y))
+∃x∃y. Negate(x, SequentCalculus(y)) ⇔ Clanemalo(x, SequentCalculus(y)) ∨ negIndependent(x, SequentCalculus(y)) ∨ Deniable(x, SequentCalculus(y)) ∨ Doubtful(x, SequentCalculus(y))
 
-$\forall$ x, y. Independent(x, y) ⇔ ($\neg$ Proves(y, x) $\land$  $\neg$ Disproves(y, x)) ⇔ (posIndependent(x, y) $\land$  negIndependent(x, y)) ⇔ $\forall$ z. ($\neg$ Theorem(z, x) $\land$  $\neg$ AntiTheorem(z, x))
-$\forall$ x$\exists$ y. (posIndepenedent(x, y) ⇔ Negate(Theorem(x, SequentCalculus(y)), SequentCalculus(y)))
+∀x, y. Independent(x, y) ⇔ (¬Proves(y, x) ∧ ¬Disproves(y, x)) ⇔ (posIndependent(x, y) ∧ negIndependent(x, y)) ⇔ ∀z. (¬Theorem(z, x) ∧ ¬AntiTheorem(z, x))
+∀x∃y. (posIndepenedent(x, y) ⇔ Negate(Theorem(x, SequentCalculus(y)), SequentCalculus(y)))
 
    Definition of subtension   
 A Sequent Calculus, SequentCalc0, is called a subtension of a Sequent Calculus, SequentCalc1, if every theorem in SequentCalc0 is also in SequentCalc1 and every antitheorem in SequentCalc0 is also in SequentCalc1; under the same conditions, SequentCalc1 is an extension of SequentCalc0.
@@ -216,51 +216,51 @@ Corollary 2: The infimum sequent calculus is subclassical.
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0[Id]{A $\vdash$  A}
+			\infer0[Id]{A ⊢ A}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A}
-			\hypo{A $\vdash$  $\Delta$ }
-			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ A}
+			\hypo{A ⊢ Δ}
+			\infer2[Cut]{Γ ⊢ Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[wL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[wL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[Rw]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[Rw]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A, A $\vdash$  $\Delta$ }
-			\infer1[cL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ, A, A ⊢ Δ}
+			\infer1[cL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, A $\Delta$ }
-			\infer1[Rc]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ A, A Δ}
+			\infer1[Rc]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ _0, A, B, $\Gamma$ _1 $\vdash$  $\Delta$ }
-			\infer1[pL]{$\Gamma$ _0, B, A, $\Gamma$ _1 $\vdash$  $\Delta$ }
+			\hypo{Γ_0, A, B, Γ_1 ⊢ Δ}
+			\infer1[pL]{Γ_0, B, A, Γ_1 ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ _1, A, B, $\Delta$ _0}
-			\infer1[Rp]{$\Gamma$  $\vdash$  $\Delta$ _1, B, A, $\Delta$ _0}
+			\hypo{Γ ⊢ Δ_1, A, B, Δ_0}
+			\infer1[Rp]{Γ ⊢ Δ_1, B, A, Δ_0}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -269,11 +269,11 @@ Corollary 2: The infimum sequent calculus is subclassical.
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0{$\Gamma$ , $\bot$  $\vdash$  $\Delta$ }
+			\infer0{Γ, ⊥ ⊢ Δ}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\infer0{ $\Gamma$  $\vdash$  $\top$ , $\Delta$ }
+			\infer0{ Γ ⊢ ⊤, Δ}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -285,27 +285,27 @@ Corollary 2: The infimum sequent calculus is subclassical.
 			\begin{center}
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$ , A $\otimes$  B $\vdash$  $\Delta$ }
+				\hypo{Γ, A, B ⊢ Δ}
+				\infer1{Γ, A ⊗ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\otimes$  B, $\Delta$ }
+				\hypo{Γ ⊢ A, Δ}
+				\hypo{Γ ⊢ B, Δ}
+				\infer2{Γ ⊢ A ⊗ B, Δ}
 				\end{prooftree}
 				\]
 
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  $\Delta$ }
-				\infer2{$\Gamma$ , A $\parr$  B $\vdash$  $\Delta$ }
+				\hypo{Γ, A ⊢ Δ}
+				\hypo{Γ, B ⊢ Δ}
+				\infer2{Γ, A ⅋ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  A $\parr$  B, $\Delta$ }
+				\hypo{Γ ⊢ A, B, Δ}
+				\infer1{Γ ⊢ A ⅋ B, Δ}
 				\end{prooftree}
 				\]
 			\end{center}
@@ -320,51 +320,51 @@ Corollary 2: The infimum sequent calculus is subclassical.
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0[Id]{A $\vdash$  A}
+			\infer0[Id]{A ⊢ A}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A}
-			\hypo{A $\vdash$  $\Delta$ }
-			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ A}
+			\hypo{A ⊢ Δ}
+			\infer2[Cut]{Γ ⊢ Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[wL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[wL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[Rw]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[Rw]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A, A $\vdash$  $\Delta$ }
-			\infer1[cL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ, A, A ⊢ Δ}
+			\infer1[cL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, A $\Delta$ }
-			\infer1[Rc]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ A, A Δ}
+			\infer1[Rc]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ _0, A, B, $\Gamma$ _1 $\vdash$  $\Delta$ }
-			\infer1[pL]{$\Gamma$ _0, B, A, $\Gamma$ _1 $\vdash$  $\Delta$ }
+			\hypo{Γ_0, A, B, Γ_1 ⊢ Δ}
+			\infer1[pL]{Γ_0, B, A, Γ_1 ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ _1, A, B, $\Delta$ _0}
-			\infer1[Rp]{$\Gamma$  $\vdash$  $\Delta$ _1, B, A, $\Delta$ _0}
+			\hypo{Γ ⊢ Δ_1, A, B, Δ_0}
+			\infer1[Rp]{Γ ⊢ Δ_1, B, A, Δ_0}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -373,7 +373,7 @@ Corollary 2: The infimum sequent calculus is subclassical.
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0{ $\Gamma$  $\vdash$  $\top$ , $\Delta$ }
+			\infer0{ Γ ⊢ ⊤, Δ}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -385,69 +385,69 @@ Corollary 2: The infimum sequent calculus is subclassical.
 			\begin{center}
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$ , A $\otimes$  B $\vdash$  $\Delta$ }
+				\hypo{Γ, A, B ⊢ Δ}
+				\infer1{Γ, A ⊗ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\otimes$  B, $\Delta$ }
+				\hypo{Γ ⊢ A, Δ}
+				\hypo{Γ ⊢ B, Δ}
+				\infer2{Γ ⊢ A ⊗ B, Δ}
 				\end{prooftree}
 				\]
 
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  $\Delta$ }
-				\infer2{$\Gamma$ , A $\parr$  B $\vdash$  $\Delta$ }
+				\hypo{Γ, A ⊢ Δ}
+				\hypo{Γ, B ⊢ Δ}
+				\infer2{Γ, A ⅋ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  A $\parr$  B, $\Delta$ }
+				\hypo{Γ ⊢ A, B, Δ}
+				\infer1{Γ ⊢ A ⅋ B, Δ}
 				\end{prooftree}
 				\]
 
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  $\Delta$ }
-				\infer2{$\Gamma$ , A $\to$  B $\vdash$  $\Delta$ }
+				\hypo{Γ ⊢ A, Δ}
+				\hypo{Γ, B ⊢ Δ}
+				\infer2{Γ, A → B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  A $\to$  B, $\Delta$ }
+				\hypo{Γ, A ⊢ B, Δ}
+				\infer1{Γ ⊢ A → B, Δ}
 				\end{prooftree}
 				\]
 
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\infer2{$\Gamma$ , A ← B $\vdash$  $\Delta$ }
+				\hypo{Γ, A ⊢ Δ}
+				\hypo{Γ ⊢ B, Δ}
+				\infer2{Γ, A ← B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  A ← B, $\Delta$ }
+				\hypo{Γ, B ⊢ A, Δ}
+				\infer1{Γ ⊢ A ← B, Δ}
 				\end{prooftree}
 				\]
 
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer0{$\Gamma$ , A $\vdash$  A, $\Delta$ }
-				\infer0{$\Gamma$ , B $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer4{$\Gamma$ , A $\leftrightarrow$  B $\vdash$  $\Delta$ }
+				\hypo{Γ ⊢ A, B, Δ}
+				\infer0{Γ, A ⊢ A, Δ}
+				\infer0{Γ, B ⊢ B, Δ}
+				\hypo{Γ, A, B ⊢ Δ}
+				\infer4{Γ, A ↔ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\leftrightarrow$  B, $\Delta$ }
+				\hypo{Γ, A ⊢ B, Δ}
+				\hypo{Γ, B ⊢ A, Δ}
+				\infer2{Γ ⊢ A ↔ B, Δ}
 				\end{prooftree}
 				\]
 			\end{center}
@@ -462,51 +462,51 @@ Corollary 2: The infimum sequent calculus is subclassical.
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0[Id]{A $\vdash$  A}
+			\infer0[Id]{A ⊢ A}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A}
-			\hypo{A $\vdash$  $\Delta$ }
-			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ A}
+			\hypo{A ⊢ Δ}
+			\infer2[Cut]{Γ ⊢ Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[wL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[wL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[Rw]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[Rw]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A, A $\vdash$  $\Delta$ }
-			\infer1[cL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ, A, A ⊢ Δ}
+			\infer1[cL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, A $\Delta$ }
-			\infer1[Rc]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ A, A Δ}
+			\infer1[Rc]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ _0, A, B, $\Gamma$ _1 $\vdash$  $\Delta$ }
-			\infer1[pL]{$\Gamma$ _0, B, A, $\Gamma$ _1 $\vdash$  $\Delta$ }
+			\hypo{Γ_0, A, B, Γ_1 ⊢ Δ}
+			\infer1[pL]{Γ_0, B, A, Γ_1 ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ _1, A, B, $\Delta$ _0}
-			\infer1[Rp]{$\Gamma$  $\vdash$  $\Delta$ _1, B, A, $\Delta$ _0}
+			\hypo{Γ ⊢ Δ_1, A, B, Δ_0}
+			\infer1[Rp]{Γ ⊢ Δ_1, B, A, Δ_0}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -515,7 +515,7 @@ Corollary 2: The infimum sequent calculus is subclassical.
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0{$\Gamma$ , $\bot$  $\vdash$  $\Delta$ }
+			\infer0{Γ, ⊥ ⊢ Δ}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -527,69 +527,69 @@ Corollary 2: The infimum sequent calculus is subclassical.
 			\begin{center}
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$ , A $\otimes$  B $\vdash$  $\Delta$ }
+				\hypo{Γ, A, B ⊢ Δ}
+				\infer1{Γ, A ⊗ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\otimes$  B, $\Delta$ }
+				\hypo{Γ ⊢ A, Δ}
+				\hypo{Γ ⊢ B, Δ}
+				\infer2{Γ ⊢ A ⊗ B, Δ}
 				\end{prooftree}
 				\]
 
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  $\Delta$ }
-				\infer2{$\Gamma$ , A $\parr$  B $\vdash$  $\Delta$ }
+				\hypo{Γ, A ⊢ Δ}
+				\hypo{Γ, B ⊢ Δ}
+				\infer2{Γ, A ⅋ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  A $\parr$  B, $\Delta$ }
+				\hypo{Γ ⊢ A, B, Δ}
+				\infer1{Γ ⊢ A ⅋ B, Δ}
 				\end{prooftree}
 				\]
 
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-				\infer1{$\Gamma$ , A $\nrightarrow$  B $\vdash$  $\Delta$ }
+				\hypo{Γ, A ⊢ B, Δ}
+				\infer1{Γ, A ↛ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\nrightarrow$  B, $\Delta$ }
+				\hypo{Γ ⊢ A, Δ}
+				\hypo{Γ, B ⊢ Δ}
+				\infer2{Γ ⊢ A ↛ B, Δ}
 				\end{prooftree}
 				\]
 
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-				\infer1{$\Gamma$ , A $\nleftarrow$  B $\vdash$  $\Delta$ }
+				\hypo{Γ, B ⊢ A, Δ}
+				\infer1{Γ, A ↚ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\nleftarrow$  B, $\Delta$ }
+				\hypo{Γ, A ⊢ Δ}
+				\hypo{Γ ⊢ B, Δ}
+				\infer2{Γ ⊢ A ↚ B, Δ}
 				\end{prooftree}
 				\]
 
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-				\infer2{$\Gamma$ , A ↮ B $\vdash$  $\Delta$ }
+				\hypo{Γ, A ⊢ B, Δ}
+				\hypo{Γ, B ⊢ A, Δ}
+				\infer2{Γ, A ↮ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer0{$\Gamma$ , A $\vdash$  A, $\Delta$ }
-				\infer0{$\Gamma$ , B $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer4{$\Gamma$  $\vdash$  A ↮ B, $\Delta$ }
+				\hypo{Γ ⊢ A, B, Δ}
+				\infer0{Γ, A ⊢ A, Δ}
+				\infer0{Γ, B ⊢ B, Δ}
+				\hypo{Γ, A, B ⊢ Δ}
+				\infer4{Γ ⊢ A ↮ B, Δ}
 				\end{prooftree}
 				\]
 			\end{center}
@@ -604,51 +604,51 @@ Corollary 2: The infimum sequent calculus is subclassical.
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0[Id]{A $\vdash$  A}
+			\infer0[Id]{A ⊢ A}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A}
-			\hypo{A $\vdash$  $\Delta$ }
-			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ A}
+			\hypo{A ⊢ Δ}
+			\infer2[Cut]{Γ ⊢ Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[wL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[wL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[Rw]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[Rw]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A, A $\vdash$  $\Delta$ }
-			\infer1[cL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ, A, A ⊢ Δ}
+			\infer1[cL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, A $\Delta$ }
-			\infer1[Rc]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ A, A Δ}
+			\infer1[Rc]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ _0, A, B, $\Gamma$ _1 $\vdash$  $\Delta$ }
-			\infer1[pL]{$\Gamma$ _0, B, A, $\Gamma$ _1 $\vdash$  $\Delta$ }
+			\hypo{Γ_0, A, B, Γ_1 ⊢ Δ}
+			\infer1[pL]{Γ_0, B, A, Γ_1 ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ _1, A, B, $\Delta$ _0}
-			\infer1[Rp]{$\Gamma$  $\vdash$  $\Delta$ _1, B, A, $\Delta$ _0}
+			\hypo{Γ ⊢ Δ_1, A, B, Δ_0}
+			\infer1[Rp]{Γ ⊢ Δ_1, B, A, Δ_0}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -657,11 +657,11 @@ Corollary 2: The infimum sequent calculus is subclassical.
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0{$\Gamma$ , $\bot$  $\vdash$  $\Delta$ }
+			\infer0{Γ, ⊥ ⊢ Δ}
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\infer0{ $\Gamma$  $\vdash$  $\top$ , $\Delta$ }
+			\infer0{ Γ ⊢ ⊤, Δ}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -673,45 +673,45 @@ Corollary 2: The infimum sequent calculus is subclassical.
 			\begin{center}
 								\[
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\infer1{$\Gamma$ , $\neg$  A $\vdash$  $\Delta$ }
+				\hypo{Γ ⊢ A, Δ}
+				\infer1{Γ, ¬ A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  $\neg$ A, $\Delta$ }
+				\hypo{Γ, A ⊢ Δ}
+				\infer1{Γ ⊢ ¬A, Δ}
 				\end{prooftree}
 				\]
 
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer0{$\Gamma$ , A $\vdash$  A, $\Delta$ }
-				\infer0{$\Gamma$ , B $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer4{$\Gamma$ , A $\leftrightarrow$  B $\vdash$  $\Delta$ }
+				\hypo{Γ ⊢ A, B, Δ}
+				\infer0{Γ, A ⊢ A, Δ}
+				\infer0{Γ, B ⊢ B, Δ}
+				\hypo{Γ, A, B ⊢ Δ}
+				\infer4{Γ, A ↔ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\leftrightarrow$  B, $\Delta$ }
+				\hypo{Γ, A ⊢ B, Δ}
+				\hypo{Γ, B ⊢ A, Δ}
+				\infer2{Γ ⊢ A ↔ B, Δ}
 				\end{prooftree}
 				\]
 
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-				\infer2{$\Gamma$ , A ↮ B $\vdash$  $\Delta$ }
+				\hypo{Γ, A ⊢ B, Δ}
+				\hypo{Γ, B ⊢ A, Δ}
+				\infer2{Γ, A ↮ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer0{$\Gamma$ , A $\vdash$  A, $\Delta$ }
-				\infer0{$\Gamma$ , B $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer4{$\Gamma$  $\vdash$  A ↮ B, $\Delta$ }
+				\hypo{Γ ⊢ A, B, Δ}
+				\infer0{Γ, A ⊢ A, Δ}
+				\infer0{Γ, B ⊢ B, Δ}
+				\hypo{Γ, A, B ⊢ Δ}
+				\infer4{Γ ⊢ A ↮ B, Δ}
 				\end{prooftree}
 				\]
 			\end{center}
@@ -726,51 +726,51 @@ Corollary 2: The infimum sequent calculus is subclassical.
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0[Id]{A $\vdash$  A}
+			\infer0[Id]{A ⊢ A}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A}
-			\hypo{A $\vdash$  $\Delta$ }
-			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ A}
+			\hypo{A ⊢ Δ}
+			\infer2[Cut]{Γ ⊢ Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[wL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[wL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[Rw]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ Δ}
+			\infer1[Rw]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ , A, A $\vdash$  $\Delta$ }
-			\infer1[cL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{Γ, A, A ⊢ Δ}
+			\infer1[cL]{Γ, A ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, A $\Delta$ }
-			\infer1[Rc]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{Γ ⊢ A, A Δ}
+			\infer1[Rc]{Γ ⊢ A, Δ}
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$ _0, A, B, $\Gamma$ _1 $\vdash$  $\Delta$ }
-			\infer1[pL]{$\Gamma$ _0, B, A, $\Gamma$ _1 $\vdash$  $\Delta$ }
+			\hypo{Γ_0, A, B, Γ_1 ⊢ Δ}
+			\infer1[pL]{Γ_0, B, A, Γ_1 ⊢ Δ}
 			\end{prooftree}
 			\qquad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ _1, A, B, $\Delta$ _0}
-			\infer1[Rp]{$\Gamma$  $\vdash$  $\Delta$ _1, B, A, $\Delta$ _0}
+			\hypo{Γ ⊢ Δ_1, A, B, Δ_0}
+			\infer1[Rp]{Γ ⊢ Δ_1, B, A, Δ_0}
 			\end{prooftree}
 			\]
 		\end{center}
@@ -782,13 +782,13 @@ Corollary 2: The infimum sequent calculus is subclassical.
 			\begin{center}
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\infer1{$\Gamma$ , $\neg$  A $\vdash$  $\Delta$ }
+				\hypo{Γ ⊢ A, Δ}
+				\infer1{Γ, ¬ A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  $\neg$ A, $\Delta$ }
+				\hypo{Γ, A ⊢ Δ}
+				\infer1{Γ ⊢ ¬A, Δ}
 				\end{prooftree}
 				\]
 			\end{center}
@@ -819,3 +819,7 @@ Corollary 2: The infimum sequent calculus is subclassical.
 \begin{center}
 	The non-commutative monotone, truth-preserving, false-preserving, and affine sequent systems.
 \end{center}
+
+
+
+\end{document}
