@@ -1,110 +1,85 @@
-
-
-
-\begin{abstract}
-
-\end{abstract}
-
 \section{Structural Rules}
 Uses a variation of cut left.
 
-\begin{center}
-	\[
-	\begin{prooftree}
-	\infer0[Id]{A $\vdash$  A}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{$\Gamma$  $\vdash$  A}
-	\hypo{$\Gamma$ _{L}, A, $\Gamma$ _{R} $\vdash$  C}
-	\infer2[CutL]{$\Gamma$ _{L}, $\Gamma$ , $\Gamma$ _{R} $\vdash$  C}
-	\end{prooftree}
-	\]
-\end{center}
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC[Id]{$A \vdash A$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\AxiomC{$\Gamma_{L}, A, \Gamma_{R} \vdash C$}
+\BinaryInfC[CutL]{$\Gamma_{L}, \Gamma, \Gamma_{R} \vdash C$}
+\end{prooftree}
 
 \section{Operational Rules}
-$$\Gamma$ $ non-empty in the RHS implication and negation rules.
-\begin{center}
-	
-	\[
-	\begin{prooftree}
-	\hypo{$\Gamma$ _{L}, A, B, $\Gamma$ _{R} $\vdash$  C}
-	\infer1{$\Gamma$ _{L}, A $\otimes$  B, $\Gamma$ _{R} $\vdash$  C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{$\Gamma$ _{L} $\vdash$  A}
-	\hypo{$\Gamma$ _{R} $\vdash$  B}
-	\infer2{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  A $\otimes$  B}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{$\Gamma$  $\vdash$  A}
-	\hypo{$\Gamma$ _{L}, B, $\Gamma$ _{R} $\vdash$  C}
-	\infer2{$\Gamma$ _{L}, $\Gamma$ , A $\to$  B, $\Gamma$ _{R} $\vdash$  C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{A, $\Gamma$  $\vdash$  B}
-	\infer1{$\Gamma$  $\vdash$  A $\to$  B}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{$\Gamma$  $\vdash$  A}
-	\hypo{$\Gamma$ _{L}, B, $\Gamma$ _{R} $\vdash$  C}
-	\infer2{$\Gamma$ _{L}, B ← A, $\Gamma$ , $\Gamma$ _{R} $\vdash$  C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{$\Gamma$ , A $\vdash$  B}
-	\infer1{$\Gamma$  $\vdash$  B ← A}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{ $\Gamma$  $\vdash$  A}
-	\infer1{ $\neg$ _{L} A, $\Gamma$  $\vdash$  }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{ $\Gamma$  $\vdash$  A}
-	\infer1{ $\Gamma$ , $\neg$ _{R} A $\vdash$  }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{ A, $\Gamma$  $\vdash$ _{L} }
-	\infer1{ $\Gamma$  $\vdash$ _{L} $\neg$  A}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{ $\Gamma$ , A $\vdash$ _{R} }
-	\infer1{ $\Gamma$  $\vdash$ _{R} $\neg$  A}
-	\end{prooftree}
-	\]
-\end{center}
+$\Gamma$ non-empty in the RHS implication and negation rules.
+
+\begin{prooftree}
+\AxiomC{$\Gamma_{L}, A, B, \Gamma_{R} \vdash C$}
+\UnaryInfC{$\Gamma_{L}, A \otimes B, \Gamma_{R} \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma_{L} \vdash A$}
+\AxiomC{$\Gamma_{R} \vdash B$}
+\BinaryInfC{$\Gamma_{L}, \Gamma_{R} \vdash A \otimes B$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\AxiomC{$\Gamma_{L}, B, \Gamma_{R} \vdash C$}
+\BinaryInfC{$\Gamma_{L}, \Gamma, A \to B, \Gamma_{R} \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A, \Gamma \vdash B$}
+\UnaryInfC{$\Gamma \vdash A \to B$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\AxiomC{$\Gamma_{L}, B, \Gamma_{R} \vdash C$}
+\BinaryInfC{$\Gamma_{L}, B \leftarrow A, \Gamma, \Gamma_{R} \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma, A \vdash B$}
+\UnaryInfC{$\Gamma \vdash B \leftarrow A$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\UnaryInfC{$\neg_{L} A, \Gamma \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\UnaryInfC{$\Gamma, \neg_{R} A \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A, \Gamma \vdash_{L}$}
+\UnaryInfC{$\Gamma \vdash_{L} \neg A$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma, A \vdash_{R}$}
+\UnaryInfC{$\Gamma \vdash_{R} \neg A$}
+\end{prooftree}
 
 \section{Theorems}
-\begin{center}
-	
-	\[
-	\begin{prooftree}
-	\infer0{A $\vdash$  A}
-	\infer1{A , $\neg$  A $\vdash$ }
-	\infer1{A $\otimes$  $\neg$  A $\vdash$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\infer0{A $\vdash$  A}
-	\infer1{$\neg$  A, A $\vdash$ }
-	\infer1{$\neg$  A $\otimes$  A$\vdash$ }
-	\end{prooftree}
-	\]
-\end{center}
 
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$A, \neg A \vdash$}
+\UnaryInfC{$A \otimes \neg A \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$\neg A, A \vdash$}
+\UnaryInfC{$\neg A \otimes A\vdash$}
+\end{prooftree}

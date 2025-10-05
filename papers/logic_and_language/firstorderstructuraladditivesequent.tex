@@ -1,470 +1,417 @@
-
-
-
-\begin{abstract}
 Strictly visible structural additive calculus with first order quantification.
-\end{abstract}
 
 \section{Structural Rules}
 
-\begin{center}
-	\[
-	\begin{prooftree}
-	\infer0[Id]{A $\vdash$  A}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{$\Gamma$  $\vdash$  A}
-	\hypo{A $\vdash$  $\Delta$ }
-	\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{$\vdash$  C}
-	\infer1[wL]{A $\vdash$  C}
-	\end{prooftree}
-	\qquad
-	\begin{prooftree}
-	\hypo{C $\vdash$  }
-	\infer1[Rw]{C $\vdash$  A}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{A, A $\vdash$  C}
-	\infer1[cL]{A $\vdash$  C}
-	\end{prooftree}
-	\qquad
-	\begin{prooftree}
-	\hypo{C $\vdash$  A, A}
-	\infer1[Rc]{C $\vdash$  A}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{A, B $\vdash$  C}
-	\infer1[pL]{B, A $\vdash$  C}
-	\end{prooftree}
-	\qquad
-	\begin{prooftree}
-	\hypo{C $\vdash$  A, B}
-	\infer1[Rp]{C $\vdash$  B, A}
-	\end{prooftree}
-	\]
-\end{center}
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC[Id]{$A \vdash A$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\AxiomC{$A \vdash \Delta$}
+\BinaryInfC[Cut]{$\Gamma \vdash \Delta$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\vdash C$}
+\UnaryInfC[wL]{$A \vdash C$}
+\end{prooftree}
+\qquad
+\begin{prooftree}
+\AxiomC{$C \vdash$}
+\UnaryInfC[Rw]{$C \vdash A$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$A, A \vdash C$}
+\UnaryInfC[cL]{$A \vdash C$}
+\end{prooftree}
+\qquad
+\begin{prooftree}
+\AxiomC{$C \vdash A, A$}
+\UnaryInfC[Rc]{$C \vdash A$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$A, B \vdash C$}
+\UnaryInfC[pL]{$B, A \vdash C$}
+\end{prooftree}
+\qquad
+\begin{prooftree}
+\AxiomC{$C \vdash A, B$}
+\UnaryInfC[Rp]{$C \vdash B, A$}
+\end{prooftree}
 
 \section{Units}
-	\begin{center}
-		\[
-		\begin{prooftree}
-		\infer0{\bot $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{$\Gamma$  $\vdash$  \top}
-		\end{prooftree}
-		\]
-	\end{center}
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\bot \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\Gamma \vdash \top$}
+\end{prooftree}
 
 \section{Quantifiers}
-	\begin{center}
-		Standard Eigenvariable Condition Quantifiers
-		\[
-		\begin{prooftree}
-		\hypo{P[t/x] $\vdash$  $\Delta$ }
-		\infer1{$\forall$ x.P(x) $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  P[y/x]}
-		\infer1{$\Gamma$  $\vdash$  $\forall$ x.P(x)}
-		\end{prooftree}
-		\]
-		in $$\forall$ R$ the variable y must not occur free anywhere in the lower sequent.
-		\[
-		\begin{prooftree}
-		\hypo{P[y/x] $\vdash$  $\Delta$ }
-		\infer1{$\exists$ x.P(x) $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  P[t/x]}
-		\infer1{$\Gamma$  $\vdash$  $\exists$ x.P(x)}
-		\end{prooftree}
-		\]
-		in $$\exists$ L$ the variable y must not occur free anywhere in the lower sequent.
-		\[
-		\begin{prooftree}
-		\hypo{P(y)$\vdash$ }
-		\infer1{$\neg$ $\forall$ x.$\neg$ P(x) $\vdash$  }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\vdash$ P(t)}
-		\infer1{$\vdash$  $\neg$ $\forall$ x.$\neg$ P(x)}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{P(t)$\vdash$ }
-		\infer1{$\neg$ $\exists$ x.$\neg$ P(x) $\vdash$  }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\vdash$ P(y)}
-		\infer1{$\vdash$  $\neg$ $\exists$ x.$\neg$ P(x)}
-		\end{prooftree}
-		\]
-		
-		
-		Henkin constant quantifiers
-		\[
-		\begin{prooftree}
-		\hypo{P(t/x) $\vdash$  $\Delta$ }
-		\infer1{$\forall$ xP(x) $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  P (c_{$\forall$ x.P}/x)}
-		\infer1{$\Gamma$  $\vdash$  $\forall$ xP(x)}
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\hypo{P(c_{$\exists$ x.P}/x) $\vdash$  $\Delta$ }
-		\infer1{$\exists$ xP(x) $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  P(t/x)}
-		\infer1{$\Gamma$  $\vdash$  $\exists$ xP(x)}
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\hypo{P(c_{$\forall$ x.$\neg$ P(x)})$\vdash$ }
-		\infer1{$\neg$ $\forall$ x.$\neg$ P(x) $\vdash$  }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\vdash$ P(t)}
-		\infer1{$\vdash$  $\neg$ $\forall$ x.$\neg$ P(x)}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{P(t)$\vdash$ }
-		\infer1{$\neg$ $\exists$ x.$\neg$ P(x) $\vdash$  }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\vdash$ P(c_{$\exists$ x.$\neg$ P(x)})}
-		\infer1{$\vdash$  $\neg$ $\exists$ x.$\neg$ P(x)}
-		\end{prooftree}
-		\]
-	\end{center}
+Standard Eigenvariable Condition Quantifiers
+
+\begin{prooftree}
+\AxiomC{$P[t/x] \vdash \Delta$}
+\UnaryInfC{$\forall x.P(x) \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash P[y/x]$}
+\UnaryInfC{$\Gamma \vdash \forall x.P(x)$}
+\end{prooftree}
+
+in $\forall$ R the variable y must not occur free anywhere in the lower sequent.
+
+\begin{prooftree}
+\AxiomC{$P[y/x] \vdash \Delta$}
+\UnaryInfC{$\exists x.P(x) \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash P[t/x]$}
+\UnaryInfC{$\Gamma \vdash \exists x.P(x)$}
+\end{prooftree}
+
+in $\exists$ L the variable y must not occur free anywhere in the lower sequent.
+
+\begin{prooftree}
+\AxiomC{$P(y)\vdash$}
+\UnaryInfC{$\neg \forall x.\neg P(x) \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash P(t)$}
+\UnaryInfC{$\vdash \neg \forall x.\neg P(x)$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$P(t)\vdash$}
+\UnaryInfC{$\neg \exists x.\neg P(x) \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash P(y)$}
+\UnaryInfC{$\vdash \neg \exists x.\neg P(x)$}
+\end{prooftree}
+
+
+Henkin constant quantifiers
+
+\begin{prooftree}
+\AxiomC{$P(t/x) \vdash \Delta$}
+\UnaryInfC{$\forall xP(x) \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash P (c_{\forall x.P}/x)$}
+\UnaryInfC{$\Gamma \vdash \forall xP(x)$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$P(c_{\exists x.P}/x) \vdash \Delta$}
+\UnaryInfC{$\exists xP(x) \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash P(t/x)$}
+\UnaryInfC{$\Gamma \vdash \exists xP(x)$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$P(c_{\forall x.\neg P(x)})\vdash$}
+\UnaryInfC{$\neg \forall x.\neg P(x) \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash P(t)$}
+\UnaryInfC{$\vdash \neg \forall x.\neg P(x)$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$P(t)\vdash$}
+\UnaryInfC{$\neg \exists x.\neg P(x) \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash P(c_{\exists x.\neg P(x)})$}
+\UnaryInfC{$\vdash \neg \exists x.\neg P(x)$}
+\end{prooftree}
 
 \section{Operational Rules}
-	\begin{center}
-				\subsection{Negation}
-				\begin{center}
-					\[
-					\begin{prooftree}
-					\hypo{ $\vdash$  A}
-					\infer1{$\neg$  A $\vdash$ }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\infer1{$\vdash$  $\neg$  A}
-					\end{prooftree}
-					\]
-				\end{center}
-				
-				
-				\subsection{Negative Junctions}
-				\begin{center}
-					\[
-					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\hypo{$\vdash$  B}
-					\infer2{$\neg$ A \vee $\neg$ B $\vdash$  }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\infer1{ $\vdash$  $\neg$ A \vee $\neg$ B}
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{B $\vdash$  }
-					\infer1{ $\vdash$  $\neg$ A \vee $\neg$ B}
-					\end{prooftree}
-					\]
-					
-					\[
-					\begin{prooftree}
-					\hypo{ $\vdash$  A}
-					\infer1{$\neg$ A \wedge $\neg$ B $\vdash$  }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{ $\vdash$  B}
-					\infer1{$\neg$ A \wedge $\neg$ B $\vdash$  }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\hypo{B $\vdash$  }
-					\infer2{$\vdash$  $\neg$ A \wedge $\neg$ B}
-					\end{prooftree}
-					\]
-				\end{center}
+\subsection{Negation}
 
-				\subsection{Conditionals}
-				\begin{center}
-					\[
-					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\hypo{B $\vdash$  }
-					\infer2{$\neg$ A \vee B $\vdash$ }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\infer1{$\vdash$  $\neg$ A \vee B}
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  B}
-					\infer1{$\Gamma$ $\vdash$  A \vee B}
-					\end{prooftree}
-					\]
-					
-					\[
-					\begin{prooftree}
-					\hypo{A $\vdash$  $\Delta$ }
-					\infer1{A \wedge $\neg$ B $\vdash$  $\Delta$ }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{ $\vdash$  B}
-					\infer1{A \wedge $\neg$ B $\vdash$  }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\hypo{B $\vdash$  }
-					\infer2{$\vdash$  A \wedge $\neg$ B}
-					\end{prooftree}
-					\]
-				\end{center}
-				
-				\subsection{Junctions}
-				\begin{center}
-					\[
-					\begin{prooftree}
-					\hypo{A $\vdash$  $\Delta$ }
-					\hypo{B $\vdash$  $\Delta$ }
-					\infer2{A \vee B $\vdash$  $\Delta$ }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  A}
-					\infer1{$\Gamma$  $\vdash$  A \vee B}
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  B}
-					\infer1{$\Gamma$  $\vdash$  A \vee B}
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{C $\vdash$  A, B}
-					\infer1{C $\vdash$  A \vee B}
-					\end{prooftree}
-					\]
-					
-					\[
-					\begin{prooftree}
-					\hypo{A, B $\vdash$  C}
-					\infer1{A \wedge B $\vdash$  C}
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{A $\vdash$  $\Delta$ }
-					\infer1{A \wedge B $\vdash$  $\Delta$ }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{B $\vdash$  $\Delta$ }
-					\infer1{A \wedge B $\vdash$  $\Delta$ }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  A}
-					\hypo{$\Gamma$  $\vdash$  B}
-					\infer2{$\Gamma$  $\vdash$  A \wedge B}
-					\end{prooftree}
-					\]
-				\end{center}
-			
-				\subsection{Biconditionals}
-				\begin{center}
-					\[
-					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\hypo{B $\vdash$  }
-					\infer2{($\neg$ A \vee B) \wedge ($\neg$ B \vee A) $\vdash$  }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\hypo{B $\vdash$  }
-					\infer2{ $\vdash$  ($\neg$ A \vee B) \wedge ($\neg$ B \vee A)}
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  B}
-					\hypo{$\Gamma$  $\vdash$  A}
-					\infer2{$\Gamma$  $\vdash$  ($\neg$ A \vee B) \wedge ($\neg$ B \vee A)}
-					\end{prooftree}
-					\]
-					
-					\[
-					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\hypo{$\vdash$ A}
-					\infer2{(A \wedge B) \vee  ($\neg$ A \wedge $\neg$ B) $\vdash$  }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\hypo{$\vdash$ B}
-					\infer2{(A \wedge B) \vee  ($\neg$ A \wedge $\neg$ B) $\vdash$  }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{B $\vdash$  }
-					\hypo{$\vdash$ A}
-					\infer2{(A \wedge B) \vee  ($\neg$ A \wedge $\neg$ B) $\vdash$  }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{B $\vdash$  }
-					\hypo{$\vdash$ B}
-					\infer2{(A \wedge B) \vee  ($\neg$ A \wedge $\neg$ B) $\vdash$  }
-					\end{prooftree}
-					\]
-					
-					\[
-					\quad
-					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  A}
-					\hypo{$\Gamma$  $\vdash$  B}
-					\infer2{$\Gamma$  $\vdash$  (A \wedge B) \vee  ($\neg$ A \wedge $\neg$ B)}
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{B $\vdash$  }
-					\hypo{A $\vdash$  }
-					\infer2{ $\vdash$  (A \wedge B) \vee  ($\neg$ A \wedge $\neg$ B)}
-					\end{prooftree}
-					\]
-					
-					TODO: XOR-like
-					\[
-					\begin{prooftree}
-					\hypo{B $\vdash$  $\Delta$ }
-					\hypo{A $\vdash$  $\Delta$ }
-					\infer2{($\neg$ A \wedge B) \vee ($\neg$ B \vee A) $\vdash$  $\Delta$ }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\hypo{$\vdash$  B}
-					\infer2{($\neg$ A \wedge B) \vee ($\neg$ B \vee A) $\vdash$  }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\hypo{$\vdash$  B}
-					\infer2{($\neg$ A \wedge B) \vee ($\neg$ B \vee A) $\vdash$  }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\hypo{B $\vdash$ }
-					\infer2{($\neg$ A \wedge B) \vee ($\neg$ B \vee A) $\vdash$  }
-					\end{prooftree}
-					\]
-					
-					\[
-					\quad
-					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\hypo{$\vdash$  B}
-					\infer2{ $\vdash$  ($\neg$ A \wedge B) \vee ($\neg$ B \vee A)}
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\hypo{B $\vdash$ }
-					\infer2{$\vdash$  ($\neg$ A \wedge B) \vee ($\neg$ B \vee A)}
-					\end{prooftree}
-					\]
-					
-					\[
-					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\hypo{$\vdash$  B}
-					\infer2{(A \vee B) \wedge  ($\neg$ A \vee $\neg$ B) $\vdash$  }
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{A $\vdash$  $\Delta$ }
-					\hypo{B $\vdash$  $\Delta$ }
-					\infer2{(A \vee B) \wedge  ($\neg$ A \vee $\neg$ B) $\vdash$  $\Delta$ }
-					\end{prooftree}
-					\]
-					
-					\[
-					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\hypo{A $\vdash$ }
-					\infer2{$\vdash$  (A \vee B) \wedge  ($\neg$ A \vee $\neg$ B)}
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{$\vdash$  B}
-					\hypo{B $\vdash$ }
-					\infer2{$\vdash$  (A \vee B) \wedge  ($\neg$ A \vee $\neg$ B)}
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\hypo{B $\vdash$ }
-					\infer2{$\vdash$  (A \vee B) \wedge  ($\neg$ A \vee $\neg$ B)}
-					\end{prooftree}
-					\quad
-					\begin{prooftree}
-					\hypo{$\vdash$  B}
-					\hypo{A $\vdash$ }
-					\infer2{$\vdash$  (A \vee B) \wedge  ($\neg$ A \vee $\neg$ B)}
-					\end{prooftree}
-					\quad
-					\]
-				\end{center}
-\end{center}
+\begin{prooftree}
+\AxiomC{$\vdash A$}
+\UnaryInfC{$\neg A \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash$}
+\UnaryInfC{$\vdash \neg A$}
+\end{prooftree}
+
+
+\subsection{Negative Junctions}
+
+\begin{prooftree}
+\AxiomC{$\vdash A$}
+\AxiomC{$\vdash B$}
+\BinaryInfC{$\neg A \vee \neg B \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash$}
+\UnaryInfC{$\vdash \neg A \vee \neg B$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B \vdash$}
+\UnaryInfC{$\vdash \neg A \vee \neg B$}
+\end{prooftree}
+
+
+\begin{prooftree}
+\AxiomC{$\vdash A$}
+\UnaryInfC{$\neg A \wedge \neg B \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash B$}
+\UnaryInfC{$\neg A \wedge \neg B \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash$}
+\AxiomC{$B \vdash$}
+\BinaryInfC{$\vdash \neg A \wedge \neg B$}
+\end{prooftree}
+
+
+\subsection{Conditionals}
+
+\begin{prooftree}
+\AxiomC{$\vdash A$}
+\AxiomC{$B \vdash$}
+\BinaryInfC{$\neg A \vee B \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash A$}
+\UnaryInfC{$\vdash \neg A \vee B$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash B$}
+\UnaryInfC{$\Gamma \vdash A \vee B$}
+\end{prooftree}
+
+
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\UnaryInfC{$A \wedge \neg B \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash B$}
+\UnaryInfC{$A \wedge \neg B \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash A$}
+\AxiomC{$B \vdash$}
+\BinaryInfC{$\vdash A \wedge \neg B$}
+\end{prooftree}
+
+
+\subsection{Junctions}
+
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\AxiomC{$B \vdash \Delta$}
+\BinaryInfC{$A \vee B \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\UnaryInfC{$\Gamma \vdash A \vee B$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash B$}
+\UnaryInfC{$\Gamma \vdash A \vee B$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$C \vdash A, B$}
+\UnaryInfC{$C \vdash A \vee B$}
+\end{prooftree}
+
+
+\begin{prooftree}
+\AxiomC{$A, B \vdash C$}
+\UnaryInfC{$A \wedge B \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\UnaryInfC{$A \wedge B \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B \vdash \Delta$}
+\UnaryInfC{$A \wedge B \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\AxiomC{$\Gamma \vdash B$}
+\BinaryInfC{$\Gamma \vdash A \wedge B$}
+\end{prooftree}
+
+
+\subsection{Biconditionals}
+
+\begin{prooftree}
+\AxiomC{$\vdash A$}
+\AxiomC{$B \vdash$}
+\BinaryInfC{$(\neg A \vee B) \wedge (\neg B \vee A) \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash$}
+\AxiomC{$B \vdash$}
+\BinaryInfC{$\vdash (\neg A \vee B) \wedge (\neg B \vee A)$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash B$}
+\AxiomC{$\Gamma \vdash A$}
+\BinaryInfC{$\Gamma \vdash (\neg A \vee B) \wedge (\neg B \vee A)$}
+\end{prooftree}
+
+
+\begin{prooftree}
+\AxiomC{$A \vdash$}
+\AxiomC{$\vdash A$}
+\BinaryInfC{$(A \wedge B) \vee (\neg A \wedge \neg B) \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash$}
+\AxiomC{$\vdash B$}
+\BinaryInfC{$(A \wedge B) \vee (\neg A \wedge \neg B) \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B \vdash$}
+\AxiomC{$\vdash A$}
+\BinaryInfC{$(A \wedge B) \vee (\neg A \wedge \neg B) \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B \vdash$}
+\AxiomC{$\vdash B$}
+\BinaryInfC{$(A \wedge B) \vee (\neg A \wedge \neg B) \vdash$}
+\end{prooftree}
+
+
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\AxiomC{$\Gamma \vdash B$}
+\BinaryInfC{$\Gamma \vdash (A \wedge B) \vee (\neg A \wedge \neg B)$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B \vdash$}
+\AxiomC{$A \vdash$}
+\BinaryInfC{$\vdash (A \wedge B) \vee (\neg A \wedge \neg B)$}
+\end{prooftree}
+
+TODO: XOR-like
+
+\begin{prooftree}
+\AxiomC{$B \vdash \Delta$}
+\AxiomC{$A \vdash \Delta$}
+\BinaryInfC{$(\neg A \wedge B) \vee (\neg B \vee A) \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash A$}
+\AxiomC{$\vdash B$}
+\BinaryInfC{$(\neg A \wedge B) \vee (\neg B \vee A) \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash$}
+\AxiomC{$\vdash B$}
+\BinaryInfC{$(\neg A \wedge B) \vee (\neg B \vee A) \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash A$}
+\AxiomC{$B \vdash$}
+\BinaryInfC{$(\neg A \wedge B) \vee (\neg B \vee A) \vdash$}
+\end{prooftree}
+
+
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash$}
+\AxiomC{$\vdash B$}
+\BinaryInfC{$\vdash (\neg A \wedge B) \vee (\neg B \vee A)$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash A$}
+\AxiomC{$B \vdash$}
+\BinaryInfC{$\vdash (\neg A \wedge B) \vee (\neg B \vee A)$}
+\end{prooftree}
+
+
+\begin{prooftree}
+\AxiomC{$\vdash A$}
+\AxiomC{$\vdash B$}
+\BinaryInfC{$(A \vee B) \wedge (\neg A \vee \neg B) \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\AxiomC{$B \vdash \Delta$}
+\BinaryInfC{$(A \vee B) \wedge (\neg A \vee \neg B) \vdash \Delta$}
+\end{prooftree}
+
+
+\begin{prooftree}
+\AxiomC{$\vdash A$}
+\AxiomC{$A \vdash$}
+\BinaryInfC{$\vdash (A \vee B) \wedge (\neg A \vee \neg B)$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash B$}
+\AxiomC{$B \vdash$}
+\BinaryInfC{$\vdash (A \vee B) \wedge (\neg A \vee \neg B)$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash A$}
+\AxiomC{$B \vdash$}
+\BinaryInfC{$\vdash (A \vee B) \wedge (\neg A \vee \neg B)$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash B$}
+\AxiomC{$A \vdash$}
+\BinaryInfC{$\vdash (A \vee B) \wedge (\neg A \vee \neg B)$}
+\end{prooftree}
 
 \part{Theorems}
-	\begin{center}
-		
-	\end{center}
-
