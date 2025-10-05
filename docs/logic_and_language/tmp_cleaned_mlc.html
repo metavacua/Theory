@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/app/papers/logic_and_language,/app/thesis,/app,/tmp/tmp.9KNRbwIz3m"?>
+<?latexml class="report"?>
+<?latexml package="graphicx"?>
+<?latexml package="amsmath"?>
+<?latexml package="inputenc" options="utf8"?>
+<?latexml package="fontenc" options="T1"?>
+<?latexml package="lmodern"?>
+<?latexml package="amssymb"?>
+<?latexml package="amsthm"?>
+<?latexml package="latexsym"?>
+<?latexml package="centernot"?>
+<?latexml package="enumitem"?>
+<?latexml package="geometry"?>
+<?latexml package="hyperref"?>
+<?latexml package="ragged2e"?>
+<?latexml package="microtype"?>
+<?latexml package="bussproofs"?>
+<?latexml package="setspace"?>
+<?latexml package="tensor"?>
+<?latexml package="cite"?>
+<!--  %New␣notation␣for␣LF --><?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-report.css" type="text/css"/>
+  <title>Standalone Paper</title>
+  <creator role="author">
+    <personname/>
+  </creator>
+  <section inlist="toc" xml:id="Ch0.S1">
+    <tags>
+      <tag>0.1</tag>
+      <tag role="autoref">section 0.1</tag>
+      <tag role="refnum">0.1</tag>
+      <tag role="typerefnum">§0.1</tag>
+    </tags>
+    <title><tag close=" ">0.1</tag>Structural Rules</title>
+    <para xml:id="Ch0.S1.p1">
+      <p>Uses a variation of cut left.</p>
+    </para>
+    <proof>
+      <para xml:id="Ch0.S1.p2">
+        <ERROR class="undefined">\infer</ERROR>
+        <p>0[Id]A ⊢A</p>
+      </para>
+    </proof>
+    <proof>
+      <para xml:id="Ch0.S1.p3">
+        <p>&lt;ltx:axiom&gt;Γ⊢A&lt;/ltx:axiom&gt;
+&lt;ltx:axiom&gt;Γ_L, A, Γ_R ⊢C&lt;/ltx:axiom&gt;
+<ERROR class="undefined">\infer</ERROR>2[CutL]Γ_L, Γ, Γ_R ⊢C</p>
+      </para>
+    </proof>
+  </section>
+  <section inlist="toc" xml:id="Ch0.S2">
+    <tags>
+      <tag>0.2</tag>
+      <tag role="autoref">section 0.2</tag>
+      <tag role="refnum">0.2</tag>
+      <tag role="typerefnum">§0.2</tag>
+    </tags>
+    <title><tag close=" ">0.2</tag>Operational Rules</title>
+    <para xml:id="Ch0.S2.p1">
+      <p><Math mode="inline" tex="\Gamma" text="Gamma" xml:id="Ch0.S2.p1.m1">
+          <XMath>
+            <XMTok name="Gamma" role="UNKNOWN">Γ</XMTok>
+          </XMath>
+        </Math> non-empty in the RHS implication and negation rules.</p>
+    </para>
+    <proof>
+      <para xml:id="Ch0.S2.p2">
+        <p>&lt;ltx:axiom&gt;Γ_L, A, B, Γ_R ⊢C&lt;/ltx:axiom&gt;
+<ERROR class="undefined">\infer</ERROR>1Γ_L, A ⊗B, Γ_R ⊢C</p>
+      </para>
+    </proof>
+    <proof>
+      <para xml:id="Ch0.S2.p3">
+        <p>&lt;ltx:axiom&gt;Γ_L ⊢A&lt;/ltx:axiom&gt;
+&lt;ltx:axiom&gt;Γ_R ⊢B&lt;/ltx:axiom&gt;
+<ERROR class="undefined">\infer</ERROR>2Γ_L, Γ_R ⊢A ⊗B</p>
+      </para>
+    </proof>
+    <proof>
+      <para xml:id="Ch0.S2.p4">
+        <p>&lt;ltx:axiom&gt;Γ⊢A&lt;/ltx:axiom&gt;
+&lt;ltx:axiom&gt;Γ_L, B, Γ_R ⊢C&lt;/ltx:axiom&gt;
+<ERROR class="undefined">\infer</ERROR>2Γ_L, Γ, A →B, Γ_R ⊢C</p>
+      </para>
+    </proof>
+    <proof>
+<!--  %****␣tmp_cleaned_mlc.tex␣Line␣50␣**** -->      <para xml:id="Ch0.S2.p5">
+        <p>&lt;ltx:axiom&gt;A, Γ⊢B&lt;/ltx:axiom&gt;
+<ERROR class="undefined">\infer</ERROR>1Γ⊢A →B</p>
+      </para>
+    </proof>
+    <proof>
+      <para xml:id="Ch0.S2.p6">
+        <p>&lt;ltx:axiom&gt;Γ⊢A&lt;/ltx:axiom&gt;
+&lt;ltx:axiom&gt;Γ_L, B, Γ_R ⊢C&lt;/ltx:axiom&gt;
+<ERROR class="undefined">\infer</ERROR>2Γ_L, B ←A, Γ, Γ_R ⊢C</p>
+      </para>
+    </proof>
+    <proof>
+      <para xml:id="Ch0.S2.p7">
+        <p>&lt;ltx:axiom&gt;Γ, A ⊢B&lt;/ltx:axiom&gt;
+<ERROR class="undefined">\infer</ERROR>1Γ⊢B ←A</p>
+      </para>
+    </proof>
+    <proof>
+      <para xml:id="Ch0.S2.p8">
+        <p>&lt;ltx:axiom&gt; Γ⊢A&lt;/ltx:axiom&gt;
+<ERROR class="undefined">\infer</ERROR>1 ¬_L A, Γ⊢</p>
+      </para>
+    </proof>
+    <proof>
+<!--  %****␣tmp_cleaned_mlc.tex␣Line␣75␣**** -->      <para xml:id="Ch0.S2.p9">
+        <p>&lt;ltx:axiom&gt; Γ⊢A&lt;/ltx:axiom&gt;
+<ERROR class="undefined">\infer</ERROR>1 Γ, ¬_R A ⊢</p>
+      </para>
+    </proof>
+    <proof>
+      <para xml:id="Ch0.S2.p10">
+        <p>&lt;ltx:axiom&gt; A, Γ⊢_L &lt;/ltx:axiom&gt;
+<ERROR class="undefined">\infer</ERROR>1 Γ⊢_L ¬A</p>
+      </para>
+    </proof>
+    <proof>
+      <para xml:id="Ch0.S2.p11">
+        <p>&lt;ltx:axiom&gt; Γ, A ⊢_R &lt;/ltx:axiom&gt;
+<ERROR class="undefined">\infer</ERROR>1 Γ⊢_R ¬A</p>
+      </para>
+    </proof>
+  </section>
+  <section inlist="toc" xml:id="Ch0.S3">
+    <tags>
+      <tag>0.3</tag>
+      <tag role="autoref">section 0.3</tag>
+      <tag role="refnum">0.3</tag>
+      <tag role="typerefnum">§0.3</tag>
+    </tags>
+    <title><tag close=" ">0.3</tag>Theorems</title>
+    <proof>
+      <para xml:id="Ch0.S3.p1">
+        <ERROR class="undefined">\infer</ERROR>
+        <p>0A ⊢A
+<ERROR class="undefined">\infer</ERROR>1A , ¬A ⊢
+<ERROR class="undefined">\infer</ERROR>1A ⊗¬A ⊢</p>
+      </para>
+    </proof>
+<!--  %****␣tmp_cleaned_mlc.tex␣Line␣100␣**** -->    <proof>
+      <para xml:id="Ch0.S3.p2">
+        <ERROR class="undefined">\infer</ERROR>
+        <p>0A ⊢A
+<ERROR class="undefined">\infer</ERROR>1¬A, A ⊢
+<ERROR class="undefined">\infer</ERROR>1¬A ⊗A⊢</p>
+      </para>
+    </proof>
+  </section>
+</document>

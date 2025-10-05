@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/app/papers/logic_and_language,/app/thesis,/app,/tmp/tmp.cM0oLhvLD1"?>
+<?latexml class="report"?>
+<?latexml package="graphicx"?>
+<?latexml package="amsmath"?>
+<?latexml package="inputenc" options="utf8"?>
+<?latexml package="fontenc" options="T1"?>
+<?latexml package="lmodern"?>
+<?latexml package="amssymb"?>
+<?latexml package="amsthm"?>
+<?latexml package="latexsym"?>
+<?latexml package="centernot"?>
+<?latexml package="enumitem"?>
+<?latexml package="geometry"?>
+<?latexml package="hyperref"?>
+<?latexml package="ragged2e"?>
+<?latexml package="microtype"?>
+<?latexml package="bussproofs"?>
+<?latexml package="setspace"?>
+<?latexml package="tensor"?>
+<?latexml package="cite"?>
+<!--  %New␣notation␣for␣LF --><?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-report.css" type="text/css"/>
+  <title>Standalone Paper</title>
+  <creator role="author">
+    <personname/>
+  </creator>
+  <section inlist="toc" labels="LABEL:preliminaries" xml:id="Ch0.S1">
+    <tags>
+      <tag>0.1</tag>
+      <tag role="autoref">section 0.1</tag>
+      <tag role="refnum">0.1</tag>
+      <tag role="typerefnum">§0.1</tag>
+    </tags>
+    <title><tag close=" ">0.1</tag><anchor xml:id="preliminaries">Preliminaries</anchor></title>
+    <para xml:id="Ch0.S1.p1">
+      <p><!--  %****␣tmp_cleaned_functionally-incomplete-v2.docx.tex␣Line␣25␣**** -->A set of logical connectives is said to be functionally complete when
+combinations of the logical connectives in the set can express every
+equivalent expression of the connectives in the set of {⊥, ⊤, ¬, →, ↛,
+⊕, ↔, ∧, ∨, ↓, ↑}.
+{¬, →} {⊥, ⊤, ↛, ⊕, ↔, ∧, ∨}; {↓, ↑}
+‘{⊥, ⊤, ⊕, ↔}, {⊥, ↛, ⊕, ∧, ∨}, {⊤, ↔, ∧, ∨}, {⊥, ⊤, ∧, ∨},
+{¬}‘
+{¬, →, ↛}{⊥, ⊤, ⊕, ↔, ∧, ∨} {↓, ↑}
+A set of logical connectives is said to be functionally incomplete when
+combinations of the logical connectives can not express any functionally
+complete subset of {⊥, ⊤, ¬, →, ↛, ⊕, ↔, ∧, ∨, ↓, ↑}.
+The minimal sets of functionally complete logical connectives entail
+that for defining the functionally incomplete sets the only relevant
+logical connectives are in the set {⊥, ⊤, ¬, →, ↛, ⊕, ↔, ∧, ∨}.
+Notably, any set that contains NOR or NAND is automatically functionally
+complete.</p>
+    </para>
+    <subsection inlist="toc" labels="LABEL:maximal-functionally-incomplete-sets" xml:id="Ch0.S1.SS1">
+      <tags>
+        <tag>0.1.1</tag>
+        <tag role="autoref">subsection 0.1.1</tag>
+        <tag role="refnum">0.1.1</tag>
+        <tag role="typerefnum">§0.1.1</tag>
+      </tags>
+      <title><tag close=" ">0.1.1</tag><anchor xml:id="maximal-functionally-incomplete-sets">Maximal Functionally Incomplete
+Sets</anchor></title>
+      <para xml:id="Ch0.S1.SS1.p1">
+        <p>Affine: {⊥, ⊤, ¬, ⊕, ↔}; {→}, {↛}, {∧}, {∨}
+False-preserving: {⊥, ↛, ⊕, ∧, ∨}; {⊤}, {¬}, {→}, {↔}
+Truth-preserving: {⊤, →, ↔, ∧, ∨}; {⊥}, {¬}, {↛}, {⊕}
+Monotonic: {⊥, ⊤, ∧, ∨}; {⊕}, {↔}, {¬}, {→}, {↛}
+Self-dual: {¬} {⊥, ⊤, ⊕, ↔}; {→}, {↛}, {∧}, {∨}</p>
+      </para>
+    </subsection>
+    <subsection inlist="toc" labels="LABEL:minimal-functionally-complete-sets" xml:id="Ch0.S1.SS2">
+      <tags>
+        <tag>0.1.2</tag>
+        <tag role="autoref">subsection 0.1.2</tag>
+        <tag role="refnum">0.1.2</tag>
+        <tag role="typerefnum">§0.1.2</tag>
+      </tags>
+      <title><tag close=" ">0.1.2</tag><anchor xml:id="minimal-functionally-complete-sets">Minimal Functionally Complete
+Sets</anchor></title>
+      <subsubsection inlist="toc" labels="LABEL:singles" xml:id="Ch0.S1.SS2.SSSx1">
+        <title><anchor xml:id="singles">Singles</anchor></title>
+        <para xml:id="Ch0.S1.SS2.SSSx1.p1">
+          <p>{↓}
+{↑}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:doubles" xml:id="Ch0.S1.SS2.SSSx2">
+        <title><anchor xml:id="doubles">Doubles</anchor></title>
+        <para xml:id="Ch0.S1.SS2.SSSx2.p1">
+          <p>{⊥, →}
+{⊥, ←}
+{⊤, ↛}
+{⊤, ↚}
+{¬, →}
+{¬, ←}
+{¬, ↛}
+{¬, ↚}
+{¬, ∨}
+{¬, ∧}
+{→, ↛}
+{→, ↚}
+{←, ↛}
+{←, ↚}
+{→, ⊕}
+{←, ⊕}
+{↛, ↔}
+{↚, ↔}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:triples" xml:id="Ch0.S1.SS2.SSSx3">
+        <title><anchor xml:id="triples">Triples</anchor></title>
+        <para xml:id="Ch0.S1.SS2.SSSx3.p1">
+          <p>{⊥, ↔, ∨}
+{↔, ⊕, ∨}
+{⊤, ⊕, ∨}
+{⊥, ↔, ∧}
+{↔, ⊕, ∧}
+{⊤, ⊕, ∧}</p>
+        </para>
+      </subsubsection>
+    </subsection>
+  </section>
+  <section inlist="toc" labels="LABEL:functionally-incomplete-sets-of-logical-connectives" xml:id="Ch0.S2">
+    <tags>
+      <tag>0.2</tag>
+      <tag role="autoref">section 0.2</tag>
+      <tag role="refnum">0.2</tag>
+      <tag role="typerefnum">§0.2</tag>
+    </tags>
+    <title><tag close=" ">0.2</tag><anchor xml:id="functionally-incomplete-sets-of-logical-connectives">Functionally Incomplete Sets of Logical
+Connectives</anchor></title>
+    <subsection inlist="toc" labels="LABEL:singles-1" xml:id="Ch0.S2.SS1">
+      <tags>
+        <tag>0.2.1</tag>
+        <tag role="autoref">subsection 0.2.1</tag>
+        <tag role="refnum">0.2.1</tag>
+        <tag role="typerefnum">§0.2.1</tag>
+      </tags>
+      <title><tag close=" ">0.2.1</tag><anchor xml:id="singles-1">Singles</anchor></title>
+      <para xml:id="Ch0.S2.SS1.p1">
+        <p>9 functionally incomplete singles.
+{⊥}; {→}, {↔, ∧}, {↔, ∨}; … {⊤, ¬, ↔, ⊕}, {↛, ⊕, ∨, ∧}
+{⊤}; {↛}, {⊕, ∧}, {⊕, ∨}; … {⊥, ¬, ↔, ⊕}, {→, ↔, ∧, ∨}
+{¬}; {→}, {↛}, {∧}, {∨}; … {⊥, ⊤, ⊕, ↔}
+{→}; {⊥}, {¬}, {↛}, {⊕}; … {⊤,↔, ∧, ∨}
+{↛}; {⊤}, {¬}, {→}, {↔}; … {⊥, ⊕, ∧, ∨}
+{⊕}; {→}, {⊤, ∧}, {⊤, ∨}, {↔, ∧}, {↔, ∨}; … {⊥, ↛, ∨,
+∧}, {⊥, ⊤, ¬, ↔}
+{↔}; {↛}, {⊥, ∧}, {⊥, ∨}, {⊕, ∧}, {⊕, ∨}; … {⊤, →, ∧,
+∨}, {⊥, ⊤, ¬, ⊕}
+{∧}; {¬}, {⊥, ↔}, {⊤, ⊕}, {⊕, ↔}; {⊥}, {⊤}, {↔}, {⊕},
+{∨}, {→}, {↛}, {∨, →}, {∨, ↛}, …, {⊥, ⊤, ∨}, {⊤, →, ↔,
+∨}, {⊥, ↛, ⊕, ∨}
+{∨}; {¬}, {⊥, ↔}, {⊤, ⊕}, {⊕, ↔}; …, {⊥, ⊤, ∧}, {⊤, →,
+∧, ↔}, {⊥, ↛, ⊕, ∧}</p>
+      </para>
+    </subsection>
+    <subsection inlist="toc" labels="LABEL:doubles-1" xml:id="Ch0.S2.SS2">
+      <tags>
+        <tag>0.2.2</tag>
+        <tag role="autoref">subsection 0.2.2</tag>
+        <tag role="refnum">0.2.2</tag>
+        <tag role="typerefnum">§0.2.2</tag>
+      </tags>
+      <title><tag close=" ">0.2.2</tag><anchor xml:id="doubles-1">Doubles</anchor></title>
+      <para xml:id="Ch0.S2.SS2.p1">
+        <p>27 functionally incomplete doubles.</p>
+      </para>
+      <subsubsection inlist="toc" labels="LABEL:affine" xml:id="Ch0.S2.SS2.SSSx1">
+        <title><anchor xml:id="affine">Affine</anchor></title>
+        <para xml:id="Ch0.S2.SS2.SSSx1.p1">
+          <p><!--  %****␣tmp_cleaned_functionally-incomplete-v2.docx.tex␣Line␣150␣**** -->{¬, ⊕}; {→}, {↛}, {∧}, {∨}; {⊥}, {⊤}, {↔}, {⊥, ⊤},
+{⊥, ↔}, {⊤, ↔}, {⊥, ⊤, ↔}
+{¬, ↔}; {→}, {↛}, {∧}, {∨}; {⊥}, {⊤}, {⊕}, {⊥, ⊤},
+{⊥, ⊕}, {⊤, ⊕}, {⊥, ⊤, ⊕}
+{⊥, ¬}; {→}, {↛}, {∧}, {∨}; {⊤}, {⊕}, {↔}, {⊤, ⊕},
+{⊤, ↔}, {⊕, ↔}, {⊤, ⊕, ↔}
+{⊥, ↔}; {→}, {↛}, {∧}, {∨}; {⊤}, {¬}, {⊕}, {⊤, ¬},
+{⊤, ⊕}, {¬, ⊕}, {⊤, ¬, ⊕}
+{⊤, ¬}; {→}, {↛}, {∧}, {∨}; {⊥}, {⊕}, {↔}, {⊥, ⊕},
+{⊥, ↔}, {⊕, ↔}, {⊥, ⊕, ↔}
+{⊤, ⊕}; {→}, {↛}, {∧}, {∨}; {⊥}, {¬}, {↔}, {⊥, ¬},
+{⊥, ↔}, {¬, ↔}, {⊥, ¬, ↔}
+{↔, ⊕}; {→}, {↛}, {∧}, {∨}; {⊥}, {⊤}, {¬}, {⊥, ⊤},
+{⊥, ¬}, {⊤, ¬}, {⊥, ⊤, ¬}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:affine-or-false-preserving" xml:id="Ch0.S2.SS2.SSSx2">
+        <title><anchor xml:id="affine-or-false-preserving">Affine or False
+Preserving</anchor></title>
+        <para xml:id="Ch0.S2.SS2.SSSx2.p1">
+          <p>{⊥, ⊕}; {→}, {⊤, ∧}, {⊤, ∨}, {↔, ∧}, {↔, ∨}; … {⊤,
+¬, ↔}, {↛, ∨, ∧}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:affine-or-truth-preserving" xml:id="Ch0.S2.SS2.SSSx3">
+        <title><anchor xml:id="affine-or-truth-preserving">Affine or Truth
+Preserving</anchor></title>
+        <para xml:id="Ch0.S2.SS2.SSSx3.p1">
+          <p>{⊤, ↔}; {↛}, {⊥, ∧}, {⊥, ∨}, {⊕, ∧}, {⊕, ∨}; … {⊥,
+¬, ⊕}, {→, ∧, ∨}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:affine-and-monotonic" xml:id="Ch0.S2.SS2.SSSx4">
+        <title><anchor xml:id="affine-and-monotonic">Affine and Monotonic</anchor></title>
+        <para xml:id="Ch0.S2.SS2.SSSx4.p1">
+          <p>{⊥, ⊤}; {→}, {↛}, {↔, ∧}, {↔, ∨}, {⊕, ∧}, {⊕, ∨}; {¬},
+{↔}, {⊕}, {∧}, {∨}, {∧, ∨}, {¬, ⊕}, {¬, ↔}, {⊕, ↔}, {¬,
+⊕, ↔}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:truth-preserving" xml:id="Ch0.S2.SS2.SSSx5">
+        <title><anchor xml:id="truth-preserving">Truth Preserving</anchor></title>
+        <paragraph inlist="toc" labels="LABEL:generators" xml:id="Ch0.S2.SS2.SSSx5.Px1">
+          <title><anchor xml:id="generators">Generators</anchor></title>
+          <para xml:id="Ch0.S2.SS2.SSSx5.Px1.p1">
+            <p>{→, ∧}; {⊥}, {¬}, {↛}, {⊕}; … {⊤, ↔, ∨}</p>
+          </para>
+        </paragraph>
+        <paragraph inlist="toc" labels="LABEL:non-generators" xml:id="Ch0.S2.SS2.SSSx5.Px2">
+          <title><anchor xml:id="non-generators">Non-generators</anchor></title>
+          <para xml:id="Ch0.S2.SS2.SSSx5.Px2.p1">
+            <p><!--  %****␣tmp_cleaned_functionally-incomplete-v2.docx.tex␣Line␣200␣**** -->{⊤, →}; {⊥}, {¬}, {↛}, {⊕}; … {↔, ∧, ∨}
+{→, ↔}; {⊥}, {¬}, {↛}, {⊕}; … {⊤, ∧, ∨}
+{→, ∨}; {⊥}, {¬}, {↛}, {⊕}; … {⊤, ↔, ∧}
+{↔, ∨}; {¬}, {↛}, {⊕}, {⊥}; … {⊤, →, ∧}
+{↔, ∧}; {¬}, {↛}, {⊕}, {⊥}; … {⊤, →, ∨}</p>
+          </para>
+        </paragraph>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:false-preserving-generator" xml:id="Ch0.S2.SS2.SSSx6">
+        <title><anchor xml:id="false-preserving-generator">False Preserving
+Generator</anchor></title>
+        <para xml:id="Ch0.S2.SS2.SSSx6.p1">
+          <p>{↛, ∨}; {⊤}, {¬}, {→}, {↔}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:false-preserving" xml:id="Ch0.S2.SS2.SSSx7">
+        <title><anchor xml:id="false-preserving">False Preserving</anchor></title>
+        <para xml:id="Ch0.S2.SS2.SSSx7.p1">
+          <p><!--  %****␣tmp_cleaned_functionally-incomplete-v2.docx.tex␣Line␣225␣**** -->{⊕, ∧}; {¬}, {→}, {↔}, {⊤}; … {⊥, ↛, ∨}
+{⊕, ∨}; {¬}, {→}, {↔}, {⊤}; … {⊥, ↛, ∧}
+{⊥, ↛}; {⊤}, {¬}, {→}, {↔}; … {⊕, ∨, ∧}
+{↛, ⊕}; {⊤}, {¬}, {→}, {↔}; … {⊥, ∨, ∧}
+{↛, ∧}; {⊤}, {¬}, {→}, {↔}; … {⊥, ⊕, ∨}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:monotonic-and-truth-preserving" xml:id="Ch0.S2.SS2.SSSx8">
+        <title><anchor xml:id="monotonic-and-truth-preserving">Monotonic and Truth
+Preserving</anchor></title>
+        <para xml:id="Ch0.S2.SS2.SSSx8.p1">
+          <p>{⊤, ∨}; {¬}, {↛}, {⊕}, {⊥, ↔}; … {→, ↔, ∧}
+{⊤, ∧}; {¬}, {↛}, {⊕}, {⊥, ↔}; … {→, ↔, ∨}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:monotonic-and-false-preserving" xml:id="Ch0.S2.SS2.SSSx9">
+        <title><anchor xml:id="monotonic-and-false-preserving">Monotonic and False
+Preserving</anchor></title>
+        <para xml:id="Ch0.S2.SS2.SSSx9.p1">
+          <p>{⊥, ∨}; {¬}, {→}, {↔}, {⊤, ⊕}; …, {↛, ⊕, ∧}
+{⊥, ∧}; {¬}, {→}, {↔}, {⊤, ⊕}; …, {↛, ⊕, ∨}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:section" xml:id="Ch0.S2.SS2.SSSx10">
+        <title/>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:special" xml:id="Ch0.S2.SS2.SSSx11">
+        <title><anchor xml:id="special">Special</anchor></title>
+        <para xml:id="Ch0.S2.SS2.SSSx11.p1">
+          <p>Truth or False Preserving
+{∧, ∨}; {¬}, {⊥, ↔}, {⊤, ⊕}, {↔, ⊕}; … {⊥, ↛, ⊕},
+{⊤, →, ↔}</p>
+        </para>
+      </subsubsection>
+    </subsection>
+    <subsection inlist="toc" labels="LABEL:triples-1" xml:id="Ch0.S2.SS3">
+      <tags>
+        <tag>0.2.3</tag>
+        <tag role="autoref">subsection 0.2.3</tag>
+        <tag role="refnum">0.2.3</tag>
+        <tag role="typerefnum">§0.2.3</tag>
+      </tags>
+      <title><tag close=" ">0.2.3</tag><anchor xml:id="triples-1">Triples</anchor></title>
+      <para xml:id="Ch0.S2.SS3.p1">
+        <p>32 functionally incomplete triples.</p>
+      </para>
+      <subsubsection inlist="toc" labels="LABEL:affine-connectives" xml:id="Ch0.S2.SS3.SSSx1">
+        <title><anchor xml:id="affine-connectives">Affine Connectives</anchor></title>
+        <paragraph inlist="toc" labels="LABEL:generators-1" xml:id="Ch0.S2.SS3.SSSx1.Px1">
+          <title><anchor xml:id="generators-1">Generators</anchor></title>
+          <para xml:id="Ch0.S2.SS3.SSSx1.Px1.p1">
+            <p><!--  %****␣tmp_cleaned_functionally-incomplete-v2.docx.tex␣Line␣275␣**** -->{⊥, ¬, ⊕}; {→}, {↛}, {∧}, {∨}; {⊤}, {↔}, {⊤, ↔}
+{⊥, ¬, ↔}; {→}, {↛}, {∧}, {∨}; {⊤}, {⊕}, {⊤, ⊕}
+{⊤, ¬, ⊕}; {→}, {↛}, {∧}, {∨}; {⊥}, {↔}, {⊥, ↔}
+{⊤, ¬, ↔}; {→}, {↛}, {∧}, {∨}; {⊥}, {⊕}, {⊥, ⊕}
+{¬, ⊕, ↔}; {→}, {↛}, {∧}, {∨}; {⊥}, {⊤}, {⊥, ⊤}</p>
+          </para>
+        </paragraph>
+        <paragraph inlist="toc" labels="LABEL:non-generators-1" xml:id="Ch0.S2.SS3.SSSx1.Px2">
+          <title><anchor xml:id="non-generators-1">Non-generators</anchor></title>
+          <para xml:id="Ch0.S2.SS3.SSSx1.Px2.p1">
+            <p>{⊥, ⊤, ¬}; {→}, {↛}, {∧}, {∨}; {⊕}, {↔}, {⊕, ↔}
+{⊥, ⊤, ↔}; {→}, {↛}, {∧}, {∨}; {¬}, {⊕}, {¬, ⊕}
+{⊥, ⊤, ⊕}; {→}, {↛}, {∧}, {∨}; {¬}, {↔}, {¬, ↔}
+{⊥, ⊕, ↔}; {→}, {↛}, {∧}, {∨}; {⊤}, {¬}, {⊤, ¬}
+{⊤, ⊕, ↔}; {→}, {↛}, {∧}, {∨}; {⊥}, {¬}, {⊥, ¬}</p>
+          </para>
+        </paragraph>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:truth-preserving-connectives" xml:id="Ch0.S2.SS3.SSSx2">
+        <title><anchor xml:id="truth-preserving-connectives">Truth Preserving
+Connectives</anchor></title>
+        <paragraph inlist="toc" labels="LABEL:generators-2" xml:id="Ch0.S2.SS3.SSSx2.Px1">
+          <title><anchor xml:id="generators-2">Generators</anchor></title>
+          <para xml:id="Ch0.S2.SS3.SSSx2.Px1.p1">
+            <p>{⊤, →, ∧}; {⊥}, {¬}, {↛}, {⊕}; {↔}, {∨}, {↔, ∨}
+{→, ↔, ∧}; {⊥}, {¬}, {↛}, {⊕}; {⊤}, {∨}, {⊤, ∨}
+{→, ∧, ∨}; {⊥}, {¬}, {↛}, {⊕}; {⊤}, {↔}, {⊤, ↔}</p>
+          </para>
+        </paragraph>
+        <paragraph inlist="toc" labels="LABEL:non-generators-2" xml:id="Ch0.S2.SS3.SSSx2.Px2">
+          <title><anchor xml:id="non-generators-2">Non-generators</anchor></title>
+          <para xml:id="Ch0.S2.SS3.SSSx2.Px2.p1">
+            <p>{⊤, →, ↔}; {⊥}, {¬}, {↛}, {⊕}; {∧}, {∨}, {∧, ∨}
+{⊤, →, ∨}; {⊥}, {¬}, {↛}, {⊕}; {↔}, {∧}, {↔, ∧}<break/>{⊤, ↔, ∨}; {⊥}, {¬}, {↛}, {⊕}; {→}, {∧}, {→, ∧}<break/>{⊤, ↔, ∧}; {⊥}, {¬}, {↛}, {⊕}; {→}, {∨}, {→, ∨}<break/>{→, ↔, ∨}; {⊥}, {¬}, {↛}, {⊕}; {⊤}, {∧}, {⊤, ∧}<break/>{↔, ∧, ∨}; {⊥}, {¬}, {↛}, {⊕}; {⊤}, {→}, {⊤, →}</p>
+          </para>
+        </paragraph>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:false-preserving-connectives" xml:id="Ch0.S2.SS3.SSSx3">
+        <title><anchor xml:id="false-preserving-connectives">False Preserving
+Connectives</anchor></title>
+        <para xml:id="Ch0.S2.SS3.SSSx3.p1">
+          <p>{⊥, ↛, ⊕}; {⊤}, {¬}, {→}, {↔}; {∧}, {∨}, {∧, ∨}
+{⊥, ⊕, ∨}; {⊤}, {¬}, {→}, {↔}; {↛}, {∧}, {↛, ∧}
+{⊥, ⊕, ∧}; {⊤}, {¬}, {→}, {↔}; {↛}, {∨}, {↛, ∨}
+{⊥, ↛, ∧}; {⊤}, {¬}, {→}, {↔}; {⊕}, {∨}, {⊕, ∨}
+{⊥, ↛, ∨}; {⊤}, {¬}, {→}, {↔}; {∧}, {⊕}, {⊕, ∧}
+{↛, ⊕, ∧}; {⊤}, {¬}, {→}, {↔}; {⊥}, {∨}, {⊥, ∨}
+{↛, ⊕, ∨}; {⊤}, {¬}, {→}, {↔}; {⊥}, {∧}, {⊥, ∧}<break/>{↛, ∧, ∨}; {⊤}, {¬}, {→}, {↔}; {⊥}, {⊕}, {⊥, ⊕}
+{⊕, ∧, ∨}; {⊤}, {¬}, {→}, {↔}; {⊥}, {↛}, {⊥, ↛}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:exclusively-monotonic-connectives" xml:id="Ch0.S2.SS3.SSSx4">
+        <title><anchor xml:id="exclusively-monotonic-connectives">Exclusively Monotonic Connectives
+</anchor></title>
+        <para xml:id="Ch0.S2.SS3.SSSx4.p1">
+          <p>{⊥, ⊤, ∨}; {¬}, {→}, {↛}, {⊕}, {↔}; {∧}
+{⊥, ⊤, ∧}; {¬}, {→}, {↛}, {⊕}, {↔}; {∨}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:monotonic-intersections" xml:id="Ch0.S2.SS3.SSSx5">
+        <title><anchor xml:id="monotonic-intersections">Monotonic Intersections</anchor></title>
+        <para xml:id="Ch0.S2.SS3.SSSx5.p1">
+          <p><!--  %****␣tmp_cleaned_functionally-incomplete-v2.docx.tex␣Line␣350␣**** -->Monotonic and Truth Preserving
+{⊥, ∧, ∨}; {¬}, {→}, {↔}; {⊤}, {↛}, {⊕}, {↛, ⊕}
+Monotonic and False Preserving<break/>{⊤, ∧, ∨}; {¬}, {↛}, {⊕}; {⊥}, {→}, {↔}, {→, ↔}</p>
+        </para>
+      </subsubsection>
+    </subsection>
+    <subsection inlist="toc" labels="LABEL:quadruples" xml:id="Ch0.S2.SS4">
+      <tags>
+        <tag>0.2.4</tag>
+        <tag role="autoref">subsection 0.2.4</tag>
+        <tag role="refnum">0.2.4</tag>
+        <tag role="typerefnum">§0.2.4</tag>
+      </tags>
+      <title><tag close=" ">0.2.4</tag><anchor xml:id="quadruples">Quadruples</anchor></title>
+      <para xml:id="Ch0.S2.SS4.p1">
+        <p>16 functionally incomplete quadruples.</p>
+      </para>
+      <subsubsection inlist="toc" labels="LABEL:affine-connectives-1" xml:id="Ch0.S2.SS4.SSSx1">
+        <title><anchor xml:id="affine-connectives-1">Affine Connectives</anchor></title>
+        <para xml:id="Ch0.S2.SS4.SSSx1.p1">
+          <p>{⊥, ⊤, ⊕, ↔}; {→}, {↛}, {∧}, {∨}; {¬}
+{¬, ⊤, ⊕, ↔}; {→}, {↛}, {∧}, {∨}; {⊥}
+{¬, ⊥, ⊕, ↔}; {→}, {↛}, {∧}, {∨}; {⊤}
+{¬, ⊥, ⊤, ↔}; {→}, {↛}, {∧}, {∨}; {⊕}
+{¬, ⊥, ⊤, ⊕}; {→}, {↛}, {∧}, {∨}; {↔}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:truth-preserving-connectives-1" xml:id="Ch0.S2.SS4.SSSx2">
+        <title><anchor xml:id="truth-preserving-connectives-1">Truth Preserving
+Connectives</anchor></title>
+        <paragraph inlist="toc" labels="LABEL:generators-3" xml:id="Ch0.S2.SS4.SSSx2.Px1">
+          <title><anchor xml:id="generators-3">Generators</anchor></title>
+          <para xml:id="Ch0.S2.SS4.SSSx2.Px1.p1">
+            <p>{→, ⊤, ∧, ↔}; {⊥}, {¬}, {↛}, {⊕}; {∨}
+{→, ∧, ∨, ↔}; {⊥}, {¬}, {↛}, {⊕}; {⊤}
+{→, ⊤, ∧, ∨}; {⊥}, {¬}, {↛}, {⊕}; {↔}</p>
+          </para>
+        </paragraph>
+        <paragraph inlist="toc" labels="LABEL:non-generators-3" xml:id="Ch0.S2.SS4.SSSx2.Px2">
+          <title><anchor xml:id="non-generators-3">Non-generators</anchor></title>
+          <para xml:id="Ch0.S2.SS4.SSSx2.Px2.p1">
+            <p>{⊤, ∧, ∨, ↔}; {⊥}, {¬}, {↛}, {⊕}; {→}
+{→, ⊤, ∨, ↔}; {⊥}, {¬}, {↛}, {⊕}; {∧}</p>
+          </para>
+        </paragraph>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:false-preserving-connectives-1" xml:id="Ch0.S2.SS4.SSSx3">
+        <title><anchor xml:id="false-preserving-connectives-1">False Preserving
+Connectives</anchor></title>
+        <paragraph inlist="toc" labels="LABEL:generators-4" xml:id="Ch0.S2.SS4.SSSx3.Px1">
+          <title><anchor xml:id="generators-4">Generators</anchor></title>
+          <para xml:id="Ch0.S2.SS4.SSSx3.Px1.p1">
+            <p><!--  %****␣tmp_cleaned_functionally-incomplete-v2.docx.tex␣Line␣400␣**** -->{⊥, ↛, ∨, ⊕}; {⊤}, {¬}, {→}, {↔}; {∧}
+{⊥, ↛, ∧, ∨}; {⊤}, {¬}, {→}, {↔}; {⊕}
+{↛, ∧, ∨, ⊕}; {⊤}, {¬}, {→}, {↔}; {⊥}</p>
+          </para>
+        </paragraph>
+        <paragraph inlist="toc" labels="LABEL:non-generators-4" xml:id="Ch0.S2.SS4.SSSx3.Px2">
+          <title><anchor xml:id="non-generators-4">Non-generators</anchor></title>
+          <para xml:id="Ch0.S2.SS4.SSSx3.Px2.p1">
+            <p>{⊥, ↛, ∧, ⊕}; {⊤}, {¬}, {→}, {↔}; {∨}
+{⊥, ∧, ∨, ⊕}; {⊤}, {¬}, {→}, {↔}; {↛}</p>
+          </para>
+        </paragraph>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:monotonic-connectives" xml:id="Ch0.S2.SS4.SSSx4">
+        <title><anchor xml:id="monotonic-connectives">Monotonic Connectives
+</anchor></title>
+        <para xml:id="Ch0.S2.SS4.SSSx4.p1">
+          <p>{⊥, ⊤, ∧, ∨}; {¬}, {→}, {↛}, {⊕}, {↔}</p>
+        </para>
+      </subsubsection>
+    </subsection>
+    <subsection inlist="toc" labels="LABEL:quintuples" xml:id="Ch0.S2.SS5">
+      <tags>
+        <tag>0.2.5</tag>
+        <tag role="autoref">subsection 0.2.5</tag>
+        <tag role="refnum">0.2.5</tag>
+        <tag role="typerefnum">§0.2.5</tag>
+      </tags>
+      <title><tag close=" ">0.2.5</tag><anchor xml:id="quintuples">Quintuples</anchor></title>
+      <subsubsection inlist="toc" labels="LABEL:affine-connectives-2" xml:id="Ch0.S2.SS5.SSSx1">
+        <title><anchor xml:id="affine-connectives-2">Affine Connectives</anchor></title>
+        <para xml:id="Ch0.S2.SS5.SSSx1.p1">
+          <p>{⊥, ⊤, ¬, ⊕, ↔}; {→}, {↛}, {∧}, {∨}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:truth-preserving-connectives-2" xml:id="Ch0.S2.SS5.SSSx2">
+        <title><anchor xml:id="truth-preserving-connectives-2">Truth Preserving
+Connectives</anchor></title>
+        <para xml:id="Ch0.S2.SS5.SSSx2.p1">
+          <p>{⊤, →, ↔, ∧, ∨}; {⊥}, {¬}, {↛}, {⊕}</p>
+        </para>
+      </subsubsection>
+      <subsubsection inlist="toc" labels="LABEL:false-preserving-connectives-2" xml:id="Ch0.S2.SS5.SSSx3">
+        <title><anchor xml:id="false-preserving-connectives-2">False Preserving
+Connectives</anchor></title>
+        <para xml:id="Ch0.S2.SS5.SSSx3.p1">
+          <p>{⊥, ↛, ⊕, ∨, ∧}; {⊤}, {¬}, {→}, {↔}</p>
+        </para>
+      </subsubsection>
+    </subsection>
+    <subsection inlist="toc" labels="LABEL:sextuples-and-higher" xml:id="Ch0.S2.SS6">
+      <tags>
+        <tag>0.2.6</tag>
+        <tag role="autoref">subsection 0.2.6</tag>
+        <tag role="refnum">0.2.6</tag>
+        <tag role="typerefnum">§0.2.6</tag>
+      </tags>
+      <title><tag close=" ">0.2.6</tag><anchor xml:id="sextuples-and-higher">Sextuples and higher</anchor></title>
+      <para xml:id="Ch0.S2.SS6.p1">
+        <p>All subsets of {⊥, ⊤, ¬, →, ↛, ⊕, ↔, ∧, ∨} of cardinality 6 or higher
+are functionally complete.
+Proof: {⊥, ⊤, ⊕, ↔, ∧, ∨} and {¬, →, ↛} are functionally complete.
+Every 5 element subset of {⊥, ⊤, ⊕, ↔, ∧, ∨} is functionally complete;
+there exist 4 element subsets which are functionally incomplete, but the
+only way to get six element sets from those 4 element sets is to add two
+elements from {¬, →, ↛} and any two elements of {¬, →, ↛} are
+functionally complete together.</p>
+      </para>
+    </subsection>
+    <subsection inlist="toc" labels="LABEL:special-cases-of-functional-incomplete-sets-of-operators" xml:id="Ch0.S2.SS7">
+      <tags>
+        <tag>0.2.7</tag>
+        <tag role="autoref">subsection 0.2.7</tag>
+        <tag role="refnum">0.2.7</tag>
+        <tag role="typerefnum">§0.2.7</tag>
+      </tags>
+      <title><tag close=" ">0.2.7</tag><anchor xml:id="special-cases-of-functional-incomplete-sets-of-operators">Special Cases of functional incomplete sets of
+operators</anchor></title>
+      <para xml:id="Ch0.S2.SS7.p1">
+        <p>{⊥, ⊤, ⊕, ↔} ⊬ {¬}
+{⊤, →, ↔, ∨} ⊬ {∨}
+{⊥, ↛, ⊕, ∧} ⊬ {∧}
+{¬, ⊕} ⊢{⊥, ⊤, ¬, ⊕, ↔}
+{¬, ↔} ⊢{⊥, ⊤, ¬, ⊕, ↔}
+{→, ∨} ⊢{⊤, →, ∨}
+{→, ∧} ⊢{⊤, →, ↔, ∧}
+{↛, ∨} ⊢{⊥, ↛, ⊕, ∨}
+{⊕, ↔} ⊢{⊥, ⊤, ⊕, ↔}
+{→, ↔} ⊢{⊤, →, ↔}
+{↛, ⊕} ⊢{⊥, ↛, ⊕}
+{↛}⊢{⊥, ↛}
+{⊕}⊢{⊥, ⊕}
+{→}⊢{⊤,→}
+{↔}⊢{⊤, ↔}</p>
+      </para>
+    </subsection>
+  </section>
+  <section inlist="toc" labels="LABEL:functionally-complete-sets" xml:id="Ch0.S3">
+    <tags>
+      <tag>0.3</tag>
+      <tag role="autoref">section 0.3</tag>
+      <tag role="refnum">0.3</tag>
+      <tag role="typerefnum">§0.3</tag>
+    </tags>
+    <title><tag close=" ">0.3</tag><anchor xml:id="functionally-complete-sets">Functionally Complete Sets</anchor></title>
+    <para xml:id="Ch0.S3.p1">
+      <p>There are 512 subsets of {⊥, ⊤, ¬, →, ↛, ⊕, ↔, ∧, ∨}. 425 subsets are
+functionally complete.
+There are 2048 subsets of {⊥, ⊤, ¬, →, ↛, ⊕, ↔, ∧, ∨, ↓, ↑}. 1961
+subsets are functionally complete.
+NUMERICAL ENCODING! Based on the MAXIMALLY INCOMPLETE SETS
+Class 1: truth-preserving 10000<break/>Class 2: false-preserving 01000<break/>Class 3: affine 00100
+Class 4: monotone 00010
+Class 5: self-dual 00001
+Any connective can be expressed uniquely as a binary numeral.<break/>AND is truth preserving. 10010
+{⊥, ⊤, ¬, ⊕, ↔} Affine set
+{⊥, ↛, ⊕, ∨, ∧} False Preserving set
+{⊤, →, ↔, ∧, ∨} Truth Preserving set
+{⊥, ⊤, ∧, ∨} Monotonic set
+{¬} Self-Dual set
+LIST OF NUMERICAL ENCODINGS!
+⊥: false preserving, affine. 01100
+⊤: truth preserving, affine. 10100
+¬: self-dual: 00001, affine: 00100. 00101
+→Truth Preserving 10000
+↛False Preserving 01000
+⊕False Preserving, Affine 01100
+↔Truth Preserving, Affine 10100
+∧False Preserving, Truth Preserving, Monotonic 11010
+∨False Preserving, Truth Preserving, Monotonic 11010
+↓: 00000
+↑: 00000
+PROVING WHICH SETS ARE FUNCTIONALLY COMPLETE
+A functionally complete set is defined by the property that when all its
+members are summed (with bitwise OR), the sum is 00000.
+{↓}: 00000
+{↑}: 00000
+{⊥, →} : 01100 || 10100 = 00100
+AND: AB
+OR: 1 - (1 - A)(1 - B) = A + B - AB
+NAND: 1 - AB
+NOR: 1 - A - B + AB
+IMPLIES: 1 - A + AB
+NONIMPLIES: A(1-B)</p>
+    </para>
+  </section>
+</document>

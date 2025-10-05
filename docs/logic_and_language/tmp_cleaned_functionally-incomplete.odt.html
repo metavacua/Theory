@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/app/papers/logic_and_language,/app/thesis,/app,/tmp/tmp.g7rcSQiMY9"?>
+<?latexml class="report"?>
+<?latexml package="graphicx"?>
+<?latexml package="amsmath"?>
+<?latexml package="inputenc" options="utf8"?>
+<?latexml package="fontenc" options="T1"?>
+<?latexml package="lmodern"?>
+<?latexml package="amssymb"?>
+<?latexml package="amsthm"?>
+<?latexml package="latexsym"?>
+<?latexml package="centernot"?>
+<?latexml package="enumitem"?>
+<?latexml package="geometry"?>
+<?latexml package="hyperref"?>
+<?latexml package="ragged2e"?>
+<?latexml package="microtype"?>
+<?latexml package="bussproofs"?>
+<?latexml package="setspace"?>
+<?latexml package="tensor"?>
+<?latexml package="cite"?>
+<!--  %New␣notation␣for␣LF --><?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <anchor xml:id="anchor-31"><anchor xml:id="anchor-30"><anchor xml:id="anchor-29"><anchor xml:id="anchor-28"><anchor xml:id="anchor-27"><anchor xml:id="anchor-26"><anchor xml:id="anchor-25"><anchor xml:id="anchor-24"><anchor xml:id="anchor-23"><anchor xml:id="anchor-22"><anchor xml:id="anchor-21"><anchor xml:id="anchor-20"><anchor xml:id="anchor-19"><anchor xml:id="anchor-18"><anchor xml:id="anchor-17"><anchor xml:id="anchor-16"><anchor xml:id="anchor-15"><anchor xml:id="anchor-14"><anchor xml:id="anchor-13"><anchor xml:id="anchor-12"><anchor xml:id="anchor-11"><anchor xml:id="anchor-10"><anchor xml:id="anchor-9"><anchor xml:id="anchor-8"><anchor xml:id="anchor-7"><anchor xml:id="anchor-6"><anchor xml:id="anchor-5"><anchor xml:id="anchor-4"><anchor xml:id="anchor-3"><anchor xml:id="anchor-2"><anchor xml:id="anchor-1"><anchor xml:id="anchor"><resource src="ltx-report.css" type="text/css"/></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor></anchor>
+  <title>Standalone Paper</title>
+  <creator role="author">
+    <personname/>
+  </creator>
+  <para xml:id="p1">
+    <p>Preliminaries</p>
+  </para>
+  <para xml:id="p2">
+    <p>A set of logical connectives is said to be functionally complete when
+combinations of the logical connectives in the set can express every
+equivalent expression of the connectives in the set of {⊥, ⊤, ¬, →, ↛,
+⊕, ↔, ∧, ∨, ↓, ↑}.</p>
+  </para>
+  <para xml:id="p3">
+    <p>A set of logical connectives is said to be functionally incomplete when
+combinations of the logical connectives can not express any functionally
+complete subset of {⊥, ⊤, ¬, →, ↛, ⊕, ↔, ∧, ∨, ↓, ↑}.</p>
+  </para>
+  <para xml:id="p4">
+    <p>The minimal sets of functionally complete logical connectives entail
+that for defining the functionally incomplete sets the only relevant
+logical connectives are in the set {⊥, ⊤, ¬, →, ↛, ⊕, ↔, ∧, ∨}.
+Notably, any set that contains NOR or NAND is automatically functionally
+complete.</p>
+  </para>
+  <para xml:id="p5">
+    <p>Maximal Functionally Incomplete Sets</p>
+  </para>
+  <para xml:id="p6">
+    <p>{⊥, ⊤, ¬, ⊕, ↔}; {→}, {↛}, {∧}, {∨}</p>
+  </para>
+  <para xml:id="p7">
+    <p>{⊥, ↛, ⊕, ∨, ∧}; {⊤}, {¬}, {→}, {↔}</p>
+  </para>
+  <para xml:id="p8">
+    <p>{⊤, →, ↔, ∧, ∨}; {⊥}, {¬}, {↛}, {⊕}</p>
+  </para>
+  <para xml:id="p9">
+    <p>{⊥, ⊤, ∧, ∨}; {⊕}, {↔}, {¬}, {→}, {↛}</p>
+  </para>
+  <para xml:id="p10">
+    <p>Minimal Functionally Complete Sets</p>
+  </para>
+  <para xml:id="p11">
+    <p>Singles</p>
+  </para>
+  <para xml:id="p12">
+    <p>{↓}</p>
+  </para>
+  <para xml:id="p13">
+    <p>{↑}</p>
+  </para>
+  <para xml:id="p14">
+    <p>Doubles</p>
+  </para>
+  <para xml:id="p15">
+    <p>{⊥, →}</p>
+  </para>
+  <para xml:id="p16">
+    <p>{⊥, ←}</p>
+  </para>
+  <para xml:id="p17">
+    <p>{⊤, ↛}</p>
+  </para>
+  <para xml:id="p18">
+    <p>{⊤, ↚}</p>
+  </para>
+  <para xml:id="p19">
+    <p>{¬, →}</p>
+  </para>
+  <para xml:id="p20">
+    <p>{¬, ←}</p>
+  </para>
+  <para xml:id="p21">
+    <p><!--  %****␣tmp_cleaned_functionally-incomplete.odt.tex␣Line␣50␣**** -->{¬, ↛}</p>
+  </para>
+  <para xml:id="p22">
+    <p>{¬, ↚}</p>
+  </para>
+  <para xml:id="p23">
+    <p>{¬, ∨}</p>
+  </para>
+  <para xml:id="p24">
+    <p>{¬, ∧}</p>
+  </para>
+  <para xml:id="p25">
+    <p>{→, ↛}</p>
+  </para>
+  <para xml:id="p26">
+    <p>{→, ↚}</p>
+  </para>
+  <para xml:id="p27">
+    <p>{←, ↛}</p>
+  </para>
+  <para xml:id="p28">
+    <p>{←, ↚}</p>
+  </para>
+  <para xml:id="p29">
+    <p>{→, ⊕}</p>
+  </para>
+  <para xml:id="p30">
+    <p>{←, ⊕}</p>
+  </para>
+  <para xml:id="p31">
+    <p>{↛, ↔}</p>
+  </para>
+  <para xml:id="p32">
+    <p>{↚, ↔}</p>
+  </para>
+  <para xml:id="p33">
+    <p>Triples</p>
+  </para>
+  <para xml:id="p34">
+    <p>{⊥, ↔, ∨}</p>
+  </para>
+  <para xml:id="p35">
+    <p>{↔, ⊕, ∨}</p>
+  </para>
+  <para xml:id="p36">
+    <p>{⊤, ⊕, ∨}</p>
+  </para>
+  <para xml:id="p37">
+    <p>{⊥, ↔, ∧}</p>
+  </para>
+  <para xml:id="p38">
+    <p>{↔, ⊕, ∧}</p>
+  </para>
+  <para xml:id="p39">
+    <p>{⊤, ⊕, ∧}</p>
+  </para>
+  <para xml:id="p40">
+    <p>Functionally Incomplete Sets of
+Logical Connectives</p>
+  </para>
+  <para xml:id="p41">
+    <p>Singles</p>
+  </para>
+  <para xml:id="p42">
+    <p>9 functionally incomplete singles.</p>
+  </para>
+  <para xml:id="p43">
+    <p>{⊥}; {→}, {↔, ∧}, {↔, ∨}; … {⊤, ¬, ↔, ⊕}, {↛, ⊕, ∨, ∧}</p>
+  </para>
+  <para xml:id="p44">
+    <p>{⊤}; {↛}, {⊕, ∧}, {⊕, ∨}; … {⊥, ¬, ↔, ⊕}, {→, ↔, ∧, ∨}</p>
+  </para>
+  <para xml:id="p45">
+    <p>{¬}; {→}, {↛}, {∧}, {∨}; … {⊥, ⊤, ⊕, ↔}</p>
+  </para>
+  <para xml:id="p46">
+    <p>{→}; {⊥}, {¬}, {↛}, {⊕}; … {⊤,↔, ∧, ∨}</p>
+  </para>
+  <para xml:id="p47">
+    <p>{↛}; {⊤}, {¬}, {→}, {↔}; … {⊥, ⊕, ∧, ∨}</p>
+  </para>
+  <para xml:id="p48">
+    <p>{⊕}; {→}, {⊤, ∧}, {⊤, ∨}, {↔, ∧}, {↔, ∨}; … {⊥, ↛, ∨,
+∧}, {⊥, ⊤, ¬, ↔}</p>
+  </para>
+  <para xml:id="p49">
+    <p>{↔}; {↛}, {⊥, ∧}, {⊥, ∨}, {⊕, ∧}, {⊕, ∨}; … {⊤, →, ∧,
+∨}, {⊥, ⊤, ¬, ⊕}</p>
+  </para>
+  <para xml:id="p50">
+    <p>{∧}; {¬}, {⊥, ↔}, {⊤, ⊕}, {⊕, ↔}; {⊥}, {⊤}, {↔}, {⊕},
+{∨}, {→}, {↛}, {∨, →}, {∨, ↛}, …, {⊤, →, ↔, ∨}, {⊥, ↛, ⊕,
+∨}</p>
+  </para>
+  <para xml:id="p51">
+    <p>{∨}; {¬}, {⊥, ↔}, {⊤, ⊕}, {⊕, ↔}; … {∧, ⊤, ↔, →}, {⊕, ⊥,
+∧, ↛}<break/></p>
+  </para>
+  <para xml:id="p52">
+    <p>Doubles</p>
+  </para>
+  <para xml:id="p53">
+    <p>27 functionally incomplete doubles.</p>
+  </para>
+  <para xml:id="p54">
+    <p>Affine</p>
+  </para>
+  <para xml:id="p55">
+    <p><!--  %****␣tmp_cleaned_functionally-incomplete.odt.tex␣Line␣125␣**** -->{⊥, ⊤}; {→}, {↛}, {↔, ∧}, {↔, ∨}, {⊕, ∧}, {⊕, ∨}; {¬},
+{↔}, {⊕}, {∧}, {∨}, {∧, ∨}, {¬, ⊕}, {¬, ↔}, {⊕, ↔}, {¬,
+⊕, ↔}</p>
+  </para>
+  <para xml:id="p56">
+    <p>{⊥, ¬}; {→}, {↛}, {∧}, {∨}; {⊤}, {⊕}, {↔}, {⊤, ⊕},
+{⊤, ↔}, {⊕, ↔}, {⊤, ⊕, ↔}</p>
+  </para>
+  <para xml:id="p57">
+    <p>{⊥, ↔}; {→}, {↛}, {∧}, {∨}; {⊤}, {¬}, {⊕}, {⊤, ¬},
+{⊤, ⊕}, {¬, ⊕}, {⊤, ¬, ⊕}</p>
+  </para>
+  <para xml:id="p58">
+    <p>{⊤, ¬}; {→}, {↛}, {∧}, {∨}; {⊥}, {⊕}, {↔}, {⊥, ⊕},
+{⊥, ↔}, {⊕, ↔}, {⊥, ⊕, ↔}</p>
+  </para>
+  <para xml:id="p59">
+    <p>{⊤, ⊕}; {→}, {↛}, {∧}, {∨}; {⊥}, {¬}, {↔}, {⊥, ¬},
+{⊥, ↔}, {¬, ↔}, {⊥, ¬, ↔}</p>
+  </para>
+  <para xml:id="p60">
+    <p>{¬, ⊕}; {→}, {↛}, {∧}, {∨}; {⊥}, {⊤}, {↔}, {⊥, ⊤},
+{⊥, ↔}, {⊤, ↔}, {⊥, ⊤, ↔}</p>
+  </para>
+  <para xml:id="p61">
+    <p>{¬, ↔}; {→}, {↛}, {∧}, {∨}; {⊥}, {⊤}, {⊕}, {⊥, ⊤},
+{⊥, ⊕}, {⊤, ⊕}, {⊥, ⊤, ⊕}</p>
+  </para>
+  <para xml:id="p62">
+    <p>{↔, ⊕}; {→}, {↛}, {∧}, {∨}; {⊥}, {⊤}, {¬}, {⊥, ⊤},
+{⊥, ¬}, {⊤, ¬}, {⊥, ⊤, ¬}</p>
+  </para>
+  <para xml:id="p63">
+    <p>Truth Preserving</p>
+  </para>
+  <para xml:id="p64">
+    <p>{⊤, →}; {⊥}, {¬}, {↛}, {⊕}; … {↔, ∧, ∨}</p>
+  </para>
+  <para xml:id="p65">
+    <p>{→, ↔}; {⊥}, {¬}, {↛}, {⊕}; … {⊤, ∧, ∨}</p>
+  </para>
+  <para xml:id="p66">
+    <p>{→, ∧}; {⊥}, {¬}, {↛}, {⊕}; … {⊤, ↔, ∨}</p>
+  </para>
+  <para xml:id="p67">
+    <p>{→, ∨}; {⊥}, {¬}, {↛}, {⊕}; … {⊤, ↔, ∧}</p>
+  </para>
+  <para xml:id="p68">
+    <p>{↔, ∨}; {¬}, {↛}, {⊕}, {⊥}; … {⊤, →, ∧}</p>
+  </para>
+  <para xml:id="p69">
+    <p>{↔, ∧}; {¬}, {↛}, {⊕}, {⊥}; … {⊤, →, ∨}</p>
+  </para>
+  <para xml:id="p70">
+    <p>False Preserving</p>
+  </para>
+  <para xml:id="p71">
+    <p>{⊕, ∧}; {¬}, {→}, {↔}, {⊤}; … {⊥, ↛, ∨}</p>
+  </para>
+  <para xml:id="p72">
+    <p>{⊕, ∨}; {¬}, {→}, {↔}, {⊤}; … {⊥, ↛, ∧}</p>
+  </para>
+  <para xml:id="p73">
+    <p>{⊥, ↛}; {⊤}, {¬}, {→}, {↔}; … {⊕, ∨, ∧}</p>
+  </para>
+  <para xml:id="p74">
+    <p>{↛, ⊕}; {⊤}, {¬}, {→}, {↔}; … {⊥, ∨, ∧}</p>
+  </para>
+  <para xml:id="p75">
+    <p>{↛, ∨}; {⊤}, {¬}, {→}, {↔}; … {⊥, ⊕, ∧}</p>
+  </para>
+  <para xml:id="p76">
+    <p><!--  %****␣tmp_cleaned_functionally-incomplete.odt.tex␣Line␣175␣**** -->{↛, ∧}; {⊤}, {¬}, {→}, {↔}; … {⊥, ⊕, ∨}</p>
+  </para>
+  <para xml:id="p77">
+    <p>Monotonic</p>
+  </para>
+  <para xml:id="p78">
+    <p>{⊥, ∨}; {¬}, {→}, {↔}, {⊤, ⊕}; …, {↛, ⊕, ∧}</p>
+  </para>
+  <para xml:id="p79">
+    <p>{⊥, ∧}; {¬}, {→}, {↔}, {⊤, ⊕}; …, {↛, ⊕, ∨}</p>
+  </para>
+  <para xml:id="p80">
+    <p>{⊤, ∨}; {¬}, {↛}, {⊕}, {⊥, ↔}; … {→, ↔, ∧}</p>
+  </para>
+  <para xml:id="p81">
+    <p>{⊤, ∧}; {¬}, {↛}, {⊕}, {⊥, ↔}; … {→, ↔, ∨}</p>
+  </para>
+  <para xml:id="p82">
+    <p>Special</p>
+  </para>
+  <para xml:id="p83">
+    <p>Affine or False Preserving</p>
+  </para>
+  <para xml:id="p84">
+    <p>{⊥, ⊕}; {→}, {⊤, ∧}, {⊤, ∨}, {↔, ∧}, {↔, ∨}; … {⊤,
+¬, ↔}, {↛, ∨, ∧}<break/>Affine or Truth Preserving</p>
+  </para>
+  <para xml:id="p85">
+    <p>{⊤, ↔}; {↛}, {⊥, ∧}, {⊥, ∨}, {⊕, ∧}, {⊕, ∨}; … {⊥,
+¬, ⊕}, {→, ∧, ∨}<break/>Truth or False Preserving</p>
+  </para>
+  <para xml:id="p86">
+    <p><!--  %****␣tmp_cleaned_functionally-incomplete.odt.tex␣Line␣200␣**** -->{∧, ∨}; {¬}, {⊥, ↔}, {⊤, ⊕}, {↔, ⊕}; … {⊥, ↛, ⊕},
+{⊤, →, ↔}</p>
+  </para>
+  <para xml:id="p87">
+    <p>Triples</p>
+  </para>
+  <para xml:id="p88">
+    <p>32 functionally incomplete triples.</p>
+  </para>
+  <para xml:id="p89">
+    <p>Affine Connectives</p>
+  </para>
+  <para xml:id="p90">
+    <p>{⊥, ⊤, ¬}; {→}, {↛}, {∧}, {∨}; {⊕}, {↔}, {⊕, ↔}</p>
+  </para>
+  <para xml:id="p91">
+    <p>{⊥, ⊤, ↔}; {→}, {↛}, {∧}, {∨}; {¬}, {⊕}, {¬, ⊕}</p>
+  </para>
+  <para xml:id="p92">
+    <p>{⊥, ⊤, ⊕}; {→}, {↛}, {∧}, {∨}; {¬}, {↔}, {¬, ↔}</p>
+  </para>
+  <para xml:id="p93">
+    <p>{⊥, ¬, ⊕}; {→}, {↛}, {∧}, {∨}; {⊤}, {↔}, {⊤, ↔}</p>
+  </para>
+  <para xml:id="p94">
+    <p>{⊥, ¬, ↔}; {→}, {↛}, {∧}, {∨}; {⊤}, {⊕}, {⊤, ⊕}</p>
+  </para>
+  <para xml:id="p95">
+    <p>{⊥, ⊕, ↔}; {→}, {↛}, {∧}, {∨}; {⊤}, {¬}, {⊤, ¬}</p>
+  </para>
+  <para xml:id="p96">
+    <p>{⊤, ¬, ⊕}; {→}, {↛}, {∧}, {∨}; {⊥}, {↔}, {⊥, ↔}</p>
+  </para>
+  <para xml:id="p97">
+    <p>{⊤, ¬, ↔}; {→}, {↛}, {∧}, {∨}; {⊥}, {⊕}, {⊥, ⊕}</p>
+  </para>
+  <para xml:id="p98">
+    <p>{⊤, ⊕, ↔}; {→}, {↛}, {∧}, {∨}; {⊥}, {¬}, {⊥, ¬}</p>
+  </para>
+  <para xml:id="p99">
+    <p>{¬, ⊕, ↔}; {→}, {↛}, {∧}, {∨}; {⊥}, {⊤}, {⊥, ⊤}</p>
+  </para>
+  <para xml:id="p100">
+    <p>Truth Preserving Connectives</p>
+  </para>
+  <para xml:id="p101">
+    <p>{⊤, →, ↔}; {⊥}, {¬}, {↛}, {⊕}; {∧}, {∨}, {∧, ∨}</p>
+  </para>
+  <para xml:id="p102">
+    <p>{⊤, →, ∧}; {⊥}, {¬}, {↛}, {⊕}; {↔}, {∨}, {↔, ∨}</p>
+  </para>
+  <para xml:id="p103">
+    <p>{⊤, →, ∨}; {⊥}, {¬}, {↛}, {⊕}; {↔}, {∧}, {↔, ∧}<break/>{⊤, ↔, ∨}; {⊥}, {¬}, {↛}, {⊕}; {→}, {∧}, {→, ∧}<break/>{⊤, ↔, ∧}; {⊥}, {¬}, {↛}, {⊕}; {→}, {∨}, {→, ∨}<break/>{→, ↔, ∧}; {⊥}, {¬}, {↛}, {⊕}; {⊤}, {∨}, {⊤, ∨}<break/>{→, ↔, ∨}; {⊥}, {¬}, {↛}, {⊕}; {⊤}, {∧}, {⊤, ∧}</p>
+  </para>
+  <para xml:id="p104">
+    <p>{→, ∧, ∨}; {⊥}, {¬}, {↛}, {⊕}; {⊤}, {↔}, {⊤, ↔}<break/>{↔, ∧, ∨}; {⊥}, {¬}, {↛}, {⊕}; {⊤}, {→}, {⊤, →}</p>
+  </para>
+  <para xml:id="p105">
+    <p>False Preserving Connectives</p>
+  </para>
+  <para xml:id="p106">
+    <p>{⊥, ↛, ⊕}; {⊤}, {¬}, {→}, {↔}; {∧}, {∨}, {∧, ∨}</p>
+  </para>
+  <para xml:id="p107">
+    <p>{⊥, ⊕, ∨}; {⊤}, {¬}, {→}, {↔}; {↛}, {∧}, {↛, ∧}</p>
+  </para>
+  <para xml:id="p108">
+    <p>{⊥, ⊕, ∧}; {⊤}, {¬}, {→}, {↔}; {↛}, {∨}, {↛, ∨}</p>
+  </para>
+  <para xml:id="p109">
+    <p>{⊥, ↛, ∧}; {⊤}, {¬}, {→}, {↔}; {⊕}, {∨}, {⊕, ∨}</p>
+  </para>
+  <para xml:id="p110">
+    <p>{⊥, ↛, ∨}; {⊤}, {¬}, {→}, {↔}; {∧}, {⊕}, {⊕, ∧}</p>
+  </para>
+  <para xml:id="p111">
+    <p>{↛, ⊕, ∧}; {⊤}, {¬}, {→}, {↔}; {⊥}, {∨}, {⊥, ∨}</p>
+  </para>
+  <para xml:id="p112">
+    <p>{↛, ⊕, ∨}; {⊤}, {¬}, {→}, {↔}; {⊥}, {∧}, {⊥, ∧}<break/>{↛, ∧, ∨}; {⊤}, {¬}, {→}, {↔}; {⊥}, {⊕}, {⊥, ⊕}</p>
+  </para>
+  <para xml:id="p113">
+    <p>{⊕, ∧, ∨}; {⊤}, {¬}, {→}, {↔}; {⊥}, {↛}, {⊥, ↛}</p>
+  </para>
+  <para xml:id="p114">
+    <p>Monotonic Connectives</p>
+  </para>
+  <para xml:id="p115">
+    <p>{⊥, ⊤, ∨}; {¬}, {→}, {↛}, {⊕}, {↔}; {∧}</p>
+  </para>
+  <para xml:id="p116">
+    <p>{⊥, ⊤, ∧}; {¬}, {→}, {↛}, {⊕}, {↔}; {∨}</p>
+  </para>
+  <para xml:id="p117">
+    <p>???</p>
+  </para>
+  <para xml:id="p118">
+    <p>Monotonic or Truth Preserving</p>
+  </para>
+  <para xml:id="p119">
+    <p>{⊥, ∧, ∨}; {¬}, {→}, {↔}; {⊤}, {↛}, {⊕}, {↛, ⊕}</p>
+  </para>
+  <para xml:id="p120">
+    <p>Monotonic or False Preserving<break/><!--  %****␣tmp_cleaned_functionally-incomplete.odt.tex␣Line␣275␣**** -->{⊤, ∧, ∨}; {¬}, {↛}, {⊕}; {⊥}, {→}, {↔}, {→, ↔}</p>
+  </para>
+  <para xml:id="p121">
+    <p>Quadruples</p>
+  </para>
+  <para xml:id="p122">
+    <p>16 functionally incomplete quadruples.</p>
+  </para>
+  <para xml:id="p123">
+    <p>Affine Connectives</p>
+  </para>
+  <para xml:id="p124">
+    <p>{¬, ⊤, ⊕, ↔}; {→}, {↛}, {∧}, {∨}; {⊥}</p>
+  </para>
+  <para xml:id="p125">
+    <p>{¬, ⊥, ⊕, ↔}; {→}, {↛}, {∧}, {∨}; {⊤}</p>
+  </para>
+  <para xml:id="p126">
+    <p>{¬, ⊥, ⊤, ↔}; {→}, {↛}, {∧}, {∨}; {⊕}</p>
+  </para>
+  <para xml:id="p127">
+    <p>{¬, ⊥, ⊤, ⊕}; {→}, {↛}, {∧}, {∨}; {↔}</p>
+  </para>
+  <para xml:id="p128">
+    <p>{⊥, ⊤, ⊕, ↔}; {→}, {↛}, {∧}, {∨}; {¬}</p>
+  </para>
+  <para xml:id="p129">
+    <p>Truth Preserving Connectives</p>
+  </para>
+  <para xml:id="p130">
+    <p>{⊤, ∧, ∨, ↔}; {⊥}, {¬}, {↛}, {⊕}; {→}</p>
+  </para>
+  <para xml:id="p131">
+    <p>{→, ⊤, ∨, ↔}; {⊥}, {¬}, {↛}, {⊕}; {∧}</p>
+  </para>
+  <para xml:id="p132">
+    <p>{→, ⊤, ∧, ↔}; {⊥}, {¬}, {↛}, {⊕}; {∨}</p>
+  </para>
+  <para xml:id="p133">
+    <p>{→, ∧, ∨, ↔}; {⊥}, {¬}, {↛}, {⊕}; {⊤}</p>
+  </para>
+  <para xml:id="p134">
+    <p>{→, ⊤, ∧, ∨}; {⊥}, {¬}, {↛}, {⊕}; {↔}</p>
+  </para>
+  <para xml:id="p135">
+    <p>False Preserving Connectives</p>
+  </para>
+  <para xml:id="p136">
+    <p>{⊥, ↛, ∨, ⊕}; {⊤}, {¬}, {→}, {↔}; {∧}</p>
+  </para>
+  <para xml:id="p137">
+    <p>{⊥, ↛, ∧, ⊕}; {⊤}, {¬}, {→}, {↔}; {∨}</p>
+  </para>
+  <para xml:id="p138">
+    <p>{⊥, ↛, ∧, ∨}; {⊤}, {¬}, {→}, {↔}; {⊕}</p>
+  </para>
+  <para xml:id="p139">
+    <p>{⊥, ∧, ∨, ⊕}; {⊤}, {¬}, {→}, {↔}; {↛}</p>
+  </para>
+  <para xml:id="p140">
+    <p>{↛, ∧, ∨, ⊕}; {⊤}, {¬}, {→}, {↔}; {⊥}</p>
+  </para>
+  <para xml:id="p141">
+    <p>Monotonic Connectives</p>
+  </para>
+  <para xml:id="p142">
+    <p>{⊥, ⊤, ∧, ∨}; {¬}, {→}, {↛}, {⊕}, {↔}</p>
+  </para>
+  <para xml:id="p143">
+    <p>Quintuples</p>
+  </para>
+  <para xml:id="p144">
+    <p>Affine Connectives</p>
+  </para>
+  <para xml:id="p145">
+    <p><!--  %****␣tmp_cleaned_functionally-incomplete.odt.tex␣Line␣325␣**** -->{⊥, ⊤, ¬, ⊕, ↔}; {→}, {↛}, {∧}, {∨}</p>
+  </para>
+  <para xml:id="p146">
+    <p>Truth Preserving Connectives</p>
+  </para>
+  <para xml:id="p147">
+    <p>{⊤, →, ↔, ∧, ∨}; {⊥}, {¬}, {↛}, {⊕}</p>
+  </para>
+  <para xml:id="p148">
+    <p>False Preserving Connectives</p>
+  </para>
+  <para xml:id="p149">
+    <p>{⊥, ↛, ⊕, ∨, ∧}; {⊤}, {¬}, {→}, {↔}</p>
+  </para>
+  <para xml:id="p150">
+    <p>Sextuples and higher</p>
+  </para>
+  <para xml:id="p151">
+    <p>All subsets of {⊥, ⊤, ¬, →, ↛, ⊕, ↔, ∧, ∨} of cardinality 6 or higher
+are functionally complete.</p>
+  </para>
+  <para xml:id="p152">
+    <p>Proof: {⊥, ⊤, ⊕, ↔, ∧, ∨} and {¬, →, ↛} are functionally complete.
+Every 5 element subset of {⊥, ⊤, ⊕, ↔, ∧, ∨} is functionally complete;
+there exist 4 element subsets which are functionally incomplete, but the
+only way to get six element sets from those 4 element sets is to add two
+elements from {¬, →, ↛} and any two elements of {¬, →, ↛} are
+functionally complete together.</p>
+  </para>
+  <para xml:id="p153">
+    <p>Special Cases</p>
+  </para>
+  <para xml:id="p154">
+    <p>{⊥, ⊤, ⊕, ↔} ⊬ {¬}</p>
+  </para>
+  <para xml:id="p155">
+    <p>{⊤, →, ↔, ∨} ⊬ {∧}</p>
+  </para>
+  <para xml:id="p156">
+    <p>{⊥, ↛, ⊕, ∧} ⊬ {∨}</p>
+  </para>
+  <para xml:id="p157">
+    <p>{¬, ⊕} ⊢{⊥, ⊤, ¬, ⊕, ↔}</p>
+  </para>
+  <para xml:id="p158">
+    <p>{¬, ↔} ⊢{⊥, ⊤, ¬, ⊕, ↔}</p>
+  </para>
+  <para xml:id="p159">
+    <p>{→, ∧} ⊢{⊤, →, ↔, ∧, ∨}</p>
+  </para>
+  <para xml:id="p160">
+    <p>{↛, ∨} ⊢{⊥, ↛, ⊕, ∧, ∨}</p>
+  </para>
+  <para xml:id="p161">
+    <p>{⊕, ↔} ⊢{⊥, ⊤, ⊕, ↔}</p>
+  </para>
+  <para xml:id="p162">
+    <p>{→, ↔} ⊢{⊤, →, ↔, ∨}</p>
+  </para>
+  <para xml:id="p163">
+    <p>{↛, ⊕} ⊢{⊥, ↛, ⊕, ∧}</p>
+  </para>
+  <para xml:id="p164">
+    <p>{↛}⊢{↛, ∧}</p>
+  </para>
+  <para xml:id="p165">
+    <p>{⊕}⊢{⊥, ⊕}</p>
+  </para>
+  <para xml:id="p166">
+    <p>{→}⊢{→, ∨}</p>
+  </para>
+  <para xml:id="p167">
+    <p><!--  %****␣tmp_cleaned_functionally-incomplete.odt.tex␣Line␣375␣**** -->{↔}⊢{⊤, ↔}</p>
+  </para>
+  <para xml:id="p168">
+    <p>Functionally Complete Sets</p>
+  </para>
+  <para xml:id="p169">
+    <p>There are 512 subsets of {⊥, ⊤, ¬, →, ↛, ⊕, ↔, ∧, ∨}. 425 subsets are
+functionally complete.</p>
+  </para>
+  <para xml:id="p170">
+    <p>There are 2048 subsets of {⊥, ⊤, ¬, →, ↛, ⊕, ↔, ∧, ∨, ↓, ↑}. 1961
+subsets are functionally complete.</p>
+  </para>
+  <para xml:id="p171">
+    <p>NUMERICAL ENCODING! Based on the MAXIMALLY INCOMPLETE SETS</p>
+  </para>
+  <para xml:id="p172">
+    <p>Class 1: truth-preserving 10000<break/>Class 2: false-preserving 01000<break/>Class 3: affine 00100</p>
+  </para>
+  <para xml:id="p173">
+    <p>Class 4: monotone 00010</p>
+  </para>
+  <para xml:id="p174">
+    <p>Class 5: self-dual 00001</p>
+  </para>
+  <para xml:id="p175">
+    <p>Any connective can be expressed uniquely as a binary numeral.<break/>AND is truth preserving. 10010</p>
+  </para>
+  <para xml:id="p176">
+    <p>{⊥, ⊤, ¬, ⊕, ↔} Affine set</p>
+  </para>
+  <para xml:id="p177">
+    <p><!--  %****␣tmp_cleaned_functionally-incomplete.odt.tex␣Line␣400␣**** -->{⊥, ↛, ⊕, ∨, ∧} False Preserving set</p>
+  </para>
+  <para xml:id="p178">
+    <p>{⊤, →, ↔, ∧, ∨} Truth Preserving set</p>
+  </para>
+  <para xml:id="p179">
+    <p>{⊥, ⊤, ∧, ∨} Monotonic set</p>
+  </para>
+  <para xml:id="p180">
+    <p>{¬} Self-Dual set</p>
+  </para>
+  <para xml:id="p181">
+    <p>LIST OF NUMERICAL ENCODINGS!</p>
+  </para>
+  <para xml:id="p182">
+    <p>⊥: false preserving, affine. 01100</p>
+  </para>
+  <para xml:id="p183">
+    <p>⊤: truth preserving, affine. 10100</p>
+  </para>
+  <para xml:id="p184">
+    <p>¬: self-dual: 00001, affine: 00100. 00101</p>
+  </para>
+  <para xml:id="p185">
+    <p>→Truth Preserving 10000</p>
+  </para>
+  <para xml:id="p186">
+    <p>↛False Preserving 01000</p>
+  </para>
+  <para xml:id="p187">
+    <p>⊕False Preserving, Affine 01100</p>
+  </para>
+  <para xml:id="p188">
+    <p>↔Truth Preserving, Affine 10100</p>
+  </para>
+  <para xml:id="p189">
+    <p>∧False Preserving, Truth Preserving, Monotonic 11010</p>
+  </para>
+  <para xml:id="p190">
+    <p>∨False Preserving, Truth Preserving, Monotonic 11010</p>
+  </para>
+  <para xml:id="p191">
+    <p>↓: 00000</p>
+  </para>
+  <para xml:id="p192">
+    <p>↑: 00000</p>
+  </para>
+  <para xml:id="p193">
+    <p>PROVING WHICH SETS ARE FUNCTIONALLY COMPLETE</p>
+  </para>
+  <para xml:id="p194">
+    <p>A functionally complete set is defined by the property that when all its
+members are summed (with bitwise OR), the sum is 00000.</p>
+  </para>
+  <para xml:id="p195">
+    <p>{↓}: 00000</p>
+  </para>
+  <para xml:id="p196">
+    <p>{↑}: 00000</p>
+  </para>
+  <para xml:id="p197">
+    <p>{⊥, →} : 01100 || 10100 = 00100</p>
+  </para>
+  <para xml:id="p198">
+    <p>AND: AB</p>
+  </para>
+  <para xml:id="p199">
+    <p>OR: 1 - (1 - A)(1 - B) = A + B - AB</p>
+  </para>
+  <para xml:id="p200">
+    <p>NAND: 1 - AB</p>
+  </para>
+  <para xml:id="p201">
+    <p>NOR: 1 - A - B + AB</p>
+  </para>
+  <para xml:id="p202">
+    <p>IMPLIES: 1 - A + AB</p>
+  </para>
+  <para xml:id="p203">
+    <p>NONIMPLIES: A(1-B)</p>
+  </para>
+</document>

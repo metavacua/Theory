@@ -1,0 +1,250 @@
+
+
+\begin{abstract}
+A sequent calculus of ordinary multiplicatives.
+\end{abstract}
+
+\section{Structural Rules}
+
+
+
+	\begin{prooftree}
+	\infer0[Id]{A \vdash A}
+	\end{prooftree}
+
+
+
+	\begin{prooftree}
+	\hypo{\Gamma_{L}, A \vdash}
+	\hypo{\vdash \Delta_{L}, A}
+	\infer2[Cut]{\Gamma_{L} \vdash \Delta_{L}}
+	\end{prooftree}
+
+
+
+	\begin{prooftree}
+	\hypo{A, \Gamma_{R} \vdash}
+	\hypo{\vdash A, \Delta_{R}}
+	\infer2[Cut]{\Gamma_{R} \vdash \Delta_{R}}
+	\end{prooftree}
+
+
+	\begin{prooftree}
+	\hypo{\Gamma \vdash A}
+	\hypo{A \vdash \Delta}
+	\infer2[Cut]{\Gamma \vdash \Delta}
+	\end{prooftree}
+
+
+
+	\begin{prooftree}
+	\hypo{\Gamma_{L}, A, \Gamma_{R} \vdash}
+	\hypo{\vdash \Delta_{L}, A, \Delta_{R}}
+	\infer2[Cut]{\Gamma_{L}, \Gamma_{R} \vdash \Delta_{L}, \Delta_{R}}
+	\end{prooftree}
+
+
+
+	\begin{prooftree}
+	\hypo{\Gamma_{L}, A, \Gamma_{R} \vdash \Delta_{M}}
+	\hypo{\Gamma_{M} \vdash \Delta_{L}, A, \Delta_{R}}
+	\infer2[Cut]{\Gamma_{L}, \Gamma_{M}, \Gamma_{R} \vdash \Delta_{L}, \Delta_{M}, \Delta_{R}}
+	\end{prooftree}
+
+
+
+\newpage
+\section{Operational Rules}
+
+	\subsection{Negations}
+
+
+		\begin{prooftree}
+		\hypo{\Gamma_{L}, \Gamma_{R} \vdash \Delta_{L}, A, \Delta_{R}}
+		\infer1{\Gamma_{L}, \neg_{M} A, \Gamma_{R} \vdash \Delta_{L}, \Delta_{R}}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{ \Gamma_{L}, A, \Gamma_{R} \vdash \Delta_{L}, \Delta_{R}}
+		\infer1{ \Gamma_{L}, \Gamma_{R} \vdash \Delta_{L}, \neg_{M} A, \Delta_{R}}
+		\end{prooftree}
+
+
+
+		\begin{prooftree}
+		\hypo{\Gamma_{L}, \Gamma_{R} \vdash A, \Delta}
+		\infer1{\Gamma_{L}, \neg_{L} A, \Gamma_{R} \vdash \Delta}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{A, \Gamma \vdash \Delta_{L}, \Delta_{R}}
+		\infer1{ \Gamma \vdash \Delta_{L}, \neg_{L} A, \Delta_{R}}
+		\end{prooftree}
+
+
+
+		\begin{prooftree}
+		\hypo{\Gamma_{L}, \Gamma_{R} \vdash \Delta, A}
+		\infer1{\Gamma_{L}, \neg_{R} A, \Gamma_{R} \vdash \Delta}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{ \Gamma, A \vdash \Delta_{L}, \Delta_{R}}
+		\infer1{ \Gamma \vdash \Delta_{L}, \neg_{R} A, \Delta_{R}}
+		\end{prooftree}
+
+
+
+		\begin{prooftree}
+		\hypo{\Gamma \vdash A, \Delta}
+		\infer1{\neg_{L} A, \Gamma \vdash \Delta}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{ A, \Gamma \vdash \Delta}
+		\infer1{ \Gamma \vdash \neg_{L} A, \Delta}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{\Gamma \vdash \Delta, A}
+		\infer1{\Gamma, \neg_{R} A \vdash \Delta}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{ \Gamma, A \vdash \Delta}
+		\infer1{ \Gamma \vdash \Delta, \neg_{R} A}
+		\end{prooftree}
+
+
+
+		\begin{prooftree}
+		\hypo{\Gamma \vdash \Delta, A}
+		\infer1{\neg^{*}_{L} A, \Gamma \vdash \Delta}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{\Gamma, A \vdash \Delta}
+		\infer1{ \Gamma \vdash \neg^{*}_{L} A, \Delta}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{\Gamma \vdash A, \Delta}
+		\infer1{\Gamma, \neg^{*}_{R} A \vdash \Delta}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{ A, \Gamma \vdash \Delta}
+		\infer1{ \Gamma \vdash \Delta, \neg^{*}_{R} A}
+		\end{prooftree}
+
+
+
+	\subsection{Junctions}
+
+
+		\begin{prooftree}
+		\hypo{\Gamma_{L}, A, B, \Gamma_{R} \vdash \Delta}
+		\infer1{\Gamma_{L}, A \otimes B, \Gamma_{R} \vdash \Delta}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{\Gamma_{L} \vdash \Delta_{L}, A}
+		\hypo{\Gamma_{R} \vdash B, \Delta_{R}}
+		\infer2{\Gamma_{L}, \Gamma_{R} \vdash \Delta_{L}, A \otimes B, \Delta_{R}}
+		\end{prooftree}
+
+
+
+		\begin{prooftree}
+		\hypo{\Gamma_{L}, B, A, \Gamma_{R} \vdash \Delta}
+		\infer1{\Gamma_{L}, B \otimes A, \Gamma_{R} \vdash \Delta}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{\Gamma_{L} \vdash \Delta_{L}, B}
+		\hypo{\Gamma_{R} \vdash A, \Delta_{R}}
+		\infer2{\Gamma_{L}, \Gamma_{R} \vdash \Delta_{L}, B \otimes A, \Delta_{R}}
+		\end{prooftree}
+
+
+
+		\begin{prooftree}
+		\hypo{\Gamma_{L}, B \vdash \Delta_{L}}
+		\hypo{A, \Gamma_{R} \vdash \Delta_{R}}
+		\infer2{\Gamma_{L}, B \upand A, \Gamma_{R} \vdash \Delta_{L}, \Delta_{R}}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{\Gamma \vdash \Delta_{L}, B, A, \Delta_{R}}
+		\infer1{\Gamma \vdash \Delta_{L}, B \upand A, \Delta_{R}}
+		\end{prooftree}
+
+
+
+		\begin{prooftree}
+		\hypo{\Gamma_{L}, A \vdash \Delta_{L}}
+		\hypo{B, \Gamma_{R} \vdash \Delta_{R}}
+		\infer2{\Gamma_{L}, A \upand B, \Gamma_{R} \vdash \Delta_{L}, \Delta_{R}}
+		\end{prooftree}
+		\quad
+		\begin{prooftree}
+		\hypo{\Gamma \vdash \Delta_{L}, A, B, \Delta_{R}}
+		\infer1{\Gamma \vdash \Delta_{L}, A \upand B, \Delta_{R}}
+		\end{prooftree}
+
+
+	\subsection{Conditionals}
+
+			There are at least 4 kinds of implications possibly 5 if middle negation can be used.
+
+		\subsection{Biconditionals}
+
+
+				\begin{prooftree}
+				\hypo{\Gamma_{L}, \negA \upand B, \negB \upand A, \Gamma_{R} \vdash \Delta_{L},\Delta_{M},\Delta_{R}}
+				\infer1{\Gamma_{L}, (\negA \upand B)\otimes(\negB \upand A), \Gamma_{R} \vdash \Delta_{L},\Delta_{M},\Delta_{R}}
+				\end{prooftree}
+				\quad
+				\begin{prooftree}
+				\hypo{\Gamma_{L}, \negA \vdash \Delta_{L}}
+				\hypo{B, \negB \vdash \Delta_{M}}
+				\hypo{A, \Gamma_{R} \vdash \Delta_{R}}
+				\infer3{\Gamma_{L}, (\negA \upand B)\otimes(\negB \upand A), \Gamma_{R} \vdash \Delta_{L},\Delta_{M},\Delta_{R}}
+				\end{prooftree}
+
+
+
+				\begin{prooftree}
+				\hypo{\Gamma_{L} \vdash \Delta_{L}, \negA , B}
+				\hypo{\Gamma_{R} \vdash \negB , A, \Delta_{R}}
+				\infer2{\Gamma_{L}, \Gamma_{R} \vdash \Delta_{L}, (\negA \upand B)\otimes(\negB \upand A), \Delta_{R}}
+				\end{prooftree}
+
+
+
+				\begin{prooftree}
+				\hypo{A, \Gamma_{L} \vdash \Delta_{L}, B}
+				\hypo{B, \Gamma_{R} \vdash A, \Delta_{R}}
+				\infer2{\Gamma_{L}, \Gamma_{R} \vdash \Delta_{L}, (\neg_{L}A \upand B)\otimes(\neg_{L}B \upand A), \Delta_{R}}
+				\end{prooftree}
+
+
+
+				\begin{prooftree}
+				\hypo{\Gamma_{L}, A \vdash \Delta_{L}, B}
+				\hypo{\Gamma_{R}, B \vdash A, \Delta_{R}}
+				\infer2{\Gamma_{L}, \Gamma_{R} \vdash \Delta_{L}, (\neg_{R}A \upand B)\otimes(\neg_{R}B \upand A), \Delta_{R}}
+				\end{prooftree}
+
+
+
+				\begin{prooftree}
+				\hypo{\Gamma_{L}, A , B \vdash \Delta_{L}}
+				\hypo{\negA , \negB, \Gamma_{R} \vdash \Delta_{R}}
+				\infer2{\Gamma_{L}, (A \otimes B)\upand(\negA \otimes \negB), \Gamma_{R} \vdash \Delta_{L},\Delta_{R}}
+				\end{prooftree}
+
+
+
+
+\part{Theorems}
