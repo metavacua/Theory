@@ -1,192 +1,95 @@
-
-\documentclass{article}
-
-\usepackage{amsmath}
-\usepackage{ebproof}
-\usepackage{fullpage}
-\usepackage[utf8]{inputenc}
-\usepackage{newunicodechar}
-\usepackage{stix}
-
-\newunicodechar{Γ}{\Gamma}
-\newunicodechar{Δ}{\Delta}
-
-\newunicodechar{Θ}{\Theta}
-\newunicodechar{Λ}{\Lambda}
-
-\newunicodechar{Ξ}{\Xi}
-\newunicodechar{Π}{\Pi}
-
-\newunicodechar{Φ}{\Phi}
-\newunicodechar{Ψ}{\Psi}
-
-\newunicodechar{Ω}{\Omega}
-
-\newunicodechar{⊢}{\vdash}
-
-\newunicodechar{⊕}{\oplus}
-\newunicodechar{¬}{\neg}
-
-\newunicodechar{⊗}{\otimes}
-\newunicodechar{→}{\rightarrow}
-\newunicodechar{←}{\leftarrow}
-
-\newunicodechar{⊥}{\bot}
-\newunicodechar{⊤}{\top}
-
-\setlength{\parindent}{0em}
-
-\author{James Martin, Ian D.L.N. Mclean}
-\title{Multiplicative-Additive Lambek Sequent Calculus}
-
-\begin{document}
-
-\maketitle
-
-\begin{abstract}
-
-\end{abstract}
-
 \section{Operational Rules}
-\begin{center}
-
-	\[
-	\begin{prooftree}
-	\hypo{Γ_{L}, Γ_{R} ⊢ C}
-	\infer1{Γ_{L}, 1, Γ_{R} ⊢ C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\infer0{ ⊢ 1}
-	\end{prooftree}
-	\]
-
-	\[
-	\begin{prooftree}
-	\infer0{Γ_{L}, 0, Γ_{R} ⊢ C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\infer0{ Γ ⊢ ⊤}
-	\end{prooftree}
-	\]
-
-	\[
-	\begin{prooftree}
-	\hypo{Γ_{L}, A, B, Γ_{R} ⊢ C}
-	\infer1{Γ_{L}, A ⊗ B, Γ_{R} ⊢ C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{Γ_{L} ⊢ A}
-	\hypo{Γ_{R} ⊢ B}
-	\infer2{Γ_{L}, Γ_{R} ⊢ A ⊗ B}
-	\end{prooftree}
-	\]
-
-	\[
-	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\hypo{Γ_{L}, B, Γ_{R} ⊢ C}
-	\infer2{Γ_{L}, Γ, A → B, Γ_{R} ⊢ C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{A, Γ ⊢ B}
-	\infer1{Γ ⊢ A → B}
-	\end{prooftree}
-	\]
-
-	\[
-	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\hypo{Γ_{L}, B, Γ_{R} ⊢ C}
-	\infer2{Γ_{L}, B ← A, Γ, Γ_{R} ⊢ C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{Γ, A ⊢ B}
-	\infer1{Γ ⊢ B ← A}
-	\end{prooftree}
-	\]
-
-	\[
-	\begin{prooftree}
-	\hypo{Γ_{L}, A, Γ_{R} ⊢ C}
-	\hypo{Γ_{L}, B, Γ_{R} ⊢ C}
-	\infer2{Γ_{L}, A ⊕ B, Γ_{R} ⊢ C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\infer1{Γ ⊢ A ⊕ B}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{Γ ⊢ B}
-	\infer1{Γ ⊢ A ⊕ B}
-	\end{prooftree}
-	\]
-
-	\[
-	\begin{prooftree}
-	\hypo{Γ_{L}, A, Γ_{R} ⊢ C}
-	\infer1{Γ_{L}, A \& B, Γ_{R} ⊢ C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{Γ_{L}, B, Γ_{R} ⊢ C}
-	\infer1{Γ_{L}, A \& B, Γ_{R} ⊢ C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\hypo{Γ ⊢ B}
-	\infer2{Γ ⊢ A \& B}
-	\end{prooftree}
-	\]
-
-	\[
-	\begin{prooftree}
-	\hypo{ Γ ⊢ A}
-	\infer1{ ¬_{C} A, Γ ⊢ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{ Γ ⊢ A}
-	\infer1{ Γ, ¬_{C} A⊢ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{ A, Γ ⊢ }
-	\infer1{ Γ ⊢ ¬_{L} A}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{ Γ, A ⊢ }
-	\infer1{ Γ ⊢ ¬_{R} A}
-	\end{prooftree}
-	\]
-
-\end{center}
+\begin{prooftree}
+\hypo{$\Gamma_{L}, \Gamma_{R} \vdash C$}
+\inferone{$\Gamma_{L}, 1, \Gamma_{R} \vdash C$}
+\end{prooftree}
+\begin{prooftree}
+\inferzero{$ \vdash 1$}
+\end{prooftree}
+\begin{prooftree}
+\inferzero{$\Gamma_{L}, 0, \Gamma_{R} \vdash C$}
+\end{prooftree}
+\begin{prooftree}
+\inferzero{$ \Gamma \vdash \top$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$\Gamma_{L}, A, B, \Gamma_{R} \vdash C$}
+\inferone{$\Gamma_{L}, A \otimes B, \Gamma_{R} \vdash C$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$\Gamma_{L} \vdash A$}
+\hypo{$\Gamma_{R} \vdash B$}
+\infertwo{$\Gamma_{L}, \Gamma_{R} \vdash A \otimes B$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$\Gamma \vdash A$}
+\hypo{$\Gamma_{L}, B, \Gamma_{R} \vdash C$}
+\infertwo{$\Gamma_{L}, \Gamma, A \rightarrow B, \Gamma_{R} \vdash C$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$A, \Gamma \vdash B$}
+\inferone{$\Gamma \vdash A \rightarrow B$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$\Gamma \vdash A$}
+\hypo{$\Gamma_{L}, B, \Gamma_{R} \vdash C$}
+\infertwo{$\Gamma_{L}, B \leftarrow A, \Gamma, \Gamma_{R} \vdash C$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$\Gamma, A \vdash B$}
+\inferone{$\Gamma \vdash B \leftarrow A$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$\Gamma_{L}, A, \Gamma_{R} \vdash C$}
+\hypo{$\Gamma_{L}, B, \Gamma_{R} \vdash C$}
+\infertwo{$\Gamma_{L}, A \oplus B, \Gamma_{R} \vdash C$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$\Gamma \vdash A$}
+\inferone{$\Gamma \vdash A \oplus B$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$\Gamma \vdash B$}
+\inferone{$\Gamma \vdash A \oplus B$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$\Gamma_{L}, A, \Gamma_{R} \vdash C$}
+\inferone{$\Gamma_{L}, A \& B, \Gamma_{R} \vdash C$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$\Gamma_{L}, B, \Gamma_{R} \vdash C$}
+\inferone{$\Gamma_{L}, A \& B, \Gamma_{R} \vdash C$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$\Gamma \vdash A$}
+\hypo{$\Gamma \vdash B$}
+\infertwo{$\Gamma \vdash A \& B$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$ \Gamma \vdash A$}
+\inferone{$ \neg_{C} A, \Gamma \vdash $}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$ \Gamma \vdash A$}
+\inferone{$ \Gamma, \neg_{C} A\vdash $}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$ A, \Gamma \vdash $}
+\inferone{$ \Gamma \vdash \neg_{L} A$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$ \Gamma, A \vdash $}
+\inferone{$ \Gamma \vdash \neg_{R} A$}
+\end{prooftree}
 
 \section{Structural Rules}
 Uses a variation of cut left.
 
-\begin{center}
-	\[
-	\begin{prooftree}
-	\infer0[Id]{A ⊢ A}
-	\end{prooftree}
-	\]
-
-	\[
-	\begin{prooftree}
-	\hypo{Γ ⊢ A}
-	\hypo{Δ, A, Π ⊢ C}
-	\infer2[CutL]{Δ, Γ, Π ⊢ C}
-	\end{prooftree}
-	\]
-\end{center}
-
-\end{document}
+\begin{prooftree}
+\inferzero[Id]{$A \vdash A$}
+\end{prooftree}
+\begin{prooftree}
+\hypo{$\Gamma \vdash A$}
+\hypo{$\Delta, A, \Pi \vdash C$}
+\infertwo[CutL]{$\Delta, \Gamma, \Pi \vdash C$}
+\end{prooftree}

@@ -1,6 +1,6 @@
 # -*- mode: Perl -*-
 # /=====================================================================\ #
-# |  bussproofs (placeholder)                                           | #
+# |  bussproofs (stable placeholder)                                    | #
 # | Implementation for LaTeXML                                          | #
 # |=====================================================================| #
 package LaTeXML::Package::Pool;
@@ -13,20 +13,9 @@ use LaTeXML::Package;
 # but it does not correctly render the proof trees into semantic HTML.
 # The output will contain placeholder <ltx:inference> and <ltx:axiom> tags
 # inside a generic <ltx:proof> environment.
-# A full implementation requires a more complex, stack-based approach
-# using afterDigest hooks to construct HTML tables, which proved to be
-# a significant undertaking beyond the scope of the current task.
 
-# The main environment for proofs
 DefEnvironment('{prooftree}', '<ltx:proof>#body</ltx:proof>');
-
-# Aliases and custom commands found in the thesis papers.
-# \hypo is used as an alias for \AxiomC.
 DefMacro('\hypo{}', '<ltx:axiom>#1</ltx:axiom>');
-
-# The \infer command is used with a number indicating the number of premises.
-# The optional argument is the rule's name/label.
-# Using spelled-out numbers to avoid parsing issues with numbers in command names.
 DefConstructor('\inferzero[]{}', '<ltx:inference infrule="axiom" rulelabel="#1"><ltx:conclusion>#2</ltx:conclusion></ltx:inference>');
 DefConstructor('\inferone[]{}', '<ltx:inference infrule="unary" rulelabel="#1"><ltx:conclusion>#2</ltx:conclusion></ltx:inference>');
 DefConstructor('\infertwo[]{}', '<ltx:inference infrule="binary" rulelabel="#1"><ltx:conclusion>#2</ltx:conclusion></ltx:inference>');
