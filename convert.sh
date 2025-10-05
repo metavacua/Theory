@@ -10,7 +10,7 @@ set -e
 # --- Configuration ---
 TEMPLATE_FILE="thesis/standalone.tex"
 PAPERS_DIR="papers"
-HTML_DIR="html"
+HTML_DIR="docs"
 THESIS_DIR="thesis"
 # ---
 
