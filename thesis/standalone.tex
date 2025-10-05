@@ -1,0 +1,107 @@
+\documentclass{report}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{centernot}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{microtype}
+\usepackage{bussproofs}
+\usepackage{setspace}
+\usepackage{tensor}
+\usepackage{cite}
+
+% Define theorem/definition environments
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{analogy}{Analogy}[section]
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{hypothesis}{Hypothesis}[section]
+
+% Define logical symbols
+\newcommand{\negation}{\neg}
+\newcommand{\conjunction}{\land}
+\newcommand{\disjunction}{\lor}
+\newcommand{\implication}{\rightarrow}
+\newcommand{\entails}{\vdash}
+\newcommand{\notentails}{\centernot{\vdash}}
+
+% Define complexity classes
+\newcommand{\SigmaZero}{\Sigma^0}
+\newcommand{\PiZero}{\Pi^0}
+\newcommand{\DeltaZero}{\Delta^0}
+
+% Define meta-semantic concepts
+\newcommand{\MetaProps}{\mathbf{M}}
+\newcommand{\ContextParams}{\mathbf{C}}
+\newcommand{\InterpFunc}{\mathbf{I}}
+\newcommand{\RelPrinciples}{\mathbf{RP}}
+\newcommand{\EvalSystem}{\mathbf{E}}
+\newcommand{\ValueSpace}{\mathbf{V}}
+\newcommand{\MetaLang}{\mathbf{ML}}
+
+% Define meta-properties
+\newcommand{\Saf}{\text{Saf}}
+\newcommand{\Sec}{\text{Sec}}
+\newcommand{\Comp}{\text{Comp}}
+\newcommand{\Paracons}{\text{Paracons}}
+\newcommand{\Paracomp}{\text{Paracomp}}
+
+% Define meta-language types
+\newcommand{\MLClass}{\text{Class}}
+\newcommand{\MLParacons}{\text{Paracons but not Paracomp}}
+\newcommand{\MLParacomp}{\text{Paracomplete but not Paracons}}
+\newcommand{\MLBoth}{\text{Paracons and Paracomplete}}
+
+% Define commands for L_0, M_0, L_infty, LT, LF for use in text and math
+\newcommand{\LZero}{L_0} % Retain for general concept
+\newcommand{\LZeroN}{L^0_n} % For specific diamond D_n
+\newcommand{\LvdashN}{L^{\vdash}_n} % New notation for L^0_n
+\newcommand{\MZero}{\mathcal{M}_0}
+\newcommand{\LInf}{L_\infty} % Retain for general concept
+\newcommand{\LInfN}{L^\infty_n} % For specific diamond D_n
+\newcommand{\LGammaDeltaN}{L^{\Gamma\vdash\Delta}_n} % New notation for L^infty_n
+\newcommand{\LT}{L_T} % Define LT with subscript
+\newcommand{\LvdashDeltaN}{L^{\vdash\Delta}_n} % New notation for LT
+\newcommand{\LF}{L_F} % Define LF with subscript
+\newcommand{\LGammavdashN}{L^{\Gamma\vdash}_n} % New notation for LF
+
+
+% Use texorpdfstring for titles and sectioning commands with math
+\newcommand{\pdfLZero}{\texorpdfstring{\LZero}{L0}}
+\newcommand{\pdfLZeroN}{\texorpdfstring{\LZeroN}{L0n}}
+\newcommand{\pdfLvdashN}{\texorpdfstring{\LvdashN}{Lvdashn}}
+\newcommand{\pdfMZero}{\texorpdfstring{\MZero}{M0}}
+\newcommand{\pdfLInf}{\texorpdfstring{\LInf}{Linf}}
+\newcommand{\pdfLInfN}{\texorpdfstring{\LInfN}{Linfn}}
+\newcommand{\pdfLGammaDeltaN}{\texorpdfstring{\LGammaDeltaN}{LGammaDeltaN}}
+\newcommand{\pdfLT}{\texorpdfstring{\LT}{LT}} % Define pdfLT with subscript
+\newcommand{\pdfLvdashDeltaN}{\texorpdfstring{\LvdashDeltaN}{LvdashDeltaN}}
+\newcommand{\pdfLF}{\texorpdfstring{\LF}{LF}} % Define pdfLF with subscript
+\newcommand{\pdfLGammavdashN}{\texorpdfstring{\LGammavdashN}{LGammavdashN}}
+
+\newcommand{\mathbbm}[1]{\text{\mathbb{#1}}}
+\newcommand{\mathbfm}[1]{\mathbf{#1}}
+\newcommand{\mathcalm}[1]{\mathcal{m}}
+\newcommand{\rmm}[1]{\mathrm{#1}}
+
+\title{Standalone Paper}
+\author{}
+\date{}
+
+\begin{document}
+\input{PAPER_PATH}
+\end{document}
