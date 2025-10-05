@@ -51,6 +51,10 @@
 
 
 
+
+
+
+
 The lattice of sequent calculi formed from the combination of functionally incomplete sets of operations and structural rules in a classical metalanguage; purely classical logical connectives and Boolean functions that are functionally incomplete are isolated from each other, so in order to extend systems of functional incompleteness we need to extend them by at least one non-classical operator.
 
 
@@ -69,6 +73,9 @@ The lattice of sequent calculi formed from the combination of functionally incom
 		We generalize this in a manner analogous to Tarski's original formal interpretation as applied to the problem of decidability of theories in standard formalization. If we have collections of non-classical or sub-classical operators or functions that can be interpreted in at least one of the five functionally incomplete sets then those collections of operators or functions are functionally incomplete with respect to the Boolean domain and Boolean functions.
 	\end{flushleft}
 	\begin{flushleft}
+	We can reduce our analysis to the composition of unitless affine and monotone classes of functions and their subclassical analogues due to the fact that the triples of the minimal functionally complete sets concern only those classes; the treatment of unit preservation can be analyzed separately.
+	\end{flushleft}
+	\begin{flushleft}
 		Finally, if we restrict ourselves to only those logical connectives which are classical then the systems can not extend to each other and it seems can not interpret each other, but if we extend these systems by some non-classical logical connective that is compatible with a given set of functionally incomplete logical connectives then we can extend between these systems and interpret between them.
 	\end{flushleft}
 	\section{Interpretations}
@@ -78,21 +85,18 @@ The lattice of sequent calculi formed from the combination of functionally incom
 	\section{Formal Definition of Subclassical Theories}
 		\subsection{Monotonic Theories}
 		$\left\{ $\Gamma$  $\vdash$  A \right\} \bigcup \left\{ A $\vdash$  $\Delta$  \right\}$
-		\subsection{Truth-Preserving Theories}
-		$\left\{ A $\vdash$  $\Delta$  \right\}$
-		\subsection{False-Preserving Theories}
-		$\left\{ $\Gamma$  $\vdash$  A \right\}$
 		\subsection{Affine Theories}
 		$\left\{ $\Gamma$  $\vdash$  A \right\} \bigcap \left\{ A $\vdash$  $\Delta$  \right\}=\emptyset$
 		\subsection{Self-Dual Theories}
 		$\left\{ A $\vdash$  A \right\}$
-	
+
 \end{center}
 
+\newpage
 \part{The Structural Layer}
 \begin{center}
-	The structural monotone, truth-preserving, false-preserving, and affine sequent systems.
-	
+	The structural monotone and affine sequent systems.
+
 	\section{Structural Monotone Calculus}
 		\subsection{Structural Rules}
 		\begin{center}
@@ -147,57 +151,136 @@ The lattice of sequent calculi formed from the combination of functionally incom
 			\]
 		\end{center}
 
-		\subsection{Unit Rules}
+		\subsection{Operational Rules}
+		\begin{center}
+
+			\subsubsection{Multiplicatives}
+			\begin{center}
+				\[
+				\begin{prooftree}
+				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
+				\infer1{$\Gamma$ , A $\land$  B $\vdash$  $\Delta$ }
+				\end{prooftree}
+				\quad
+				\begin{prooftree}
+				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
+				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
+				\infer2{$\Gamma$  $\vdash$  A $\land$  B, $\Delta$ }
+				\end{prooftree}
+				\]
+
+				\[
+				\begin{prooftree}
+				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
+				\hypo{$\Gamma$ , B $\vdash$  $\Delta$ }
+				\infer2{$\Gamma$ , A $\lor$  B $\vdash$  $\Delta$ }
+				\end{prooftree}
+				\quad
+				\begin{prooftree}
+				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
+				\infer1{$\Gamma$  $\vdash$  A $\lor$  B, $\Delta$ }
+				\end{prooftree}
+				\]
+			\end{center}
+		\end{center}
+
+		\subsection{Theorems}
+		\begin{center}
+			\begin{flushleft}
+				Non-contradiction and the excluded middle are inexpressible in the calculus, so we get immediate invalidation of logical explosion and logical implosion.
+			\end{flushleft}
+		\end{center}
+
+	\section{Structural Subaffine Calculus}
+		\subsection{Structural Rules}
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0{$\Gamma$ , $\bot$  $\vdash$  $\Delta$ }
+			\infer0[Id]{A $\vdash$  A}
+			\end{prooftree}
+			\]
+
+			\[
+			\begin{prooftree}
+			\hypo{$\Gamma$  $\vdash$  A}
+			\hypo{A $\vdash$  $\Delta$ }
+			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
+			\end{prooftree}
+			\]
+
+			\[
+			\begin{prooftree}
+			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
+			\infer1[wL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\end{prooftree}
+			\qquad
+			\begin{prooftree}
+			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
+			\infer1[Rw]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\end{prooftree}
+			\]
+
+			\[
+			\begin{prooftree}
+			\hypo{$\Gamma$ , A, A $\vdash$  $\Delta$ }
+			\infer1[cL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\end{prooftree}
+			\qquad
+			\begin{prooftree}
+			\hypo{$\Gamma$  $\vdash$  A, A $\Delta$ }
+			\infer1[Rc]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\end{prooftree}
+			\]
+
+			\[
+			\begin{prooftree}
+			\hypo{$\Gamma$ _0, A, B, $\Gamma$ _1 $\vdash$  $\Delta$ }
+			\infer1[pL]{$\Gamma$ _0, B, A, $\Gamma$ _1 $\vdash$  $\Delta$ }
+			\end{prooftree}
+			\qquad
+			\begin{prooftree}
+			\hypo{$\Gamma$  $\vdash$  $\Delta$ _1, A, B, $\Delta$ _0}
+			\infer1[Rp]{$\Gamma$  $\vdash$  $\Delta$ _1, B, A, $\Delta$ _0}
+			\end{prooftree}
+			\]
+		\end{center}
+
+		\subsection{Operational Rules}
+		\begin{center}
+			\[
+			\begin{prooftree}
+			\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
+			\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
+			\infer2{$\Gamma$ , A $\leftrightarrow$  B $\vdash$  $\Delta$ }
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\infer0{ $\Gamma$  $\vdash$  $\top$ , $\Delta$ }
+			\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
+			\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
+			\infer2{$\Gamma$  $\vdash$  A $\leftrightarrow$  B, $\Delta$ }
+			\end{prooftree}
+			\]
+
+			\[
+			\begin{prooftree}
+			\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
+			\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
+			\infer2{$\Gamma$ , A ↮ B $\vdash$  $\Delta$ }
+			\end{prooftree}
+			\quad
+			\begin{prooftree}
+			\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
+			\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
+			\infer2{$\Gamma$  $\vdash$  A ↮ B, $\Delta$ }
 			\end{prooftree}
 			\]
 		\end{center}
-		
-		\subsection{Operational Rules}
-		\begin{center}
-		
-			\subsubsection{Multiplicatives}
-			\begin{center}
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$ , A $\otimes$  B $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\otimes$  B, $\Delta$ }
-				\end{prooftree}
-				\]
-				
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  $\Delta$ }
-				\infer2{$\Gamma$ , A $\parr$  B $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  A $\parr$  B, $\Delta$ }
-				\end{prooftree}
-				\]
-			\end{center}
-		\end{center}
-		
+
 		\subsection{Theorems}
 		\begin{center}
 		\end{center}
 
-	\section{Structural Truth-Preserving Calculus}
+	\section{Structural Self-Dual Calculus}
 		\subsection{Structural Rules}
 		\begin{center}
 			\[
@@ -251,232 +334,21 @@ The lattice of sequent calculi formed from the combination of functionally incom
 			\]
 		\end{center}
 
-		\subsection{Unit Rules}
-		\begin{center}
-			\[
-			\begin{prooftree}
-			\infer0{ $\Gamma$  $\vdash$  $\top$ , $\Delta$ }
-			\end{prooftree}
-			\]
-		\end{center}
-		
 		\subsection{Operational Rules}
-		\begin{center}
-
-			\subsubsection{Multiplicatives}
 			\begin{center}
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$ , A $\otimes$  B $\vdash$  $\Delta$ }
+				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
+				\infer1{$\Gamma$ , $\neg$  A $\vdash$  $\Delta$ }
 				\end{prooftree}
 				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\otimes$  B, $\Delta$ }
-				\end{prooftree}
-				\]
-
-				\[
 				\begin{prooftree}
 				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  $\Delta$ }
-				\infer2{$\Gamma$ , A $\parr$  B $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  A $\parr$  B, $\Delta$ }
-				\end{prooftree}
-				\]
-
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  $\Delta$ }
-				\infer2{$\Gamma$ , A $\to$  B $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  A $\to$  B, $\Delta$ }
-				\end{prooftree}
-				\]
-
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\infer2{$\Gamma$ , A ← B $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  A ← B, $\Delta$ }
-				\end{prooftree}
-				\]
-
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer0{$\Gamma$ , A $\vdash$  A, $\Delta$ }
-				\infer0{$\Gamma$ , B $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer4{$\Gamma$ , A $\leftrightarrow$  B $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\leftrightarrow$  B, $\Delta$ }
+				\infer1{$\Gamma$  $\vdash$  $\neg$ A, $\Delta$ }
 				\end{prooftree}
 				\]
 			\end{center}
-		\end{center}
 
-		\subsection{Theorems}
-			\begin{center}
-			\end{center}
-
-	\section{Structural False-Preserving Calculus}
-		\subsection{Structural Rules}
-		\begin{center}
-			\[
-			\begin{prooftree}
-			\infer0[Id]{A $\vdash$  A}
-			\end{prooftree}
-			\]
-
-			\[
-			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A}
-			\hypo{A $\vdash$  $\Delta$ }
-			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
-			\end{prooftree}
-			\]
-			
-			\[
-			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[wL]{$\Gamma$ , A $\vdash$  $\Delta$ }
-			\end{prooftree}
-			\qquad
-			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[Rw]{$\Gamma$  $\vdash$  A, $\Delta$ }
-			\end{prooftree}
-			\]
-
-			\[
-			\begin{prooftree}
-			\hypo{$\Gamma$ , A, A $\vdash$  $\Delta$ }
-			\infer1[cL]{$\Gamma$ , A $\vdash$  $\Delta$ }
-			\end{prooftree}
-			\qquad
-			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, A $\Delta$ }
-			\infer1[Rc]{$\Gamma$  $\vdash$  A, $\Delta$ }
-			\end{prooftree}
-			\]
-
-			\[
-			\begin{prooftree}
-			\hypo{$\Gamma$ _0, A, B, $\Gamma$ _1 $\vdash$  $\Delta$ }
-			\infer1[pL]{$\Gamma$ _0, B, A, $\Gamma$ _1 $\vdash$  $\Delta$ }
-			\end{prooftree}
-			\qquad
-			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ _1, A, B, $\Delta$ _0}
-			\infer1[Rp]{$\Gamma$  $\vdash$  $\Delta$ _1, B, A, $\Delta$ _0}
-			\end{prooftree}
-			\]
-		\end{center}
-		
-		\subsection{Unit Rules}
-		\begin{center}
-			\[
-			\begin{prooftree}
-			\infer0{$\Gamma$ , $\bot$  $\vdash$  $\Delta$ }
-			\end{prooftree}
-			\]
-		\end{center}
-		
-		\subsection{Operational Rules}
-		\begin{center}
-
-			\subsubsection{Multiplicatives}
-			\begin{center}
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$ , A $\otimes$  B $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\otimes$  B, $\Delta$ }
-				\end{prooftree}
-				\]
-
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  $\Delta$ }
-				\infer2{$\Gamma$ , A $\parr$  B $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  A $\parr$  B, $\Delta$ }
-				\end{prooftree}
-				\]
-
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-				\infer1{$\Gamma$ , A $\nrightarrow$  B $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\nrightarrow$  B, $\Delta$ }
-				\end{prooftree}
-				\]
-
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-				\infer1{$\Gamma$ , A $\nleftarrow$  B $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\nleftarrow$  B, $\Delta$ }
-				\end{prooftree}
-				\]
-
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-				\infer2{$\Gamma$ , A ↮ B $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer0{$\Gamma$ , A $\vdash$  A, $\Delta$ }
-				\infer0{$\Gamma$ , B $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer4{$\Gamma$  $\vdash$  A ↮ B, $\Delta$ }
-				\end{prooftree}
-				\]
-			\end{center}
-		\end{center}
-		
 		\subsection{Theorems}
 		\begin{center}
 		\end{center}
@@ -534,146 +406,60 @@ The lattice of sequent calculi formed from the combination of functionally incom
 			\end{prooftree}
 			\]
 		\end{center}
-		
-		\subsection{Unit Rules}
+
+		\subsection{Operational Rules}
 		\begin{center}
 			\[
 			\begin{prooftree}
-			\infer0{$\Gamma$ , $\bot$  $\vdash$  $\Delta$ }
+			\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\infer1{$\Gamma$ , $\neg$  A $\vdash$  $\Delta$ }
 			\end{prooftree}
 			\quad
 			\begin{prooftree}
-			\infer0{ $\Gamma$  $\vdash$  $\top$ , $\Delta$ }
-			\end{prooftree}
-			\]
-		\end{center}
-
-		\subsection{Operational Rules}
-		\begin{center}
-
-			\subsubsection{Multiplicatives}
-			\begin{center}
-								\[
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\infer1{$\Gamma$ , $\neg$  A $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  $\neg$ A, $\Delta$ }
-				\end{prooftree}
-				\]
-
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer0{$\Gamma$ , A $\vdash$  A, $\Delta$ }
-				\infer0{$\Gamma$ , B $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer4{$\Gamma$ , A $\leftrightarrow$  B $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  A $\leftrightarrow$  B, $\Delta$ }
-				\end{prooftree}
-				\]
-
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
-				\infer2{$\Gamma$ , A ↮ B $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
-				\infer0{$\Gamma$ , A $\vdash$  A, $\Delta$ }
-				\infer0{$\Gamma$ , B $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
-				\infer4{$\Gamma$  $\vdash$  A ↮ B, $\Delta$ }
-				\end{prooftree}
-				\]
-			\end{center}
-		\end{center}
-
-		\subsection{Theorems}
-		\begin{center}
-		\end{center}
-
-	\section{Structural Self-Dual Calculus}
-		\subsection{Structural Rules}
-		\begin{center}
-			\[
-			\begin{prooftree}
-			\infer0[Id]{A $\vdash$  A}
-			\end{prooftree}
-			\]
-			
-			\[
-			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A}
-			\hypo{A $\vdash$  $\Delta$ }
-			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
+			\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\infer1{$\Gamma$  $\vdash$  $\neg$ A, $\Delta$ }
 			\end{prooftree}
 			\]
 
 			\[
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[wL]{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\infer1{$\Gamma$ , $\neg$  A $\vdash$  $\Delta$ }
 			\end{prooftree}
-			\qquad
+			\quad
 			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ }
-			\infer1[Rw]{$\Gamma$  $\vdash$  A, $\Delta$ }
+			\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
+			\infer1{$\Gamma$  $\vdash$  $\neg$ A, $\Delta$ }
 			\end{prooftree}
 			\]
-			
-			\[
-			\begin{prooftree}
-			\hypo{$\Gamma$ , A, A $\vdash$  $\Delta$ }
-			\infer1[cL]{$\Gamma$ , A $\vdash$  $\Delta$ }
-			\end{prooftree}
-			\qquad
-			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A, A $\Delta$ }
-			\infer1[Rc]{$\Gamma$  $\vdash$  A, $\Delta$ }
-			\end{prooftree}
-			\]
-			
-			\[
-			\begin{prooftree}
-			\hypo{$\Gamma$ _0, A, B, $\Gamma$ _1 $\vdash$  $\Delta$ }
-			\infer1[pL]{$\Gamma$ _0, B, A, $\Gamma$ _1 $\vdash$  $\Delta$ }
-			\end{prooftree}
-			\qquad
-			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  $\Delta$ _1, A, B, $\Delta$ _0}
-			\infer1[Rp]{$\Gamma$  $\vdash$  $\Delta$ _1, B, A, $\Delta$ _0}
-			\end{prooftree}
-			\]
-		\end{center}
-		
-		\subsection{Operational Rules}
-		\begin{center}
 
-			\subsubsection{Multiplicatives}
-			\begin{center}
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\infer1{$\Gamma$ , $\neg$  A $\vdash$  $\Delta$ }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  $\neg$ A, $\Delta$ }
-				\end{prooftree}
-				\]
-			\end{center}
+			\[
+			\begin{prooftree}
+			\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
+			\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
+			\infer2{$\Gamma$ , A $\leftrightarrow$  B $\vdash$  $\Delta$ }
+			\end{prooftree}
+			\quad
+			\begin{prooftree}
+			\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
+			\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
+			\infer2{$\Gamma$  $\vdash$  A $\leftrightarrow$  B, $\Delta$ }
+			\end{prooftree}
+			\]
+
+			\[
+			\begin{prooftree}
+			\hypo{$\Gamma$ , A $\vdash$  B, $\Delta$ }
+			\hypo{$\Gamma$ , B $\vdash$  A, $\Delta$ }
+			\infer2{$\Gamma$ , A ↮ B $\vdash$  $\Delta$ }
+			\end{prooftree}
+			\quad
+			\begin{prooftree}
+			\hypo{$\Gamma$  $\vdash$  A, B, $\Delta$ }
+			\hypo{$\Gamma$ , A, B $\vdash$  $\Delta$ }
+			\infer2{$\Gamma$  $\vdash$  A ↮ B, $\Delta$ }
+			\end{prooftree}
+			\]
 		\end{center}
 
 		\subsection{Theorems}
@@ -682,25 +468,26 @@ The lattice of sequent calculi formed from the combination of functionally incom
 
 \end{center}
 
+\newpage
 \part{The Commutative Layer}
 \begin{center}
-	The commutative monotone, truth-preserving, false-preserving, and affine sequent systems.
+	The commutative monotone, and affine sequent systems.
 \end{center}
 
+\newpage
 \part{The Non-Commutative Erasure Layer}
 \begin{center}
-	The non-commutative erasable monotone, truth-preserving, false-preserving, and affine sequent systems.
+	The non-commutative erasable monotone, and affine sequent systems.
 \end{center}
 
+\newpage
 \part{The Non-Commutative Cloning Layer}
 \begin{center}
-	The non-commutative clonable monotone, truth-preserving, false-preserving, and affine sequent systems.
+	The non-commutative clonable monotone, and affine sequent systems.
 \end{center}
 
+\newpage
 \part{The No-Cloning and No-Erasure Non-Commutative Layer}
 \begin{center}
-	The non-commutative monotone, truth-preserving, false-preserving, and affine sequent systems.
+	The non-commutative monotone, and affine sequent systems.
 \end{center}
-
-
-

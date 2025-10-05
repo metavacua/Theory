@@ -1,82 +1,39 @@
-	
-	\begin{abstract}
-		This thesis delves into the nuanced concepts of existential and universal locality and non-locality within physical, computational, and logical systems. We refine our definitions to distinguish between existential and universal forms of locality and non-locality. We hypothesize about the nature of these relations, focusing on existential non-locality (H1) as a counterpoint to the null hypothesis of universal locality (H0). We explore the implications of these concepts in each domain, providing illustrative examples and refining our understanding of what constitutes existentially and universally local and non-local processes.  The thesis expands on theorems linking physical locality to computational and logical locality, and further elaborates on experimental designs to test these hypotheses. We argue that while existential locality is evident in classical approximations, the universe fundamentally exhibits existential non-locality, necessitating a shift beyond universally local frameworks.
-	\end{abstract}
-	
-	\section{Introduction}
-	
-	Building upon the foundational distinction between local and non-local relations, this thesis now focuses on the existential and universal quantifiers applied to locality and non-locality across physics, computation, and logic.  While our previous work established definitions and theorems pointing towards the refutation of universal locality, this iteration sharpens our focus on understanding the specific nature of existential non-locality and contrasting it with the hypothetical construct of universal locality.  We aim to clarify what it means for a process to be existentially non-local versus universally non-local in each domain, and to further explore the implications for our understanding of physical reality, computation, and logical inference.  The central question guiding this refined investigation is: Can we have existential locality and existential non-locality without either universal locality or universal non-locality?  And if universal locality is untenable, what does this imply about the nature of processes in these domains?
+\section{Introduction}
 
-	\section{Refined Definitions: Existential vs. Universal Locality and Non-Locality}
+The distinction between local and non-local relations is fundamental across physics, computation, and logic. Classical frameworks often presuppose locality, asserting that influences and dependencies are mediated locally in space and time, or through discrete computational steps, and logical inferences are context-independent. However, quantum mechanics and advanced computational paradigms challenge this assumption, suggesting the existence of non-local correlations and dependencies. This thesis rigorously examines the concept of locality and non-locality across these domains, formulating testable hypotheses and designing experiments to probe the validity of universal locality. We aim to constructively integrate physical, computational, and logical perspectives to provide a comprehensive understanding of local and non-local relations, ultimately arguing for the refutation of universal locality in favor of the recognition of existential non-locality.
 
-	We refine our definitions to explicitly distinguish between existential and universal forms of locality and non-locality in physical, computational, and logical domains.
+\section{Definitions}
 
-	\subsection{Physical Domain}
+\begin{definition}[Physical Locality]
+	A physical relation between two physical systems $A$ and $B$ is \textbf{local} if any influence or dependency between $A$ and $B$ is mediated by interactions propagating at or below the speed of light within spacetime, and is solely determined by properties and states within their respective spacetime regions and their intersection. A physical relation is \textbf{non-local} if it violates this condition, exhibiting instantaneous or space-like separated correlations that cannot be explained by local interactions.
+\end{definition}
 
-	\begin{definition}[Existential Physical Locality]
-		\textbf{Existential physical locality} asserts that there exist at least some physical relations that are local, meaning influences are mediated at or below the speed of light, determined by properties within spacetime regions and their intersection.  Classical physics provides numerous examples of existentially local relations.
-	\end{definition}
+\begin{definition}[Computational Locality (Sieg-Gandy Local Causation - SG-LC)]
+	A computational process exhibits \textbf{local causation} if state changes are governed by local interactions, where each computational step depends only on the immediately preceding state and local inputs, with any propagation of influence being bounded in each discrete step. A computational relation is \textbf{computationally local} if it adheres to local causation. A computational relation is \textbf{computationally non-local} if it violates local causation, implying that a computational step can be instantaneously influenced by distant or non-adjacent parts of the computational system in a manner not reducible to a sequence of local steps.
+\end{definition}
 
-	\begin{definition}[Existential Physical Non-Locality]
-		\textbf{Existential physical non-locality} asserts that there exists at least one physical relation that is non-local, violating the conditions of physical locality by exhibiting instantaneous or space-like separated correlations not explainable by local interactions. Quantum entanglement exemplifies existential physical non-locality.
-	\end{definition}
+\begin{definition}[Logical Locality]
+	A logical relation $R$ between logical objects $A$ and $B$ is \textbf{local} if the truth value of $R(A, B)$ is determined solely by the intrinsic properties of $A$ and $B$ and their local logical context, without dependence on non-local logical contexts or relations. A logical relation is \textbf{logically non-local} if its truth value is context-dependent in a way that cannot be reduced to the local properties of $A$ and $B$ and their immediate logical environment, implying a dependence on broader, non-local logical structures or relations.
+\end{definition}
 
-	\begin{definition}[Universal Physical Locality]
-		\textbf{Universal physical locality} (Hypothetical) posits that \textbf{all} physical relations in the universe are local. This would imply that no fundamental physical process exhibits non-local correlations, and the universe operates entirely according to local interactions. This is the null hypothesis (H0) we aim to refute.
-	\end{definition}
+\begin{definition}[Universal Relation]
+	A relation (physical, computational, or logical) is \textbf{universal} within a domain if it holds for all possible instances or pairs of objects within that domain. For example, universal physical locality would mean every physical relation is local.
+\end{definition}
 
-	\begin{definition}[Universal Physical Non-Locality]
-		\textbf{Universal physical non-locality} (Hypothetical) would assert that \textbf{all} fundamental physical relations are non-local. This extreme view would imply that locality is never fundamentally applicable in physics, and all correlations, even seemingly local ones, ultimately arise from non-local underpinnings.  This is a less explored and more speculative concept.
-	\end{definition}
-	
-	\subsection{Computational Domain}
-	
-	\begin{definition}[Existential Computational Locality]
-		\textbf{Existential computational locality} describes computational processes that exhibit local causation (SG-LC) for at least some computational relations.  Traditional algorithms and classical computation largely operate within the bounds of existential computational locality.
-	\end{definition}
-	
-	\begin{definition}[Existential Computational Non-Locality]
-		\textbf{Existential computational non-locality} describes computational processes where at least one computational relation violates local causation. Quantum computation, particularly algorithms leveraging entanglement, can be considered existentially computationally non-local.
-	\end{definition}
-	
-	\begin{definition}[Universal Computational Locality]
-		\textbf{Universal computational locality} (Hypothetical) would mean that \textbf{all} computational relations in any possible computational system must adhere to local causation. This would restrict computation to step-by-step, locally determined processes, excluding any form of instantaneous or non-local computational influence.
-	\end{definition}
-	
-	\begin{definition}[Universal Computational Non-Locality]
-		\textbf{Universal computational non-locality} (Hypothetical) would imply that \textbf{all} computational relations are fundamentally non-local.  This could envision a form of computation where every step inherently involves instantaneous dependencies across the entire computational system, potentially exceeding the bounds of Turing-machine-like models.
-	\end{definition}
-	
-	\subsection{Logical Domain}
+\begin{definition}[Existential Relation]
+	A relation (physical, computational, or logical) is \textbf{existential} within a domain if there exists at least one instance or pair of objects within that domain for which the relation holds. For example, existential physical non-locality would mean there exists at least one physical relation that is non-local.
+\end{definition}
 
-	\begin{definition}[Existential Logical Locality]
-		\textbf{Existential logical locality} describes logical relations that are local for at least some logical contexts. Classical logic, with its context-independent truth values for many relations, embodies existential logical locality.
-	\end{definition}
-	
-	\begin{definition}[Existential Logical Non-Locality]
-		\textbf{Existential logical non-locality} describes logical relations whose truth values are context-dependent in a way that implies a dependence on broader, non-local logical structures for at least some logical relations. Paraconsistent logics, which handle contradictions that might arise from non-local or inconsistent information sources, can be seen as exploring existential logical non-locality.
-	\end{definition}
+\section{Hypotheses}
 
-	\begin{definition}[Universal Logical Locality]
-		\textbf{Universal logical locality} (Hypothetical) would assert that \textbf{all} logical relations must be logically local. This would mean that context-dependence in logic is always reducible to local factors, and there are no truly non-local dependencies in logical truth.
-	\end{definition}
+\begin{hypothesis}[H0: Universal Locality (Null Hypothesis)]
+	All fundamental physical, computational, and logical relations are universally local. That is, \textbf{every} physical relation is local, \textbf{every} computational relation is computationally local, and \textbf{every} logical relation is logically local.
+\end{hypothesis}
 
-	\begin{definition}[Universal Logical Non-Locality]
-		\textbf{Universal logical non-locality} (Hypothetical) would imply that \textbf{all} logical relations are fundamentally logically non-local. In such a logical system, truth values would always be globally context-dependent, potentially making classical logical inference inapplicable.
-	\end{definition}
+\begin{hypothesis}[H1: Existential Non-Locality (Alternative Hypothesis)]
+	There exists at least one fundamental relation that is non-local in at least one of the physical, computational, or logical domains. That is, there exists at least one physical relation that is non-local, or at least one computational relation that is computationally non-local, or at least one logical relation that is logically non-local.
+\end{hypothesis}
 
-	\section{Refined Hypotheses}
-
-	Our hypotheses are now refined to focus on the existential and universal nature of locality and non-locality.
-	
-	\begin{hypothesis}[H0: Universal Locality (Null Hypothesis)]
-		All fundamental physical, computational, and logical relations are universally local.  This implies universal physical locality, universal computational locality, and universal logical locality as defined above.
-	\end{hypothesis}
-	
-	\begin{hypothesis}[H1: Existential Non-Locality (Alternative Hypothesis)]
-		There exists existential non-locality in at least one of the physical, computational, or logical domains.  This means at least one of existential physical non-locality, existential computational non-locality, or existential logical non-locality is true.  This hypothesis does not preclude the existence of existential locality alongside existential non-locality.
-	\end{hypothesis}
-	
 \section{Theorems}
 
 \begin{theorem}[Theorem 1: Universal Physical Locality Implies Universal Computational and Logical Locality]
@@ -102,7 +59,7 @@
 	
 	Combining both cases, if there exists at least one physical non-local relation, then to either computationally simulate or logically describe this non-locality, we must admit either existential computational non-locality or existential logical non-locality, or both. Therefore, existential physical non-locality implies existential computational or logical non-locality.
 \end{proof}
-	
+
 \section{Experiments}
 
 \subsection{Experiment E0: Attempt to Refute Universal Locality (Null Hypothesis Test) - Classical System Locality Test}
@@ -154,43 +111,17 @@
 \textbf{Evidence for Existential Non-Locality (Supporting H1 and Refuting H0):}  Quantum mechanics predicts, and experiments consistently show, that for certain measurement settings, the Bell inequality is violated, i.e., $|S| > 2$.  Specifically, quantum mechanics predicts a maximal violation up to $S = 2\sqrt{2}$ for optimal settings. Observation of a statistically significant violation of the Bell inequality (e.g., $S > 2 + \epsilon$, where $\epsilon$ is beyond experimental uncertainty) would constitute strong evidence against local realism and, by extension, against universal locality.
 
 \textbf{Interpretation of E1:}  A statistically significant violation of the Bell inequality in Experiment E1 would empirically demonstrate that the correlations between entangled photons are non-local and cannot be explained by any local realistic theory. Given the assumptions of our theorem framework, and if we maintain logical determinism and reasoner independence as reasonable assumptions for interpreting quantum mechanics, then the violation of Bell inequalities directly implies the existence of physical non-locality. This experimental result would therefore provide strong empirical support for Hypothesis H1 (Existential Non-Locality) and serve as a direct refutation of Hypothesis H0 (Universal Locality), at least in the physical domain, and by Theorem 2, imply non-locality in computational or logical domains as well. This experiment directly tests for and is expected to confirm existential physical non-locality, thereby refuting the null hypothesis of universal locality.
-	
-	\section{Discussion: Existential Locality, Existential Non-Locality, and the Refutation of Universal Locality}
-	
-	The refined definitions and hypotheses allow us to more precisely discuss the implications of locality and non-locality.
-	
-	\subsection{Existential Locality: The Classical Approximation}
-	
-	Existential locality is readily observed in classical physics, computation, and logic.  Classical mechanics, electromagnetism (in its original formulation), and general relativity are fundamentally local theories.  Classical computation, based on Turing machines and similar models, operates through step-by-step local causation.  Classical logic, such as propositional and first-order logic, often assumes context-independent truth values for many relations. These frameworks demonstrate the effectiveness and applicability of \textbf{existential locality} in describing a vast range of phenomena.  For instance:
-	
-	\begin{itemize}
-		\item \textbf{Physical:}  The propagation of sound waves, the motion of macroscopic objects under gravity, and electromagnetic waves in classical electrodynamics exemplify existentially local physical relations.
-		\item \textbf{Computational:}  Sorting algorithms, search algorithms, and rule-based expert systems are examples of existentially computationally local processes.
-		\item \textbf{Logical:}  The logical relation of implication in propositional logic, where $P \implies Q$ is determined solely by the truth values of $P$ and $Q$, is an example of existential logical locality.
-	\end{itemize}
-	However, the existence of these local descriptions does not necessitate \textbf{universal locality}.
-	
-	\subsection{Existential Non-Locality: Quantum Reality and Beyond}
-	
-	Experiment E1, the Bell test, is designed to demonstrate \textbf{existential physical non-locality} through the violation of Bell inequalities.  Quantum entanglement provides a clear example of a physical relation that is non-local, challenging the classical assumption of universal locality.  Furthermore, we can identify potential instances of existential non-locality in computation and logic:
-	
-	\begin{itemize}
-		\item \textbf{Physical:} Quantum entanglement, as experimentally verified, is the prime example of existential physical non-locality.
-		\item \textbf{Computational:} Quantum algorithms that exploit entanglement, such as quantum teleportation or certain quantum search algorithms, demonstrate \textbf{existential computational non-locality}. The computational relations in these algorithms are not reducible to sequences of local causal steps in the classical sense.
-		\item \textbf{Logical:} Paraconsistent logics, designed to handle contradictions without logical explosion, can be seen as exploring \textbf{existential logical non-locality}.  In situations where information sources are non-locally correlated or inconsistent (as might arise from quantum measurements or distributed systems), logical relations may need to be context-dependent in a non-local way to manage these inconsistencies. For example, consider a logical system reasoning about measurements on entangled particles; the logical relations describing correlations might need to reflect the non-local nature of entanglement.
-	\end{itemize}
-	
-	\subsection{Hypothetical Universal Locality and Non-Locality}
-	
-	\textbf{Universal locality}, if true, would simplify our understanding of the universe, implying a clockwork-like, deterministic, and locally interacting reality across all domains. However, experimental evidence, particularly from Bell tests, challenges this view in the physical domain.  If universal physical locality were true, by Theorem 1, we would also expect universal computational and logical locality, severely restricting the scope of computation and logic beyond classical paradigms.
-	
-	\textbf{Universal non-locality}, while more speculative, presents a radical alternative.  A universe of universal physical non-locality would be profoundly interconnected, where every event could instantaneously influence every other event, challenging our notions of causality and spacetime.  In computation, universal computational non-locality might imply computational processes that are fundamentally holistic and non-sequential.  In logic, universal logical non-locality could lead to a completely context-dependent logic where truth is always relative to a global logical state. While intriguing, there is currently no empirical evidence suggesting universal non-locality in any domain, and it poses significant conceptual challenges.
-	
-	\subsection{Refutation of Universal Locality and the Necessity of Existential Non-Locality}
-	
-	The weight of experimental evidence from quantum mechanics, particularly Bell inequality violations, strongly suggests that \textbf{universal physical locality (H0) is false}. Experiment E1 is designed to provide further empirical support for this refutation.  Given Theorem 2, the existence of physical non-locality implies the necessity of considering non-locality in computation or logic as well.  Therefore, while \textbf{existential locality} provides a useful and often accurate approximation, especially in classical domains, it is not universally applicable.  The universe, at its fundamental level, appears to exhibit \textbf{existential non-locality}, demanding that our physical, computational, and logical frameworks must be expanded to accommodate and understand non-local relations.
-	
-	\section{Conclusion}
-	
-	This refined thesis has explored the concepts of existential and universal locality and non-locality across physical, computational, and logical domains. By distinguishing between existential and universal forms, we have clarified the scope and implications of locality and non-locality. We have argued that while existential locality is evident and useful in classical approximations, \textbf{universal locality (H0) is likely false}, particularly in light of quantum mechanics and the expected outcomes of Bell test experiments like E1.  The confirmation of existential physical non-locality necessitates the acceptance and exploration of \textbf{existential non-locality} in computational and logical domains as well.  Moving forward, the development of non-classical physical theories, non-local computational paradigms (like quantum computation), and context-sensitive logical systems (like paraconsistent logics) is crucial for a more complete and accurate understanding of reality, computation, and inference in a universe that transcends the limitations of universal locality and embraces the richness of existential non-locality.
-	
+
+\section{Discussion}
+
+The experiments proposed are designed to directly confront the hypothesis of universal locality. Experiment E0 attempts to find the limits of locality even in a system designed to be locally causal. While a null result in E0 would not prove universal locality, any positive result indicating non-local behavior would be highly significant against H0. Experiment E1, the Bell test, is designed to directly test for and is expected to confirm existential physical non-locality, based on established quantum mechanical predictions and experimental validations. A successful Bell test, violating Bell inequalities, would provide strong empirical evidence against universal locality (H0) and in favor of existential non-locality (H1).
+
+Theorem 1 and Theorem 2 provide a rigorous logical framework linking physical locality to computational and logical locality. Theorem 1 shows that universal physical locality would necessitate universal locality in computation and logic, reinforcing the classical expectation of a universally local world. Theorem 2, conversely, demonstrates that even a single instance of physical non-locality implies that non-locality must exist in either the computational or logical domain, or both, opening the door for non-classical computation and logic.
+
+The combined theoretical and experimental approach of this thesis argues against universal locality. While classical physics and computation provide powerful approximations in many domains, the evidence from quantum mechanics, particularly Bell test experiments, strongly suggests that nature is fundamentally non-local at some level. This non-locality, as argued, has implications not only for physics but also for the foundations of computation and logic.  The exploration of non-local relations in computation (e.g., quantum computation) and logic (e.g., non-reflexive, non-transitive logics) becomes not just a theoretical curiosity but a necessity for a comprehensive understanding of reality and for developing computational and logical systems that can effectively model and harness non-local phenomena.
+
+\section{Conclusion}
+
+This thesis rigorously examined the concept of local and non-local relations across physical, computational, and logical domains. Through definitions, theorems, and proposed experiments, we have argued against the hypothesis of universal locality (H0) and in favor of existential non-locality (H1). Theorem 1 established that universal physical locality would imply universal computational and logical locality, while Theorem 2 showed that existential physical non-locality necessitates non-locality in computation or logic. Experiment E0 probes the limits of locality in a classical system, while Experiment E1, a Bell test, is designed to empirically demonstrate existential physical non-locality.
+
+The anticipated outcome of Experiment E1, a violation of Bell inequalities, would serve as empirical refutation of universal locality and strong support for existential non-locality. This conclusion necessitates a paradigm shift in our understanding of physical, computational, and logical systems, moving beyond the classical assumption of universal locality to embrace non-classical frameworks that can accommodate and leverage non-local relations. The exploration and development of non-classical computation and logic are essential for advancing our scientific and technological capabilities in a universe that demonstrably transcends the limitations of universal locality.

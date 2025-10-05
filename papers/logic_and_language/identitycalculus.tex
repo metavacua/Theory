@@ -1,92 +1,62 @@
-
-
-
-\begin{abstract}
 A calculus of Horn clauses, equality, equivalence, identity, explicit substitution of expressions, reductions, and reflexivity.
-\end{abstract}
 
 \part{Preliminaries}
-\begin{center}
-	\begin{flushleft}
-		The primary method is intended to be solely substitution of equals for equals.
-	\end{flushleft}
 
-	
-\end{center}
+The primary method is intended to be solely substitution of equals for equals.
 
 \newpage
 \part{Identity Calculi}
-\begin{center}
-	
-	\section{Non-Structural Identity Calculus}
-		\subsection{Structural Rules}
-		\begin{center}
-			\[
-			\begin{prooftree}
-			\infer0[Id]{A $\vdash$  A}
-			\end{prooftree}
-			\]
-			
-			\[
-			\begin{prooftree}
-			\hypo{$\Gamma$  $\vdash$  A}
-			\hypo{A $\vdash$  $\Delta$ }
-			\infer2[Cut]{$\Gamma$  $\vdash$  $\Delta$ }
-			\end{prooftree}
-			\]
-		\end{center}
-		
-		\subsection{Operational Rules}
-		\begin{center}
-		
-			\subsubsection{Multiplicatives}
-			\begin{center}
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  P}
-				\infer1[Substitution of Expressions]{$\Gamma$  $\vdash$  P[x/E]}
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  P = Q}
-				\infer1[Equality of Expressions]{$\Gamma$  $\vdash$  [x/P] = [x/Q]}
-				\end{prooftree}
-				\]
-				
-				\[
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  P = Q}
-				\hypo{$\Gamma$  $\vdash$  Q = R}
-				\infer2[Transitivity of Equality]{$\Gamma$  $\vdash$  P = R}
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  P}
-				\hypo{$\Gamma$  $\vdash$  P \Leftrightarrow Q}
-				\infer2[Equianimity]{$\Gamma$  $\vdash$  Q}
-				\end{prooftree}
-				\]
-				
-				\[
-				\begin{prooftree}
-				\hypo{A, B $\vdash$ }
-				\hypo{$\vdash$  A, B}
-				\infer2{A \Leftrightarrow B $\vdash$  }
-				\end{prooftree}
-				\quad
-				\begin{prooftree}
-				\hypo{A $\vdash$  B}
-				\hypo{B $\vdash$  A}
-				\infer2{$\vdash$  A \Leftrightarrow B}
-				\end{prooftree}
-				\]
-			\end{center}
-		\end{center}
-		
-		\subsection{Theorems}
-		\begin{center}
-			\begin{flushleft}
-			\end{flushleft}
-		\end{center}
-\end{center}
 
+\section{Non-Structural Identity Calculus}
+\subsection{Structural Rules}
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC[Id]{$A \vdash A$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\AxiomC{$A \vdash \Delta$}
+\BinaryInfC[Cut]{$\Gamma \vdash \Delta$}
+\end{prooftree}
+
+\subsection{Operational Rules}
+
+\subsubsection{Multiplicatives}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash P$}
+\UnaryInfC[Substitution of Expressions]{$\Gamma \vdash P[x/E]$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash P = Q$}
+\UnaryInfC[Equality of Expressions]{$\Gamma \vdash [x/P] = [x/Q]$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash P = Q$}
+\AxiomC{$\Gamma \vdash Q = R$}
+\BinaryInfC[Transitivity of Equality]{$\Gamma \vdash P = R$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash P$}
+\AxiomC{$\Gamma \vdash P \Leftrightarrow Q$}
+\BinaryInfC[Equianimity]{$\Gamma \vdash Q$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$A, B \vdash$}
+\AxiomC{$\vdash A, B$}
+\BinaryInfC{$A \Leftrightarrow B \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash B$}
+\AxiomC{$B \vdash A$}
+\BinaryInfC{$\vdash A \Leftrightarrow B$}
+\end{prooftree}
+
+\subsection{Theorems}

@@ -1,4 +1,17 @@
 #!/bin/bash
+find papers -type f -name "*.tex" -exec sed -i 's/\\documentclass{.*}//g' {} \;
+find papers -type f -name "*.tex" -exec sed -i 's/\\usepackage{.*}//g' {} \;
+find papers -type f -name "*.tex" -exec sed -i 's/\\title{.*}//g' {} \;
+find papers -type f -name "*.tex" -exec sed -i 's/\\author{.*}//g' {} \;
+find papers -type f -name "*.tex" -exec sed -i 's/\\date{.*}//g' {} \;
+find papers -type f -name "*.tex" -exec sed -i 's/\\maketitle//g' {} \;
+find papers -type f -name "*.tex" -exec sed -i 's/\\begin{document}//g' {} \;
+find papers -type f -name "*.tex" -exec sed -i 's/\\end{document}//g' {} \;
+find papers -type f -name "*.tex" -exec sed -i 's/\\begin{abstract}//g' {} \;
+find papers -type f -name "*.tex" -exec sed -i 's/\\end{abstract}//g' {} \;
+find papers -type f -name "*.tex" -exec sed -i 's/\\newtheorem{.*}//g' {} \;
+find papers -type f -name "*.tex" -exec sed -i 's/\\newunicodechar{.*}{.*}//g' {} \;
+find papers -type f -name "*.tex" -exec sed -i 's/\\setlength{.*}{.*}//g' {} \;
 find papers -type f -name "*.tex" -exec sed -i 's/’/\\textquotesingle /g' {} \;
 find papers -type f -name "*.tex" -exec sed -i 's/–/\\textendash /g' {} \;
 find papers -type f -name "*.tex" -exec sed -i 's/“/\\textquotedblleft /g' {} \;

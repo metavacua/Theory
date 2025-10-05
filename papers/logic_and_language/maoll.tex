@@ -1,678 +1,646 @@
-
-
-
-\begin{abstract}
 A sequent system that preserves the law of excluded middle and non-contradiction, but not generally ECQ and EQN?
-\end{abstract}
 
 \section{Structural Rules}
 
-\begin{center}
-	\[
-	\begin{prooftree}
-	\infer0[Id]{A $\vdash$  A}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{$\Gamma$  $\vdash$  A}
-	\hypo{$\Delta$ , A, $\Pi$  $\vdash$  C}
-	\infer2[CutL]{$\Delta$ , $\Gamma$ , $\Pi$  $\vdash$  C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{$\Gamma$ , A, $\Phi$  $\vdash$  C}
-	\hypo{C $\vdash$  $\Delta$ , A, $\Psi$ }
-	\infer2[Cut]{$\Gamma$ , $\Phi$  $\vdash$  $\Delta$ , $\Psi$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{C $\vdash$  $\Pi$ , A, $\Delta$ }
-	\hypo{A $\vdash$  $\Gamma$ }
-	\infer2[CutR]{C $\vdash$  $\Pi$ , $\Gamma$ , $\Delta$ }
-	\end{prooftree}
-	\]
-\end{center}
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC[Id]{$A \vdash A$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\AxiomC{$\Delta, A, \Pi \vdash C$}
+\BinaryInfC[CutL]{$\Delta, \Gamma, \Pi \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma, \Phi \vdash C, A$}
+\AxiomC{$C \vdash \Delta, A, \Psi$}
+\BinaryInfC[Cut]{$\Gamma, \Phi \vdash \Delta, \Psi$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$C \vdash \Pi, A, \Delta$}
+\AxiomC{$A \vdash \Gamma$}
+\BinaryInfC[CutR]{$C \vdash \Pi, \Gamma, \Delta$}
+\end{prooftree}
 
 \section{Unit Rules}
-\begin{center}
-		\[
-	\begin{prooftree}
-	\hypo{$\Gamma$ _{L}, $\Gamma$ _{R} $\vdash$  C}
-	\infer1{$\Gamma$ _{L}, 1, $\Gamma$ _{R} $\vdash$  C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{C $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
-	\infer1{C $\vdash$  $\Delta$ _{L}, $\bot$ , $\Delta$ _{R}}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\infer0{ $\bot$  $\vdash$  }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\infer0{ $\vdash$  1}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\infer0{$\Gamma$ _{L}, 0, $\Gamma$ _{R} $\vdash$  C}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\infer0{ 0 $\vdash$  $\Delta$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\infer0{ $\Gamma$  $\vdash$  $\top$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\infer0{C $\vdash$  $\Delta$ _{L}, $\top$ , $\Delta$ _{R}}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\infer0{$\Gamma$ _{L}, 0, $\Gamma$ _{R} $\vdash$  $\Delta$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\infer0{$\Gamma$  $\vdash$  $\Delta$ _{L}, $\top$ , $\Delta$ _{R}}
-	\end{prooftree}
-	\]
-\end{center}
+
+\begin{prooftree}
+\AxiomC{$\Gamma_L, \Gamma_R \vdash C$}
+\UnaryInfC{$\Gamma_L, 1, \Gamma_R \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$C \vdash \Delta_L, \Delta_R$}
+\UnaryInfC{$C \vdash \Delta_L, \bot, \Delta_R$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\bot \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\vdash 1$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\Gamma_L, 0, \Gamma_R \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$0 \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\Gamma \vdash \top$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$C \vdash \Delta_L, \top, \Delta_R$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\Gamma_L, 0, \Gamma_R \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\Gamma \vdash \Delta_L, \top, \Delta_R$}
+\end{prooftree}
 
 \newpage
 \section{Operational Rules}
-\begin{center}
-	\subsection{Negations}
-	\begin{center}
-			\[
-		\begin{prooftree}
-		\hypo{$\Gamma$ , $\Phi$  $\vdash$  $\Delta$ , A, $\Psi$ }
-		\infer1{$\Gamma$ , $\neg$  A, $\Phi$  $\vdash$  $\Delta$ , $\Psi$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{ $\Phi$ , A, $\Gamma$  $\vdash$  $\Psi$ , $\Delta$ }
-		\infer1{ $\Phi$ , $\Gamma$  $\vdash$  $\Psi$ , $\neg$  A, $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$ , $\Phi$  $\vdash$  $\Delta$ , A, $\Psi$ }
-		\infer1{$\Gamma$ , $\neg$  A, $\Phi$  $\vdash$  $\Delta$ , $\Psi$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Phi$ , A, $\Gamma$  $\vdash$  $\Psi$ , $\Delta$ }
-		\infer1{ $\Phi$ , $\Gamma$  $\vdash$  $\Psi$ , $\neg$  A, $\Delta$ }
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  $\Delta$ , A}
-		\infer1{$\Gamma$ , $\neg$  A $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{ A, $\Gamma$  $\vdash$  $\Delta$ }
-		\infer1{ $\Gamma$  $\vdash$  $\neg$  A, $\Delta$ }
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\hypo{ $\Gamma$  $\vdash$  A}
-		\infer1{ $\neg$  A, $\Gamma$  $\vdash$  }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{ $\Gamma$  $\vdash$  A}
-		\infer1{ $\Gamma$ , $\neg$  A$\vdash$  }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{ A, $\Gamma$  $\vdash$  }
-		\infer1{ $\Gamma$  $\vdash$  $\neg$  A}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{ $\Gamma$ , A $\vdash$  }
-		\infer1{ $\Gamma$  $\vdash$  $\neg$  A}
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\hypo{ $\vdash$  A, $\Delta$ }
-		\infer1{ $\neg$  A $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{ $\vdash$  $\Delta$ , A}
-		\infer1{ $\neg$  A$\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{ A $\vdash$  $\Delta$ }
-		\infer1{ $\vdash$  $\neg$  A, $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{ A $\vdash$  $\Delta$ }
-		\infer1{ $\vdash$  $\Delta$ , $\neg$  A}
-		\end{prooftree}
-		\]
-	\end{center}
+\subsection{Negations}
 
-	\subsection{Additives}
-	\begin{center}
-		\[
-		\begin{prooftree}
-		\hypo{$\Gamma$ , A, $\Phi$  $\vdash$  $\Delta$ }
-		\hypo{$\Gamma$ , B, $\Phi$  $\vdash$  $\Delta$ }
-		\infer2{$\Gamma$ , A $\oplus$  B, $\Phi$  $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  $\Delta$ , A, $\Psi$  }
-		\infer1{$\Gamma$  $\vdash$  $\Delta$ , A $\oplus$  B, $\Psi$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  $\Delta$ , B, $\Psi$  }
-		\infer1{$\Gamma$  $\vdash$  $\Delta$ , A $\oplus$  B, $\Psi$ }
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\hypo{$\Gamma$ , A, $\Phi$  $\vdash$  $\Psi$ }
-		\infer1{$\Gamma$ , A \& B, $\Phi$  $\vdash$  $\Psi$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$ , B, $\Phi$  $\vdash$  $\Psi$ }
-		\infer1{$\Gamma$ , A \& B, $\Phi$  $\vdash$  $\Psi$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{ $\Gamma$  $\vdash$  $\Delta$ , B, $\Psi$ }
-		\hypo{ $\Gamma$  $\vdash$  $\Delta$ , A, $\Psi$ }
-		\infer2{ $\Gamma$  $\vdash$  $\Delta$ , B \& A, $\Psi$ }
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\hypo{$\Gamma$ , A, $\Phi$  $\vdash$  C}
-		\hypo{$\Gamma$ , B, $\Phi$  $\vdash$  C}
-		\infer2{$\Gamma$ , A $\oplus$  B, $\Phi$  $\vdash$  C}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  A}
-		\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  B}
-		\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{A $\vdash$  $\Delta$ }
-		\infer1{A \& B $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{B $\vdash$  $\Delta$ }
-		\infer1{A \& B $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{ C $\vdash$  $\Psi$ , B, $\Delta$ }
-		\hypo{ C $\vdash$  $\Psi$ , A, $\Delta$ }
-		\infer2{ C $\vdash$  $\Psi$ , B \& A, $\Delta$ }
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\hypo{$\Gamma$ , A, $\Phi$  $\vdash$  C}
-		\infer1{$\Gamma$ , A \& B, $\Phi$  $\vdash$  C}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$ , B, $\Phi$  $\vdash$  C}
-		\infer1{$\Gamma$ , A \& B, $\Phi$  $\vdash$  C}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  A}
-		\hypo{$\Gamma$  $\vdash$  B}
-		\infer2{$\Gamma$  $\vdash$  A \& B}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{B $\vdash$  $\Delta$ }
-		\hypo{A $\vdash$  $\Delta$ }
-		\infer2{B $\oplus$  A $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{C $\vdash$  $\Psi$ , A, $\Delta$ }
-		\infer1{C $\vdash$  $\Psi$ , B $\oplus$  A, $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{C $\vdash$  $\Psi$ , B, $\Delta$ }
-		\infer1{C $\vdash$  $\Psi$ , B $\oplus$  A, $\Delta$ }
-		\end{prooftree}
-		\]
-		
-		
-		\[
-		\begin{prooftree}
-		\hypo{$\Gamma$ , $\Phi$  $\vdash$  C, A}
-		\hypo{$\Gamma$ , $\Phi$  $\vdash$  C, B}
-		\infer2{$\Gamma$ , $\neg$  A $\oplus$  $\neg$  B, $\Phi$  $\vdash$  C}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{A, $\Gamma$  $\vdash$  }
-		\infer1{$\Gamma$  $\vdash$  $\neg$  A $\oplus$  $\neg$  B}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{B, $\Gamma$  $\vdash$  }
-		\infer1{$\Gamma$  $\vdash$  $\neg$  A $\oplus$  $\neg$  B}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\vdash$  $\Delta$ , A}
-		\infer1{$\neg$  B \& $\neg$  A $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\vdash$  $\Delta$ , B}
-		\infer1{$\neg$  B \& $\neg$  A $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{ B, C $\vdash$  $\Psi$ , $\Delta$ }
-		\hypo{ A, C $\vdash$  $\Psi$ , $\Delta$ }
-		\infer2{ C $\vdash$  $\Psi$ , $\neg$  B \& $\neg$  A, $\Delta$ }
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\hypo{$\Gamma$ , $\Phi$  $\vdash$  C, A}
-		\infer1{$\Gamma$ , $\neg$  A \& $\neg$  B, $\Phi$  $\vdash$  C}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$ , $\Phi$  $\vdash$  C, B}
-		\infer1{$\Gamma$ , $\neg$  A \& $\neg$  B, $\Phi$  $\vdash$  C}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{A, $\Gamma$  $\vdash$  }
-		\hypo{B, $\Gamma$  $\vdash$  }
-		\infer2{$\Gamma$  $\vdash$  $\neg$  A \& $\neg$  B}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\vdash$  $\Delta$ , B}
-		\hypo{$\vdash$  $\Delta$ , A}
-		\infer2{$\neg$  B $\oplus$  $\neg$  A $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{A, C $\vdash$  $\Psi$ , $\Delta$ }
-		\infer1{C $\vdash$  $\Psi$ , $\neg$  B $\oplus$  $\neg$  A, $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{B, C $\vdash$  $\Psi$ , $\Delta$ }
-		\infer1{C $\vdash$  $\Psi$ , $\neg$  B $\oplus$  $\neg$  A, $\Delta$ }
-		\end{prooftree}
-		\]
-		
-	\end{center}
+\begin{prooftree}
+\AxiomC{$\Gamma, \Phi \vdash \Delta, A, \Psi$}
+\UnaryInfC{$\Gamma, \neg A, \Phi \vdash \Delta, \Psi$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Phi, A, \Gamma \vdash \Psi, \Delta$}
+\UnaryInfC{$\Phi, \Gamma \vdash \Psi, \neg A, \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma, \Phi \vdash \Delta, A, \Psi$}
+\UnaryInfC{$\Gamma, \neg A, \Phi \vdash \Delta, \Psi$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Phi, A, \Gamma \vdash \Psi, \Delta$}
+\UnaryInfC{$\Phi, \Gamma \vdash \Psi, \neg A, \Delta$}
+\end{prooftree}
 
-	\subsection{Multiplicatives}
-	\begin{center}
-		\[
-		\begin{prooftree}
-		\hypo{$\Gamma$ , A, B, $\Phi$  $\vdash$  C}
-		\infer1{$\Gamma$ , A $\otimes$  B, $\Phi$  $\vdash$  C}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  A}
-		\hypo{$\Phi$  $\vdash$  B}
-		\infer2{$\Gamma$ , $\Phi$  $\vdash$  A $\otimes$  B}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{B $\vdash$  $\Psi$ }
-		\hypo{A $\vdash$  $\Delta$ }
-		\infer2{B $\parr$  A $\vdash$  $\Psi$ , $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{C $\vdash$  $\Psi$ , B, A, $\Delta$ }
-		\infer1{C $\vdash$  $\Psi$ , B $\parr$  A, $\Delta$ }
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\hypo{$\Gamma$ , B, A, $\Phi$  $\vdash$  C}
-		\infer1{$\Gamma$ , B $\otimes$  A, $\Phi$  $\vdash$  C}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Phi$  $\vdash$  B}
-		\hypo{$\Gamma$  $\vdash$  A}
-		\infer2{$\Phi$ , $\Gamma$  $\vdash$  B $\otimes$  A}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{A $\vdash$  $\Delta$ }
-		\hypo{B $\vdash$  $\Psi$ }
-		\infer2{A $\parr$  B $\vdash$  $\Delta$ , $\Psi$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{C $\vdash$  $\Psi$ , A, B, $\Delta$ }
-		\infer1{C $\vdash$  $\Psi$ , A $\parr$  B, $\Delta$ }
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  A}
-		\hypo{$\Phi$ , B, Θ $\vdash$  C}
-		\infer2{$\Phi$ , $\Gamma$ , A $\to$  B, Θ $\vdash$  C}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{A, $\Gamma$  $\vdash$  B}
-		\infer1{$\Gamma$  $\vdash$  A $\to$  B}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{B $\vdash$  $\Delta$ , A}
-		\infer1{A $\nleftarrow$  B $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{A $\vdash$  $\Delta$ }
-		\hypo{C $\vdash$  Λ, B, $\Psi$ }
-		\infer2{C $\vdash$  Λ, A $\nleftarrow$  B, $\Psi$ , $\Delta$ }
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\hypo{$\Gamma$  $\vdash$  A}
-		\hypo{$\Phi$ , B, Θ $\vdash$  C}
-		\infer2{$\Phi$ , $\Gamma$ , B ← A, Θ $\vdash$  C}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{$\Gamma$ , A $\vdash$  B}
-		\infer1{$\Gamma$  $\vdash$  B ← A}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{B $\vdash$  A, $\Psi$ }
-		\infer1{A $\nrightarrow$  B $\vdash$  $\Psi$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\hypo{A $\vdash$  $\Delta$ }
-		\hypo{C $\vdash$  Λ, B, $\Psi$ }
-		\infer2{C $\vdash$  Λ, B $\nrightarrow$  A, $\Psi$ , $\Delta$ }
-		\end{prooftree}
-		\]
-	\end{center}
-\end{center}
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash \Delta, A$}
+\UnaryInfC{$\Gamma, \neg A \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A, \Gamma \vdash \Delta$}
+\UnaryInfC{$\Gamma \vdash \neg A, \Delta$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\UnaryInfC{$\neg A, \Gamma \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\UnaryInfC{$\Gamma, \neg A\vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A, \Gamma \vdash$}
+\UnaryInfC{$\Gamma \vdash \neg A$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma, A \vdash$}
+\UnaryInfC{$\Gamma \vdash \neg A$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\vdash A, \Delta$}
+\UnaryInfC{$\neg A \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash \Delta, A$}
+\UnaryInfC{$\neg A\vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\UnaryInfC{$\vdash \neg A, \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\UnaryInfC{$\vdash \Delta, \neg A$}
+\end{prooftree}
+
+\subsection{Additives}
+
+\begin{prooftree}
+\AxiomC{$\Gamma, A, \Phi \vdash \Delta$}
+\AxiomC{$\Gamma, B, \Phi \vdash \Delta$}
+\BinaryInfC{$\Gamma, A \oplus B, \Phi \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash \Delta, A, \Psi$}
+\UnaryInfC{$\Gamma \vdash \Delta, A \oplus B, \Psi$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash \Delta, B, \Psi$}
+\UnaryInfC{$\Gamma \vdash \Delta, A \oplus B, \Psi$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma, A, \Phi \vdash \Psi$}
+\UnaryInfC{$\Gamma, A \land B, \Phi \vdash \Psi$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma, B, \Phi \vdash \Psi$}
+\UnaryInfC{$\Gamma, A \land B, \Phi \vdash \Psi$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash \Delta, B, \Psi$}
+\AxiomC{$\Gamma \vdash \Delta, A, \Psi$}
+\BinaryInfC{$\Gamma \vdash \Delta, B \land A, \Psi$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma, A, \Phi \vdash C$}
+\AxiomC{$\Gamma, B, \Phi \vdash C$}
+\BinaryInfC{$\Gamma, A \oplus B, \Phi \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\UnaryInfC{$\Gamma \vdash A \oplus B$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash B$}
+\UnaryInfC{$\Gamma \vdash A \oplus B$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\UnaryInfC{$A \land B \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B \vdash \Delta$}
+\UnaryInfC{$A \land B \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$C \vdash \Psi, B, \Delta$}
+\AxiomC{$C \vdash \Psi, A, \Delta$}
+\BinaryInfC{$C \vdash \Psi, B \land A, \Delta$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma, A, \Phi \vdash C$}
+\UnaryInfC{$\Gamma, A \land B, \Phi \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma, B, \Phi \vdash C$}
+\UnaryInfC{$\Gamma, A \land B, \Phi \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\AxiomC{$\Gamma \vdash B$}
+\BinaryInfC{$\Gamma \vdash A \land B$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B \vdash \Delta$}
+\AxiomC{$A \vdash \Delta$}
+\BinaryInfC{$B \oplus A \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$C \vdash \Psi, A, \Delta$}
+\UnaryInfC{$C \vdash \Psi, B \oplus A, \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$C \vdash \Psi, B, \Delta$}
+\UnaryInfC{$C \vdash \Psi, B \oplus A, \Delta$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma, \Phi \vdash C, A$}
+\AxiomC{$\Gamma, \Phi \vdash C, B$}
+\BinaryInfC{$\Gamma, \neg A \oplus \neg B, \Phi \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A, \Gamma \vdash$}
+\UnaryInfC{$\Gamma \vdash \neg A \oplus \neg B$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B, \Gamma \vdash$}
+\UnaryInfC{$\Gamma \vdash \neg A \oplus \neg B$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash \Delta, A$}
+\UnaryInfC{$\neg B \land \neg A \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash \Delta, B$}
+\UnaryInfC{$\neg B \land \neg A \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B, C \vdash \Psi, \Delta$}
+\AxiomC{$A, C \vdash \Psi, \Delta$}
+\BinaryInfC{$C \vdash \Psi, \neg B \land \neg A, \Delta$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma, \Phi \vdash C, A$}
+\UnaryInfC{$\Gamma, \neg A \land \neg B, \Phi \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma, \Phi \vdash C, B$}
+\UnaryInfC{$\Gamma, \neg A \land \neg B, \Phi \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A, \Gamma \vdash$}
+\AxiomC{$B, \Gamma \vdash$}
+\BinaryInfC{$\Gamma \vdash \neg A \land \neg B$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash \Delta, B$}
+\AxiomC{$\vdash \Delta, A$}
+\BinaryInfC{$\neg B \oplus \neg A \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A, C \vdash \Psi, \Delta$}
+\UnaryInfC{$C \vdash \Psi, \neg B \oplus \neg A, \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B, C \vdash \Psi, \Delta$}
+\UnaryInfC{$C \vdash \Psi, \neg B \oplus \neg A, \Delta$}
+\end{prooftree}
+
+\subsection{Multiplicatives}
+
+\begin{prooftree}
+\AxiomC{$\Gamma, A, B, \Phi \vdash C$}
+\UnaryInfC{$\Gamma, A \otimes B, \Phi \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\AxiomC{$\Phi \vdash B$}
+\BinaryInfC{$\Gamma, \Phi \vdash A \otimes B$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B \vdash \Psi$}
+\AxiomC{$A \vdash \Delta$}
+\BinaryInfC{$B \parr A \vdash \Psi, \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$C \vdash \Psi, B, A, \Delta$}
+\UnaryInfC{$C \vdash \Psi, B \parr A, \Delta$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma, B, A, \Phi \vdash C$}
+\UnaryInfC{$\Gamma, B \otimes A, \Phi \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Phi \vdash B$}
+\AxiomC{$\Gamma \vdash A$}
+\BinaryInfC{$\Phi, \Gamma \vdash B \otimes A$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\AxiomC{$B \vdash \Psi$}
+\BinaryInfC{$A \parr B \vdash \Delta, \Psi$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$C \vdash \Psi, A, B, \Delta$}
+\UnaryInfC{$C \vdash \Psi, A \parr B, \Delta$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\AxiomC{$\Phi, B, \Theta \vdash C$}
+\BinaryInfC{$\Phi, \Gamma, A \to B, \Theta \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A, \Gamma \vdash B$}
+\UnaryInfC{$\Gamma \vdash A \to B$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B \vdash \Delta, A$}
+\UnaryInfC{$A \nleftarrow B \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\AxiomC{$C \vdash \Lambda, B, \Psi$}
+\BinaryInfC{$C \vdash \Lambda, A \nleftarrow B, \Psi, \Delta$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash A$}
+\AxiomC{$\Phi, B, \Theta \vdash C$}
+\BinaryInfC{$\Phi, \Gamma, B \leftarrow A, \Theta \vdash C$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\Gamma, A \vdash B$}
+\UnaryInfC{$\Gamma \vdash B \leftarrow A$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B \vdash A, \Psi$}
+\UnaryInfC{$A \nrightarrow B \vdash \Psi$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\AxiomC{$C \vdash \Lambda, B, \Psi$}
+\BinaryInfC{$C \vdash \Lambda, B \nrightarrow A, \Psi, \Delta$}
+\end{prooftree}
 
 \part{Theorems}
-	\begin{center}
-		\[
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{1, A $\vdash$  A}
-		\infer1{1 $\vdash$  A, $\neg$  A}
-		\infer1{1 $\vdash$  A $\parr$  $\neg$  A}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{A, 1 $\vdash$  A}
-		\infer1{A $\otimes$  1 $\vdash$  A}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A, 0 $\vdash$  A}
-		\infer1{A $\otimes$  0 $\vdash$  A}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{0 $\vdash$  A $\parr$  $\neg$  A}
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{A $\vdash$  A, $\bot$ }
-		\infer1{A, $\neg$  A $\vdash$  $\bot$ }
-		\infer1{A $\otimes$  $\neg$  A $\vdash$  $\bot$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{A $\vdash$  A, $\bot$ }
-		\infer1{A $\vdash$  A $\parr$  $\bot$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\vdash$  A, $\top$ }
-		\infer1{A $\vdash$  A $\parr$  $\top$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\otimes$  $\neg$  A $\vdash$  $\top$ }
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\infer0{$\bot$  $\vdash$  }
-		\infer1{$\bot$  $\vdash$  $\bot$ }
-		\infer1{$\bot$ , $\neg$  $\bot$  $\vdash$  }
-		\infer1{$\bot$  $\otimes$  $\neg$  $\bot$  $\vdash$  }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{A $\vdash$  A, $\bot$ }
-		\infer1{A, $\neg$  $\bot$  $\vdash$  A}
-		\infer1{A $\otimes$  $\neg$  $\bot$  $\vdash$  A}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{ $\vdash$  1}
-		\infer1{1 $\vdash$  1}
-		\infer1{1, $\neg$  1 $\vdash$  }
-		\infer1{1 $\otimes$  $\neg$  1 $\vdash$  }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{A, 1 $\vdash$  A}
-		\infer1{1, $\neg$  A $\vdash$  $\neg$  A}
-		\infer1{1 $\otimes$  $\neg$  A $\vdash$  $\neg$  A}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{0 $\vdash$  $\Delta$ , A}
-		\infer1{0, $\neg$  A $\vdash$  $\Delta$ }
-		\infer1{0 $\otimes$  $\neg$  A $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\vdash$  $\Delta$ , $\top$ }
-		\infer1{A, $\neg$  $\top$  $\vdash$  $\Delta$ }
-		\infer1{A $\otimes$  $\neg$  $\top$  $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{$\neg$ A $\vdash$  $\neg$ A}
-		\infer1{$\neg$ A $\vdash$  $\neg$ A,  $\bot$ }
-		\infer1{$\neg$ A $\vdash$  $\neg$ A $\parr$  $\bot$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{1, A $\vdash$  A}
-		\infer1{A $\vdash$  A, $\neg$ 1}
-		\infer1{A $\vdash$  A $\parr$  $\neg$ 1}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{0, $\Gamma$  $\vdash$  A}
-		\infer1{$\Gamma$  $\vdash$  A, $\neg$ 0}
-		\infer1{$\Gamma$  $\vdash$  A $\parr$  $\neg$ 0}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A, $\Gamma$  $\vdash$  $\top$ }
-		\infer1{ $\Gamma$ $\vdash$  $\top$ , $\neg$ A}
-		\infer1{$\Gamma$  $\vdash$  $\top$  $\parr$  $\neg$ A}
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\infer0{$\bot$  $\vdash$  }
-		\infer1{$\bot$  $\vdash$  $\bot$ }
-		\infer1{$\bot$ , $\neg$  $\bot$  $\vdash$  }
-		\infer1{$\vdash$  $\bot$  $\parr$  $\neg$  $\bot$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{ $\vdash$  1}
-		\infer1{1 $\vdash$  1}
-		\infer1{1, $\neg$  1 $\vdash$  }
-		\infer1{1 $\otimes$  $\neg$  1 $\vdash$  }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{0 $\vdash$  $\Delta$ , A}
-		\infer1{0, $\neg$  A $\vdash$  $\Delta$ }
-		\infer1{0 $\otimes$  $\neg$  A $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\vdash$  $\Delta$ , $\top$ }
-		\infer1{A, $\neg$  $\top$  $\vdash$  $\Delta$ }
-		\infer1{A $\otimes$  $\neg$  $\top$  $\vdash$  $\Delta$ }
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{A $\vdash$  A $\oplus$  $\neg$ A}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{ $\neg$  A \& A $\vdash$  A}
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{$\neg$  A, A $\vdash$ }
-		\infer1{ $\neg$  A $\otimes$  A $\vdash$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{$\neg$  A, A $\vdash$ }
-		\infer1{A $\otimes$  $\neg$  A $\vdash$ }
-		\infer1{$\vdash$ $\neg$  (A $\otimes$  $\neg$  A)}
-		\end{prooftree}
-		\]
 
-		\[
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{$\vdash$  A, $\neg$  A}
-		\infer1{$\vdash$  A $\parr$  $\neg$  A}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer1{$\vdash$  A, $\neg$  A}
-		\infer1{$\vdash$  A $\parr$  $\neg$  A}
-		\infer1{$\neg$  (A $\parr$  $\neg$  A) $\vdash$ }
-		\end{prooftree}
-		\]
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$1, A \vdash A$}
+\UnaryInfC{$1 \vdash A, \neg A$}
+\UnaryInfC{$1 \vdash A \parr \neg A$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$A, 1 \vdash A$}
+\UnaryInfC{$A \otimes 1 \vdash A$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A, 0 \vdash A$}
+\UnaryInfC{$A \otimes 0 \vdash A$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$0 \vdash A \parr \neg A$}
+\end{prooftree}
 
-		\[
-		\begin{prooftree}
-		\infer0{$\bot$  $\vdash$ }
-		\infer1{A \& $\bot$  $\vdash$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{0 $\vdash$ }
-		\infer1{A \& 0 $\vdash$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer0{A $\vdash$  $\top$ }
-		\infer2{A $\vdash$  A \& $\top$ }
-		\end{prooftree}
-		\]
-		
-		\[
-		\begin{prooftree}
-		\infer0{$\vdash$  1}
-		\infer1{$\vdash$  A $\oplus$  1}
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{$\vdash$  $\top$ }
-		\infer1{$\vdash$  A $\oplus$  $\top$ }
-		\end{prooftree}
-		\quad
-		\begin{prooftree}
-		\infer0{A $\vdash$  A}
-		\infer0{0 $\vdash$  A}
-		\infer2{A $\oplus$  0 $\vdash$  A}
-		\end{prooftree}
-		\]
-	\end{center}
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$A \vdash A, \bot$}
+\UnaryInfC{$A, \neg A \vdash \bot$}
+\UnaryInfC{$A \otimes \neg A \vdash \bot$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$A \vdash A, \bot$}
+\UnaryInfC{$A \vdash A \parr \bot$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A, \top$}
+\UnaryInfC{$A \vdash A \parr \top$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \otimes \neg A \vdash \top$}
+\end{prooftree}
 
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\bot \vdash$}
+\UnaryInfC{$\bot \vdash \bot$}
+\UnaryInfC{$\bot, \neg \bot \vdash$}
+\UnaryInfC{$\bot \otimes \neg \bot \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$A \vdash A, \bot$}
+\UnaryInfC{$A, \neg \bot \vdash A$}
+\UnaryInfC{$A \otimes \neg \bot \vdash A$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\vdash 1$}
+\UnaryInfC{$1 \vdash 1$}
+\UnaryInfC{$1, \neg 1 \vdash$}
+\UnaryInfC{$1 \otimes \neg 1 \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$A, 1 \vdash A$}
+\UnaryInfC{$1, \neg A \vdash \neg A$}
+\UnaryInfC{$1 \otimes \neg A \vdash \neg A$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$0 \vdash \Delta, A$}
+\UnaryInfC{$0, \neg A \vdash \Delta$}
+\UnaryInfC{$0 \otimes \neg A \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash \Delta, \top$}
+\UnaryInfC{$A, \neg \top \vdash \Delta$}
+\UnaryInfC{$A \otimes \neg \top \vdash \Delta$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$\neg A \vdash \neg A$}
+\UnaryInfC{$\neg A \vdash \neg A, \bot$}
+\UnaryInfC{$\neg A \vdash \neg A \parr \bot$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$1, A \vdash A$}
+\UnaryInfC{$A \vdash A, \neg 1$}
+\UnaryInfC{$A \vdash A \parr \neg 1$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$0, \Gamma \vdash A$}
+\UnaryInfC{$\Gamma \vdash A, \neg 0$}
+\UnaryInfC{$\Gamma \vdash A \parr \neg 0$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A, \Gamma \vdash \top$}
+\UnaryInfC{$\Gamma \vdash \top, \neg A$}
+\UnaryInfC{$\Gamma \vdash \top \parr \neg A$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\bot \vdash$}
+\UnaryInfC{$\bot \vdash \bot$}
+\UnaryInfC{$\bot, \neg \bot \vdash$}
+\UnaryInfC{$\vdash \bot \parr \neg \bot$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\vdash 1$}
+\UnaryInfC{$1 \vdash 1$}
+\UnaryInfC{$1, \neg 1 \vdash$}
+\UnaryInfC{$1 \otimes \neg 1 \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$0 \vdash \Delta, A$}
+\UnaryInfC{$0, \neg A \vdash \Delta$}
+\UnaryInfC{$0 \otimes \neg A \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash \Delta, \top$}
+\UnaryInfC{$A, \neg \top \vdash \Delta$}
+\UnaryInfC{$A \otimes \neg \top \vdash \Delta$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$A \vdash A \oplus \neg A$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$\neg A \land A \vdash A$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$\neg A, A \vdash$}
+\UnaryInfC{$\neg A \otimes A \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$\neg A, A \vdash$}
+\UnaryInfC{$A \otimes \neg A \vdash$}
+\UnaryInfC{$\vdash \neg (A \otimes \neg A)$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$\vdash A, \neg A$}
+\UnaryInfC{$\vdash A \parr \neg A$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\UnaryInfC{$\vdash A, \neg A$}
+\UnaryInfC{$\vdash A \parr \neg A$}
+\UnaryInfC{$\neg (A \parr \neg A) \vdash$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\bot \vdash$}
+\UnaryInfC{$A \land \bot \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$0 \vdash$}
+\UnaryInfC{$A \land 0 \vdash$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\AxiomC{}
+\UnaryInfC{$A \vdash \top$}
+\BinaryInfC{$A \vdash A \land \top$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\vdash 1$}
+\UnaryInfC{$\vdash A \oplus 1$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\vdash \top$}
+\UnaryInfC{$\vdash A \oplus \top$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$A \vdash A$}
+\AxiomC{}
+\UnaryInfC{$0 \vdash A$}
+\BinaryInfC{$A \oplus 0 \vdash A$}
+\end{prooftree}

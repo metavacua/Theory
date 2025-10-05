@@ -1,151 +1,122 @@
-
-
-
-\begin{abstract}
-
-\end{abstract}
-
 \section{Operational Rules}
 Uncertain about proper dualization that preserves the proper ordering for the dual.
-\begin{center}
-	
-	\[
-	\begin{prooftree}
-	\infer0{ $\bot$  $\vdash$  }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{C $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
-	\infer1{C $\vdash$  $\Delta$ _{L}, $\bot$ , $\Delta$ _{R}}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\infer0{ 0 $\vdash$  $\Delta$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\infer0{C $\vdash$  $\Delta$ _{L}, $\top$ , $\Delta$ _{R}}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{B $\vdash$  $\Delta$ _{L}}
-	\hypo{A $\vdash$  $\Delta$ _{R}}
-	\infer2{B $\parr$  A $\vdash$  $\Delta$ _{L}, $\Delta$ _{R}}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{C $\vdash$  $\Delta$ _{L}, B, A, $\Delta$ _{L}}
-	\infer1{C $\vdash$  $\Delta$ _{L}, B $\parr$  A, $\Delta$ _{L}}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{B $\vdash$  $\Delta$ , A}
-	\infer1{A $\nleftarrow$  B $\vdash$  $\Delta$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{A $\vdash$  $\Delta$ }
-	\hypo{C $\vdash$  $\Delta$ _{L}, B, $\Delta$ _{R}}
-	\infer2{C $\vdash$  $\Delta$ _{L}, A $\nleftarrow$  B, $\Delta$ , $\Delta$ _{R}}
-	\end{prooftree}
-	\]
-	
-	\[
-	\quad
-	\begin{prooftree}
-	\hypo{B $\vdash$  A, $\Delta$ }
-	\infer1{A $\nrightarrow$  B $\vdash$  $\Delta$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{A $\vdash$  $\Delta$ }
-	\hypo{C $\vdash$  $\Delta$ _{L}, B, $\Delta$ _{R}}
-	\infer2{C $\vdash$  $\Delta$ _{L}, $\Delta$ , B $\nrightarrow$  A, $\Delta$ _{R}}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{B $\vdash$  $\Delta$ }
-	\hypo{A $\vdash$  $\Delta$ }
-	\infer2{B $\oplus$  A $\vdash$  $\Delta$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{C $\vdash$  $\Delta$ _{L}, A, $\Delta$ _{R}}
-	\infer1{C $\vdash$  $\Delta$ _{L}, B $\oplus$  A, $\Delta$ _{R}}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{C $\vdash$  $\Delta$ _{L}, B, $\Delta$ _{R}}
-	\infer1{C $\vdash$  $\Delta$ _{L}, B $\oplus$  A, $\Delta$ _{R}}
-	\end{prooftree}
-	\]
 
-	\[
-	\begin{prooftree}
-	\hypo{A $\vdash$  $\Delta$ }
-	\infer1{A \& B $\vdash$  $\Delta$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{B $\vdash$  $\Delta$ }
-	\infer1{A \& B $\vdash$  $\Delta$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{ C $\vdash$  $\Delta$ _{L}, B, $\Delta$ _{R}}
-	\hypo{ C $\vdash$  $\Delta$ _{L}, A, $\Delta$ _{R}}
-	\infer2{ C $\vdash$  $\Delta$ _{L}, B \& A, $\Delta$ _{R}}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{ $\vdash$  A, $\Delta$ }
-	\infer1{ $\neg$  A $\vdash$  $\Delta$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{ $\vdash$  $\Delta$ , A}
-	\infer1{ $\neg$  A$\vdash$  $\Delta$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{ A $\vdash$  $\Delta$ }
-	\infer1{ $\vdash$  $\neg$  A, $\Delta$ }
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{ A $\vdash$  $\Delta$ }
-	\infer1{ $\vdash$  $\Delta$ , $\neg$  A}
-	\end{prooftree}
-	\]
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$ \bot \vdash $}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$C \vdash \Delta_{L}, \Delta_{R}$}
+\UnaryInfC{$C \vdash \Delta_{L}, \bot , \Delta_{R}$}
+\end{prooftree}
 
-\end{center}
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$0 \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$C \vdash \Delta_{L}, \top , \Delta_{R}$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$B \vdash \Delta_{L}$}
+\AxiomC{$A \vdash \Delta_{R}$}
+\BinaryInfC{$B \parr A \vdash \Delta_{L}, \Delta_{R}$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$C \vdash \Delta_{L}, B, A, \Delta_{L}$}
+\UnaryInfC{$C \vdash \Delta_{L}, B \parr A, \Delta_{L}$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$B \vdash \Delta, A$}
+\UnaryInfC{$A \nleftarrow B \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\AxiomC{$C \vdash \Delta_{L}, B, \Delta_{R}$}
+\BinaryInfC{$C \vdash \Delta_{L}, A \nleftarrow B, \Delta, \Delta_{R}$}
+\end{prooftree}
+
+\quad
+\begin{prooftree}
+\AxiomC{$B \vdash A, \Delta$}
+\UnaryInfC{$A \nrightarrow B \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\AxiomC{$C \vdash \Delta_{L}, B, \Delta_{R}$}
+\BinaryInfC{$C \vdash \Delta_{L}, \Delta, B \nrightarrow A, \Delta_{R}$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$B \vdash \Delta$}
+\AxiomC{$A \vdash \Delta$}
+\BinaryInfC{$B \oplus A \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$C \vdash \Delta_{L}, A, \Delta_{R}$}
+\UnaryInfC{$C \vdash \Delta_{L}, B \oplus A, \Delta_{R}$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$C \vdash \Delta_{L}, B, \Delta_{R}$}
+\UnaryInfC{$C \vdash \Delta_{L}, B \oplus A, \Delta_{R}$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\UnaryInfC{$A \land B \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$B \vdash \Delta$}
+\UnaryInfC{$A \land B \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$C \vdash \Delta_{L}, B, \Delta_{R}$}
+\AxiomC{$C \vdash \Delta_{L}, A, \Delta_{R}$}
+\BinaryInfC{$C \vdash \Delta_{L}, B \land A, \Delta_{R}$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\vdash A, \Delta$}
+\UnaryInfC{$\neg A \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$\vdash \Delta, A$}
+\UnaryInfC{$\neg A \vdash \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\UnaryInfC{$\vdash \neg A, \Delta$}
+\end{prooftree}
+\quad
+\begin{prooftree}
+\AxiomC{$A \vdash \Delta$}
+\UnaryInfC{$\vdash \Delta, \neg A$}
+\end{prooftree}
 
 \section{Structural Rules}
 Uses a variation of cut right.
 
-\begin{center}
-	\[
-	\begin{prooftree}
-	\infer0[Id]{A $\vdash$  A}
-	\end{prooftree}
-	\]
-	
-	\[
-	\begin{prooftree}
-	\hypo{C $\vdash$  $\Delta$ _{L}, A, $\Delta$ _{R}}
-	\hypo{A $\vdash$  $\Delta$ }
-	\infer2[CutR]{C $\vdash$  $\Delta$ _{L}, $\Delta$ , $\Delta$ _{R} }
-	\end{prooftree}
-	\]
-\end{center}
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC[Id]{$A \vdash A$}
+\end{prooftree}
 
+\begin{prooftree}
+\AxiomC{$C \vdash \Delta_{L}, A, \Delta_{R}$}
+\AxiomC{$A \vdash \Delta$}
+\BinaryInfC[CutR]{$C \vdash \Delta_{L}, \Delta, \Delta_{R}$}
+\end{prooftree}
