@@ -1,122 +1,186 @@
+
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{ebproof}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+\usepackage{stix}
+
+\newunicodechar{Γ}{\Gamma}
+\newunicodechar{Π}{\Pi}
+\newunicodechar{Δ}{\Delta}
+\newunicodechar{Λ}{\Lambda}
+\newunicodechar{Θ}{\Theta}
+
+\newunicodechar{⊢}{\vdash}
+
+\newunicodechar{⊕}{\oplus}
+\newunicodechar{¬}{\neg}
+
+\newunicodechar{⅋}{\upand}
+\newunicodechar{↛}{\nrightarrow}
+\newunicodechar{↚}{\nleftarrow}
+
+\newunicodechar{⊥}{\bot}
+\newunicodechar{⊤}{\top}
+
+\setlength{\parindent}{0em}
+
+\author{James Martin, Ian D.L.N. Mclean}
+\title{Dual Multiplicative-Additive Lambek Sequent Calculus}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
 \section{Operational Rules}
 Uncertain about proper dualization that preserves the proper ordering for the dual.
+\begin{center}
 
-\begin{prooftree}
-\AxiomC{}
-\UnaryInfC{$ \bot \vdash $}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$C \vdash \Delta_{L}, \Delta_{R}$}
-\UnaryInfC{$C \vdash \Delta_{L}, \bot , \Delta_{R}$}
-\end{prooftree}
+	\[
+	\begin{prooftree}
+	\infer0{ ⊥ ⊢ }
+	\end{prooftree}
+	\quad
+	\begin{prooftree}
+	\hypo{C ⊢ Δ_{L}, Δ_{R}}
+	\infer1{C ⊢ Δ_{L}, ⊥, Δ_{R}}
+	\end{prooftree}
+	\]
 
-\begin{prooftree}
-\AxiomC{}
-\UnaryInfC{$0 \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{}
-\UnaryInfC{$C \vdash \Delta_{L}, \top , \Delta_{R}$}
-\end{prooftree}
+	\[
+	\begin{prooftree}
+	\infer0{ 0 ⊢ Δ}
+	\end{prooftree}
+	\quad
+	\begin{prooftree}
+	\infer0{C ⊢ Δ_{L}, ⊤, Δ_{R}}
+	\end{prooftree}
+	\]
 
-\begin{prooftree}
-\AxiomC{$B \vdash \Delta_{L}$}
-\AxiomC{$A \vdash \Delta_{R}$}
-\BinaryInfC{$B \parr A \vdash \Delta_{L}, \Delta_{R}$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$C \vdash \Delta_{L}, B, A, \Delta_{L}$}
-\UnaryInfC{$C \vdash \Delta_{L}, B \parr A, \Delta_{L}$}
-\end{prooftree}
+	\[
+	\begin{prooftree}
+	\hypo{B ⊢ Δ_{L}}
+	\hypo{A ⊢ Δ_{R}}
+	\infer2{B ⅋ A ⊢ Δ_{L}, Δ_{R}}
+	\end{prooftree}
+	\quad
+	\begin{prooftree}
+	\hypo{C ⊢ Δ_{L}, B, A, Δ_{L}}
+	\infer1{C ⊢ Δ_{L}, B ⅋ A, Δ_{L}}
+	\end{prooftree}
+	\]
 
-\begin{prooftree}
-\AxiomC{$B \vdash \Delta, A$}
-\UnaryInfC{$A \nleftarrow B \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$A \vdash \Delta$}
-\AxiomC{$C \vdash \Delta_{L}, B, \Delta_{R}$}
-\BinaryInfC{$C \vdash \Delta_{L}, A \nleftarrow B, \Delta, \Delta_{R}$}
-\end{prooftree}
+	\[
+	\begin{prooftree}
+	\hypo{B ⊢ Δ, A}
+	\infer1{A ↚ B ⊢ Δ}
+	\end{prooftree}
+	\quad
+	\begin{prooftree}
+	\hypo{A ⊢ Δ}
+	\hypo{C ⊢ Δ_{L}, B, Δ_{R}}
+	\infer2{C ⊢ Δ_{L}, A ↚ B, Δ, Δ_{R}}
+	\end{prooftree}
+	\]
 
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash A, \Delta$}
-\UnaryInfC{$A \nrightarrow B \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$A \vdash \Delta$}
-\AxiomC{$C \vdash \Delta_{L}, B, \Delta_{R}$}
-\BinaryInfC{$C \vdash \Delta_{L}, \Delta, B \nrightarrow A, \Delta_{R}$}
-\end{prooftree}
+	\[
+	\quad
+	\begin{prooftree}
+	\hypo{B ⊢ A, Δ}
+	\infer1{A ↛ B ⊢ Δ}
+	\end{prooftree}
+	\quad
+	\begin{prooftree}
+	\hypo{A ⊢ Δ}
+	\hypo{C ⊢ Δ_{L}, B, Δ_{R}}
+	\infer2{C ⊢ Δ_{L}, Δ, B ↛ A, Δ_{R}}
+	\end{prooftree}
+	\]
 
-\begin{prooftree}
-\AxiomC{$B \vdash \Delta$}
-\AxiomC{$A \vdash \Delta$}
-\BinaryInfC{$B \oplus A \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$C \vdash \Delta_{L}, A, \Delta_{R}$}
-\UnaryInfC{$C \vdash \Delta_{L}, B \oplus A, \Delta_{R}$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$C \vdash \Delta_{L}, B, \Delta_{R}$}
-\UnaryInfC{$C \vdash \Delta_{L}, B \oplus A, \Delta_{R}$}
-\end{prooftree}
+	\[
+	\begin{prooftree}
+	\hypo{B ⊢ Δ}
+	\hypo{A ⊢ Δ}
+	\infer2{B ⊕ A ⊢ Δ}
+	\end{prooftree}
+	\quad
+	\begin{prooftree}
+	\hypo{C ⊢ Δ_{L}, A, Δ_{R}}
+	\infer1{C ⊢ Δ_{L}, B ⊕ A, Δ_{R}}
+	\end{prooftree}
+	\quad
+	\begin{prooftree}
+	\hypo{C ⊢ Δ_{L}, B, Δ_{R}}
+	\infer1{C ⊢ Δ_{L}, B ⊕ A, Δ_{R}}
+	\end{prooftree}
+	\]
 
-\begin{prooftree}
-\AxiomC{$A \vdash \Delta$}
-\UnaryInfC{$A \land B \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$B \vdash \Delta$}
-\UnaryInfC{$A \land B \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$C \vdash \Delta_{L}, B, \Delta_{R}$}
-\AxiomC{$C \vdash \Delta_{L}, A, \Delta_{R}$}
-\BinaryInfC{$C \vdash \Delta_{L}, B \land A, \Delta_{R}$}
-\end{prooftree}
+	\[
+	\begin{prooftree}
+	\hypo{A ⊢ Δ}
+	\infer1{A \& B ⊢ Δ}
+	\end{prooftree}
+	\quad
+	\begin{prooftree}
+	\hypo{B ⊢ Δ}
+	\infer1{A \& B ⊢ Δ}
+	\end{prooftree}
+	\quad
+	\begin{prooftree}
+	\hypo{ C ⊢ Δ_{L}, B, Δ_{R}}
+	\hypo{ C ⊢ Δ_{L}, A, Δ_{R}}
+	\infer2{ C ⊢ Δ_{L}, B \& A, Δ_{R}}
+	\end{prooftree}
+	\]
 
-\begin{prooftree}
-\AxiomC{$\vdash A, \Delta$}
-\UnaryInfC{$\neg A \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$\vdash \Delta, A$}
-\UnaryInfC{$\neg A \vdash \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$A \vdash \Delta$}
-\UnaryInfC{$\vdash \neg A, \Delta$}
-\end{prooftree}
-\quad
-\begin{prooftree}
-\AxiomC{$A \vdash \Delta$}
-\UnaryInfC{$\vdash \Delta, \neg A$}
-\end{prooftree}
+	\[
+	\begin{prooftree}
+	\hypo{ ⊢ A, Δ}
+	\infer1{ ¬ A ⊢ Δ}
+	\end{prooftree}
+	\quad
+	\begin{prooftree}
+	\hypo{ ⊢ Δ, A}
+	\infer1{ ¬ A⊢ Δ}
+	\end{prooftree}
+	\quad
+	\begin{prooftree}
+	\hypo{ A ⊢ Δ}
+	\infer1{ ⊢ ¬ A, Δ}
+	\end{prooftree}
+	\quad
+	\begin{prooftree}
+	\hypo{ A ⊢ Δ}
+	\infer1{ ⊢ Δ, ¬ A}
+	\end{prooftree}
+	\]
+
+\end{center}
 
 \section{Structural Rules}
 Uses a variation of cut right.
 
-\begin{prooftree}
-\AxiomC{}
-\UnaryInfC[Id]{$A \vdash A$}
-\end{prooftree}
+\begin{center}
+	\[
+	\begin{prooftree}
+	\infer0[Id]{A ⊢ A}
+	\end{prooftree}
+	\]
 
-\begin{prooftree}
-\AxiomC{$C \vdash \Delta_{L}, A, \Delta_{R}$}
-\AxiomC{$A \vdash \Delta$}
-\BinaryInfC[CutR]{$C \vdash \Delta_{L}, \Delta, \Delta_{R}$}
-\end{prooftree}
+	\[
+	\begin{prooftree}
+	\hypo{C ⊢ Δ_{L}, A, Δ_{R}}
+	\hypo{A ⊢ Δ}
+	\infer2[CutR]{C ⊢ Δ_{L}, Δ, Δ_{R} }
+	\end{prooftree}
+	\]
+\end{center}
+
+\end{document}

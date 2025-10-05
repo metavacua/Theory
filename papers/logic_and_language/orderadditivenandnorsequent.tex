@@ -1,48 +1,48 @@
 
+\documentclass{article}
 
-
-
-
-
+\usepackage{amsmath}
+\usepackage{ebproof}
+\usepackage{fullpage}
 \usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+\usepackage{stix}
 
+\newunicodechar{Γ}{\Gamma}
+\newunicodechar{Δ}{\Delta}
 
+\newunicodechar{⊢}{\vdash}
 
+\newunicodechar{⊕}{\oplus}
+\newunicodechar{¬}{\neg}
 
+\setlength{\parindent}{0em}
 
+\author{James Martin, Ian D.L.N. Mclean}
+\title{Ordinary Additive Sequent Calculus}
 
+\begin{document}
 
+\maketitle
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{abstract}
 Strictly visible additive order calculus.
-
+\end{abstract}
 
 \section{Structural Rules}
 
 \begin{center}
 	\[
 	\begin{prooftree}
-	\infer0[Id]{A $\vdash$  A}
+	\infer0[Id]{A ⊢ A}
 	\end{prooftree}
 	\]
 	
 	\[
 	\begin{prooftree}
-	\hypo{$\Gamma$  $\vdash$  A}
-	\hypo{A $\vdash$  $\Delta$ }
-	\infer2[cut]{$\Gamma$  $\vdash$  $\Delta$ }
+	\hypo{Γ ⊢ A}
+	\hypo{A ⊢ Δ}
+	\infer2[cut]{Γ ⊢ Δ}
 	\end{prooftree}
 	\]
 \end{center}
@@ -53,13 +53,13 @@ Strictly visible additive order calculus.
 				\begin{center}
 					\[
 					\begin{prooftree}
-					\hypo{ $\vdash$  A}
-					\infer1{$\neg$  A $\vdash$ }
+					\hypo{ ⊢ A}
+					\infer1{¬ A ⊢}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\infer1{$\vdash$  $\neg$  A}
+					\hypo{A ⊢ }
+					\infer1{⊢ ¬ A}
 					\end{prooftree}
 					\]
 				\end{center}
@@ -69,73 +69,73 @@ Strictly visible additive order calculus.
 				\begin{center}
 					\[
 					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\hypo{$\vdash$  B}
-					\infer2{$\neg$ A $\oplus$  $\neg$ B $\vdash$  }
+					\hypo{⊢ A}
+					\hypo{⊢ B}
+					\infer2{¬A ⊕ ¬B ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\infer1{ $\vdash$  $\neg$ A $\oplus$  $\neg$ B}
+					\hypo{A ⊢ }
+					\infer1{ ⊢ ¬A ⊕ ¬B}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B $\vdash$  }
-					\infer1{ $\vdash$  $\neg$ A $\oplus$  $\neg$ B}
+					\hypo{B ⊢ }
+					\infer1{ ⊢ ¬A ⊕ ¬B}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{$\vdash$  B}
-					\hypo{ $\vdash$  A}
-					\infer2{$\neg$ B $\oplus$  $\neg$ A $\vdash$  }
+					\hypo{⊢ B}
+					\hypo{ ⊢ A}
+					\infer2{¬B ⊕ ¬A ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\infer1{ $\vdash$  $\neg$ B $\oplus$  $\neg$ A}
+					\hypo{A ⊢ }
+					\infer1{ ⊢ ¬B ⊕ ¬A}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B $\vdash$  }
-					\infer1{ $\vdash$  $\neg$ B $\oplus$  $\neg$ A}
+					\hypo{B ⊢ }
+					\infer1{ ⊢ ¬B ⊕ ¬A}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{ $\vdash$  A}
-					\infer1{$\neg$ A \& $\neg$ B $\vdash$  }
+					\hypo{ ⊢ A}
+					\infer1{¬A \& ¬B ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{ $\vdash$  B}
-					\infer1{$\neg$ A \& $\neg$ B $\vdash$  }
+					\hypo{ ⊢ B}
+					\infer1{¬A \& ¬B ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\hypo{B $\vdash$  }
-					\infer2{$\vdash$  $\neg$ A \& $\neg$ B}
+					\hypo{A ⊢ }
+					\hypo{B ⊢ }
+					\infer2{⊢ ¬A \& ¬B}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{ $\vdash$  A}
-					\infer1{$\neg$ B \& $\neg$ A $\vdash$  }
+					\hypo{ ⊢ A}
+					\infer1{¬B \& ¬A ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{ $\vdash$  B}
-					\infer1{$\neg$ B \& $\neg$ A $\vdash$  }
+					\hypo{ ⊢ B}
+					\infer1{¬B \& ¬A ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B $\vdash$  }
-					\hypo{A $\vdash$  }
-					\infer2{ $\vdash$  $\neg$  B \& $\neg$  A}
+					\hypo{B ⊢ }
+					\hypo{A ⊢ }
+					\infer2{ ⊢ ¬ B \& ¬ A}
 					\end{prooftree}
 					\]
 				\end{center}
@@ -144,97 +144,97 @@ Strictly visible additive order calculus.
 				\begin{center}
 					\[
 					\begin{prooftree}
-					\hypo{$\vdash$  B}
-					\hypo{A $\vdash$  }
-					\infer2{$\neg$ B $\oplus$  A $\vdash$ }
+					\hypo{⊢ B}
+					\hypo{A ⊢ }
+					\infer2{¬B ⊕ A ⊢}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\hypo{$\vdash$  B}
-					\infer2{A $\oplus$  $\neg$ B $\vdash$ }
+					\hypo{A ⊢ }
+					\hypo{⊢ B}
+					\infer2{A ⊕ ¬B ⊢}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  A}
-					\infer1{$\Gamma$  $\vdash$  A $\oplus$  $\neg$ B}
+					\hypo{Γ ⊢ A}
+					\infer1{Γ ⊢ A ⊕ ¬B}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B $\vdash$  }
-					\infer1{$\vdash$  A $\oplus$  $\neg$ B}
+					\hypo{B ⊢ }
+					\infer1{⊢ A ⊕ ¬B}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{ $\vdash$  A}
-					\hypo{B $\vdash$  }
-					\infer2{$\neg$ A $\oplus$  B $\vdash$  }
+					\hypo{ ⊢ A}
+					\hypo{B ⊢ }
+					\infer2{¬A ⊕ B ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B $\vdash$  }
-					\hypo{ $\vdash$  A}
-					\infer2{B $\oplus$  $\neg$ A $\vdash$  }
+					\hypo{B ⊢ }
+					\hypo{ ⊢ A}
+					\infer2{B ⊕ ¬A ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\infer1{ $\vdash$  B $\oplus$  $\neg$ A}
+					\hypo{A ⊢ }
+					\infer1{ ⊢ B ⊕ ¬A}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  B}
-					\infer1{$\Gamma$  $\vdash$  B $\oplus$  $\neg$ A}
+					\hypo{Γ ⊢ B}
+					\infer1{Γ ⊢ B ⊕ ¬A}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{A $\vdash$  $\Delta$ }
-					\infer1{A \& $\neg$ B $\vdash$  $\Delta$ }
+					\hypo{A ⊢ Δ}
+					\infer1{A \& ¬B ⊢ Δ}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{ $\vdash$  B}
-					\infer1{A \& $\neg$ B $\vdash$  }
+					\hypo{ ⊢ B}
+					\infer1{A \& ¬B ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\hypo{B $\vdash$  }
-					\infer2{$\vdash$  A \& $\neg$ B}
+					\hypo{⊢ A}
+					\hypo{B ⊢ }
+					\infer2{⊢ A \& ¬B}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B $\vdash$  }
-					\hypo{$\vdash$  A}
-					\infer2{$\vdash$  $\neg$ B \& A}
+					\hypo{B ⊢ }
+					\hypo{⊢ A}
+					\infer2{⊢ ¬B \& A}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{ $\vdash$  A}
-					\infer1{B \& $\neg$ A $\vdash$  }
+					\hypo{ ⊢ A}
+					\infer1{B \& ¬A ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B $\vdash$  $\Delta$ }
-					\infer1{B \& $\neg$ A $\vdash$  $\Delta$ }
+					\hypo{B ⊢ Δ}
+					\infer1{B \& ¬A ⊢ Δ}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{ $\vdash$  B}
-					\hypo{A $\vdash$  }
-					\infer2{ $\vdash$  B \& $\neg$  A}
+					\hypo{ ⊢ B}
+					\hypo{A ⊢ }
+					\infer2{ ⊢ B \& ¬ A}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\hypo{ $\vdash$  B}
-					\infer2{ $\vdash$  $\neg$ A \& B}
+					\hypo{A ⊢ }
+					\hypo{ ⊢ B}
+					\infer2{ ⊢ ¬A \& B}
 					\end{prooftree}
 					\]
 				\end{center}
@@ -243,73 +243,73 @@ Strictly visible additive order calculus.
 				\begin{center}
 					\[
 					\begin{prooftree}
-					\hypo{A $\vdash$  $\Delta$ }
-					\hypo{B $\vdash$  $\Delta$ }
-					\infer2{A $\oplus$  B $\vdash$  $\Delta$ }
+					\hypo{A ⊢ Δ}
+					\hypo{B ⊢ Δ}
+					\infer2{A ⊕ B ⊢ Δ}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  A}
-					\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
+					\hypo{Γ ⊢ A}
+					\infer1{Γ ⊢ A ⊕ B}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  B}
-					\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
+					\hypo{Γ ⊢ B}
+					\infer1{Γ ⊢ A ⊕ B}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{B $\vdash$  $\Delta$ }
-					\hypo{A $\vdash$  $\Delta$ }
-					\infer2{B $\oplus$  A $\vdash$  $\Delta$ }
+					\hypo{B ⊢ Δ}
+					\hypo{A ⊢ Δ}
+					\infer2{B ⊕ A ⊢ Δ}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  A}
-					\infer1{$\Gamma$  $\vdash$  B $\oplus$  A}
+					\hypo{Γ ⊢ A}
+					\infer1{Γ ⊢ B ⊕ A}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  B}
-					\infer1{$\Gamma$  $\vdash$  B $\oplus$  A}
+					\hypo{Γ ⊢ B}
+					\infer1{Γ ⊢ B ⊕ A}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{A $\vdash$  $\Delta$ }
-					\infer1{A \& B $\vdash$  $\Delta$ }
+					\hypo{A ⊢ Δ}
+					\infer1{A \& B ⊢ Δ}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B $\vdash$  $\Delta$ }
-					\infer1{A \& B $\vdash$  $\Delta$ }
+					\hypo{B ⊢ Δ}
+					\infer1{A \& B ⊢ Δ}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  A}
-					\hypo{$\Gamma$  $\vdash$  B}
-					\infer2{$\Gamma$  $\vdash$  A \& B}
+					\hypo{Γ ⊢ A}
+					\hypo{Γ ⊢ B}
+					\infer2{Γ ⊢ A \& B}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{A $\vdash$  $\Delta$ }
-					\infer1{B \& A $\vdash$  $\Delta$ }
+					\hypo{A ⊢ Δ}
+					\infer1{B \& A ⊢ Δ}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B $\vdash$  $\Delta$ }
-					\infer1{B \& A $\vdash$  $\Delta$ }
+					\hypo{B ⊢ Δ}
+					\infer1{B \& A ⊢ Δ}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  B}
-					\hypo{$\Gamma$  $\vdash$  A}
-					\infer2{$\Gamma$  $\vdash$  B \& A}
+					\hypo{Γ ⊢ B}
+					\hypo{Γ ⊢ A}
+					\infer2{Γ ⊢ B \& A}
 					\end{prooftree}
 					\]
 				\end{center}
@@ -318,68 +318,68 @@ Strictly visible additive order calculus.
 				\begin{center}
 					\[
 					\begin{prooftree}
-					\hypo{$\vdash$  A}
-					\hypo{B $\vdash$  }
-					\infer2{($\neg$ A $\oplus$  B) \& ($\neg$ B $\oplus$  A) $\vdash$  }
+					\hypo{⊢ A}
+					\hypo{B ⊢ }
+					\infer2{(¬A ⊕ B) \& (¬B ⊕ A) ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{$\vdash$  B}
-					\hypo{A $\vdash$  }
-					\infer2{($\neg$ A $\oplus$  B) \& ($\neg$ B $\oplus$  A) $\vdash$  }
+					\hypo{⊢ B}
+					\hypo{A ⊢ }
+					\infer2{(¬A ⊕ B) \& (¬B ⊕ A) ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\hypo{B $\vdash$  }
-					\infer2{ $\vdash$  ($\neg$ A $\oplus$  B) \& ($\neg$ B $\oplus$  A)}
+					\hypo{A ⊢ }
+					\hypo{B ⊢ }
+					\infer2{ ⊢ (¬A ⊕ B) \& (¬B ⊕ A)}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  B}
-					\hypo{$\Gamma$  $\vdash$  A}
-					\infer2{$\Gamma$  $\vdash$  ($\neg$ A $\oplus$  B) \& ($\neg$ B $\oplus$  A)}
+					\hypo{Γ ⊢ B}
+					\hypo{Γ ⊢ A}
+					\infer2{Γ ⊢ (¬A ⊕ B) \& (¬B ⊕ A)}
 					\end{prooftree}
 					\]
 					
 					\[
 					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\hypo{$\vdash$ A}
-					\infer2{(A \& B) $\oplus$   ($\neg$ A \& $\neg$ B) $\vdash$  }
+					\hypo{A ⊢ }
+					\hypo{⊢A}
+					\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{A $\vdash$  }
-					\hypo{$\vdash$ B}
-					\infer2{(A \& B) $\oplus$   ($\neg$ A \& $\neg$ B) $\vdash$  }
+					\hypo{A ⊢ }
+					\hypo{⊢B}
+					\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B $\vdash$  }
-					\hypo{$\vdash$ A}
-					\infer2{(A \& B) $\oplus$   ($\neg$ A \& $\neg$ B) $\vdash$  }
+					\hypo{B ⊢ }
+					\hypo{⊢A}
+					\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ }
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B $\vdash$  }
-					\hypo{$\vdash$ B}
-					\infer2{(A \& B) $\oplus$   ($\neg$ A \& $\neg$ B) $\vdash$  }
+					\hypo{B ⊢ }
+					\hypo{⊢B}
+					\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ }
 					\end{prooftree}
 					\]
 					
 					\[
 					\quad
 					\begin{prooftree}
-					\hypo{$\Gamma$  $\vdash$  A}
-					\hypo{$\Gamma$  $\vdash$  B}
-					\infer2{$\Gamma$  $\vdash$  (A \& B) $\oplus$   ($\neg$ A \& $\neg$ B)}
+					\hypo{Γ ⊢ A}
+					\hypo{Γ ⊢ B}
+					\infer2{Γ ⊢ (A \& B) ⊕  (¬A \& ¬B)}
 					\end{prooftree}
 					\quad
 					\begin{prooftree}
-					\hypo{B $\vdash$  }
-					\hypo{A $\vdash$  }
-					\infer2{ $\vdash$  (A \& B) $\oplus$   ($\neg$ A \& $\neg$ B)}
+					\hypo{B ⊢ }
+					\hypo{A ⊢ }
+					\infer2{ ⊢ (A \& B) ⊕  (¬A \& ¬B)}
 					\end{prooftree}
 					\]
 					
@@ -391,3 +391,4 @@ Strictly visible additive order calculus.
 	\begin{center}
 	\end{center}
 
+\end{document}

@@ -1,0 +1,24 @@
+# -*- mode: Perl -*-
+# /=====================================================================\ #
+# |  centernot                                                          | #
+# | Implementation for LaTeXML                                          | #
+# |=====================================================================| #
+# | Part of LaTeXML:                                                    | #
+# |  Public domain software, produced as part of work done by the       | #
+# |  United States Government & not subject to copyright in the US.     | #
+# |---------------------------------------------------------------------| #
+# | Bruce Miller <bruce.miller@nist.gov>                        #_#     | #
+# | http://dlmf.nist.gov/LaTeXML/                              (o o)    | #
+# \=========================================================ooo==U==ooo=/ #
+package LaTeXML::Package::Pool;
+use strict;
+use warnings;
+use LaTeXML::Package;
+
+# This is a basic implementation for the centernot package.
+# The core command is \centernot{<symbol>}.
+# We can map this directly to LaTeXML's existing \not command.
+
+DefMacro('\centernot{}', '\not#1');
+
+1;

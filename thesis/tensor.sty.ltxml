@@ -1,0 +1,33 @@
+# -*- mode: Perl -*-
+# /=====================================================================\ #
+# |  tensor                                                             | #
+# | Implementation for LaTeXML                                          | #
+# |=====================================================================| #
+# | Part of LaTeXML:                                                    | #
+# |  Public domain software, produced as part of work done by the       | #
+# |  United States Government & not subject to copyright in the US.     | #
+# |---------------------------------------------------------------------| #
+# | Bruce Miller <bruce.miller@nist.gov>                        #_#     | #
+# | http://dlmf.nist.gov/LaTeXML/                              (o o)    | #
+# \=========================================================ooo==U==ooo=/ #
+package LaTeXML::Package::Pool;
+use strict;
+use warnings;
+use LaTeXML::Package;
+
+# This is a basic implementation for the tensor package.
+# It defines the \tensor command to handle super- and subscripts.
+
+# The \tensor command is defined as \tensor{<symbol>}{<indices>}.
+# A simple way to handle this is to expand it to <symbol><indices>,
+# which LaTeXML's math parser can then handle.
+# Example: \tensor{p}{^\mu_\nu} becomes p^\mu_\nu
+DefMacro('\tensor{}{}', '#1#2');
+
+# The package also defines \indices, which is similar.
+DefMacro('\indices{}{}', '#1#2');
+
+# And a \nuclide command, which we can treat similarly for now.
+DefMacro('\nuclide{}{}', '#1#2');
+
+1;

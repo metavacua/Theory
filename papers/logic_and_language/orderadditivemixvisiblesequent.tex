@@ -1,57 +1,57 @@
 
+\documentclass{article}
 
-
-
-
-
+\usepackage{amsmath}
+\usepackage{ebproof}
+\usepackage{fullpage}
 \usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+\usepackage{stix}
 
+\newunicodechar{Γ}{\Gamma}
+\newunicodechar{Δ}{\Delta}
+\newunicodechar{Π}{\Pi}
+\newunicodechar{Λ}{\Lambda}
+\newunicodechar{Θ}{\Theta}
 
+\newunicodechar{⊢}{\vdash}
 
+\newunicodechar{℘}{\wp}
+\newunicodechar{⊗}{\otimes}
+\newunicodechar{⊕}{\oplus}
+\newunicodechar{¬}{\neg}
 
+\newunicodechar{→}{\rightarrow}
 
+\newunicodechar{⊥}{\bot}
+\newunicodechar{⊤}{\top}
 
+\setlength{\parindent}{0em}
 
+\author{James Martin, Ian D.L.N. Mclean}
+\title{Ordinary Additive Sequent Calculus with Partial Visibility}
 
+\begin{document}
 
+\maketitle
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{abstract}
 Negation has partial visibility; the junctions obey strict visibility but the conditionals obey partial visibility.
-
+\end{abstract}
 	\begin{center}
 		\section{Structural Rules}
 			\begin{center}
 				\[
 				\begin{prooftree}
-				\infer0[Id]{A $\vdash$  A}
+				\infer0[Id]{A ⊢ A}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A}
-				\hypo{A $\vdash$  $\Delta$ }
-				\infer2[cut]{$\Gamma$  $\vdash$  $\Delta$ }
+				\hypo{Γ ⊢ A}
+				\hypo{A ⊢ Δ}
+				\infer2[cut]{Γ ⊢ Δ}
 				\end{prooftree}
 				\]
 			\end{center}
@@ -61,24 +61,24 @@ Negation has partial visibility; the junctions obey strict visibility but the co
 				Negations
 				\[
 				\begin{prooftree}
-				\hypo{ $\vdash$  $\Delta$ , A}
-				\infer1{$\neg$ _{R} A $\vdash$  $\Delta$ }
+				\hypo{ ⊢ Δ, A}
+				\infer1{¬_{R} A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  }
-				\infer1{$\Gamma$  $\vdash$  $\neg$ _{R} A}
+				\hypo{Γ, A ⊢ }
+				\infer1{Γ ⊢ ¬_{R} A}
 				\end{prooftree}
 				\]
 				\[
 				\begin{prooftree}
-				\hypo{A, $\Gamma$  $\vdash$  }
-				\infer1{$\Gamma$  $\vdash$  $\neg$ _{L} A}
+				\hypo{A, Γ ⊢ }
+				\infer1{Γ ⊢ ¬_{L} A}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{ $\vdash$  A, $\Delta$ }
-				\infer1{$\neg$ _{L} A $\vdash$  $\Delta$ }
+				\hypo{ ⊢ A, Δ}
+				\infer1{¬_{L} A ⊢ Δ}
 				\end{prooftree}
 				\]
 				
@@ -86,73 +86,73 @@ Negation has partial visibility; the junctions obey strict visibility but the co
 				
 				\[
 				\begin{prooftree}
-				\hypo{$\vdash$  A, $\Delta$ }
-				\hypo{$\vdash$  B, $\Delta$ }
-				\infer2{$\neg$ A $\oplus$  $\neg$ B $\vdash$  $\Delta$ }
+				\hypo{⊢ A, Δ}
+				\hypo{⊢ B, Δ}
+				\infer2{¬A ⊕ ¬B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  }
-				\infer1{$\Gamma$  $\vdash$  $\neg$ A $\oplus$  $\neg$ B}
+				\hypo{Γ, A ⊢ }
+				\infer1{Γ ⊢ ¬A ⊕ ¬B}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , B $\vdash$  }
-				\infer1{$\Gamma$  $\vdash$  $\neg$ A $\oplus$  $\neg$ B}
+				\hypo{Γ, B ⊢ }
+				\infer1{Γ ⊢ ¬A ⊕ ¬B}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{$\vdash$  B, $\Delta$ }
-				\hypo{ $\vdash$  A, $\Delta$ }
-				\infer2{$\neg$ B $\oplus$  $\neg$ A $\vdash$  $\Delta$ }
+				\hypo{⊢ B, Δ}
+				\hypo{ ⊢ A, Δ}
+				\infer2{¬B ⊕ ¬A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  }
-				\infer1{$\Gamma$  $\vdash$  $\neg$ B $\oplus$  $\neg$ A}
+				\hypo{Γ, A ⊢ }
+				\infer1{Γ ⊢ ¬B ⊕ ¬A}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , B $\vdash$  }
-				\infer1{$\Gamma$  $\vdash$  $\neg$ B $\oplus$  $\neg$ A}
+				\hypo{Γ, B ⊢ }
+				\infer1{Γ ⊢ ¬B ⊕ ¬A}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{ $\vdash$  A, $\Delta$ }
-				\infer1{$\neg$ A \& $\neg$ B $\vdash$  $\Delta$ }
+				\hypo{ ⊢ A, Δ}
+				\infer1{¬A \& ¬B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{ $\vdash$  B, $\Delta$ }
-				\infer1{$\neg$ A \& $\neg$ B $\vdash$  $\Delta$ }
+				\hypo{ ⊢ B, Δ}
+				\infer1{¬A \& ¬B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ ,A $\vdash$  }
-				\hypo{$\Gamma$ ,B $\vdash$  }
-				\infer2{$\Gamma$ $\vdash$  $\neg$ A \& $\neg$ B}
+				\hypo{Γ,A ⊢ }
+				\hypo{Γ,B ⊢ }
+				\infer2{Γ⊢ ¬A \& ¬B}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{ $\vdash$  A,$\Delta$ }
-				\infer1{$\neg$ B \& $\neg$ A $\vdash$  $\Delta$ }
+				\hypo{ ⊢ A,Δ}
+				\infer1{¬B \& ¬A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{ $\vdash$  B,$\Delta$ }
-				\infer1{$\neg$ B \& $\neg$ A $\vdash$  $\Delta$ }
+				\hypo{ ⊢ B,Δ}
+				\infer1{¬B \& ¬A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , B $\vdash$  }
-				\hypo{$\Gamma$ , A $\vdash$  }
-				\infer2{$\Gamma$  $\vdash$  $\neg$  B \& $\neg$  A}
+				\hypo{Γ, B ⊢ }
+				\hypo{Γ, A ⊢ }
+				\infer2{Γ ⊢ ¬ B \& ¬ A}
 				\end{prooftree}
 				\]
 				
@@ -160,97 +160,97 @@ Negation has partial visibility; the junctions obey strict visibility but the co
 				
 				\[
 				\begin{prooftree}
-				\hypo{$\vdash$  B,$\Delta$ }
-				\hypo{A $\vdash$  $\Delta$ }
-				\infer2{$\neg$ B $\oplus$  A $\vdash$  $\Delta$ }
+				\hypo{⊢ B,Δ}
+				\hypo{A ⊢ Δ}
+				\infer2{¬B ⊕ A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{A $\vdash$  $\Delta$ }
-				\hypo{$\vdash$  B,$\Delta$ }
-				\infer2{A $\oplus$  $\neg$ B $\vdash$ $\Delta$ }
+				\hypo{A ⊢ Δ}
+				\hypo{⊢ B,Δ}
+				\infer2{A ⊕ ¬B ⊢Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  A $\oplus$  $\neg$ B, $\Delta$ }
+				\hypo{Γ ⊢ A, Δ}
+				\infer1{Γ ⊢ A ⊕ ¬B, Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , B $\vdash$  }
-				\infer1{$\Gamma$  $\vdash$  A $\oplus$  $\neg$ B}
+				\hypo{Γ, B ⊢ }
+				\infer1{Γ ⊢ A ⊕ ¬B}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{ $\vdash$  A, $\Delta$ }
-				\hypo{B $\vdash$  $\Delta$ }
-				\infer2{$\neg$ A $\oplus$  B $\vdash$  $\Delta$ }
+				\hypo{ ⊢ A, Δ}
+				\hypo{B ⊢ Δ}
+				\infer2{¬A ⊕ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{B $\vdash$  $\Delta$ }
-				\hypo{ $\vdash$  A, $\Delta$ }
-				\infer2{B $\oplus$  $\neg$ A $\vdash$  $\Delta$ }
+				\hypo{B ⊢ Δ}
+				\hypo{ ⊢ A, Δ}
+				\infer2{B ⊕ ¬A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  }
-				\infer1{$\Gamma$  $\vdash$  B $\oplus$  $\neg$ A}
+				\hypo{Γ, A ⊢ }
+				\infer1{Γ ⊢ B ⊕ ¬A}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\infer1{$\Gamma$  $\vdash$  B $\oplus$  $\neg$ A, $\Delta$ }
+				\hypo{Γ ⊢ B, Δ}
+				\infer1{Γ ⊢ B ⊕ ¬A, Δ}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$ , A \& $\neg$ B $\vdash$  $\Delta$ }
+				\hypo{Γ, A ⊢ Δ}
+				\infer1{Γ, A \& ¬B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{ $\vdash$  B, $\Delta$ }
-				\infer1{A \& $\neg$ B $\vdash$  $\Delta$ }
+				\hypo{ ⊢ B, Δ}
+				\infer1{A \& ¬B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ $\vdash$  A}
-				\hypo{$\Gamma$ ,B $\vdash$  }
-				\infer2{$\Gamma$ $\vdash$  A \& $\neg$ B}
+				\hypo{Γ⊢ A}
+				\hypo{Γ,B ⊢ }
+				\infer2{Γ⊢ A \& ¬B}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ ,B $\vdash$  }
-				\hypo{$\Gamma$ $\vdash$  A}
-				\infer2{$\Gamma$ $\vdash$  $\neg$ B \& A}
+				\hypo{Γ,B ⊢ }
+				\hypo{Γ⊢ A}
+				\infer2{Γ⊢ ¬B \& A}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{ $\vdash$  A, $\Delta$ }
-				\infer1{B \& $\neg$ A $\vdash$  $\Delta$ }
+				\hypo{ ⊢ A, Δ}
+				\infer1{B \& ¬A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , B $\vdash$  $\Delta$ }
-				\infer1{$\Gamma$ , B \& $\neg$ A $\vdash$  $\Delta$ }
+				\hypo{Γ, B ⊢ Δ}
+				\infer1{Γ, B \& ¬A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  B}
-				\hypo{$\Gamma$ ,A $\vdash$  }
-				\infer2{$\Gamma$  $\vdash$  B \& $\neg$  A}
+				\hypo{Γ ⊢ B}
+				\hypo{Γ,A ⊢ }
+				\infer2{Γ ⊢ B \& ¬ A}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ ,A $\vdash$  }
-				\hypo{$\Gamma$  $\vdash$  B}
-				\infer2{$\Gamma$  $\vdash$  $\neg$ A \& B}
+				\hypo{Γ,A ⊢ }
+				\hypo{Γ ⊢ B}
+				\infer2{Γ ⊢ ¬A \& B}
 				\end{prooftree}
 				\]
 				
@@ -258,140 +258,140 @@ Negation has partial visibility; the junctions obey strict visibility but the co
 				
 				\[
 				\begin{prooftree}
-				\hypo{A $\vdash$  $\Delta$ }
-				\hypo{B $\vdash$  $\Delta$ }
-				\infer2{A $\oplus$  B $\vdash$  $\Delta$ }
+				\hypo{A ⊢ Δ}
+				\hypo{B ⊢ Δ}
+				\infer2{A ⊕ B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A}
-				\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
+				\hypo{Γ ⊢ A}
+				\infer1{Γ ⊢ A ⊕ B}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  B}
-				\infer1{$\Gamma$  $\vdash$  A $\oplus$  B}
+				\hypo{Γ ⊢ B}
+				\infer1{Γ ⊢ A ⊕ B}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{B $\vdash$  $\Delta$ }
-				\hypo{A $\vdash$  $\Delta$ }
-				\infer2{B $\oplus$  A $\vdash$  $\Delta$ }
+				\hypo{B ⊢ Δ}
+				\hypo{A ⊢ Δ}
+				\infer2{B ⊕ A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A}
-				\infer1{$\Gamma$  $\vdash$  B $\oplus$  A}
+				\hypo{Γ ⊢ A}
+				\infer1{Γ ⊢ B ⊕ A}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  B}
-				\infer1{$\Gamma$  $\vdash$  B $\oplus$  A}
+				\hypo{Γ ⊢ B}
+				\infer1{Γ ⊢ B ⊕ A}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{A $\vdash$  $\Delta$ }
-				\infer1{A \& B $\vdash$  $\Delta$ }
+				\hypo{A ⊢ Δ}
+				\infer1{A \& B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{B $\vdash$  $\Delta$ }
-				\infer1{A \& B $\vdash$  $\Delta$ }
+				\hypo{B ⊢ Δ}
+				\infer1{A \& B ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A}
-				\hypo{$\Gamma$  $\vdash$  B}
-				\infer2{$\Gamma$  $\vdash$  A \& B}
+				\hypo{Γ ⊢ A}
+				\hypo{Γ ⊢ B}
+				\infer2{Γ ⊢ A \& B}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{A $\vdash$  $\Delta$ }
-				\infer1{B \& A $\vdash$  $\Delta$ }
+				\hypo{A ⊢ Δ}
+				\infer1{B \& A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{B $\vdash$  $\Delta$ }
-				\infer1{B \& A $\vdash$  $\Delta$ }
+				\hypo{B ⊢ Δ}
+				\infer1{B \& A ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  B}
-				\hypo{$\Gamma$  $\vdash$  A}
-				\infer2{$\Gamma$  $\vdash$  B \& A}
+				\hypo{Γ ⊢ B}
+				\hypo{Γ ⊢ A}
+				\infer2{Γ ⊢ B \& A}
 				\end{prooftree}
 				\]
 				Biconditionals
 				\[
 				\begin{prooftree}
-				\hypo{$\vdash$  A, $\Delta$ }
-				\hypo{B $\vdash$  $\Delta$ }
-				\infer2{($\neg$ A $\oplus$  B) \& ($\neg$ B $\oplus$  A) $\vdash$  $\Delta$ }
+				\hypo{⊢ A, Δ}
+				\hypo{B ⊢ Δ}
+				\infer2{(¬A ⊕ B) \& (¬B ⊕ A) ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\vdash$  B, $\Delta$ }
-				\hypo{A $\vdash$  $\Delta$ }
-				\infer2{($\neg$ A $\oplus$  B) \& ($\neg$ B $\oplus$  A) $\vdash$  $\Delta$ }
+				\hypo{⊢ B, Δ}
+				\hypo{A ⊢ Δ}
+				\infer2{(¬A ⊕ B) \& (¬B ⊕ A) ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , A $\vdash$  }
-				\hypo{$\Gamma$ , B $\vdash$  }
-				\infer2{$\Gamma$  $\vdash$  ($\neg$ A $\oplus$  B) \& ($\neg$ B $\oplus$  A)}
+				\hypo{Γ, A ⊢ }
+				\hypo{Γ, B ⊢ }
+				\infer2{Γ ⊢ (¬A ⊕ B) \& (¬B ⊕ A)}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  ($\neg$ A $\oplus$  B) \& ($\neg$ B $\oplus$  A), $\Delta$ }
+				\hypo{Γ ⊢ B, Δ}
+				\hypo{Γ ⊢ A, Δ}
+				\infer2{Γ ⊢ (¬A ⊕ B) \& (¬B ⊕ A), Δ}
 				\end{prooftree}
 				\]
 				
 				\[
 				\begin{prooftree}
-				\hypo{A $\vdash$  $\Delta$ }
-				\hypo{$\vdash$ A, $\Delta$ }
-				\infer2{(A \& B) $\oplus$   ($\neg$ A \& $\neg$ B) $\vdash$  $\Delta$ }
+				\hypo{A ⊢ Δ}
+				\hypo{⊢A, Δ}
+				\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{A $\vdash$  $\Delta$ }
-				\hypo{$\vdash$ B, $\Delta$ }
-				\infer2{(A \& B) $\oplus$   ($\neg$ A \& $\neg$ B) $\vdash$  $\Delta$ }
+				\hypo{A ⊢ Δ}
+				\hypo{⊢B, Δ}
+				\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{B $\vdash$  $\Delta$ }
-				\hypo{$\vdash$ A, $\Delta$ }
-				\infer2{(A \& B) $\oplus$   ($\neg$ A \& $\neg$ B) $\vdash$  $\Delta$ }
+				\hypo{B ⊢ Δ}
+				\hypo{⊢A, Δ}
+				\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{B $\vdash$  $\Delta$ }
-				\hypo{$\vdash$ B, $\Delta$ }
-				\infer2{(A \& B) $\oplus$   ($\neg$ A \& $\neg$ B) $\vdash$  $\Delta$ }
+				\hypo{B ⊢ Δ}
+				\hypo{⊢B, Δ}
+				\infer2{(A \& B) ⊕  (¬A \& ¬B) ⊢ Δ}
 				\end{prooftree}
 				\]
 				
 				\[
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$  $\vdash$  A, $\Delta$ }
-				\hypo{$\Gamma$  $\vdash$  B, $\Delta$ }
-				\infer2{$\Gamma$  $\vdash$  (A \& B) $\oplus$   ($\neg$ A \& $\neg$ B),$\Delta$ }
+				\hypo{Γ ⊢ A, Δ}
+				\hypo{Γ ⊢ B, Δ}
+				\infer2{Γ ⊢ (A \& B) ⊕  (¬A \& ¬B),Δ}
 				\end{prooftree}
 				\quad
 				\begin{prooftree}
-				\hypo{$\Gamma$ , B $\vdash$  }
-				\hypo{$\Gamma$ , A $\vdash$  }
-				\infer2{$\Gamma$  $\vdash$  (A \& B) $\oplus$   ($\neg$ A \& $\neg$ B)}
+				\hypo{Γ, B ⊢ }
+				\hypo{Γ, A ⊢ }
+				\infer2{Γ ⊢ (A \& B) ⊕  (¬A \& ¬B)}
 				\end{prooftree}
 				\]
 				
@@ -405,3 +405,4 @@ Negation has partial visibility; the junctions obey strict visibility but the co
 	\end{center}
 
 
+\end{document}
