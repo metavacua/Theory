@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?latexml searchpaths="/app/papers/logic_and_language,/app/thesis,/app,/tmp/tmp.jj9q2GXz9k"?>
+<?latexml class="report"?>
+<?latexml package="graphicx"?>
+<?latexml package="amsmath"?>
+<?latexml package="inputenc" options="utf8"?>
+<?latexml package="fontenc" options="T1"?>
+<?latexml package="lmodern"?>
+<?latexml package="amssymb"?>
+<?latexml package="amsthm"?>
+<?latexml package="latexsym"?>
+<?latexml package="centernot"?>
+<?latexml package="enumitem"?>
+<?latexml package="geometry"?>
+<?latexml package="hyperref"?>
+<?latexml package="ragged2e"?>
+<?latexml package="microtype"?>
+<?latexml package="bussproofs"?>
+<?latexml package="setspace"?>
+<?latexml package="tensor"?>
+<?latexml package="cite"?>
+<!--  %New␣notation␣for␣LF --><?latexml RelaxNGSchema="LaTeXML"?>
+<document xmlns="http://dlmf.nist.gov/LaTeXML">
+  <resource src="LaTeXML.css" type="text/css"/>
+  <resource src="ltx-report.css" type="text/css"/>
+  <title>Standalone Paper</title>
+  <creator role="author">
+    <personname/>
+  </creator>
+  <abstract name="Abstract">
+    <p>A calculus of Horn clauses, equality, equivalence, identity, explicit substitution of expressions, reductions, and reflexivity.</p>
+  </abstract>
+  <part inlist="toc" xml:id="Pt1">
+    <tags>
+      <tag>Part I</tag>
+      <tag role="autoref">Part I</tag>
+      <tag role="refnum">I</tag>
+      <tag role="typerefnum">Part I</tag>
+    </tags>
+    <title><tag close=" ">Part I</tag>Preliminaries</title>
+    <toctitle><tag close=" ">I</tag>Preliminaries</toctitle>
+    <para xml:id="Pt1.p1">
+      <p align="center">The primary method is intended to be solely substitution of equals for equals.</p>
+    </para>
+    <pagination role="newpage"/>
+  </part>
+  <part inlist="toc" xml:id="Pt2">
+    <tags>
+      <tag>Part II</tag>
+      <tag role="autoref">Part II</tag>
+      <tag role="refnum">II</tag>
+      <tag role="typerefnum">Part II</tag>
+    </tags>
+    <title><tag close=" ">Part II</tag>Identity Calculi</title>
+    <toctitle><tag close=" ">II</tag>Identity Calculi</toctitle>
+    <section class="ltx_centering" inlist="toc" xml:id="Ch0.S1">
+      <tags>
+        <tag>0.1</tag>
+        <tag role="autoref">section 0.1</tag>
+        <tag role="refnum">0.1</tag>
+        <tag role="typerefnum">§0.1</tag>
+      </tags>
+      <title><tag close=" ">0.1</tag>Non-Structural Identity Calculus</title>
+      <subsection inlist="toc" xml:id="Ch0.S1.SS1">
+        <tags>
+          <tag>0.1.1</tag>
+          <tag role="autoref">subsection 0.1.1</tag>
+          <tag role="refnum">0.1.1</tag>
+          <tag role="typerefnum">§0.1.1</tag>
+        </tags>
+        <title><tag close=" ">0.1.1</tag>Structural Rules</title>
+        <proof class="ltx_centering">
+          <inference>
+            <conclusion>
+A ⊢A            </conclusion>
+          </inference>
+        </proof>
+        <proof class="ltx_centering">
+<!--  %****␣identitycalculus.tex␣Line␣25␣**** -->          <para xml:id="Ch0.S1.SS1.p1">
+            <p>&lt;ltx:axiom&gt;Γ⊢A&lt;/ltx:axiom&gt;
+&lt;ltx:axiom&gt;A ⊢Δ&lt;/ltx:axiom&gt;
+<inference>
+                <conclusion>
+Γ⊢Δ                </conclusion>
+              </inference></p>
+          </para>
+        </proof>
+      </subsection>
+      <subsection inlist="toc" xml:id="Ch0.S1.SS2">
+        <tags>
+          <tag>0.1.2</tag>
+          <tag role="autoref">subsection 0.1.2</tag>
+          <tag role="refnum">0.1.2</tag>
+          <tag role="typerefnum">§0.1.2</tag>
+        </tags>
+        <title><tag close=" ">0.1.2</tag>Operational Rules</title>
+        <subsubsection class="ltx_centering" inlist="toc" xml:id="Ch0.S1.SS2.SSSx1">
+          <title>Multiplicatives</title>
+          <proof class="ltx_centering">
+            <para xml:id="Ch0.S1.SS2.SSSx1.p1">
+              <p>&lt;ltx:axiom&gt;Γ⊢P&lt;/ltx:axiom&gt;
+<inference>
+                  <conclusion>
+Γ⊢P[x/E]                  </conclusion>
+                </inference></p>
+            </para>
+          </proof>
+          <proof class="ltx_centering">
+            <para xml:id="Ch0.S1.SS2.SSSx1.p2">
+              <p>&lt;ltx:axiom&gt;Γ⊢P = Q&lt;/ltx:axiom&gt;
+<inference>
+                  <conclusion>
+Γ⊢[x/P] = [x/Q]                  </conclusion>
+                </inference></p>
+            </para>
+          </proof>
+          <proof class="ltx_centering">
+            <para xml:id="Ch0.S1.SS2.SSSx1.p3">
+              <p>&lt;ltx:axiom&gt;Γ⊢P = Q&lt;/ltx:axiom&gt;
+&lt;ltx:axiom&gt;Γ⊢Q = R&lt;/ltx:axiom&gt;
+<inference>
+                  <conclusion>
+Γ⊢P = R                  </conclusion>
+                </inference></p>
+            </para>
+          </proof>
+          <proof class="ltx_centering">
+            <para xml:id="Ch0.S1.SS2.SSSx1.p4">
+              <p>&lt;ltx:axiom&gt;Γ⊢P&lt;/ltx:axiom&gt;
+&lt;ltx:axiom&gt;Γ⊢P ⇔Q&lt;/ltx:axiom&gt;
+<inference>
+                  <conclusion>
+Γ⊢Q                  </conclusion>
+                </inference></p>
+            </para>
+          </proof>
+          <proof class="ltx_centering">
+            <para xml:id="Ch0.S1.SS2.SSSx1.p5">
+              <p>&lt;ltx:axiom&gt;A, B ⊢&lt;/ltx:axiom&gt;
+&lt;ltx:axiom&gt;⊢A, B&lt;/ltx:axiom&gt;
+<inference>
+                  <conclusion>
+A ⇔B ⊢                  </conclusion>
+                </inference></p>
+            </para>
+          </proof>
+          <proof class="ltx_centering">
+            <para xml:id="Ch0.S1.SS2.SSSx1.p6">
+              <p>&lt;ltx:axiom&gt;A ⊢B&lt;/ltx:axiom&gt;
+&lt;ltx:axiom&gt;B ⊢A&lt;/ltx:axiom&gt;
+<inference>
+                  <conclusion>
+⊢ A ⇔B                  </conclusion>
+                </inference></p>
+            </para>
+          </proof>
+        </subsubsection>
+      </subsection>
+      <subsection inlist="toc" xml:id="Ch0.S1.SS3">
+        <tags>
+          <tag>0.1.3</tag>
+          <tag role="autoref">subsection 0.1.3</tag>
+          <tag role="refnum">0.1.3</tag>
+          <tag role="typerefnum">§0.1.3</tag>
+        </tags>
+        <title><tag close=" ">0.1.3</tag>Theorems</title>
+<!--  %****␣identitycalculus.tex␣Line␣75␣**** -->      </subsection>
+    </section>
+  </part>
+</document>
