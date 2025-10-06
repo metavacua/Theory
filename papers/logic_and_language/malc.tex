@@ -1,95 +1,52 @@
+\begin{abstract}
+
+\end{abstract}
+
 \section{Operational Rules}
-\begin{prooftree}
-\hypo{$\Gamma_{L}, \Gamma_{R} \vdash C$}
-\inferone{$\Gamma_{L}, 1, \Gamma_{R} \vdash C$}
-\end{prooftree}
-\begin{prooftree}
-\inferzero{$ \vdash 1$}
-\end{prooftree}
-\begin{prooftree}
-\inferzero{$\Gamma_{L}, 0, \Gamma_{R} \vdash C$}
-\end{prooftree}
-\begin{prooftree}
-\inferzero{$ \Gamma \vdash \top$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$\Gamma_{L}, A, B, \Gamma_{R} \vdash C$}
-\inferone{$\Gamma_{L}, A \otimes B, \Gamma_{R} \vdash C$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$\Gamma_{L} \vdash A$}
-\hypo{$\Gamma_{R} \vdash B$}
-\infertwo{$\Gamma_{L}, \Gamma_{R} \vdash A \otimes B$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$\Gamma \vdash A$}
-\hypo{$\Gamma_{L}, B, \Gamma_{R} \vdash C$}
-\infertwo{$\Gamma_{L}, \Gamma, A \rightarrow B, \Gamma_{R} \vdash C$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$A, \Gamma \vdash B$}
-\inferone{$\Gamma \vdash A \rightarrow B$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$\Gamma \vdash A$}
-\hypo{$\Gamma_{L}, B, \Gamma_{R} \vdash C$}
-\infertwo{$\Gamma_{L}, B \leftarrow A, \Gamma, \Gamma_{R} \vdash C$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$\Gamma, A \vdash B$}
-\inferone{$\Gamma \vdash B \leftarrow A$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$\Gamma_{L}, A, \Gamma_{R} \vdash C$}
-\hypo{$\Gamma_{L}, B, \Gamma_{R} \vdash C$}
-\infertwo{$\Gamma_{L}, A \oplus B, \Gamma_{R} \vdash C$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$\Gamma \vdash A$}
-\inferone{$\Gamma \vdash A \oplus B$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$\Gamma \vdash B$}
-\inferone{$\Gamma \vdash A \oplus B$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$\Gamma_{L}, A, \Gamma_{R} \vdash C$}
-\inferone{$\Gamma_{L}, A \& B, \Gamma_{R} \vdash C$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$\Gamma_{L}, B, \Gamma_{R} \vdash C$}
-\inferone{$\Gamma_{L}, A \& B, \Gamma_{R} \vdash C$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$\Gamma \vdash A$}
-\hypo{$\Gamma \vdash B$}
-\infertwo{$\Gamma \vdash A \& B$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$ \Gamma \vdash A$}
-\inferone{$ \neg_{C} A, \Gamma \vdash $}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$ \Gamma \vdash A$}
-\inferone{$ \Gamma, \neg_{C} A\vdash $}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$ A, \Gamma \vdash $}
-\inferone{$ \Gamma \vdash \neg_{L} A$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$ \Gamma, A \vdash $}
-\inferone{$ \Gamma \vdash \neg_{R} A$}
-\end{prooftree}
+
+\infer{\Gamma_{L}, 1, \Gamma_{R} \vdash C}{\Gamma_{L}, \Gamma_{R} \vdash C}
+
+\infer{\vdash 1}{}
+
+\infer{\Gamma_{L}, 0, \Gamma_{R} \vdash C}{}
+
+\infer{ \Gamma \vdash \top}{}
+
+\infer{\Gamma_{L}, A \otimes B, \Gamma_{R} \vdash C}{\Gamma_{L}, A, B, \Gamma_{R} \vdash C}
+
+\infer{\Gamma_{L}, \Gamma_{R} \vdash A \otimes B}{\Gamma_{L} \vdash A & \Gamma_{R} \vdash B}
+
+\infer{\Gamma_{L}, \Gamma, A \rightarrow B, \Gamma_{R} \vdash C}{\Gamma \vdash A & \Gamma_{L}, B, \Gamma_{R} \vdash C}
+
+\infer{\Gamma \vdash A \rightarrow B}{A, \Gamma \vdash B}
+
+\infer{\Gamma_{L}, B \leftarrow A, \Gamma, \Gamma_{R} \vdash C}{\Gamma \vdash A & \Gamma_{L}, B, \Gamma_{R} \vdash C}
+
+\infer{\Gamma \vdash B \leftarrow A}{\Gamma, A \vdash B}
+
+\infer{\Gamma_{L}, A \oplus B, \Gamma_{R} \vdash C}{\Gamma_{L}, A, \Gamma_{R} \vdash C & \Gamma_{L}, B, \Gamma_{R} \vdash C}
+
+\infer{\Gamma \vdash A \oplus B}{\Gamma \vdash A}
+
+\infer{\Gamma \vdash A \oplus B}{\Gamma \vdash B}
+
+\infer{\Gamma_{L}, A \& B, \Gamma_{R} \vdash C}{\Gamma_{L}, A, \Gamma_{R} \vdash C}
+
+\infer{\Gamma_{L}, A \& B, \Gamma_{R} \vdash C}{\Gamma_{L}, B, \Gamma_{R} \vdash C}
+
+\infer{\Gamma \vdash A \& B}{\Gamma \vdash A & \Gamma \vdash B}
+
+\infer{ \neg_{C} A, \Gamma \vdash }{\Gamma \vdash A}
+
+\infer{ \Gamma, \neg_{C} A\vdash }{\Gamma \vdash A}
+
+\infer{ \Gamma \vdash \neg_{L} A}{A, \Gamma \vdash }
+
+\infer{ \Gamma \vdash \neg_{R} A}{\Gamma, A \vdash }
 
 \section{Structural Rules}
 Uses a variation of cut left.
 
-\begin{prooftree}
-\inferzero[Id]{$A \vdash A$}
-\end{prooftree}
-\begin{prooftree}
-\hypo{$\Gamma \vdash A$}
-\hypo{$\Delta, A, \Pi \vdash C$}
-\infertwo[CutL]{$\Delta, \Gamma, \Pi \vdash C$}
-\end{prooftree}
+\infer[Id]{A \vdash A}{}
+
+\infer[CutL]{\Delta, \Gamma, \Pi \vdash C}{\Gamma \vdash A & \Delta, A, \Pi \vdash C}

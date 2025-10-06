@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?latexml searchpaths="/app/papers/logic_and_language,/app/thesis,/app,/tmp/tmp.jj9q2GXz9k"?>
+<?latexml searchpaths="/app/papers/logic_and_language,/app/thesis,/app,/tmp/tmp.w63tsaNme4"?>
 <?latexml class="report"?>
 <?latexml package="graphicx"?>
 <?latexml package="amsmath"?>
@@ -15,7 +15,7 @@
 <?latexml package="hyperref"?>
 <?latexml package="ragged2e"?>
 <?latexml package="microtype"?>
-<?latexml package="bussproofs"?>
+<?latexml package="proof"?>
 <?latexml package="setspace"?>
 <?latexml package="tensor"?>
 <?latexml package="cite"?>
@@ -40,7 +40,8 @@
     <title><tag close=" ">Part I</tag>Preliminaries</title>
     <toctitle><tag close=" ">I</tag>Preliminaries</toctitle>
     <para xml:id="Pt1.p1">
-      <p align="center">The primary method is intended to be solely substitution of equals for equals.</p>
+      <p align="left">The primary method is intended to be solely substitution of equals for equals.
+&lt;/flushleft</p>
     </para>
     <pagination role="newpage"/>
   </part>
@@ -53,7 +54,7 @@
     </tags>
     <title><tag close=" ">Part II</tag>Identity Calculi</title>
     <toctitle><tag close=" ">II</tag>Identity Calculi</toctitle>
-    <section class="ltx_centering" inlist="toc" xml:id="Ch0.S1">
+    <section inlist="toc" xml:id="Ch0.S1">
       <tags>
         <tag>0.1</tag>
         <tag role="autoref">section 0.1</tag>
@@ -69,22 +70,101 @@
           <tag role="typerefnum">§0.1.1</tag>
         </tags>
         <title><tag close=" ">0.1.1</tag>Structural Rules</title>
-        <proof class="ltx_centering">
-          <inference>
-            <conclusion>
-A ⊢A            </conclusion>
-          </inference>
-        </proof>
-        <proof class="ltx_centering">
-<!--  %****␣identitycalculus.tex␣Line␣25␣**** -->          <para xml:id="Ch0.S1.SS1.p1">
-            <p>&lt;ltx:axiom&gt;Γ⊢A&lt;/ltx:axiom&gt;
-&lt;ltx:axiom&gt;A ⊢Δ&lt;/ltx:axiom&gt;
-<inference>
-                <conclusion>
-Γ⊢Δ                </conclusion>
-              </inference></p>
-          </para>
-        </proof>
+        <para xml:id="Ch0.S1.SS1.p1">
+          <equation xml:id="Ch0.Ex1">
+            <Math mode="display" tex="A\vdash A" text="infer@(A proves A, absent)" xml:id="Ch0.Ex1.m1">
+              <XMath>
+                <XMDual>
+                  <XMApp>
+                    <XMTok meaning="infer"/>
+                    <XMRef idref="Ch0.Ex1.m1.3"/>
+                    <XMRef idref="Ch0.Ex1.m1.1"/>
+                  </XMApp>
+                  <XMArray vattach="bottom">
+                    <XMRow>
+                      <XMCell>
+                        <XMTok meaning="absent" xml:id="Ch0.Ex1.m1.1"/>
+                      </XMCell>
+                      <XMCell rowspan="3">
+                        <XMApp xml:id="Ch0.Ex1.m1.2">
+                          <XMTok meaning="times" role="MULOP">⁢</XMTok>
+                          <XMTok font="italic" role="UNKNOWN">I</XMTok>
+                          <XMTok font="italic" role="UNKNOWN">d</XMTok>
+                        </XMApp>
+                      </XMCell>
+                    </XMRow>
+                    <XMRow>
+                      <XMCell>
+                        <XMApp>
+                          <XMTok font="italic" role="OVERACCENT">‾</XMTok>
+                          <XMApp xml:id="Ch0.Ex1.m1.3">
+                            <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                            <XMTok font="italic" role="UNKNOWN">A</XMTok>
+                            <XMTok font="italic" role="UNKNOWN">A</XMTok>
+                          </XMApp>
+                        </XMApp>
+                      </XMCell>
+                    </XMRow>
+                  </XMArray>
+                </XMDual>
+              </XMath>
+            </Math>
+          </equation>
+        </para>
+        <para xml:id="Ch0.S1.SS1.p2">
+          <equation xml:id="Ch0.Ex2">
+            <Math mode="display" tex="\Gamma\vdash\Delta\lx@proof@logical@and\Gamma\vdash AA\vdash\Delta" text="infer@(Gamma proves Delta, (Gamma proves A) and (A proves Delta))" xml:id="Ch0.Ex2.m1">
+              <XMath>
+                <XMDual>
+                  <XMApp>
+                    <XMTok meaning="infer"/>
+                    <XMRef idref="Ch0.Ex2.m1.3"/>
+                    <XMRef idref="Ch0.Ex2.m1.1"/>
+                  </XMApp>
+                  <XMArray vattach="bottom">
+                    <XMRow>
+                      <XMCell>
+                        <XMApp xml:id="Ch0.Ex2.m1.1">
+                          <XMTok meaning="and" name="lx@proof@logical@and" role="ADDOP"> </XMTok>
+                          <XMApp>
+                            <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                            <XMTok name="Gamma" role="UNKNOWN">Γ</XMTok>
+                            <XMTok font="italic" role="UNKNOWN">A</XMTok>
+                          </XMApp>
+                          <XMApp>
+                            <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                            <XMTok font="italic" role="UNKNOWN">A</XMTok>
+                            <XMTok name="Delta" role="UNKNOWN">Δ</XMTok>
+                          </XMApp>
+                        </XMApp>
+                      </XMCell>
+                      <XMCell rowspan="3">
+                        <XMApp xml:id="Ch0.Ex2.m1.2">
+                          <XMTok meaning="times" role="MULOP">⁢</XMTok>
+                          <XMTok font="italic" role="UNKNOWN">C</XMTok>
+                          <XMTok font="italic" role="UNKNOWN">u</XMTok>
+                          <XMTok font="italic" role="UNKNOWN">t</XMTok>
+                        </XMApp>
+                      </XMCell>
+                    </XMRow>
+                    <XMRow>
+                      <XMCell>
+                        <XMApp>
+                          <XMTok font="italic" role="OVERACCENT">‾</XMTok>
+                          <XMApp width="62.9pt" xml:id="Ch0.Ex2.m1.3">
+                            <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                            <XMTok name="Gamma" role="UNKNOWN">Γ</XMTok>
+                            <XMTok name="Delta" role="UNKNOWN">Δ</XMTok>
+                          </XMApp>
+                        </XMApp>
+                      </XMCell>
+                    </XMRow>
+                  </XMArray>
+                </XMDual>
+              </XMath>
+            </Math>
+          </equation>
+        </para>
       </subsection>
       <subsection inlist="toc" xml:id="Ch0.S1.SS2">
         <tags>
@@ -94,66 +174,468 @@ A ⊢A            </conclusion>
           <tag role="typerefnum">§0.1.2</tag>
         </tags>
         <title><tag close=" ">0.1.2</tag>Operational Rules</title>
-        <subsubsection class="ltx_centering" inlist="toc" xml:id="Ch0.S1.SS2.SSSx1">
+        <subsubsection inlist="toc" xml:id="Ch0.S1.SS2.SSSx1">
           <title>Multiplicatives</title>
-          <proof class="ltx_centering">
-            <para xml:id="Ch0.S1.SS2.SSSx1.p1">
-              <p>&lt;ltx:axiom&gt;Γ⊢P&lt;/ltx:axiom&gt;
-<inference>
-                  <conclusion>
-Γ⊢P[x/E]                  </conclusion>
-                </inference></p>
-            </para>
-          </proof>
-          <proof class="ltx_centering">
-            <para xml:id="Ch0.S1.SS2.SSSx1.p2">
-              <p>&lt;ltx:axiom&gt;Γ⊢P = Q&lt;/ltx:axiom&gt;
-<inference>
-                  <conclusion>
-Γ⊢[x/P] = [x/Q]                  </conclusion>
-                </inference></p>
-            </para>
-          </proof>
-          <proof class="ltx_centering">
-            <para xml:id="Ch0.S1.SS2.SSSx1.p3">
-              <p>&lt;ltx:axiom&gt;Γ⊢P = Q&lt;/ltx:axiom&gt;
-&lt;ltx:axiom&gt;Γ⊢Q = R&lt;/ltx:axiom&gt;
-<inference>
-                  <conclusion>
-Γ⊢P = R                  </conclusion>
-                </inference></p>
-            </para>
-          </proof>
-          <proof class="ltx_centering">
-            <para xml:id="Ch0.S1.SS2.SSSx1.p4">
-              <p>&lt;ltx:axiom&gt;Γ⊢P&lt;/ltx:axiom&gt;
-&lt;ltx:axiom&gt;Γ⊢P ⇔Q&lt;/ltx:axiom&gt;
-<inference>
-                  <conclusion>
-Γ⊢Q                  </conclusion>
-                </inference></p>
-            </para>
-          </proof>
-          <proof class="ltx_centering">
-            <para xml:id="Ch0.S1.SS2.SSSx1.p5">
-              <p>&lt;ltx:axiom&gt;A, B ⊢&lt;/ltx:axiom&gt;
-&lt;ltx:axiom&gt;⊢A, B&lt;/ltx:axiom&gt;
-<inference>
-                  <conclusion>
-A ⇔B ⊢                  </conclusion>
-                </inference></p>
-            </para>
-          </proof>
-          <proof class="ltx_centering">
-            <para xml:id="Ch0.S1.SS2.SSSx1.p6">
-              <p>&lt;ltx:axiom&gt;A ⊢B&lt;/ltx:axiom&gt;
-&lt;ltx:axiom&gt;B ⊢A&lt;/ltx:axiom&gt;
-<inference>
-                  <conclusion>
-⊢ A ⇔B                  </conclusion>
-                </inference></p>
-            </para>
-          </proof>
+          <para xml:id="Ch0.S1.SS2.SSSx1.p1">
+            <equation xml:id="Ch0.Ex3">
+              <Math mode="display" tex="\Gamma\vdash P[x/E]\Gamma\vdash P\quad\Gamma\vdash[x/P]=[x/Q]\Gamma\vdash P=Q" text="list@(infer@(Gamma proves P * delimited-[]@(x / E), Gamma proves P), infer@(Gamma proves delimited-[]@(x / P) = delimited-[]@(x / Q), Gamma proves P = Q))" xml:id="Ch0.Ex3.m1">
+                <XMath>
+                  <XMDual>
+                    <XMApp>
+                      <XMTok meaning="list"/>
+                      <XMRef idref="Ch0.Ex3.m1.7"/>
+                      <XMRef idref="Ch0.Ex3.m1.8"/>
+                    </XMApp>
+                    <XMWrap>
+                      <XMDual xml:id="Ch0.Ex3.m1.7">
+                        <XMApp>
+                          <XMTok meaning="infer"/>
+                          <XMRef idref="Ch0.Ex3.m1.3"/>
+                          <XMRef idref="Ch0.Ex3.m1.1"/>
+                        </XMApp>
+                        <XMArray vattach="bottom">
+                          <XMRow>
+                            <XMCell>
+                              <XMApp xml:id="Ch0.Ex3.m1.1">
+                                <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                <XMTok name="Gamma" role="UNKNOWN">Γ</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">P</XMTok>
+                              </XMApp>
+                            </XMCell>
+                            <XMCell rowspan="3">
+                              <XMApp xml:id="Ch0.Ex3.m1.2">
+                                <XMTok meaning="times" role="MULOP">⁢</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">S</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">u</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">b</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">s</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">t</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">i</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">t</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">u</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">t</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">i</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">o</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">n</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">o</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">f</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">E</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">x</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">p</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">r</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">e</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">s</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">s</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">i</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">o</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">n</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">s</XMTok>
+                              </XMApp>
+                            </XMCell>
+                          </XMRow>
+                          <XMRow>
+                            <XMCell>
+                              <XMApp>
+                                <XMTok font="italic" role="OVERACCENT">‾</XMTok>
+                                <XMApp xml:id="Ch0.Ex3.m1.3">
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMTok name="Gamma" role="UNKNOWN">Γ</XMTok>
+                                  <XMApp>
+                                    <XMTok meaning="times" role="MULOP">⁢</XMTok>
+                                    <XMTok font="italic" role="UNKNOWN">P</XMTok>
+                                    <XMDual>
+                                      <XMApp>
+                                        <XMTok meaning="delimited-[]"/>
+                                        <XMRef idref="Ch0.Ex3.m1.3.1"/>
+                                      </XMApp>
+                                      <XMWrap>
+                                        <XMTok role="OPEN" stretchy="false">[</XMTok>
+                                        <XMApp xml:id="Ch0.Ex3.m1.3.1">
+                                          <XMTok meaning="divide" role="MULOP">/</XMTok>
+                                          <XMTok font="italic" role="UNKNOWN">x</XMTok>
+                                          <XMTok font="italic" role="UNKNOWN">E</XMTok>
+                                        </XMApp>
+                                        <XMTok role="CLOSE" stretchy="false">]</XMTok>
+                                      </XMWrap>
+                                    </XMDual>
+                                  </XMApp>
+                                </XMApp>
+                              </XMApp>
+                            </XMCell>
+                          </XMRow>
+                        </XMArray>
+                      </XMDual>
+                      <XMHint name="quad" role="PUNCT" width="10pt"/>
+                      <XMDual xml:id="Ch0.Ex3.m1.8">
+                        <XMApp>
+                          <XMTok meaning="infer"/>
+                          <XMRef idref="Ch0.Ex3.m1.6"/>
+                          <XMRef idref="Ch0.Ex3.m1.4"/>
+                        </XMApp>
+                        <XMArray vattach="bottom">
+                          <XMRow>
+                            <XMCell>
+                              <XMApp xml:id="Ch0.Ex3.m1.4">
+                                <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                <XMTok name="Gamma" role="UNKNOWN">Γ</XMTok>
+                                <XMApp>
+                                  <XMTok meaning="equals" role="RELOP">=</XMTok>
+                                  <XMTok font="italic" role="UNKNOWN">P</XMTok>
+                                  <XMTok font="italic" role="UNKNOWN">Q</XMTok>
+                                </XMApp>
+                              </XMApp>
+                            </XMCell>
+                            <XMCell rowspan="3">
+                              <XMApp xml:id="Ch0.Ex3.m1.5">
+                                <XMTok meaning="times" role="MULOP">⁢</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">E</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">q</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">u</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">a</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">l</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">i</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">t</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">y</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">o</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">f</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">E</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">x</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">p</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">r</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">e</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">s</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">s</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">i</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">o</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">n</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">s</XMTok>
+                              </XMApp>
+                            </XMCell>
+                          </XMRow>
+                          <XMRow>
+                            <XMCell>
+                              <XMApp>
+                                <XMTok font="italic" role="OVERACCENT">‾</XMTok>
+                                <XMApp xml:id="Ch0.Ex3.m1.6">
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMTok name="Gamma" role="UNKNOWN">Γ</XMTok>
+                                  <XMApp>
+                                    <XMTok meaning="equals" role="RELOP">=</XMTok>
+                                    <XMDual>
+                                      <XMApp>
+                                        <XMTok meaning="delimited-[]"/>
+                                        <XMRef idref="Ch0.Ex3.m1.6.1"/>
+                                      </XMApp>
+                                      <XMWrap>
+                                        <XMTok role="OPEN" stretchy="false">[</XMTok>
+                                        <XMApp xml:id="Ch0.Ex3.m1.6.1">
+                                          <XMTok meaning="divide" role="MULOP">/</XMTok>
+                                          <XMTok font="italic" role="UNKNOWN">x</XMTok>
+                                          <XMTok font="italic" role="UNKNOWN">P</XMTok>
+                                        </XMApp>
+                                        <XMTok role="CLOSE" stretchy="false">]</XMTok>
+                                      </XMWrap>
+                                    </XMDual>
+                                    <XMDual>
+                                      <XMApp>
+                                        <XMTok meaning="delimited-[]"/>
+                                        <XMRef idref="Ch0.Ex3.m1.6.2"/>
+                                      </XMApp>
+                                      <XMWrap>
+                                        <XMTok role="OPEN" stretchy="false">[</XMTok>
+                                        <XMApp xml:id="Ch0.Ex3.m1.6.2">
+                                          <XMTok meaning="divide" role="MULOP">/</XMTok>
+                                          <XMTok font="italic" role="UNKNOWN">x</XMTok>
+                                          <XMTok font="italic" role="UNKNOWN">Q</XMTok>
+                                        </XMApp>
+                                        <XMTok role="CLOSE" stretchy="false">]</XMTok>
+                                      </XMWrap>
+                                    </XMDual>
+                                  </XMApp>
+                                </XMApp>
+                              </XMApp>
+                            </XMCell>
+                          </XMRow>
+                        </XMArray>
+                      </XMDual>
+                    </XMWrap>
+                  </XMDual>
+                </XMath>
+              </Math>
+            </equation>
+          </para>
+          <para xml:id="Ch0.S1.SS2.SSSx1.p2">
+            <equation xml:id="Ch0.Ex4">
+              <Math mode="display" tex="\Gamma\vdash P=R\lx@proof@logical@and\Gamma\vdash P=Q\Gamma\vdash Q=R\quad%&#10;\Gamma\vdash Q\lx@proof@logical@and\Gamma\vdash P\Gamma\vdash P\Leftrightarrow&#10;Q" text="list@(infer@(Gamma proves P = R, (Gamma proves P = Q) and (Gamma proves Q = R)), infer@(Gamma proves Q, (Gamma proves P) and (Gamma proves P Leftrightarrow Q)))" xml:id="Ch0.Ex4.m1">
+                <XMath>
+                  <XMDual>
+                    <XMApp>
+                      <XMTok meaning="list"/>
+                      <XMRef idref="Ch0.Ex4.m1.7"/>
+                      <XMRef idref="Ch0.Ex4.m1.8"/>
+                    </XMApp>
+                    <XMWrap>
+                      <XMDual xml:id="Ch0.Ex4.m1.7">
+                        <XMApp>
+                          <XMTok meaning="infer"/>
+                          <XMRef idref="Ch0.Ex4.m1.3"/>
+                          <XMRef idref="Ch0.Ex4.m1.1"/>
+                        </XMApp>
+                        <XMArray vattach="bottom">
+                          <XMRow>
+                            <XMCell>
+                              <XMApp xml:id="Ch0.Ex4.m1.1">
+                                <XMTok meaning="and" name="lx@proof@logical@and" role="ADDOP"> </XMTok>
+                                <XMApp>
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMTok name="Gamma" role="UNKNOWN">Γ</XMTok>
+                                  <XMApp>
+                                    <XMTok meaning="equals" role="RELOP">=</XMTok>
+                                    <XMTok font="italic" role="UNKNOWN">P</XMTok>
+                                    <XMTok font="italic" role="UNKNOWN">Q</XMTok>
+                                  </XMApp>
+                                </XMApp>
+                                <XMApp>
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMTok name="Gamma" role="UNKNOWN">Γ</XMTok>
+                                  <XMApp>
+                                    <XMTok meaning="equals" role="RELOP">=</XMTok>
+                                    <XMTok font="italic" role="UNKNOWN">Q</XMTok>
+                                    <XMTok font="italic" role="UNKNOWN">R</XMTok>
+                                  </XMApp>
+                                </XMApp>
+                              </XMApp>
+                            </XMCell>
+                            <XMCell rowspan="3">
+                              <XMApp xml:id="Ch0.Ex4.m1.2">
+                                <XMTok meaning="times" role="MULOP">⁢</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">T</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">r</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">a</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">n</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">s</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">i</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">t</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">i</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">v</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">i</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">t</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">y</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">o</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">f</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">E</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">q</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">u</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">a</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">l</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">i</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">t</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">y</XMTok>
+                              </XMApp>
+                            </XMCell>
+                          </XMRow>
+                          <XMRow>
+                            <XMCell>
+                              <XMApp>
+                                <XMTok font="italic" role="OVERACCENT">‾</XMTok>
+                                <XMApp width="103.8pt" xml:id="Ch0.Ex4.m1.3">
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMTok name="Gamma" role="UNKNOWN">Γ</XMTok>
+                                  <XMApp>
+                                    <XMTok meaning="equals" role="RELOP">=</XMTok>
+                                    <XMTok font="italic" role="UNKNOWN">P</XMTok>
+                                    <XMTok font="italic" role="UNKNOWN">R</XMTok>
+                                  </XMApp>
+                                </XMApp>
+                              </XMApp>
+                            </XMCell>
+                          </XMRow>
+                        </XMArray>
+                      </XMDual>
+                      <XMHint name="quad" role="PUNCT" width="10pt"/>
+                      <XMDual xml:id="Ch0.Ex4.m1.8">
+                        <XMApp>
+                          <XMTok meaning="infer"/>
+                          <XMRef idref="Ch0.Ex4.m1.6"/>
+                          <XMRef idref="Ch0.Ex4.m1.4"/>
+                        </XMApp>
+                        <XMArray vattach="bottom">
+                          <XMRow>
+                            <XMCell>
+                              <XMApp xml:id="Ch0.Ex4.m1.4">
+                                <XMTok meaning="and" name="lx@proof@logical@and" role="ADDOP"> </XMTok>
+                                <XMApp>
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMTok name="Gamma" role="UNKNOWN">Γ</XMTok>
+                                  <XMTok font="italic" role="UNKNOWN">P</XMTok>
+                                </XMApp>
+                                <XMApp>
+                                  <XMTok meaning="multirelation"/>
+                                  <XMTok name="Gamma" role="UNKNOWN">Γ</XMTok>
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMTok font="italic" role="UNKNOWN">P</XMTok>
+                                  <XMTok name="Leftrightarrow" role="METARELOP">⇔</XMTok>
+                                  <XMTok font="italic" role="UNKNOWN">Q</XMTok>
+                                </XMApp>
+                              </XMApp>
+                            </XMCell>
+                            <XMCell rowspan="3">
+                              <XMApp xml:id="Ch0.Ex4.m1.5">
+                                <XMTok meaning="times" role="MULOP">⁢</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">E</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">q</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">u</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">i</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">a</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">n</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">i</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">m</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">i</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">t</XMTok>
+                                <XMTok font="italic" role="UNKNOWN">y</XMTok>
+                              </XMApp>
+                            </XMCell>
+                          </XMRow>
+                          <XMRow>
+                            <XMCell>
+                              <XMApp>
+                                <XMTok font="italic" role="OVERACCENT">‾</XMTok>
+                                <XMApp width="84.9pt" xml:id="Ch0.Ex4.m1.6">
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMTok name="Gamma" role="UNKNOWN">Γ</XMTok>
+                                  <XMTok font="italic" role="UNKNOWN">Q</XMTok>
+                                </XMApp>
+                              </XMApp>
+                            </XMCell>
+                          </XMRow>
+                        </XMArray>
+                      </XMDual>
+                    </XMWrap>
+                  </XMDual>
+                </XMath>
+              </Math>
+            </equation>
+          </para>
+          <para xml:id="Ch0.S1.SS2.SSSx1.p3">
+            <equation xml:id="Ch0.Ex5">
+              <Math class="ltx_math_unparsed" mode="display" tex="A\Leftrightarrow B\vdash\lx@proof@logical@and A,B\vdash\vdash A,B\quad\vdash A%&#10;\Leftrightarrow B\lx@proof@logical@and A\vdash BB\vdash A" text="list@(infer@(A Leftrightarrow B proves absent, (list@(A, B) proves absent) and (absent proves list@(A, B))), infer@([⊢A⇔B], (A proves B) and (B proves A)))" xml:id="Ch0.Ex5.m1">
+                <XMath>
+                  <XMDual>
+                    <XMApp>
+                      <XMTok meaning="list"/>
+                      <XMRef idref="Ch0.Ex5.m1.5"/>
+                      <XMRef idref="Ch0.Ex5.m1.6"/>
+                    </XMApp>
+                    <XMWrap>
+                      <XMDual xml:id="Ch0.Ex5.m1.5">
+                        <XMApp>
+                          <XMTok meaning="infer"/>
+                          <XMRef idref="Ch0.Ex5.m1.2"/>
+                          <XMRef idref="Ch0.Ex5.m1.1"/>
+                        </XMApp>
+                        <XMArray vattach="bottom">
+                          <XMRow>
+                            <XMCell>
+                              <XMApp xml:id="Ch0.Ex5.m1.1">
+                                <XMTok meaning="and" name="lx@proof@logical@and" role="ADDOP"> </XMTok>
+                                <XMApp>
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMDual>
+                                    <XMApp>
+                                      <XMTok meaning="list"/>
+                                      <XMRef idref="Ch0.Ex5.m1.1.1"/>
+                                      <XMRef idref="Ch0.Ex5.m1.1.2"/>
+                                    </XMApp>
+                                    <XMWrap>
+                                      <XMTok font="italic" role="UNKNOWN" xml:id="Ch0.Ex5.m1.1.1">A</XMTok>
+                                      <XMTok role="PUNCT">,</XMTok>
+                                      <XMTok font="italic" role="UNKNOWN" xml:id="Ch0.Ex5.m1.1.2">B</XMTok>
+                                    </XMWrap>
+                                  </XMDual>
+                                  <XMTok meaning="absent"/>
+                                </XMApp>
+                                <XMApp>
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMTok meaning="absent"/>
+                                  <XMDual>
+                                    <XMApp>
+                                      <XMTok meaning="list"/>
+                                      <XMRef idref="Ch0.Ex5.m1.1.3"/>
+                                      <XMRef idref="Ch0.Ex5.m1.1.4"/>
+                                    </XMApp>
+                                    <XMWrap>
+                                      <XMTok font="italic" role="UNKNOWN" xml:id="Ch0.Ex5.m1.1.3">A</XMTok>
+                                      <XMTok role="PUNCT">,</XMTok>
+                                      <XMTok font="italic" role="UNKNOWN" xml:id="Ch0.Ex5.m1.1.4">B</XMTok>
+                                    </XMWrap>
+                                  </XMDual>
+                                </XMApp>
+                              </XMApp>
+                            </XMCell>
+                          </XMRow>
+                          <XMRow>
+                            <XMCell>
+                              <XMApp>
+                                <XMTok font="italic" role="OVERACCENT">‾</XMTok>
+                                <XMApp width="67.8pt" xml:id="Ch0.Ex5.m1.2">
+                                  <XMTok meaning="multirelation"/>
+                                  <XMTok font="italic" role="UNKNOWN">A</XMTok>
+                                  <XMTok name="Leftrightarrow" role="METARELOP">⇔</XMTok>
+                                  <XMTok font="italic" role="UNKNOWN">B</XMTok>
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMTok meaning="absent"/>
+                                </XMApp>
+                              </XMApp>
+                            </XMCell>
+                          </XMRow>
+                        </XMArray>
+                      </XMDual>
+                      <XMHint name="quad" role="PUNCT" width="10pt"/>
+                      <XMDual xml:id="Ch0.Ex5.m1.6">
+                        <XMApp>
+                          <XMTok meaning="infer"/>
+                          <XMRef idref="Ch0.Ex5.m1.4"/>
+                          <XMRef idref="Ch0.Ex5.m1.3"/>
+                        </XMApp>
+                        <XMArray vattach="bottom">
+                          <XMRow>
+                            <XMCell>
+                              <XMApp xml:id="Ch0.Ex5.m1.3">
+                                <XMTok meaning="and" name="lx@proof@logical@and" role="ADDOP"> </XMTok>
+                                <XMApp>
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMTok font="italic" role="UNKNOWN">A</XMTok>
+                                  <XMTok font="italic" role="UNKNOWN">B</XMTok>
+                                </XMApp>
+                                <XMApp>
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMTok font="italic" role="UNKNOWN">B</XMTok>
+                                  <XMTok font="italic" role="UNKNOWN">A</XMTok>
+                                </XMApp>
+                              </XMApp>
+                            </XMCell>
+                          </XMRow>
+                          <XMRow>
+                            <XMCell>
+                              <XMApp>
+                                <XMTok font="italic" role="OVERACCENT">‾</XMTok>
+                                <XMArg width="64.5pt" xml:id="Ch0.Ex5.m1.4">
+                                  <XMTok meaning="proves" name="vdash" role="METARELOP">⊢</XMTok>
+                                  <XMTok font="italic" role="UNKNOWN">A</XMTok>
+                                  <XMTok name="Leftrightarrow" role="METARELOP">⇔</XMTok>
+                                  <XMTok font="italic" role="UNKNOWN">B</XMTok>
+                                </XMArg>
+                              </XMApp>
+                            </XMCell>
+                          </XMRow>
+                        </XMArray>
+                      </XMDual>
+                    </XMWrap>
+                  </XMDual>
+                </XMath>
+              </Math>
+            </equation>
+          </para>
         </subsubsection>
       </subsection>
       <subsection inlist="toc" xml:id="Ch0.S1.SS3">
@@ -164,7 +646,7 @@ A ⇔B ⊢                  </conclusion>
           <tag role="typerefnum">§0.1.3</tag>
         </tags>
         <title><tag close=" ">0.1.3</tag>Theorems</title>
-<!--  %****␣identitycalculus.tex␣Line␣75␣**** -->      </subsection>
+      </subsection>
     </section>
   </part>
 </document>

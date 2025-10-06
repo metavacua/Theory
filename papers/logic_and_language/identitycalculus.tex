@@ -3,76 +3,43 @@ A calculus of Horn clauses, equality, equivalence, identity, explicit substituti
 \end{abstract}
 
 \part{Preliminaries}
-\begin{center}
 	\begin{flushleft}
 		The primary method is intended to be solely substitution of equals for equals.
-	\end{flushleft}
-
-
-\end{center}
+	</flushleft}
 
 \newpage
 \part{Identity Calculi}
-\begin{center}
 
-	\section{Non-Structural Identity Calculus}
-		\subsection{Structural Rules}
-		\begin{center}
-			\begin{prooftree}
-			\inferzero[Id]{A \vdash A}
-			\end{prooftree}
+\section{Non-Structural Identity Calculus}
+	\subsection{Structural Rules}
+		\[
+		\infer[Id]{A \vdash A}{}
+		\]
 
-			\begin{prooftree}
-			\hypo{\Gamma \vdash A}
-			\hypo{A \vdash \Delta}
-			\infertwo[Cut]{\Gamma \vdash \Delta}
-			\end{prooftree}
-		\end{center}
+		\[
+		\infer[Cut]{\Gamma \vdash \Delta}{\Gamma \vdash A & A \vdash \Delta}
+		\]
 
-		\subsection{Operational Rules}
-		\begin{center}
+	\subsection{Operational Rules}
+		\subsubsection{Multiplicatives}
+			\[
+			\infer[Substitution of Expressions]{\Gamma \vdash P[x/E]}{\Gamma \vdash P}
+			\quad
+			\infer[Equality of Expressions]{\Gamma \vdash [x/P] = [x/Q]}{\Gamma \vdash P = Q}
+			\]
 
-			\subsubsection{Multiplicatives}
-			\begin{center}
-				\begin{prooftree}
-				\hypo{\Gamma \vdash P}
-				\inferone[Substitution of Expressions]{\Gamma \vdash P[x/E]}
-				\end{prooftree}
+			\[
+			\infer[Transitivity of Equality]{\Gamma \vdash P = R}{\Gamma \vdash P = Q & \Gamma \vdash Q = R}
+			\quad
+			\infer[Equianimity]{\Gamma \vdash Q}{\Gamma \vdash P & \Gamma \vdash P \Leftrightarrow Q}
+			\]
 
-				\begin{prooftree}
-				\hypo{\Gamma \vdash P = Q}
-				\inferone[Equality of Expressions]{\Gamma \vdash [x/P] = [x/Q]}
-				\end{prooftree}
+			\[
+			\infer{A \Leftrightarrow B \vdash }{A, B \vdash & \vdash A, B}
+			\quad
+			\infer{\vdash A \Leftrightarrow B}{A \vdash B & B \vdash A}
+			\]
 
-				\begin{prooftree}
-				\hypo{\Gamma \vdash P = Q}
-				\hypo{\Gamma \vdash Q = R}
-				\infertwo[Transitivity of Equality]{\Gamma \vdash P = R}
-				\end{prooftree}
-
-				\begin{prooftree}
-				\hypo{\Gamma \vdash P}
-				\hypo{\Gamma \vdash P \Leftrightarrow Q}
-				\infertwo[Equianimity]{\Gamma \vdash Q}
-				\end{prooftree}
-
-				\begin{prooftree}
-				\hypo{A, B \vdash}
-				\hypo{\vdash A, B}
-				\infertwo{A \Leftrightarrow B \vdash }
-				\end{prooftree}
-
-				\begin{prooftree}
-				\hypo{A \vdash B}
-				\hypo{B \vdash A}
-				\infertwo{⊢ A \Leftrightarrow B}
-				\end{prooftree}
-			\end{center}
-		\end{center}
-
-		\subsection{Theorems}
-		\begin{center}
-			\begin{flushleft}
-			\end{flushleft}
-		\end{center}
-\end{center}
+	\subsection{Theorems}
+		\begin{flushleft}
+		\end{flushleft}

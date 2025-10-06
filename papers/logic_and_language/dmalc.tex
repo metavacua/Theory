@@ -1,186 +1,73 @@
-
-\documentclass{article}
-
-\usepackage{amsmath}
-\usepackage{ebproof}
-\usepackage{fullpage}
-\usepackage[utf8]{inputenc}
-\usepackage{newunicodechar}
-\usepackage{stix}
-
-\newunicodechar{Γ}{\Gamma}
-\newunicodechar{Π}{\Pi}
-\newunicodechar{Δ}{\Delta}
-\newunicodechar{Λ}{\Lambda}
-\newunicodechar{Θ}{\Theta}
-
-\newunicodechar{⊢}{\vdash}
-
-\newunicodechar{⊕}{\oplus}
-\newunicodechar{¬}{\neg}
-
-\newunicodechar{⅋}{\upand}
-\newunicodechar{↛}{\nrightarrow}
-\newunicodechar{↚}{\nleftarrow}
-
-\newunicodechar{⊥}{\bot}
-\newunicodechar{⊤}{\top}
-
-\setlength{\parindent}{0em}
-
-\author{James Martin, Ian D.L.N. Mclean}
-\title{Dual Multiplicative-Additive Lambek Sequent Calculus}
-
-\begin{document}
-
-\maketitle
-
 \begin{abstract}
 
 \end{abstract}
 
 \section{Operational Rules}
 Uncertain about proper dualization that preserves the proper ordering for the dual.
-\begin{center}
 
 	\[
-	\begin{prooftree}
-	\infer0{ ⊥ ⊢ }
-	\end{prooftree}
+	\infer{\bot \vdash}{}
 	\quad
-	\begin{prooftree}
-	\hypo{C ⊢ Δ_{L}, Δ_{R}}
-	\infer1{C ⊢ Δ_{L}, ⊥, Δ_{R}}
-	\end{prooftree}
+	\infer{C \vdash \Delta_{L}, \bot, \Delta_{R}}{C \vdash \Delta_{L}, \Delta_{R}}
 	\]
 
 	\[
-	\begin{prooftree}
-	\infer0{ 0 ⊢ Δ}
-	\end{prooftree}
+	\infer{0 \vdash \Delta}{}
 	\quad
-	\begin{prooftree}
-	\infer0{C ⊢ Δ_{L}, ⊤, Δ_{R}}
-	\end{prooftree}
+	\infer{C \vdash \Delta_{L}, \top, \Delta_{R}}{}
 	\]
 
 	\[
-	\begin{prooftree}
-	\hypo{B ⊢ Δ_{L}}
-	\hypo{A ⊢ Δ_{R}}
-	\infer2{B ⅋ A ⊢ Δ_{L}, Δ_{R}}
-	\end{prooftree}
+	\infer{B \upand A \vdash \Delta_{L}, \Delta_{R}}{B \vdash \Delta_{L} & A \vdash \Delta_{R}}
 	\quad
-	\begin{prooftree}
-	\hypo{C ⊢ Δ_{L}, B, A, Δ_{L}}
-	\infer1{C ⊢ Δ_{L}, B ⅋ A, Δ_{L}}
-	\end{prooftree}
+	\infer{C \vdash \Delta_{L}, B \upand A, \Delta_{R}}{C \vdash \Delta_{L}, B, A, \Delta_{R}}
 	\]
 
 	\[
-	\begin{prooftree}
-	\hypo{B ⊢ Δ, A}
-	\infer1{A ↚ B ⊢ Δ}
-	\end{prooftree}
+	\infer{A \nleftarrow B \vdash \Delta}{B \vdash \Delta, A}
 	\quad
-	\begin{prooftree}
-	\hypo{A ⊢ Δ}
-	\hypo{C ⊢ Δ_{L}, B, Δ_{R}}
-	\infer2{C ⊢ Δ_{L}, A ↚ B, Δ, Δ_{R}}
-	\end{prooftree}
+	\infer{C \vdash \Delta_{L}, A \nleftarrow B, \Delta, \Delta_{R}}{A \vdash \Delta & C \vdash \Delta_{L}, B, \Delta_{R}}
 	\]
 
 	\[
+	\infer{A \nrightarrow B \vdash \Delta}{B \vdash A, \Delta}
 	\quad
-	\begin{prooftree}
-	\hypo{B ⊢ A, Δ}
-	\infer1{A ↛ B ⊢ Δ}
-	\end{prooftree}
-	\quad
-	\begin{prooftree}
-	\hypo{A ⊢ Δ}
-	\hypo{C ⊢ Δ_{L}, B, Δ_{R}}
-	\infer2{C ⊢ Δ_{L}, Δ, B ↛ A, Δ_{R}}
-	\end{prooftree}
+	\infer{C \vdash \Delta_{L}, \Delta, B \nrightarrow A, \Delta_{R}}{A \vdash \Delta & C \vdash \Delta_{L}, B, \Delta_{R}}
 	\]
 
 	\[
-	\begin{prooftree}
-	\hypo{B ⊢ Δ}
-	\hypo{A ⊢ Δ}
-	\infer2{B ⊕ A ⊢ Δ}
-	\end{prooftree}
+	\infer{B \oplus A \vdash \Delta}{B \vdash \Delta & A \vdash \Delta}
 	\quad
-	\begin{prooftree}
-	\hypo{C ⊢ Δ_{L}, A, Δ_{R}}
-	\infer1{C ⊢ Δ_{L}, B ⊕ A, Δ_{R}}
-	\end{prooftree}
+	\infer{C \vdash \Delta_{L}, B \oplus A, \Delta_{R}}{C \vdash \Delta_{L}, A, \Delta_{R}}
 	\quad
-	\begin{prooftree}
-	\hypo{C ⊢ Δ_{L}, B, Δ_{R}}
-	\infer1{C ⊢ Δ_{L}, B ⊕ A, Δ_{R}}
-	\end{prooftree}
+	\infer{C \vdash \Delta_{L}, B \oplus A, \Delta_{R}}{C \vdash \Delta_{L}, B, \Delta_{R}}
 	\]
 
 	\[
-	\begin{prooftree}
-	\hypo{A ⊢ Δ}
-	\infer1{A \& B ⊢ Δ}
-	\end{prooftree}
+	\infer{A \& B \vdash \Delta}{A \vdash \Delta}
 	\quad
-	\begin{prooftree}
-	\hypo{B ⊢ Δ}
-	\infer1{A \& B ⊢ Δ}
-	\end{prooftree}
+	\infer{A \& B \vdash \Delta}{B \vdash \Delta}
 	\quad
-	\begin{prooftree}
-	\hypo{ C ⊢ Δ_{L}, B, Δ_{R}}
-	\hypo{ C ⊢ Δ_{L}, A, Δ_{R}}
-	\infer2{ C ⊢ Δ_{L}, B \& A, Δ_{R}}
-	\end{prooftree}
+	\infer{ C \vdash \Delta_{L}, B \& A, \Delta_{R}}{C \vdash \Delta_{L}, B, \Delta_{R} & C \vdash \Delta_{L}, A, \Delta_{R}}
 	\]
 
 	\[
-	\begin{prooftree}
-	\hypo{ ⊢ A, Δ}
-	\infer1{ ¬ A ⊢ Δ}
-	\end{prooftree}
+	\infer{\neg A \vdash \Delta}{ \vdash A, \Delta}
 	\quad
-	\begin{prooftree}
-	\hypo{ ⊢ Δ, A}
-	\infer1{ ¬ A⊢ Δ}
-	\end{prooftree}
+	\infer{\neg A \vdash \Delta}{ \vdash \Delta, A}
 	\quad
-	\begin{prooftree}
-	\hypo{ A ⊢ Δ}
-	\infer1{ ⊢ ¬ A, Δ}
-	\end{prooftree}
+	\infer{\vdash \neg A, \Delta}{ A \vdash \Delta}
 	\quad
-	\begin{prooftree}
-	\hypo{ A ⊢ Δ}
-	\infer1{ ⊢ Δ, ¬ A}
-	\end{prooftree}
+	\infer{\vdash \Delta, \neg A}{ A \vdash \Delta}
 	\]
-
-\end{center}
 
 \section{Structural Rules}
 Uses a variation of cut right.
 
-\begin{center}
 	\[
-	\begin{prooftree}
-	\infer0[Id]{A ⊢ A}
-	\end{prooftree}
+	\infer[Id]{A \vdash A}{}
 	\]
 
 	\[
-	\begin{prooftree}
-	\hypo{C ⊢ Δ_{L}, A, Δ_{R}}
-	\hypo{A ⊢ Δ}
-	\infer2[CutR]{C ⊢ Δ_{L}, Δ, Δ_{R} }
-	\end{prooftree}
+	\infer[CutR]{C \vdash \Delta_{L}, \Delta, \Delta_{R} }{C \vdash \Delta_{L}, A, \Delta_{R} & A \vdash \Delta}
 	\]
-\end{center}
-
-\end{document}
