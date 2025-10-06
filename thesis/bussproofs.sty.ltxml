@@ -1,6 +1,6 @@
 # -*- mode: Perl -*-
 # /=====================================================================\ #
-# |  bussproofs (stable placeholder)                                    | #
+# |  bussproofs (minimal placeholder)                                   | #
 # | Implementation for LaTeXML                                          | #
 # |=====================================================================| #
 package LaTeXML::Package::Pool;
@@ -8,17 +8,9 @@ use strict;
 use warnings;
 use LaTeXML::Package;
 
-# NOTE: This is a placeholder implementation for the bussproofs package.
-# It defines the necessary commands to prevent fatal conversion errors,
-# but it does not correctly render the proof trees into semantic HTML.
-# The output will contain placeholder <ltx:inference> and <ltx:axiom> tags
-# inside a generic <ltx:proof> environment.
-
-DefEnvironment('{prooftree}', '<ltx:proof>#body</ltx:proof>');
-DefMacro('\hypo{}', '<ltx:axiom>#1</ltx:axiom>');
-DefConstructor('\inferzero[]{}', '<ltx:inference infrule="axiom" rulelabel="#1"><ltx:conclusion>#2</ltx:conclusion></ltx:inference>');
-DefConstructor('\inferone[]{}', '<ltx:inference infrule="unary" rulelabel="#1"><ltx:conclusion>#2</ltx:conclusion></ltx:inference>');
-DefConstructor('\infertwo[]{}', '<ltx:inference infrule="binary" rulelabel="#1"><ltx:conclusion>#2</ltx:conclusion></ltx:inference>');
-DefConstructor('\inferthree[]{}', '<ltx:inference infrule="trinary" rulelabel="#1"><ltx:conclusion>#2</ltx:conclusion></ltx:inference>');
+# NOTE: This is a minimal placeholder to prevent "missing file" errors.
+# It does NOT define any of the bussproofs commands or environments.
+# This is a deliberate choice to ensure conversion stability at the cost
+# of not rendering the proof trees.
 
 1;

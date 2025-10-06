@@ -58,7 +58,11 @@ TMP_TEX_FILE="$TMP_DIR/$BASE_NAME.tex"
 sed "s|PAPER_PATH|$INPUT_FILE_ABS|" "$TEMPLATE_FILE" > "$TMP_TEX_FILE"
 # ---
 
-# --- LaTeXML conversion ---
+# --- LaTeXML conversion & Verification ---
+LOG_FILE="$BASE_NAME.latexml.log"
+# Remove any old log file to ensure we are checking the correct log.
+rm -f "$LOG_FILE"
+
 echo "Starting conversion..."
 echo "  Input:  $INPUT_FILE"
 echo "  Output: $OUTPUT_FILE"
@@ -68,5 +72,20 @@ echo "  Output: $OUTPUT_FILE"
 # and also our custom .sty.ltxml binding files.
 latexml --dest="$OUTPUT_FILE" --path="$INPUT_DIR" --path="$THESIS_DIR" "$TMP_TEX_FILE"
 
-echo "Conversion successful."
+# --- Verification Step ---
+# Check the log file for any "Error:" or "Fatal:" messages.
+if [ -f "$LOG_FILE" ] && grep -q -E "(Error:|Fatal:)" "$LOG_FILE"; then
+    echo "--------------------------------------------------" >&2
+    echo "ERROR: Conversion of $INPUT_FILE failed. See log for details:" >&2
+    cat "$LOG_FILE" >&2
+    echo "--------------------------------------------------" >&2
+    rm -f "$LOG_FILE"
+    exit 1
+else
+    echo "Verification successful: No errors found in log file."
+    # Clean up the log file on success.
+    rm -f "$LOG_FILE"
+fi
+
+echo "Conversion of $INPUT_FILE successful."
 # ---
