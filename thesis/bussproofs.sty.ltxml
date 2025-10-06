@@ -10,7 +10,6 @@ use LaTeXML::Package;
 
 # NOTE: This is a minimal placeholder to prevent "missing file" errors.
 # It does NOT define any of the bussproofs commands or environments.
-# This is a deliberate choice to ensure conversion stability at the cost
-# of not rendering the proof trees.
+# This is a deliberate choice to ensure conversion stability.
 
 1;

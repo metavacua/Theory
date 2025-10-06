@@ -3,25 +3,43 @@ A calculus of Horn clauses, equality, equivalence, identity, explicit substituti
 \end{abstract}
 
 \part{Preliminaries}
-\begin{center}
 	\begin{flushleft}
 		The primary method is intended to be solely substitution of equals for equals.
-	\end{flushleft}
-\end{center}
+	</flushleft}
 
 \newpage
 \part{Identity Calculi}
 
 \section{Non-Structural Identity Calculus}
-\subsection{Structural Rules}
-% Proof trees removed for conversion stability.
+	\subsection{Structural Rules}
+		\[
+		\infer[Id]{A \vdash A}{}
+		\]
 
-\subsection{Operational Rules}
-\subsubsection{Multiplicatives}
-% Proof trees removed for conversion stability.
+		\[
+		\infer[Cut]{\Gamma \vdash \Delta}{\Gamma \vdash A & A \vdash \Delta}
+		\]
 
-\subsection{Theorems}
-\begin{center}
-	\begin{flushleft}
-	\end{flushleft}
-\end{center}
+	\subsection{Operational Rules}
+		\subsubsection{Multiplicatives}
+			\[
+			\infer[Substitution of Expressions]{\Gamma \vdash P[x/E]}{\Gamma \vdash P}
+			\quad
+			\infer[Equality of Expressions]{\Gamma \vdash [x/P] = [x/Q]}{\Gamma \vdash P = Q}
+			\]
+
+			\[
+			\infer[Transitivity of Equality]{\Gamma \vdash P = R}{\Gamma \vdash P = Q & \Gamma \vdash Q = R}
+			\quad
+			\infer[Equianimity]{\Gamma \vdash Q}{\Gamma \vdash P & \Gamma \vdash P \Leftrightarrow Q}
+			\]
+
+			\[
+			\infer{A \Leftrightarrow B \vdash }{A, B \vdash & \vdash A, B}
+			\quad
+			\infer{\vdash A \Leftrightarrow B}{A \vdash B & B \vdash A}
+			\]
+
+	\subsection{Theorems}
+		\begin{flushleft}
+		\end{flushleft}

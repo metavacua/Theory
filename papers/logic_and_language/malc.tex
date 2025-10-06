@@ -1,6 +1,52 @@
+\begin{abstract}
+
+\end{abstract}
+
 \section{Operational Rules}
-% Proof trees removed for conversion stability
+
+\infer{\Gamma_{L}, 1, \Gamma_{R} \vdash C}{\Gamma_{L}, \Gamma_{R} \vdash C}
+
+\infer{\vdash 1}{}
+
+\infer{\Gamma_{L}, 0, \Gamma_{R} \vdash C}{}
+
+\infer{ \Gamma \vdash \top}{}
+
+\infer{\Gamma_{L}, A \otimes B, \Gamma_{R} \vdash C}{\Gamma_{L}, A, B, \Gamma_{R} \vdash C}
+
+\infer{\Gamma_{L}, \Gamma_{R} \vdash A \otimes B}{\Gamma_{L} \vdash A & \Gamma_{R} \vdash B}
+
+\infer{\Gamma_{L}, \Gamma, A \rightarrow B, \Gamma_{R} \vdash C}{\Gamma \vdash A & \Gamma_{L}, B, \Gamma_{R} \vdash C}
+
+\infer{\Gamma \vdash A \rightarrow B}{A, \Gamma \vdash B}
+
+\infer{\Gamma_{L}, B \leftarrow A, \Gamma, \Gamma_{R} \vdash C}{\Gamma \vdash A & \Gamma_{L}, B, \Gamma_{R} \vdash C}
+
+\infer{\Gamma \vdash B \leftarrow A}{\Gamma, A \vdash B}
+
+\infer{\Gamma_{L}, A \oplus B, \Gamma_{R} \vdash C}{\Gamma_{L}, A, \Gamma_{R} \vdash C & \Gamma_{L}, B, \Gamma_{R} \vdash C}
+
+\infer{\Gamma \vdash A \oplus B}{\Gamma \vdash A}
+
+\infer{\Gamma \vdash A \oplus B}{\Gamma \vdash B}
+
+\infer{\Gamma_{L}, A \& B, \Gamma_{R} \vdash C}{\Gamma_{L}, A, \Gamma_{R} \vdash C}
+
+\infer{\Gamma_{L}, A \& B, \Gamma_{R} \vdash C}{\Gamma_{L}, B, \Gamma_{R} \vdash C}
+
+\infer{\Gamma \vdash A \& B}{\Gamma \vdash A & \Gamma \vdash B}
+
+\infer{ \neg_{C} A, \Gamma \vdash }{\Gamma \vdash A}
+
+\infer{ \Gamma, \neg_{C} A\vdash }{\Gamma \vdash A}
+
+\infer{ \Gamma \vdash \neg_{L} A}{A, \Gamma \vdash }
+
+\infer{ \Gamma \vdash \neg_{R} A}{\Gamma, A \vdash }
 
 \section{Structural Rules}
 Uses a variation of cut left.
-% Proof trees removed for conversion stability
+
+\infer[Id]{A \vdash A}{}
+
+\infer[CutL]{\Delta, \Gamma, \Pi \vdash C}{\Gamma \vdash A & \Delta, A, \Pi \vdash C}

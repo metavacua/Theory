@@ -1,15 +1,15 @@
 # -*- mode: Perl -*-
-#======================================================================
-#
-# This is a placeholder binding for the 'newunicodechar' package.
-# It is intentionally left empty because the package's commands
-# are not needed for the HTML conversion, but the file must exist
-# to prevent LaTeXML from throwing a "missing file" error.
-#
-#======================================================================
+# /=====================================================================\ #
+# |  newunicodechar (minimal placeholder)                               | #
+# | Implementation for LaTeXML                                          | #
+# |=====================================================================| #
 package LaTeXML::Package::Pool;
 use strict;
 use warnings;
 use LaTeXML::Package;
+
+# NOTE: This is a minimal placeholder to prevent "missing file" errors.
+# It does NOT define the \newunicodechar command. This ensures stability
+# by requiring Unicode characters to be handled in the source .tex files.
 
 1;
