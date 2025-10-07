@@ -1,15 +1,159 @@
 # -*- mode: Perl -*-
 # /=====================================================================\ #
-# |  bussproofs (minimal placeholder)                                   | #
+# |  bussproofs.sty binding                                             | #
 # | Implementation for LaTeXML                                          | #
 # |=====================================================================| #
-package LaTeXML::Package::Pool;
+package LaTeXML::Package::bussproofs;
 use strict;
 use warnings;
 use LaTeXML::Package;
 
-# NOTE: This is a minimal placeholder to prevent "missing file" errors.
-# It does NOT define any of the bussproofs commands or environments.
-# This is a deliberate choice to ensure conversion stability.
+# This package uses a stack to build the proof tree.
+# The inference commands push nodes onto the stack, and the
+# prooftree environment pops the final tree and renders it.
+our @proof_stack;
+
+# ==============================================================================
+# This is the main recursive function that builds the XML representation
+# of the proof tree from the nested Perl hash structure.
+# ==============================================================================
+sub render_proof_node {
+    my ($latexml_doc, $node) = @_;
+    my $raw_doc = $latexml_doc->getDocument();
+
+    my $content_whatsit = $node->{content};
+    my $children = $node->{children};
+
+    # First, render the content of the current node into a document fragment
+    # so it can be appended later.
+    my $content_fragment = $raw_doc->createDocumentFragment();
+    my $current_insertion_point = $latexml_doc->getNode(); # Save current state
+    $latexml_doc->setNode($content_fragment);
+    $latexml_doc->absorb($content_whatsit);
+    $latexml_doc->setNode($current_insertion_point); # Restore state
+
+    # If there are no children, it's an axiom (a leaf). Just return the rendered content.
+    return $content_fragment if !@$children;
+
+    # If there are children, it's an inference. We build a table structure.
+    my $tabular = $raw_doc->createElement('ltx:tabular');
+    $tabular->setAttribute('class', 'ltx_prooftree');
+
+    # Row 1: Premises (the children of the current node)
+    my $premises_row = $raw_doc->createElement('ltx:tr');
+    $premises_row->setAttribute('class', 'ltx_premises');
+    foreach my $child_node (@$children) {
+        my $td = $raw_doc->createElement('ltx:td');
+        $td->setAttribute('class', 'ltx_premise');
+        # Recursively render the child node and append the result to the table cell
+        $td->appendChild(render_proof_node($latexml_doc, $child_node));
+        $premises_row->appendChild($td);
+    }
+    $tabular->appendChild($premises_row);
+
+    # Row 2: The inference rule line
+    my $rule_row = $raw_doc->createElement('ltx:tr');
+    my $rule_td = $raw_doc->createElement('ltx:td');
+    $rule_td->setAttribute('colspan', scalar(@$children));
+    $rule_td->setAttribute('class', 'ltx_rule');
+    $rule_td->appendChild($raw_doc->createElement('ltx:rule'));
+    $rule_row->appendChild($rule_td);
+    $tabular->appendChild($rule_row);
+
+    # Row 3: The conclusion
+    my $conclusion_row = $raw_doc->createElement('ltx:tr');
+    my $conclusion_td = $raw_doc->createElement('ltx:td');
+    $conclusion_td->setAttribute('colspan', scalar(@$children));
+    $conclusion_td->setAttribute('class', 'ltx_conclusion');
+    $conclusion_td->appendChild($content_fragment);
+    $conclusion_row->appendChild($conclusion_td);
+    $tabular->appendChild($conclusion_row);
+
+    return $tabular;
+}
+
+# ==============================================================================
+# Definitions for the proof tree commands.
+# These don't return any XML themselves; they just manipulate the @proof_stack
+# during the digestion phase.
+# ==============================================================================
+
+sub axiom_constructor {
+    my ($stomach, $whatsit) = @_;
+    # The content of the axiom is the first argument.
+    my $node = { content => $whatsit->getArg(1), children => [] };
+    push @proof_stack, $node;
+    return;
+}
+
+sub inference_constructor {
+    my ($stomach, $whatsit, $arity, $name) = @_;
+    my @premises;
+    for (1..$arity) {
+        my $premise = pop(@proof_stack);
+        unless (defined $premise) {
+            Warn('bussproofs', $name, "Insufficient premises for inference.");
+            return;
+        }
+        unshift @premises, $premise;
+    }
+    # The content of the inference is the first argument.
+    my $node = { content => $whatsit->getArg(1), children => \@premises };
+    push @proof_stack, $node;
+    return;
+}
+
+DefConstructor('\AxiomC{}', sub { axiom_constructor(@_, 0, '\AxiomC') });
+DefConstructor('\UnaryInfC{}', sub { inference_constructor(@_, 1, '\UnaryInfC') });
+DefConstructor('\BinaryInfC{}', sub { inference_constructor(@_, 2, '\BinaryInfC') });
+DefConstructor('\TrinaryInfC{}', sub { inference_constructor(@_, 3, '\TrinaryInfC') });
+DefConstructor('\QuaternaryInfC{}', sub { inference_constructor(@_, 4, '\QuaternaryInfC') });
+DefConstructor('\QuinaryInfC{}', sub { inference_constructor(@_, 5, '\QuinaryInfC') });
+
+# ==============================================================================
+# The 'prooftree' environment.
+# ==============================================================================
+DefEnvironment('{prooftree}',
+    sub {
+        my ($document, $bodywhatsit) = @_;
+        if (@proof_stack != 1) {
+            Warn('bussproofs', 'prooftree',
+                 "Expected 1 proof on stack, but found " . scalar(@proof_stack) . ". Rendering the last one.");
+        }
+        my $root = pop(@proof_stack);
+        @proof_stack = (); # Reset stack
+        return undef unless $root;
+
+        my $raw_doc = $document->getDocument();
+        my $center = $raw_doc->createElement('ltx:center');
+        my $para = $raw_doc->createElement('ltx:para');
+        $para->appendChild(render_proof_node($document, $root));
+        $center->appendChild($para);
+        return $center;
+    },
+    beforeDigest => sub { @proof_stack = (); },
+);
+
+# Fallback for \DisplayProof
+DefConstructor('\DisplayProof',
+    sub {
+        my ($stomach) = @_;
+        if (@proof_stack != 1) {
+            Warn('bussproofs', 'DisplayProof', "Expected 1 proof on stack, but found " . scalar(@proof_stack) . ".");
+        }
+        my $root = pop(@proof_stack);
+        @proof_stack = (); # Reset stack
+        return undef unless $root;
+
+        my $document = $stomach->getDocument();
+        my $raw_doc = $document->getDocument();
+        my $center = $raw_doc->createElement('ltx:center');
+        my $para = $raw_doc->createElement('ltx:para');
+        $para->appendChild(render_proof_node($document, $root));
+        $center->appendChild($para);
+
+        # Must return a Whatsit containing the created box
+        return LaTeXML::Core::Whatsit->new(box => $center);
+    });
 
 1;

@@ -7,6 +7,6 @@ set -e
 # Update package lists
 sudo apt-get update
 
-# Install a full TeX Live distribution
+# Install a full TeX Live distribution and LaTeXML
 # This is a large download, but ensures all necessary packages are available.
-sudo apt-get install -y texlive-full
+sudo apt-get install -y texlive-full latexml
