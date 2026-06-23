@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dublin Core + Schema.org metadata fragment for XInclude into DocBook articles -->
+<info xmlns="http://docbook.org/ns/docbook"
+      xmlns:dc="http://purl.org/dc/terms/"
+      xmlns:schema="https://schema.org/">
+
+  <dc:title>Principled Agent Architectures: A Neuro-Symbolic Blueprint Beyond Large Language Models — Critical Review and Repository Audit</dc:title>
+  <dc:creator>metavacua research session (Claude Sonnet 4.6, 2026-06-23)</dc:creator>
+  <dc:subject>Neuro-Symbolic AI; Agent Architecture; Curry-Howard Correspondence; Formal Verification; Large Language Models; Program Synthesis</dc:subject>
+  <dc:description>A critical review of the NSAM paper with adversarial verification of 6 key empirical and novelty claims, sourced from 23 primary and secondary papers, plus a relevance audit of 7 GitHub repositories in the metavacua project portfolio.</dc:description>
+  <dc:publisher>metavacua/Theory (GitHub)</dc:publisher>
+  <dc:date>2026-06-23</dc:date>
+  <dc:type>ScholarlyArticle</dc:type>
+  <dc:format>application/xml</dc:format>
+  <dc:language>en</dc:language>
+  <dc:rights>AGPL-3.0-or-later</dc:rights>
+  <dc:source>Deep research workflow (105 agents, 1307 tool uses, 2,247,194 subagent tokens)</dc:source>
+
+  <bibliomisc role="schema-org-jsonld"><![CDATA[
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "Principled Agent Architectures: Critical Review and Repository Audit",
+  "description": "Adversarially verified critical review of the NSAM paper with 6 findings, 23 sources, and 7-repository relevance audit.",
+  "author": {
+    "@type": "Organization",
+    "name": "metavacua research (Claude Sonnet 4.6)"
+  },
+  "datePublished": "2026-06-23",
+  "inLanguage": "en",
+  "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+  "isPartOf": {
+    "@type": "Collection",
+    "name": "metavacua/Theory",
+    "url": "https://github.com/metavacua/Theory"
+  },
+  "about": [
+    {"@type": "Thing", "name": "Neuro-Symbolic AI"},
+    {"@type": "Thing", "name": "Curry-Howard Correspondence"},
+    {"@type": "Thing", "name": "Agent Architecture"},
+    {"@type": "Thing", "name": "Formal Verification"}
+  ],
+  "keywords": "neuro-symbolic AI, Curry-Howard, agent architecture, LLM critique, NSAM, formal verification, program synthesis"
+}
+  ]]></bibliomisc>
+</info>
