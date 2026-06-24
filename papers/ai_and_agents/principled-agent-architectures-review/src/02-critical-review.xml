@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         version="5.2"
+         xml:id="nsam-critical-review"
+         xml:lang="en">
+
+  <xi:include href="00-metadata.xml"/>
+
+  <title>Critical Review: Principled Agent Architectures — Adversarially Verified Findings</title>
+
+  <section xml:id="cr-summary">
+    <title>Executive Summary</title>
+    <para>The NSAM paper's empirical anchors are partially accurate but materially overstated.
+    The Logic-LM headline figure (39.2%) is a multi-dataset average that the paper applies without
+    qualification, while the CoT comparison (18.4%) is the more honest measure of incremental gain.
+    The Mamba linear-scaling and FNet 80%-speedup claims are accurate as stated, but the paper's
+    "5x throughput" and "92–97% accuracy" figures for these systems did not survive adversarial
+    verification. The paper's central architectural novelty — applying the Curry-Howard
+    correspondence to agent planning (goals-as-types, plans-as-proofs) — is substantially
+    anticipated by prior work, most directly by the Proof-Carrying Plans line (PPDP 2020, PADL 2019)
+    and more broadly by decades of linear-logic planning research. PyReason's claimed role as an
+    "exact yet scalable" NSAM core is unsupported by comparative benchmarks against peer systems
+    (Scallop, DeepProbLog, LTN, LNN), and the broader neurosymbolic community's recent comparative
+    study excluded PyReason from its empirical tables entirely. The paper is best read as a
+    well-motivated integration blueprint that overstates both its empirical evidence and its novelty
+    relative to the literature it does not cite.</para>
+  </section>
+
+  <section xml:id="cr-stats">
+    <title>Review Statistics</title>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row><entry>Search angles</entry><entry>5</entry></row>
+          <row><entry>Sources fetched</entry><entry>23</entry></row>
+          <row><entry>Claims extracted</entry><entry>109</entry></row>
+          <row><entry>Claims verified</entry><entry>25</entry></row>
+          <row><entry>Confirmed</entry><entry>14</entry></row>
+          <row><entry>Killed (refuted)</entry><entry>11</entry></row>
+          <row><entry>After synthesis</entry><entry>6</entry></row>
+          <row><entry>Agent calls</entry><entry>105</entry></row>
+          <row><entry>Subagent tokens</entry><entry>2,247,194</entry></row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="cr-findings">
+    <title>Verified Findings</title>
+
+    <section xml:id="cr-finding-1" role="finding" condition="confirmed-with-caveats">
+      <title>Finding 1: Logic-LM 39.2% figure lacks qualification</title>
+      <para><emphasis role="bold">Claim:</emphasis> Logic-LM's 39.2% improvement figure is a
+      multi-dataset average and is model-specific; when applied to individual datasets (e.g., FOLIO,
+      17.7 pp) or stronger models (GPT-4, ~25% relative), the headline figure is substantially
+      smaller and not independently reproducible with a single methodology.</para>
+      <para><emphasis role="bold">Confidence:</emphasis> High</para>
+      <para><emphasis role="bold">Vote:</emphasis> CONFIRMED WITH CAVEATS — the 39.2% figure is
+      real but the NSAM paper's presentation strips essential context (model-specificity, averaging
+      methodology, per-dataset variation).</para>
+      <para><emphasis role="bold">Evidence:</emphasis> The Logic-LM paper reports 39.2% average
+      improvement over standard prompting and 18.4% over CoT (EMNLP 2023 Findings, peer-reviewed).
+      These are averages across five benchmarks (ProofWriter, PrOntoQA, FOLIO, LogicalDeduction,
+      AR-LSAT). On FOLIO specifically with GPT-3.5 Turbo, Logic-LM scores 62.80% vs. standard
+      prompting at 45.09% — a 17.71 pp gain, not 39.2%. A 2025 replication study (arXiv:2502.17216)
+      could not reproduce the exact 39.2% figure, finding 45.23% or 24.98% depending on model and
+      averaging methodology. Logic-LM++ (ACL 2024 Workshop) achieves only ~5% average improvement
+      over Logic-LM, with Logic-LM++ actually underperforming Logic-LM on FOLIO/GPT-3.5 (62.25%
+      vs. 62.80%). The NSAM paper citing 39.2% as a headline without qualification misleads by
+      applying an average across five datasets as if it were a general improvement figure.</para>
+      <para><emphasis role="bold">Sources:</emphasis>
+        <link xlink:href="https://aclanthology.org/2023.findings-emnlp.248/">EMNLP 2023 Findings</link>,
+        <link xlink:href="https://arxiv.org/abs/2305.12295">arXiv:2305.12295</link>,
+        <link xlink:href="https://arxiv.org/pdf/2407.02514">Logic-LM++ (arXiv:2407.02514)</link>
+      </para>
+    </section>
+
+    <section xml:id="cr-finding-2" role="finding" condition="split">
+      <title>Finding 2: Mamba linear scaling confirmed; 5x throughput refuted</title>
+      <para><emphasis role="bold">Claim:</emphasis> Mamba's linear scaling in sequence length
+      (vs. Transformers' quadratic attention) is accurately characterized; however, the "5x
+      throughput" figure cited in the NSAM paper did not survive adversarial verification.</para>
+      <para><emphasis role="bold">Confidence:</emphasis> High</para>
+      <para><emphasis role="bold">Vote:</emphasis> SPLIT — linear scaling claim CONFIRMED; 5x
+      throughput claim REFUTED.</para>
+      <para><emphasis role="bold">Evidence:</emphasis> The Mamba paper (Gu &amp; Dao 2023,
+      arXiv:2312.00752) explicitly claims "linear scaling in sequence length" in its abstract,
+      achieved via hardware-aware parallel scan during training and recurrent mode during inference.
+      This is confirmed by the Mamba-2 and Mamba-3 (ICLR 2026) follow-on literature. However,
+      the NSAM paper's cited "5x higher throughput than Transformers at inference time" claim was
+      rejected 0-3 in adversarial verification — the primary source reports a different throughput
+      figure and the 5x number does not appear as stated in the paper.</para>
+      <para><emphasis role="bold">Sources:</emphasis>
+        <link xlink:href="https://arxiv.org/pdf/2312.00752">Mamba (arXiv:2312.00752)</link>
+      </para>
+    </section>
+
+    <section xml:id="cr-finding-3" role="finding" condition="split">
+      <title>Finding 3: FNet 80% speedup confirmed; 92–97% accuracy retention contested</title>
+      <para><emphasis role="bold">Claim:</emphasis> FNet achieves 80% faster per-step training
+      throughput on GPUs than BERT-base at 512 input lengths; this claim is accurately sourced
+      from the primary paper.</para>
+      <para><emphasis role="bold">Confidence:</emphasis> High</para>
+      <para><emphasis role="bold">Vote:</emphasis> CONFIRMED for speedup; REFUTED for the 92–97%
+      GLUE accuracy retention figure.</para>
+      <para><emphasis role="bold">Evidence:</emphasis> The FNet paper (Lee-Thorp et al., NAACL 2022,
+      arXiv:2105.03824) states "80% faster on GPUs and 70% faster on TPUs at standard 512 input
+      lengths" in its abstract. The experimental basis is 8 V100 GPUs, batch size 64, comparing
+      FNet-Base (169 ms/batch) to BERT-Base (305 ms/batch). The NSAM paper's paraphrase of "80%
+      faster training speeds on GPUs… at standard 512 input lengths" is an accurate restatement.
+      However, the NSAM paper's accompanying claim that FNet "retains 92–97% of BERT's accuracy
+      on GLUE benchmarks" was rejected 1-2 in adversarial verification and should not be cited
+      without qualification.</para>
+      <para><emphasis role="bold">Sources:</emphasis>
+        <link xlink:href="https://arxiv.org/pdf/2105.03824">FNet (arXiv:2105.03824)</link>
+      </para>
+    </section>
+
+    <section xml:id="cr-finding-4" role="finding" condition="confirmed">
+      <title>Finding 4: Curry-Howard for agent planning is not novel — anticipated by Proof-Carrying Plans</title>
+      <para><emphasis role="bold">Claim:</emphasis> The NSAM paper's core novelty claim —
+      applying the Curry-Howard correspondence to agent planning (goals-as-types, plans-as-proofs)
+      — is substantially anticipated by prior published work and is not novel as of 2020.</para>
+      <para><emphasis role="bold">Confidence:</emphasis> High</para>
+      <para><emphasis role="bold">Vote:</emphasis> CONFIRMED — prior work definitively established
+      by primary peer-reviewed sources predating the NSAM paper by 4–6 years.</para>
+      <para><emphasis role="bold">Evidence:</emphasis> The "Proof-Carrying Plans" paper (Hill,
+      Komendantskaya, Petrick, PPDP 2020, ACM DOI 10.1145/3414080.3414094; earlier version at
+      PADL 2019) explicitly treats "plans as functions and plan pre- and post-conditions as types,"
+      directly instantiating the Curry-Howard correspondence for AI planning. An Agda implementation
+      predates even the 2019 publication. Further prior art includes: "Actions You Can Handle:
+      Dependent Types for AI Plans" (arXiv:2105.11267, 2021); "Planning Problems as Types, Plans
+      as Programs" (Heriot-Watt thesis). The broader connection between linear logic and AI planning
+      dates to Masseron, Tollu &amp; Vauzeilles (FSTTCS 1990) and Kanovich &amp; Vauzeilles (2001).
+      The NSAM paper should cite this body of work and reframe its Curry-Howard contribution as an
+      integration architecture, not a novel theoretical proposal.</para>
+      <para><emphasis role="bold">Sources:</emphasis>
+        <link xlink:href="https://arxiv.org/abs/2008.04165">PCP (arXiv:2008.04165)</link>
+      </para>
+    </section>
+
+    <section xml:id="cr-finding-5" role="finding" condition="confirmed-with-caveats">
+      <title>Finding 5: Scallop and A-NeSI claims accurate but require qualification</title>
+      <para><emphasis role="bold">Claim:</emphasis> Scallop's accuracy on eight neurosymbolic
+      benchmarks matches or exceeds state-of-the-art, and A-NeSI performs approximate probabilistic
+      neurosymbolic inference in polynomial time without altering the semantics of probabilistic
+      logics — both claims are accurately sourced, but neither is cited by the NSAM paper with
+      sufficient methodological context.</para>
+      <para><emphasis role="bold">Confidence:</emphasis> Medium</para>
+      <para><emphasis role="bold">Vote:</emphasis> CONFIRMED with caveats — both characterizations
+      are accurate from primary sources, but the NSAM paper omits material qualifications about
+      bias, scale limits, and benchmark scope.</para>
+      <para><emphasis role="bold">Evidence:</emphasis> The Scallop PLDI 2023 paper (Li, Huang, Naik;
+      ACM DOI 10.1145/3591280) states evaluation on "a suite of eight neurosymbolic applications"
+      with results "comparable or superior to state-of-the-art models." A-NeSI (arXiv:2212.12393,
+      NeurIPS 2023) "performs approximate inference in polynomial time without changing the semantics
+      of probabilistic logics." However, a 2024 hardness paper (arXiv:2406.04472) shows biased
+      gradient estimators for A-NeSI and that polynomial-time approximation cannot consistently
+      optimize some formulas.</para>
+      <para><emphasis role="bold">Sources:</emphasis>
+        <link xlink:href="https://dl.acm.org/doi/10.1145/3591280">Scallop PLDI 2023</link>,
+        <link xlink:href="https://arxiv.org/abs/2212.12393">A-NeSI (arXiv:2212.12393)</link>
+      </para>
+    </section>
+
+    <section xml:id="cr-finding-6" role="finding" condition="split">
+      <title>Finding 6: PyReason features confirmed; "exact yet scalable" claim unsupported</title>
+      <para><emphasis role="bold">Claim:</emphasis> PyReason implements open-world temporal logic
+      over generalized annotated logic with explainable inference traces, but its designation as an
+      "exact yet scalable" NSAM core is unsupported by comparative benchmarks against peer systems.</para>
+      <para><emphasis role="bold">Confidence:</emphasis> High</para>
+      <para><emphasis role="bold">Vote:</emphasis> SPLIT — PyReason's stated features CONFIRMED;
+      "exact yet scalable" relative to peers NOT SUPPORTED by any comparative evidence.</para>
+      <para><emphasis role="bold">Evidence:</emphasis> The PyReason paper (arXiv:2302.13482,
+      AAAI-MAKE 2023) confirms open-world temporal logic over generalized annotated logic, temporal
+      inference over finite periods, and fully explainable inference traces. The 2025 LAT Logic paper
+      (arXiv:2509.02958) reports "up to three orders of magnitude speedup and up to five orders of
+      magnitude memory reduction" vs. baselines — but these baselines are high-fidelity
+      military/game simulators (AFSIM, StarCraft II), not competing logic reasoners (Scallop,
+      DeepProbLog, LTN, LNN). The most recent independent comparative study of neurosymbolic
+      frameworks (arXiv:2509.07122, 2025) explicitly excluded PyReason from its empirical tables.</para>
+      <para><emphasis role="bold">Sources:</emphasis>
+        <link xlink:href="https://arxiv.org/abs/2302.13482">PyReason (arXiv:2302.13482)</link>,
+        <link xlink:href="https://arxiv.org/pdf/2509.02958">LAT Logic (arXiv:2509.02958)</link>
+      </para>
+    </section>
+  </section>
+
+  <section xml:id="cr-caveats">
+    <title>Caveats</title>
+    <orderedlist>
+      <listitem><para><emphasis role="bold">Time Sensitivity:</emphasis> Several quantitative
+      performance comparisons (Mamba throughput, FNet GLUE accuracy) reflect a fast-moving
+      literature; hardware-specific numbers are version- and configuration-sensitive. Claims
+      accurate as of their publication year may be superseded.</para></listitem>
+      <listitem><para><emphasis role="bold">Mamba 5x Throughput:</emphasis> The adversarial
+      rejection (0-3) of the 5x throughput figure means the specific number is unsupported,
+      but the precise correct figure from the primary source was not established in the verified
+      claims set — the NSAM paper's error is one of specificity, not direction.</para></listitem>
+      <listitem><para><emphasis role="bold">PyReason Scalability:</emphasis> The "up to three
+      orders of magnitude" speedup (arXiv:2509.02958) was verified at medium confidence (2-1)
+      as an accurate quote of self-reported best-case results against non-peer-system baselines.
+      It does not establish comparative superiority over Scallop or DeepProbLog.</para></listitem>
+      <listitem><para><emphasis role="bold">Curry-Howard Prior Art:</emphasis> The verified
+      prior-art landscape focuses on the PCP line (2019–2021); earlier linear-logic-planning
+      work (1990s) was cited in search results but the exact quotes were not directly verified
+      from primary papers in this review.</para></listitem>
+    </orderedlist>
+  </section>
+
+  <section xml:id="cr-open-questions">
+    <title>Open Questions</title>
+    <orderedlist>
+      <listitem><para>What is the correct throughput ratio of Mamba vs. Transformers at inference
+      time, and under what sequence-length and hardware conditions — since the 5x figure was
+      rejected but no confirmed alternative figure was established?</para></listitem>
+      <listitem><para>Does any published work directly compare PyReason, Scallop, DeepProbLog,
+      LTN, and LNN on a shared benchmark suite, and if not, what would such a comparison require
+      to be methodologically fair given their different expressiveness profiles?</para></listitem>
+      <listitem><para>Is the NSAM paper's System 1/System 2 decomposition architecturally novel
+      relative to existing neuro-symbolic frameworks reviewed in Kautz's taxonomy, or does it
+      primarily re-label existing integration patterns?</para></listitem>
+      <listitem><para>Given that A-NeSI's gradient estimator is provably biased and polynomial-time
+      approximation cannot consistently optimize some probabilistic logic formulas, what is the
+      practical impact on NSAM agents that require reliable plan verification?</para></listitem>
+    </orderedlist>
+  </section>
+
+  <section xml:id="cr-refuted">
+    <title>Refuted Claims (11)</title>
+    <orderedlist>
+      <listitem><para>Logic-LM achieves a 39.2% performance improvement over standard LLM prompting
+      on logical reasoning benchmarks (averaged across five datasets). [Vote 1-2;
+      <link xlink:href="https://arxiv.org/abs/2305.12295">source</link>]</para></listitem>
+      <listitem><para>The system architecture uses LLMs strictly as a translation layer, not as the
+      reasoning engine; a deterministic symbolic solver performs the actual inference. [Vote 0-3;
+      <link xlink:href="https://arxiv.org/abs/2305.12295">source</link>]</para></listitem>
+      <listitem><para>Mamba achieves 5x higher throughput than Transformers at inference time.
+      [Vote 0-3; <link xlink:href="https://arxiv.org/pdf/2312.00752">source</link>]</para></listitem>
+      <listitem><para>FNet retains 92–97% of BERT's accuracy on GLUE benchmarks despite replacing
+      self-attention entirely with unparameterized Fourier transforms. [Vote 1-2;
+      <link xlink:href="https://arxiv.org/pdf/2105.03824">source</link>]</para></listitem>
+      <listitem><para>Applying the Curry-Howard correspondence to LLM Chain-of-Thought during
+      decoding is a novel approach. [Vote 0-3;
+      <link xlink:href="https://arxiv.org/abs/2510.01069">source</link>]</para></listitem>
+      <listitem><para>The Curry-Howard correspondence maps LLM reasoning steps to typed proofs:
+      propositions become types, CoT traces become typed functional programs. [Vote 0-3;
+      <link xlink:href="https://arxiv.org/abs/2510.01069">source</link>]</para></listitem>
+      <listitem><para>Planning in a constructive symbolic RL framework becomes theorem proving
+      under intuitionistic logic, where a state transition is only valid if the implication can
+      be constructively proven. [Vote 1-2;
+      <link xlink:href="https://arxiv.org/abs/2506.05422">source</link>]</para></listitem>
+      <listitem><para>Goal-chaining via hierarchical subgoal decomposition can be represented as
+      recursive proof search &#x393;&#x2080;&#x22A2;G&#x2081;&#x2192;&#x393;&#x2081;&#x22A2;G&#x2082;&#x2192;&#x2026;&#x2192;&#x393;&#x2099;&#x22A2;G. [Vote 0-3;
+      <link xlink:href="https://arxiv.org/abs/2506.05422">source</link>]</para></listitem>
+      <listitem><para>Scallop grounds differentiable reasoning in provenance semirings theory,
+      not neural network approximations, making its symbolic-to-gradient pathway mathematically
+      principled and distinct from DeepProbLog. [Vote 0-3;
+      <link xlink:href="https://dl.acm.org/doi/10.1145/3591280">source</link>]</para></listitem>
+      <listitem><para>Scallop is built on Datalog, inheriting Datalog's polynomial-time data
+      complexity. [Vote 0-3;
+      <link xlink:href="https://dl.acm.org/doi/10.1145/3591280">source</link>]</para></listitem>
+      <listitem><para>A-NeSI is the first end-to-end neurosymbolic method capable of solving
+      three tasks with exponential combinatorial scaling. [Vote 1-2;
+      <link xlink:href="https://arxiv.org/abs/2212.12393">source</link>]</para></listitem>
+    </orderedlist>
+  </section>
+
+  <section xml:id="cr-revisions">
+    <title>Priority Revisions for NSAM Paper</title>
+    <orderedlist>
+      <listitem><para>Add related work section covering Proof-Carrying Plans, type-theoretic AI
+      planning, and linear logic planning literature (1990–2021).</para></listitem>
+      <listitem><para>Reframe the Curry-Howard contribution as architectural integration, not
+      foundational novelty.</para></listitem>
+      <listitem><para>Fix three empirical figures: Logic-LM (add dataset/model context), Mamba
+      (remove unsourced "5x"), FNet (drop contested 92–97% GLUE retention).</para></listitem>
+      <listitem><para>Replace or qualify PyReason with Scallop as the primary implementation
+      candidate, citing the neurosymbolic survey's exclusion of PyReason from empirical tables.</para></listitem>
+      <listitem><para>Add DeepProbLog and A-NeSI to the differentiable reasoner survey, with
+      the A-NeSI bias caveat.</para></listitem>
+    </orderedlist>
+  </section>
+
+</article>
