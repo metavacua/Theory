@@ -1,0 +1,137 @@
+# RELAX NG Compact Schema for NSAM Critical Review Documents
+# Extends DocBook 5.2 with custom role/condition attributes
+# Used to validate src/02-critical-review.xml finding sections
+
+namespace db = "http://docbook.org/ns/docbook"
+namespace dc = "http://purl.org/dc/terms/"
+namespace schema = "https://schema.org/"
+namespace xi = "http://www.w3.org/2001/XInclude"
+namespace xlink = "http://www.w3.org/1999/xlink"
+namespace local = ""
+
+# ---------------------------------------------------------------
+# Custom attribute values
+
+finding-condition =
+  "confirmed" | "confirmed-with-caveats" | "split"
+
+finding-role =
+  "finding"
+
+# ---------------------------------------------------------------
+# Finding section: a db:section with role="finding" and condition
+# These appear inside db:section[@xml:id='cr-findings']
+
+finding-section =
+  element db:section {
+    attribute xml:id { xsd:NCName },
+    attribute role { finding-role },
+    attribute condition { finding-condition },
+    element db:title { text },
+    element db:para { mixed { inline-content* } }+
+  }
+
+# ---------------------------------------------------------------
+# Inline content (used inside para)
+
+inline-content =
+  element db:emphasis {
+    attribute role { "bold" }?,
+    text
+  }
+  | element db:link {
+      attribute xlink:href { xsd:anyURI },
+      text
+    }
+  | element db:code { text }
+  | text
+
+# ---------------------------------------------------------------
+# Ordered and unordered lists
+
+list-item =
+  element db:listitem {
+    element db:para { mixed { inline-content* } }
+  }
+
+ordered-list =
+  element db:orderedlist {
+    list-item+
+  }
+
+unordered-list =
+  element db:itemizedlist {
+    list-item+
+  }
+
+# ---------------------------------------------------------------
+# Table structures
+
+table-entry = element db:entry { mixed { inline-content* } }
+table-row = element db:row { table-entry+ }
+table-head = element db:thead { table-row+ }
+table-body = element db:tbody { table-row+ }
+table-group = element db:tgroup {
+  attribute cols { xsd:positiveInteger },
+  element db:colspec {
+    attribute colname { text }?,
+    attribute colwidth { text }?
+  }*,
+  table-head?,
+  table-body
+}
+informal-table = element db:informaltable { table-group }
+
+# ---------------------------------------------------------------
+# Section content: paragraphs, lists, tables, subsections
+
+section-content =
+  element db:para { mixed { inline-content* } }
+  | ordered-list
+  | unordered-list
+  | informal-table
+  | finding-section
+  | element db:section {
+      attribute xml:id { xsd:NCName }?,
+      element db:title { text },
+      section-content*
+    }
+
+# ---------------------------------------------------------------
+# Metadata block (from XInclude of 00-metadata.xml)
+
+dc-info =
+  element db:info {
+    element dc:title { text },
+    element dc:creator { text },
+    element dc:subject { text }?,
+    element dc:description { text }?,
+    element dc:publisher { text }?,
+    element dc:date { text },
+    element dc:type { text }?,
+    element dc:format { text }?,
+    element dc:language { text }?,
+    element dc:rights { text }?,
+    element dc:source { text }?,
+    element db:bibliomisc {
+      attribute role { "schema-org-jsonld" },
+      text
+    }?
+  }
+
+# ---------------------------------------------------------------
+# Top-level article
+
+start =
+  element db:article {
+    attribute version { "5.2" },
+    attribute xml:id { xsd:NCName },
+    attribute xml:lang { "en" },
+    dc-info,
+    element db:title { text },
+    element db:section {
+      attribute xml:id { xsd:NCName },
+      element db:title { text },
+      section-content*
+    }+
+  }
