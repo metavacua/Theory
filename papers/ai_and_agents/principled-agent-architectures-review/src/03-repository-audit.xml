@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         version="5.2"
+         xml:id="nsam-repo-audit"
+         xml:lang="en">
+
+  <xi:include href="00-metadata.xml"/>
+
+  <title>Repository Audit: NSAM Paper Relevance Across metavacua Portfolio</title>
+
+  <section xml:id="ra-overview">
+    <title>Audit Overview</title>
+    <para>Seven repositories in the metavacua GitHub portfolio were audited for relevance to the
+    "Principled Agent Architectures" (NSAM) paper. The audit reveals that the portfolio already
+    contains substantial implementations of both halves of the NSAM architecture: verumorphism
+    implements the symbolic reasoning core (HDL calculus, proof/refutation threads, REST API),
+    and larql-to-sparql implements the neural substrate (transformer weights as queryable DB,
+    mechanistic interpretability, Wikidata/DBpedia semantic grounding). These are architecturally
+    complementary exactly as the NSAM paper proposes — they are simply not yet wired together.</para>
+
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry>Repository</entry>
+            <entry>Relevance</entry>
+            <entry>Primary Action</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>metavacua/Theory</entry>
+            <entry>HIGH</entry>
+            <entry>Primary placement: papers/ai_and_agents/principled-agent-architectures-review/</entry>
+          </row>
+          <row>
+            <entry>metavacua/verumorphism</entry>
+            <entry>HIGH</entry>
+            <entry>IS the NSAM symbolic reasoning component; paper = architectural motivation</entry>
+          </row>
+          <row>
+            <entry>metavacua/CategoricalReasoner</entry>
+            <entry>MEDIUM-HIGH</entry>
+            <entry>Cite in docs/dissertation/chapters/curry-howard-extracted.tex as applied validation</entry>
+          </row>
+          <row>
+            <entry>metavacua/drstrangegoo</entry>
+            <entry>MEDIUM-HIGH</entry>
+            <entry>Note sequoia_engine (PR#4) as NSAM proof-search oracle candidate</entry>
+          </row>
+          <row>
+            <entry>metavacua/subclass</entry>
+            <entry>MEDIUM-HIGH</entry>
+            <entry>Cite Proof&lt;L,R&gt; phantom-type architecture as live Curry-Howard implementation</entry>
+          </row>
+          <row>
+            <entry>metavacua/larql-to-sparql</entry>
+            <entry>MEDIUM</entry>
+            <entry>IS the NSAM neural substrate; knowledge/ = semantic grounding layer</entry>
+          </row>
+          <row>
+            <entry>metavacua/GeodesicLangModel</entry>
+            <entry>LOW</entry>
+            <entry>"Adjacent Frameworks" footnote in references/README.md only</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+
+  <section xml:id="ra-theory">
+    <title>metavacua/Theory — HIGH</title>
+    <para>The Theory repository contains approximately 60 papers in logic and language, including
+    subclassical sequent calculi, multiplicative-additive linear logic (MAOLL, OMALL, OMAffine),
+    a Chomsky hierarchy chapter, and categorical metalanguages. The repository includes a working
+    AGENTS.md, recently added a cs.LG citation, and uses convert.sh with LaTeXML for TeX-to-HTML
+    conversion. This repository is the natural primary placement for the NSAM critical review,
+    within the new papers/ai_and_agents/ subdirectory created for this work.</para>
+    <para>The linear logic material in Theory directly grounds the resource-sensitivity dimension
+    of the NSAM's typed planning language, where pickup and stack have dependent types encoding
+    preconditions as resource consumption.</para>
+  </section>
+
+  <section xml:id="ra-verumorphism">
+    <title>metavacua/verumorphism — HIGH</title>
+    <para>Despite having no public description, verumorphism is a substantial Common Lisp
+    codebase (SBCL/Quicklisp) implementing "RelWeaver"/"RWSDL" (Relational Weave Structure
+    and Distributed Logic). Its core components are:</para>
+    <itemizedlist>
+      <listitem><para>Concurrent proof/refutation SBCL threads (ProverV0.lisp, RefuterV0.lisp)</para></listitem>
+      <listitem><para>HDL (Hypersequent Dependence Logic) calculus with rules con_R/incon_L/dualR/dualL/dependenceR/independenceL</para></listitem>
+      <listitem><para>Ternary logic {0,1,i} encoded as complex numbers: proof=positive real, refutation=negative real, non-closure=zero</para></listitem>
+      <listitem><para>RelNet knowledge graph layer</para></listitem>
+      <listitem><para>REST API (refuter-api.lisp, Hunchentoot)</para></listitem>
+    </itemizedlist>
+    <para>The name "verumorphism" = truth-preserving morphism. This IS the symbolic reasoning
+    component the NSAM describes. The paper serves as architectural motivation for integrating
+    verumorphism's REST API as the NSAM's logical core, with larql-to-sparql as the neural
+    perceptual layer feeding formal propositions to it.</para>
+  </section>
+
+  <section xml:id="ra-categorical-reasoner">
+    <title>metavacua/CategoricalReasoner — MEDIUM-HIGH</title>
+    <para>Working title "Catty." Contains dedicated dissertation chapters covering the
+    Curry-Howard correspondence in categorical formulation (Logic&#x2245;Type, proofs-as-programs,
+    LJ&#x2194;STLC, LL&#x2194;Linear Types, CCC semantics), linear logic as resource-sensitive substrate
+    (genesis.tex), and a 2D lattice of subclassical logics organized by structural rules
+    (logic-lattice-extracted.tex). The system constructs programs from logic and theory pairs.</para>
+    <para>Recommended action: cite in the curry-howard-extracted.tex chapter as applied validation
+    of the NSAM blueprint. Do not place this paper here as primary; CategoricalReasoner has no
+    agent architecture component.</para>
+  </section>
+
+  <section xml:id="ra-drstrangegoo">
+    <title>metavacua/drstrangegoo — MEDIUM-HIGH</title>
+    <para>Fork of the meta-logic/sequoia project. Implements a parameterized sequent calculus
+    engine in SML and Python. Concrete calculi implemented include intuitionistic logic
+    (constructive logic, imp_R rule = lambda abstraction under Curry-Howard) and linear logic
+    (tensor, lolli, bang, par). The engine auto-checks cut elimination (cut_elim.py/sml),
+    identity coherence, and rule permutability. YAML-based calculus definition schema.</para>
+    <para>PR#4 (feat/python-backend-restructure) builds a standalone sequoia_engine library —
+    this is a candidate NSAM proof-search oracle. The PR should note that sequoia_engine is
+    intended for NSAM planning proof search, connecting it to verumorphism's HDL calculus.</para>
+  </section>
+
+  <section xml:id="ra-subclass">
+    <title>metavacua/subclass — MEDIUM-HIGH</title>
+    <para>The main branch is a stub, but 20 branches and 11 open PRs contain substantial
+    content candidates for the main branch initialization. Content includes: a scholarly
+    monograph "The Logic of Logos: Variable Consequence and the Limits of Formalization"
+    (DocBook XML), a Java library (com.github.metavacua:subclass) implementing Curry-Howard
+    as phantom types (Proof&lt;L,R&gt;, @Theorem-annotated methods, compile-time
+    TheoremProcessor), full LK sequent calculus rules as typed Java objects, the Tetragram
+    structure (Classical&#x2283;{Intuitionistic,Paraconsistent}&#x2283;Common diamond lattice), a Chomsky
+    hierarchy chapter, and PR#9 VIndexFFNMapping in a ranked graph walk engine.</para>
+    <para>Branch claude/review-curry-howard-project-NVslf is the most complete. The
+    Proof&lt;L,R&gt; phantom-type architecture is a live Curry-Howard implementation and a
+    candidate for extension as an NSAM reference implementation.</para>
+  </section>
+
+  <section xml:id="ra-larql">
+    <title>metavacua/larql-to-sparql — MEDIUM</title>
+    <para>A large Rust workspace. LARQL decompiles transformer model weights into a queryable
+    "vindex" format addressed via LQL (Lazarus Query Language, SQL-like DSL). The knowledge/
+    pipeline processes Wikidata/DBpedia/WordNet triples through feature probing to produce
+    semantic labels on neural features.</para>
+    <para>Mechanistic interpretability hooks include: residual capture, ablation, steering,
+    activation patching, logit lens, and KV-cache surgery. Circuit-type taxonomy classifies
+    features as Identity/Transform/Projector/Suppressor/Inverter. Sparse FFN inference uses
+    gate KNN retrieval (K&#x2248;10 of 10,240 features per layer). The larql-probe tool
+    (~/.local/bin/larql-probe v0.3.0) provides a harness for all of these.</para>
+    <para>This IS the neural substrate of the NSAM. The knowledge/ directory = the semantic
+    grounding layer. The SPARQL bridge connecting LQL queries to standard triple stores is not
+    yet implemented (aspirational). The NSAM blueprint motivates closing that gap.</para>
+  </section>
+
+  <section xml:id="ra-geodesic">
+    <title>metavacua/GeodesicLangModel — LOW</title>
+    <para>Studies LLMs through a geometric lens: Riemannian manifolds, attention as curvature,
+    geodesic graphs. Contains six hypotheses (H1–H6) and six experiment classes (A–F). Uses
+    Rosko (arXiv:2511.21296) and Mabrok (arXiv:2603.22301). Has no agent architecture
+    component and no neuro-symbolic AI connection. The framework is orthogonal to NSAM.</para>
+    <para>Recommended action: add an "Adjacent Frameworks" footnote in references/README.md
+    only, noting that GeodesicLangModel studies LLM geometry while the NSAM paper argues for
+    moving beyond LLMs entirely.</para>
+  </section>
+
+  <section xml:id="ra-synthesis">
+    <title>Cross-Repository Synthesis</title>
+    <para>The portfolio already implements both halves of the NSAM architecture:</para>
+    <itemizedlist>
+      <listitem><para><emphasis role="bold">Symbolic half:</emphasis> verumorphism — HDL calculus,
+      concurrent proof/refutation threads, REST API for external integration</para></listitem>
+      <listitem><para><emphasis role="bold">Neural half:</emphasis> larql-to-sparql — transformer
+      weights as queryable database, mechanistic interpretability hooks,
+      Wikidata/DBpedia/WordNet semantic grounding</para></listitem>
+    </itemizedlist>
+    <para>These are architecturally complementary exactly as the NSAM paper proposes — the
+    neural perceptual layer (larql-to-sparql) translates raw data into formal propositions;
+    the symbolic reasoning layer (verumorphism) operates on those propositions via HDL calculus.
+    They are simply not yet wired together. The NSAM blueprint motivates building that integration
+    as the next concrete engineering milestone across both repositories.</para>
+    <para>Additionally, drstrangegoo's sequoia_engine (PR#4) provides a parameterized sequent
+    calculus that could serve as the proof-search oracle within verumorphism's HDL reasoning,
+    while subclass's Proof&lt;L,R&gt; phantom types in Java provide a type-safe reference
+    implementation of the plans-as-proofs paradigm.</para>
+  </section>
+
+</article>
