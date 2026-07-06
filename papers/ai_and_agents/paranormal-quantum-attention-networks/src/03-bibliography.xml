@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bibliography xmlns="http://docbook.org/ns/docbook"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xml:id="bibliography"
+              xml:lang="en">
+  <title>References</title>
+
+  <!-- PROVISIONAL ENTRIES. Each bibliomixed below is a placeholder based on the
+       report's descriptive context and anchor hypotheses. They are being verified
+       by an independent deep-research pass; entries confirmed 'supported' will be
+       finalized, 'partial'/'unsupported' ones flagged in scratch/notes.md and
+       either corrected or removed. role="provisional" marks entries not yet verified. -->
+
+  <bibliomixed xml:id="bib-qtransformer-survey" role="provisional">
+    <abbrev>1</abbrev><title>A Survey of Quantum Transformers / Quantum-Enhanced Attention Architectures</title>. <bibliomisc role="note">Provisional: survey of quantum transformer designs (quantum self-attention, hybrid, tensor-network compression). Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-quantum-attention-pqc" role="provisional">
+    <abbrev>2</abbrev><title>Hybrid Quantum-Classical Transformer with Parameterized-Quantum-Circuit Attention</title>. <bibliomisc role="note">Provisional: PQC-based quantum attention encoding Q/K/V into qubit registers. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-density-matrix-qnlp" role="provisional">
+    <abbrev>3</abbrev><title>Density-Matrix Word Embeddings via Variational Quantum Circuits (QNLP)</title>. <bibliomisc role="note">Provisional. Anchor: Meyer &amp; Sadrzadeh / DisCoCat lineage. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-tn-supervised" role="provisional">
+    <abbrev>4</abbrev><author><personname><firstname>E. Miles</firstname><surname>Stoudenmire</surname></personname></author> and <author><personname><firstname>David J.</firstname><surname>Schwab</surname></personname></author>. <title>Supervised Learning with Tensor Networks</title>. <bibliomisc role="note">Provisional. Anchor: NeurIPS 2016, arXiv:1605.05775. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-tn-ml" role="provisional">
+    <abbrev>5</abbrev><title>Tensor Networks for Machine Learning on Images and Text</title>. <bibliomisc role="note">Provisional: tensor-network ML applications. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-quantum-metalanguage" role="provisional">
+    <abbrev>6</abbrev><title>Quantum Metalanguage, Basic Logic, and Paraconsistent/Paranormal Quantum Logic</title>. <bibliomisc role="note">Provisional. Anchor: Zizzi and/or Sambin on the metalanguage of quantum logic / Basic logic. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-schrodinger-logics" role="provisional">
+    <abbrev>8</abbrev><author><personname><firstname>Newton C. A.</firstname><surname>da Costa</surname></personname></author> and <author><personname><firstname>D&#233;cio</firstname><surname>Krause</surname></personname></author>. <title>Schr&#246;dinger Logics</title>. <bibliomisc role="note">Provisional. Anchor: Studia Logica 53 (1994). Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-object-metalanguage" role="provisional">
+    <abbrev>9</abbrev><title>The Object-Language / Metalanguage Distinction</title>. <bibliomisc role="note">Provisional. Anchor: Tarski, "The Concept of Truth in Formalized Languages," or a standard logic reference. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-qpca" role="provisional">
+    <abbrev>10</abbrev><author><personname><firstname>Seth</firstname><surname>Lloyd</surname></personname></author>, <author><personname><firstname>Masoud</firstname><surname>Mohseni</surname></personname></author>, and <author><personname><firstname>Patrick</firstname><surname>Rebentrost</surname></personname></author>. <title>Quantum Principal Component Analysis</title>. <bibliomisc role="note">Provisional. Anchor: Nature Physics 10 (2014), arXiv:1307.0401. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-nisq" role="provisional">
+    <abbrev>10b</abbrev><author><personname><firstname>John</firstname><surname>Preskill</surname></personname></author>. <title>Quantum Computing in the NISQ Era and Beyond</title>. <bibliomisc role="note">Provisional. Anchor: Quantum 2 (2018) 79, arXiv:1801.00862. Supports NISQ-era hybrid-computing claims (report ref [10]). Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-qnlp-density" role="provisional">
+    <abbrev>11</abbrev><title>Quantum Natural Language Processing with Density Matrices / Quantum Transformers</title>. <bibliomisc role="note">Provisional: QNLP density-matrix / quantum-transformer reference. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-mps-training" role="provisional">
+    <abbrev>12</abbrev><title>Trainability of Matrix-Product-State Probabilistic Models</title>. <bibliomisc role="note">Provisional: MPS generative/probabilistic models and training difficulty. Anchor: Han et al. 2018, arXiv:1709.01662, or a training-difficulty study. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-quantum-genomics" role="provisional">
+    <abbrev>13</abbrev><title>Quantum Computing in Genomics and Human Health</title>. <bibliomisc role="note">Provisional. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-gidney-ecc" role="provisional">
+    <abbrev>14</abbrev><author><personname><firstname>Craig</firstname><surname>Gidney</surname></personname></author> (Google Quantum AI). <title>Quantum Resource Estimate for Breaking Elliptic-Curve Cryptography (Bitcoin)</title>. <bibliomisc role="note">Provisional. VERIFY exact qubit count and runtime figures against the real 2025 estimate. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-tn-sequence" role="provisional">
+    <abbrev>15</abbrev><title>Quantum-Inspired Tensor-Network Models for Sequence Processing (Probabilistic Graphical Models)</title>. <bibliomisc role="note">Provisional. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-tn-gene-regulatory" role="provisional">
+    <abbrev>16</abbrev><title>Tensor-Network-Based Gene Regulatory Network Inference</title>. <bibliomisc role="note">Provisional. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-identity-physics" role="provisional">
+    <abbrev>17</abbrev><author><personname><firstname>Steven</firstname><surname>French</surname></personname></author> and <author><personname><firstname>D&#233;cio</firstname><surname>Krause</surname></personname></author>. <title>Identity in Physics: A Historical, Philosophical, and Formal Analysis</title>. <bibliomisc role="note">Provisional. Anchor: Oxford University Press, 2006. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+  <bibliomixed xml:id="bib-barren-plateaus" role="provisional">
+    <abbrev>B</abbrev><author><personname><firstname>Jarrod R.</firstname><surname>McClean</surname></personname></author> et al. <title>Barren Plateaus in Quantum Neural Network Training Landscapes</title>. <bibliomisc role="note">Provisional. Anchor: Nature Communications 9 (2018), arXiv:1803.11173. Supplementary to report ref [2]/[10]. Pending verification.</bibliomisc>
+  </bibliomixed>
+
+</bibliography>
