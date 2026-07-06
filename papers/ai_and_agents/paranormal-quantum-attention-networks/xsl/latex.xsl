@@ -256,6 +256,22 @@
 
   <xsl:template name="latex-escape">
     <xsl:param name="s"/>
+    <!-- Pre-map non-ASCII math/arrow symbols that pdflatex+inputenc cannot render as
+         text (HTML keeps the real glyphs; LaTeX gets \ensuremath commands). em/en dashes,
+         curly quotes, and accented letters are handled natively by inputenc utf8. -->
+    <xsl:variable name="s1">
+      <xsl:call-template name="rep">
+        <xsl:with-param name="from" select="'&#8596;'"/>
+        <xsl:with-param name="to" select="'\ensuremath{\leftrightarrow}'"/>
+        <xsl:with-param name="s">
+          <xsl:call-template name="rep">
+            <xsl:with-param name="from" select="'&#8594;'"/>
+            <xsl:with-param name="to" select="'\ensuremath{\rightarrow}'"/>
+            <xsl:with-param name="s" select="$s"/>
+          </xsl:call-template>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:variable>
     <!-- order matters: backslash first would double-escape, but prose has none;
          we escape the standard LaTeX specials that can appear in prose. -->
     <xsl:call-template name="rep">
@@ -271,7 +287,7 @@
                         <xsl:call-template name="rep">
                           <xsl:with-param name="s">
                             <xsl:call-template name="rep">
-                              <xsl:with-param name="s" select="$s"/>
+                              <xsl:with-param name="s" select="$s1"/>
                               <xsl:with-param name="from" select="'^'"/>
                               <xsl:with-param name="to" select="'\textasciicircum{}'"/>
                             </xsl:call-template>

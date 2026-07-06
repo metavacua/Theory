@@ -19,9 +19,17 @@ DOCBOOK_RNG_URL   := https://cdn.docbook.org/schema/5.2/rng/docbook.rng
 DOCBOOK_RNG_LOCAL := schema/docbook.rng
 DOCBOOK_RNG := $(if $(wildcard $(DOCBOOK_RNG_LOCAL)),$(DOCBOOK_RNG_LOCAL),$(DOCBOOK_RNG_URL))
 
-.PHONY: all wf check-refs validate fetch-schema html latex pdf clean
+.PHONY: all wf check-refs validate fetch-schema html latex pdf publish clean
 
 all: wf check-refs html latex
+
+## publish — copy the rendered HTML into the repository's GitHub Pages tree (docs/).
+## Legacy Pages serves main/docs, so a merge to main publishes this file.
+DOCS_DIR ?= ../../../docs/ai_and_agents
+publish: html
+	mkdir -p $(DOCS_DIR)
+	cp generated/01-pqan-report.html $(DOCS_DIR)/paranormal-quantum-attention-networks.html
+	@echo "published -> $(DOCS_DIR)/paranormal-quantum-attention-networks.html"
 
 ## fetch-schema — vendor the DocBook 5.2 RNG locally for offline `make validate`
 fetch-schema:
@@ -65,7 +73,8 @@ generated/%.tex: src/%.xml xsl/latex.xsl $(FRAGMENTS) | generated
 
 pdf: $(PDF_OUTS)
 generated/%.pdf: generated/%.tex | generated
-	cd generated && pdflatex -interaction=nonstopmode $(notdir $<) >/dev/null && pdflatex -interaction=nonstopmode $(notdir $<) >/dev/null
+	cd generated && pdflatex -interaction=nonstopmode -halt-on-error $(notdir $<)
+	cd generated && pdflatex -interaction=nonstopmode -halt-on-error $(notdir $<)
 	@echo "wrote $@"
 
 generated:
