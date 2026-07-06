@@ -61,15 +61,29 @@ to the bibliography; a `check-refs` guard fails the build on any dangling `linke
 
 The source report cited markers **[1]–[17] but shipped no reference list** (and marker
 **[7] was cited nowhere** — a dangling marker). Rather than reverse-engineer confabulated
-pointers, the citations are being **independently re-researched**: for each claim, a real
-supporting source is sought; unsupported claims are flagged. Until that pass is fully
-reconciled, bibliography entries carry `role="provisional"` (shown amber in HTML) and the
-per-claim verdict table lives in `scratch/notes.md`.
+pointers, the citations were **independently re-researched** by a deep-research pass
+(fan-out web search → fetch → 3-vote adversarial verification → synthesis; 104 agents).
+For each claim a real supporting source was sought; contradicted or unsupported claims
+were **eliminated**. The full per-claim verdict table is in `scratch/notes.md`.
 
-One specific figure is under verification: the report's claim that breaking Bitcoin's
-elliptic-curve cryptography needs "fewer than 500,000 physical qubits" in "minutes" — the
-prose has been softened to "substantially smaller than previously estimated" pending the
-verified 2025 Google Quantum AI estimate.
+Outcome (16 sources; every entry carries a verification note):
+
+- **Confirmed by unanimous 3-vote adversarial check** — quantum-transformer survey
+  (arXiv:2504.03192), quantum self-attention / PQC attention (QSANN arXiv:2205.05625;
+  QASA arXiv:2504.05336), density-matrix NLP (Meyer & Lewis, CoNLL 2020), tensor-network
+  ML (Stoudenmire & Schwab 2016; Han et al. PRX 2018; Glasser et al. NeurIPS 2019; Tang
+  et al. 2025), quantum metalanguage / Basic logic (Zizzi), Schrödinger/non-reflexive
+  logic (da Costa & Krause 1994).
+- **Located in search (real primary/canonical) but not adversarially re-verified** —
+  qPCA (Lloyd–Mohseni–Rebentrost 2014), NISQ (Preskill 2018), barren plateaus (McClean
+  et al. 2018), Tarski object/metalanguage (SEP), tensor-network gene-regulatory
+  inference (arXiv:2509.06891), French & Krause (2006).
+
+**Claims eliminated** (per the owner's "eliminate contradicted claims" policy): the
+report's Bitcoin/ECC quantum-threat figures ("<500,000 qubits / minutes" — unsubstantiated);
+the "quantum computing in genomics / human health" claim (no source located); and the
+specifics that density-matrix embeddings are learned "via variational quantum circuits"
+(the anchor work uses classical **neural** models — corrected in-text).
 
 ## License
 
