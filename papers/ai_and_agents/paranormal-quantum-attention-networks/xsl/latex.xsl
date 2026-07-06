@@ -12,7 +12,8 @@
     xmlns:d="http://docbook.org/ns/docbook"
     xmlns:dc="http://purl.org/dc/terms/"
     xmlns:schema="https://schema.org/"
-    exclude-result-prefixes="d dc schema">
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    exclude-result-prefixes="d dc schema xlink">
 
   <xsl:output method="text" encoding="UTF-8"/>
   <xsl:strip-space elements="*"/>
@@ -140,6 +141,9 @@
   </xsl:template>
   <xsl:template match="d:literal|d:code">
     <xsl:text>\texttt{</xsl:text><xsl:apply-templates/><xsl:text>}</xsl:text>
+  </xsl:template>
+  <xsl:template match="d:link">
+    <xsl:text>\href{</xsl:text><xsl:value-of select="@xlink:href"/><xsl:text>}{</xsl:text><xsl:apply-templates/><xsl:text>}</xsl:text>
   </xsl:template>
 
   <!-- ========================================================= math ==== -->

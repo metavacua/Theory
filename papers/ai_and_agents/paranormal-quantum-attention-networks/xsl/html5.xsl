@@ -14,7 +14,8 @@
     xmlns:d="http://docbook.org/ns/docbook"
     xmlns:dc="http://purl.org/dc/terms/"
     xmlns:schema="https://schema.org/"
-    exclude-result-prefixes="d dc schema">
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    exclude-result-prefixes="d dc schema xlink">
 
   <xsl:output method="html" encoding="UTF-8" indent="yes"
               doctype-system="about:legacy-compat"/>
@@ -161,7 +162,7 @@
     <code><xsl:apply-templates/></code>
   </xsl:template>
   <xsl:template match="d:link">
-    <a href="{@xlink:href}" xmlns:xlink="http://www.w3.org/1999/xlink"><xsl:apply-templates/></a>
+    <a href="{@xlink:href}"><xsl:apply-templates/></a>
   </xsl:template>
 
   <!-- ========================================================= math ==== -->
