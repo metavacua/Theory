@@ -46,7 +46,7 @@ jobs:
       # Compile the emitted LaTeX to PDF on the runner (the local dev host omits texlive).
       # Blocking: surfaces LaTeX-escaping / tabularx / math-mode regressions.
       - name: Install LaTeX (targeted subset)
-        run: sudo apt-get install -y --no-install-recommends texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
+        run: sudo apt-get install -y --no-install-recommends texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended lmodern
 
       - name: Compile PDF
         run: make pdf
