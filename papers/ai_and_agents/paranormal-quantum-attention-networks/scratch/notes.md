@@ -68,7 +68,7 @@ had real sources located in the search phase but were not run through the 3-vote
 | [8],[17] | `bib-schrodinger-logics` → da Costa & Krause, Studia Logica 53 (1994); `bib-identity-physics` → French & Krause, OUP 2006 | **verified 3-0** (1994); 2006 book consistent extension |
 | [9] | `bib-object-metalanguage` → Hodges, SEP "Tarski's Truth Definitions" | located in search |
 | [10] | `bib-qpca` → Lloyd, Mohseni, Rebentrost, Nat. Phys. 10 (2014); `bib-nisq` → Preskill, Quantum 2 (2018); `bib-barren-plateaus` → McClean et al., Nat. Commun. 9 (2018) | located in search (canonical) |
-| [11] | `bib-qnlp-density` → Chen & Kuo (QASA), arXiv:2504.05336 (2025) | **verified 3-0** |
+| [11] | folded into `bib-quantum-attention-pqc` (QSANN); QASA (Chi-Sheng Chen & En-Jui Kuo, arXiv:2504.05336) credited in that entry's note | **verified 3-0**; consolidated |
 | [12] | `bib-mps-training` → Tang, Khoo & Ying, arXiv:2505.06419 (2025) | **verified 3-0** |
 | [15] | `bib-tn-sequence` → Glasser et al., NeurIPS 2019, arXiv:1907.03741 | **verified 3-0** |
 | [16] | `bib-tn-gene-regulatory` → arXiv:2509.06891 (2025) | located in search |
@@ -99,6 +99,22 @@ had real sources located in the search phase but were not run through the 3-vote
   specifically paraconsistent-AND-paracomplete "paranormal" quantum logic with
   amplitude-valued assertion degrees. That synthesis is the author's own; the `<note>` in
   `§architecture` and the bibliography note on `bib-quantum-metalanguage` record this.
+
+### Attribution corrections (post-review, 2026-07-05)
+- **`bib-qnlp-density` removed entirely.** It had been mapped to QASA (a quantum
+  *attention* paper) but was sprayed across 59 citation sites, 17 of them on
+  *density-matrix* claims QASA does not support. Since none of the 59 were solo (every
+  claim retained a contextually-correct citation — QSANN for attention claims, Meyer &
+  Lewis for density-matrix claims), the key was dropped; QASA remains credited in the
+  `bib-quantum-attention-pqc` note. Bibliography: 16 → 15 entries.
+- **Author fields verified against arXiv** (WebFetch) for the recent/obscure entries,
+  where model recall is unreliable. Corrections: survey authors were Hui Zhang, Qinglin
+  Zhao, Mengchu Zhou, Li Feng, Dusit Niyato, Shenggen Zheng, Lin Chen (first names had
+  been invented); QASA is Chi-Sheng Chen & En-Jui Kuo (not "Samuel Yen-Chi Chen"); MPS
+  author is Xun Tang (not "Jun Tang"); GRN authors added (Sanz Larrarte et al.). Canonical
+  entries (Lloyd, Preskill, McClean, Stoudenmire, Han, Glasser, Zizzi, da Costa) use
+  standard citations. Note wording softened to "Claim support confirmed 3-0" so it does
+  not over-claim that every bibliographic field was adversarially verified.
 
 ## Open questions / follow-up
 - Clusters 6, 9, [16], SEP were sourced in the search phase but not run through the
