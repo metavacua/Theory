@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Standalone DocBook 5.2 <info> fragment, XIncluded by every article.
+
+  All metadata is expressed in NATIVE DocBook elements so the article validates
+  against the stock DocBook 5.2 RELAX NG grammar (foreign dc:/schema: elements are
+  NOT permitted inside <info>). The XSLT transforms DERIVE Dublin Core <meta> tags
+  and the Schema.org JSON-LD from these native elements; the JSON-LD is additionally
+  carried verbatim as text in a <bibliomisc role="schema-org-jsonld"> (text content,
+  which IS valid inside <info>).
+-->
+<info xmlns="http://docbook.org/ns/docbook">
+
+  <title>Paranormal Quantum Attention Networks: Discrete Graph Logics, Quantum Metalanguages, and Practical Architectures Beyond the Transformer</title>
+  <titleabbrev>Paranormal Quantum Attention Networks</titleabbrev>
+
+  <author>
+    <personname><surname>metavacua</surname></personname>
+  </author>
+  <othercredit class="other" otherclass="tooling">
+    <orgname>Claude Opus 4.8</orgname>
+    <contrib>Codification and reference research assistance, 2026-07-05</contrib>
+  </othercredit>
+
+  <pubdate>2026-07-05</pubdate>
+  <publisher><publishername>metavacua/Theory (GitHub)</publishername></publisher>
+
+  <abstract>
+    <para>A scientific report on the design space of Paranormal Quantum Attention Networks (PQAN): neural architectures whose object language is a discrete propositional graph and whose metalanguage is a continuous, quantum-inspired system of amplitude-valued assertion degrees. The report situates the proposal against contemporary work on quantum transformers, density-matrix quantum natural language processing, tensor-network machine learning, hybrid quantum-classical (NISQ) computing, and paraconsistent, paracomplete, substructural, and non-reflexive logics for quantum theory, then argues for a near-term implementation strategy prioritizing tensor-network approximation with parameterized-quantum-circuit attention modules, and for natural language as the first testbed.</para>
+  </abstract>
+
+  <keywordset>
+    <keyword>quantum attention</keyword>
+    <keyword>paraconsistent logic</keyword>
+    <keyword>paracomplete logic</keyword>
+    <keyword>non-reflexive logic</keyword>
+    <keyword>quantum metalanguage</keyword>
+    <keyword>object language</keyword>
+    <keyword>density-matrix NLP</keyword>
+    <keyword>tensor networks</keyword>
+    <keyword>matrix product states</keyword>
+    <keyword>parameterized quantum circuits</keyword>
+    <keyword>NISQ</keyword>
+    <keyword>quantum principal component analysis</keyword>
+    <keyword>transformer architectures</keyword>
+  </keywordset>
+
+  <legalnotice role="license">
+    <para>Licensed under the GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later): <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.gnu.org/licenses/agpl-3.0.html">https://www.gnu.org/licenses/agpl-3.0.html</link></para>
+  </legalnotice>
+
+  <bibliomisc role="dc-type">ScholarlyArticle</bibliomisc>
+  <bibliomisc role="dc-language">en</bibliomisc>
+
+  <bibliomisc role="schema-org-jsonld"><![CDATA[
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "Paranormal Quantum Attention Networks",
+  "headline": "Paranormal Quantum Attention Networks: Discrete Graph Logics, Quantum Metalanguages, and Practical Architectures Beyond the Transformer",
+  "datePublished": "2026-07-05",
+  "inLanguage": "en",
+  "author": { "@type": "Person", "name": "metavacua" },
+  "publisher": { "@type": "Organization", "name": "metavacua/Theory (GitHub)" },
+  "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+  "keywords": "quantum attention, paraconsistent logic, paracomplete logic, non-reflexive logic, quantum metalanguage, density-matrix NLP, tensor networks, matrix product states, parameterized quantum circuits, NISQ, transformer",
+  "about": [
+    { "@type": "Thing", "name": "Quantum machine learning" },
+    { "@type": "Thing", "name": "Paraconsistent logic" },
+    { "@type": "Thing", "name": "Tensor networks" },
+    { "@type": "Thing", "name": "Attention mechanisms" }
+  ]
+}
+  ]]></bibliomisc>
+</info>

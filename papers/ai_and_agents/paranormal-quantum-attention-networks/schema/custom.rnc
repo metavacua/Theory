@@ -1,0 +1,56 @@
+# RELAX NG Compact schema — custom constraints layered over DocBook 5.2.
+#
+# This schema does NOT re-specify all of DocBook; it pins down the two
+# project-specific conventions this white paper relies on, so they can be
+# checked with `jing -c schema/custom.rnc <file>`:
+#
+#   1. The math convention: <mathphrase role="tex"> carries raw LaTeX, used
+#      inside <inlineequation>/<informalequation>/<equation>.
+#   2. The critical-review convention: <section role="finding" condition="..."></section>
+#      (reserved for review documents; unused in this report but validated if present).
+#
+# For full structural validation, validate against the official DocBook 5.2
+# RELAX NG grammar (see Makefile `validate` target).
+
+namespace db  = "http://docbook.org/ns/docbook"
+namespace xml = "http://www.w3.org/XML/1998/namespace"
+
+# ---- math convention -------------------------------------------------------
+tex-mathphrase =
+  element db:mathphrase {
+    attribute role { "tex" },
+    text
+  }
+
+# A tex-bearing equation wrapper: inline or block.
+tex-equation =
+  element db:inlineequation   { tex-mathphrase }
+  | element db:informalequation { tex-mathphrase }
+  | element db:equation         { element db:title { text }?, tex-mathphrase }
+
+# ---- critical-review finding convention ------------------------------------
+finding-condition = "confirmed" | "confirmed-with-caveats" | "split"
+
+finding-section =
+  element db:section {
+    attribute xml:id { xsd:NCName },
+    attribute role { "finding" },
+    attribute condition { finding-condition },
+    element db:title { text },
+    element db:para { mixed { any* } }+
+  }
+
+# ---- provisional-bibliography convention -----------------------------------
+# bibliomixed entries may carry role="provisional" while their source is
+# still being verified by the research pass.
+provisional-bibentry =
+  element db:bibliomixed {
+    attribute xml:id { xsd:NCName },
+    attribute role { "provisional" }?,
+    any*
+  }
+
+# Permissive wildcard used above so this compact schema composes with, rather
+# than replaces, the full DocBook grammar.
+any =
+  element * { attribute * { text }*, ( any | text )* }

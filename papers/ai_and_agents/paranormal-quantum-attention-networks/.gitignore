@@ -1,0 +1,8 @@
+generated/
+*.pdf
+*.aux
+*.log
+*.out
+*.toc
+# vendored third-party DocBook 5.2 RNG (fetched on demand via `make fetch-schema`)
+schema/docbook.rng

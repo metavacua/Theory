@@ -1,0 +1,73 @@
+name: DocBook papers
+
+# Builds the DocBook 5.2 scholarly papers (canonical XML -> HTML5 + LaTeX + PDF) and
+# validates them. Runs on pull requests into main and on pushes to main. GitHub Pages
+# itself is served from main/docs by the legacy Pages build; this workflow verifies the
+# build and that the published HTML under docs/ is in sync, but does not deploy.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'papers/ai_and_agents/paranormal-quantum-attention-networks/**'
+      - 'docs/ai_and_agents/**'
+      - '.github/workflows/docbook-papers.yml'
+  pull_request:
+    paths:
+      - 'papers/ai_and_agents/paranormal-quantum-attention-networks/**'
+      - 'docs/ai_and_agents/**'
+      - '.github/workflows/docbook-papers.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: papers/ai_and_agents/paranormal-quantum-attention-networks
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install DocBook toolchain
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libxml2-utils xsltproc
+
+      # Deterministic, offline: well-formedness + XInclude + citation-link integrity + HTML + LaTeX.
+      # This is the real build signal (blocking).
+      - name: Build (wf + check-refs + HTML + LaTeX)
+        run: make all
+
+      # Structural validation against the official DocBook 5.2 grammar (network fetch; non-blocking).
+      - name: DocBook 5.2 RELAX NG validation
+        run: make fetch-schema && make validate
+        continue-on-error: true
+
+      # Compile the emitted LaTeX to PDF on the runner (the local dev host omits texlive).
+      # Blocking: surfaces LaTeX-escaping / tabularx / math-mode regressions.
+      - name: Install LaTeX (targeted subset)
+        run: sudo apt-get install -y --no-install-recommends texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended lmodern
+
+      - name: Compile PDF
+        run: make pdf
+
+      # Verify the committed GitHub Pages HTML matches a fresh build. Non-blocking:
+      # xsltproc whitespace can differ across environments.
+      - name: Check published docs HTML is in sync
+        run: |
+          make publish
+          if ! git diff --exit-code -- ../../../docs/ai_and_agents/ ; then
+            echo "::warning::docs/ai_and_agents HTML differs from a fresh build; run 'make publish' and commit the result"
+          fi
+        continue-on-error: true
+
+      - name: Upload rendered outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pqan-outputs
+          path: |
+            papers/ai_and_agents/paranormal-quantum-attention-networks/generated/01-pqan-report.html
+            papers/ai_and_agents/paranormal-quantum-attention-networks/generated/01-pqan-report.tex
+            papers/ai_and_agents/paranormal-quantum-attention-networks/generated/01-pqan-report.pdf
+          if-no-files-found: warn
