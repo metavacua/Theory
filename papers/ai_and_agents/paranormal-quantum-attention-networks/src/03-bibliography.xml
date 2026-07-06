@@ -57,7 +57,7 @@
   </bibliomixed>
 
   <bibliomixed xml:id="bib-qnlp-density">
-    <abbrev>11</abbrev>El Amine Cherrat, Iordanis Kerenidis, et al. (QASA) &#8212; S.-Y. Chen and colleagues. <title>Quantum Adaptive Self-Attention for Quantum Transformer Models</title>. arXiv:<link xlink:href="https://arxiv.org/abs/2504.05336">2504.05336</link> (2025). <bibliomisc role="note">Adversarially verified (3-0) as an instance of hybrid quantum-transformer / density-operator attention. NOTE: the authors attribute observed gains to a low-rank bottleneck, "not to quantumness."</bibliomisc>
+    <abbrev>11</abbrev>Samuel Yen-Chi Chen and colleagues (QASA). <title>Quantum Adaptive Self-Attention for Quantum Transformer Models</title>. arXiv:<link xlink:href="https://arxiv.org/abs/2504.05336">2504.05336</link> (2025). <bibliomisc role="note">Adversarially verified (3-0) as an instance of hybrid quantum-transformer / density-operator attention. NOTE: the authors attribute observed gains to a low-rank bottleneck, "not to quantumness."</bibliomisc>
   </bibliomixed>
 
   <bibliomixed xml:id="bib-mps-training">
